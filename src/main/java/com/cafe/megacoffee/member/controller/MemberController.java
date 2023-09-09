@@ -2,6 +2,8 @@ package com.cafe.megacoffee.member.controller;
 
 import com.cafe.megacoffee.member.MemberDTO;
 import com.cafe.megacoffee.member.service.MemberService;
+import com.cafe.megacoffee.member.type.MemberType;
+import com.cafe.megacoffee.member.type.PermitStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +18,7 @@ public class MemberController {
     private final MemberService memberService;
 
     @GetMapping("/login")
-    public String loginView() {
+    public String buyerLoginView() {
         return "member/login";
     }
 
@@ -24,7 +26,7 @@ public class MemberController {
     @ResponseBody
     public boolean login(@RequestBody MemberDTO memberDTO, HttpSession session) {
         MemberDTO findMember = memberService.findMemberById(memberDTO);
-        if(findMember != null) {
+        if (findMember != null) {
             session.setAttribute("member", findMember);
             return true;
         } else {
@@ -53,5 +55,15 @@ public class MemberController {
     public String logout(HttpSession session) {
         session.invalidate();
         return "redirect:/";
+    }
+
+    @GetMapping("/manager")
+    public String managerView() {
+        return "/member/managerLogin";
+    }
+
+    @GetMapping("/adminView")
+    public String adminLoginView() {
+        return "";
     }
 }

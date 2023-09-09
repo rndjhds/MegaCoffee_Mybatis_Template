@@ -9,10 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../resources/statics/style/reset.css">
     <link rel="stylesheet" href="../../resources/statics/style/index.css">
+    <script src="../webjars/jquery/3.5.1/jquery.min.js"></script>
     <title>푸드 | 메가커피</title>
 </head>
 <body>
 <header>
+    <input type="hidden" id="memberType" name="memberType" value="${sessionScope.member.memberType}">
+    <input type="hidden" id="permitStatus" name="permitStatus" value="${sessionScope.member.permitStatus}">
     <h1><a href="indexte.html"><img src="../../resources/statics/test_img/header_logo.png" alt=""></a></h1>
     <nav>
         <ul class="main_nav">
@@ -66,11 +69,27 @@
                 <a href="/member/logout">${sessionScope.member.memberId}</a>
             </c:otherwise>
         </c:choose>
-        <a href="#">가맹점 로그인</a>
+        <a href="#" id="managerLogin">가맹점 로그인</a>
     </div>
     <div class="bg0"></div>
 </header>
 
 <script src="../../resources/statics/js/index.js"></script>
+<script>
+
+    $("#managerLogin").click(function () {
+        const memberType = $("#memberType").val();
+        const permitStatus = $("#permitStatus").val();
+
+        if (memberType === "BUYER" && permitStatus === "WAIT") {
+            alert("본사에서 확인중입니다.");
+        } else if (memberType === "MANAGER") {
+            alert("환영합니다. 관리자님");
+            location.href="/member/login";
+        }
+        location.href="/member/manager";
+    })
+
+</script>
 </body>
 </html>
