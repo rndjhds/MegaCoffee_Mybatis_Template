@@ -6,6 +6,7 @@ import com.cafe.megacoffee.member.type.MemberType;
 import com.cafe.megacoffee.member.type.PermitStatus;
 import com.cafe.megacoffee.util.mailsender.MailService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class MemberServiceImpl implements MemberService {
 
     private final MemberMapper memberMapper;
@@ -30,7 +32,7 @@ public class MemberServiceImpl implements MemberService {
             result = memberMapper.createMember(memberDTO);
             mailService.createEmail(memberDTO, sender);
         } catch (SQLIntegrityConstraintViolationException e) {
-            System.out.println("SQL문 오류");
+            log.debug("SQL구문 오류 발생");
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
@@ -51,6 +53,16 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public MemberDTO findMemberById(MemberDTO memberDTO) {
-        return memberMapper.findMemberById(memberDTO);
+        MemberDTO findMember = null;
+
+        try {
+            findMember = memberMapper.findMemberById(memberDTO);
+        }catch (IllegalArgumentException e) {
+            log.debug("회원 유형 또는 승인여부가 등록되지 않은 데이터입니다.");
+            e.printStackTrace();
+        } catch (Exception e) {
+            log.debug("찾는 회원이 없습니다.");
+        }
+        return findMember;
     }
 }

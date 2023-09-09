@@ -11,5 +11,5 @@ public interface MemberMapper {
 
     public int hasMemberById(String memberId);
 
-    public MemberDTO findMemberById(MemberDTO memberDTO);
+    public MemberDTO findMemberById(MemberDTO memberDTO) throws IllegalArgumentException;
 }

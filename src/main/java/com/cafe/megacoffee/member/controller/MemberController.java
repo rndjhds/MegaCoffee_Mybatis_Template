@@ -62,8 +62,8 @@ public class MemberController {
         return "/member/managerLogin";
     }
 
-    @GetMapping("/adminView")
+    @GetMapping("/admin")
     public String adminLoginView() {
-        return "";
+        return "/member/adminLogin";
     }
 }
