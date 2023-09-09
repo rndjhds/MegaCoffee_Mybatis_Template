@@ -1,0 +1,58 @@
+main {margin:0 auto;}
+main h1 {text-align: center; font-size: 2.369rem; font-weight: 700; letter-spacing: -0.02rem;}
+main .rap {
+    display: flex; flex-flow: column nowrap;align-items: center; margin-top: 30px;
+}
+main .rap .title { width: 800px;
+    display: flex; flex-flow: row nowrap;  margin-bottom: -3px; z-index: 100;
+}
+main .rap .info {border-top: 3px solid #6504af;}
+main .rap .title a {
+    display: inline-block;
+    font-size: 1.777rem; font-weight: 700;
+    padding: 50px 0; width: 400px; text-align: center;
+}
+/*클래스*/
+main .rap .title > .active {
+    border: 3px solid #6504af; background: white;
+    border-bottom: 1px solid white; border-radius: 10px 10px 0 0;
+}
+main .rap .info_1 {display: block;}
+main .rap .info_1 fieldset {
+    display: flex; flex-flow: column nowrap;
+}
+main .rap .info_1 fieldset > label {
+    font-size: 1.333rem; font-weight: 500;
+    display: flex; flex-flow: column nowrap;
+    margin-top: 40px;
+}
+main .rap .info_1 fieldset > label > input {width: 800px; height: 40px; margin-top: 15px; border: 1px solid rgb(173, 172, 172);}
+main .rap .info_1 fieldset label #id {}
+main .rap .info_1 fieldset label #pw {}
+main .rap .info_1 fieldset .look {
+    display: flex; flex-flow: row nowrap; justify-content: space-between;
+    margin-top: 40px;
+}
+main .rap .info_1 fieldset .look label #check {}
+main .rap .info_1 fieldset .look .look_a {}
+main .rap .info_1 fieldset .look a {}
+main .rap .info_1 fieldset .look a:first-child::after {
+    display: inline-block; margin-left: 5px;
+    content: ''; width: 2px; height: 13px; background: black;
+}
+main .rap .info_1 fieldset button {
+    font-size: 1.333rem;font-weight: 500; width: 800px; height: 50px;
+    text-align: center; margin-top: 40px; border-radius: 15px;
+}
+main .rap .info_1 fieldset > .login_nomal {background: black; color: white;}
+main .rap .info_1 fieldset > .login_cacao {background: #F7E600; border: 1px solid #3A1D1D; color: #3A1D1D;}
+main .rap .info_1 fieldset > .login_apple {background: white; border: 1px solid rgb(194, 194, 194); margin-bottom: 50px;}
+/*회원가입*/
+main .rap .info_2 { margin-top: 40px; width: 800px;}
+main .rap .info_2 p {width: 710px; line-height: 25px; letter-spacing: -0.02rem;}
+main .rap .info_2 button {
+    font-size: 1.333rem;font-weight: 500; width: 800px; height: 50px;
+    text-align: center; margin-top: 45px; border-radius: 15px;}
+main .rap .info_2 .new_nomal {background: black; color: white;}
+main .rap .info_2 .new_kakao {background: #F7E600; border: 1px solid #3A1D1D; color: #3A1D1D;}
+main .rap .info_2 .new_apple {background: white; border: 1px solid rgb(194, 194, 194); margin-bottom: 50px;}

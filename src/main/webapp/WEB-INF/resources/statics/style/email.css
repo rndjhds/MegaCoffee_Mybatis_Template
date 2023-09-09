@@ -1,0 +1,35 @@
+main {
+    width: 500px; border: 1px solid gray;
+    padding: 100px 50px; margin:0 auto;
+}
+main h1 {
+    font-size: 20px; font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 50px;
+}
+main p {
+    letter-spacing: -0.02em;
+}
+main .subtitle {
+    font-size: 25px; font-weight: 700;
+    letter-spacing: -0.02em;
+}
+main > span {
+    display: inline-block; width: 390px; height: 3px;
+    background: #000; margin: 10px 0 20px;
+}
+main .sub {
+    line-height: 25px;
+}
+main .sub em {
+    line-height: 50px;
+}
+main div {}
+main div > p {
+    font-size: 20px; font-weight: 700;
+    letter-spacing: -0.02em; margin: 20px 0 10px;
+}
+main div > span {
+    display: inline-block; width: 390px; height: 2px;
+    background: #000;
+}
