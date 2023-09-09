@@ -1,0 +1,100 @@
+main {}
+/* menu content1============================================================================================================================ */
+#content1 {
+    background: url(../test_img/menu_bg1.jpg) center no-repeat;
+    background-size: cover; position: fixed; width: calc(100% - 60px);
+    text-align: center; padding: 130px 0;
+    /* padding-top: 100px; */
+}
+#content1 .mainpage {
+    padding: 20px; text-align: center;
+    background: rgba(68, 68, 68, 60%);
+    display: inline-block;
+}
+#content1 .mainpage p {
+    color: #FDD000; letter-spacing: -0.02em;
+}
+#content1 .mainpage p:first-child {
+    font-size: 3.125rem; font-weight: 700;
+}
+#content1 .mainpage .mainpage_info {
+    font-size: 1.75rem; margin: 50px 0;
+}
+#content1 .mainpage .mainpage_info em {font-size: 1.875rem; font-weight: 700;}
+#content1 .mainpage .listbtn {
+    display: flex; flex-flow: row nowrap; 
+    justify-content: center;
+}
+#content1 .mainpage .listbtn a {
+    display: inline-block; letter-spacing: -0.02em; 
+    padding: 10px; font-size: 1.56rem; 
+    color: #FDD000; width: 200px;
+    transition: all 0.2s linear;
+}
+#content1 .mainpage .listbtn a:hover{background: #FDD000; border: none; color: #6B2E2F;}
+#content1 .mainpage .listbtn a:first-child {border:1px solid #FDD000;}
+#content1 .mainpage .listbtn a:nth-child(2) {
+    border-top:1px solid #FDD000; 
+    border-bottom:1px solid #FDD000;
+}
+#content1 .mainpage .listbtn a:last-child {border:1px solid #FDD000;}
+/* menu content2============================================================================================================================ */
+#content2 {
+    background: url(../test_img/menu_bg2.jpg) right no-repeat;
+    background-size: cover;  position: relative; margin-top: 60vh;
+    /* padding-top: 100px; */
+}
+#content2 .drink {letter-spacing: -0.02em;display: inline-block; margin: 144px 0px 144px 15%;position: relative; z-index: 15;}
+#content2 .drink p:first-child {color: #FDD000; font-size: 3.125rem; font-weight: 700;}
+#content2 .drink span {margin-top: 50px; width: 140px; height: 3px; display: block; background: #fff;}
+#content2 .drink p:nth-child(3) em {font-size: 1.875rem;color: #FDD000; font-weight: 700;}
+#content2 .drink p:nth-child(3) {margin: 50px 0; font-size: 1.875rem; color: #fff; line-height: 40px;}
+#content2 .bar {
+    display: block; width: 280px; height: 55px; background: #444444;
+    position: absolute; bottom: 270px; left: 200px; z-index: 10;
+}
+#content2 .drink a {
+    display: inline-block; color: #fff; 
+    font-size: 1.562rem; letter-spacing: -0.02em; 
+    padding: 20px 10px; border: 1px solid #FDD000;
+}
+/* menu content3============================================================================================================================*/
+#content3 {
+    background: url(../test_img/menu_bg3.jpg) center no-repeat;
+    background-size: cover;  position: relative;
+    /* padding-top: 100px; */
+}
+#content3 .food {letter-spacing: -0.02em;display: inline-block; margin: 144px 0 144px 15%;position: relative; z-index: 15;}
+#content3 .food p:nth-child(1) {
+    color: #FDD000; font-size: 3.125rem; font-weight: 700;
+}
+#content3 .food span {margin-top: 50px; width: 140px; height: 3px; display: block; background: #fff;}
+#content3 .food p:nth-child(3) em {font-size: 1.875rem;color: #FDD000; font-weight: 700;}
+#content3 .food p:nth-child(3) {margin: 50px 0; font-size: 1.875rem; color: #fff; line-height: 40px;}
+#content3 .food a {
+    display: inline-block; color: #Fff; 
+    font-size: 1.562rem; letter-spacing: -0.02em; 
+    padding: 20px 10px; border: 1px solid #FDD000;}
+#content3 .bar {
+    display: block; width: 280px; height: 55px; background: #444444;
+    position: absolute; bottom: 270px; left: 200px; z-index: 10;}
+/* menu content4============================================================================================================================*/
+#content4 {
+    background: url(../test_img/menu_bg4.jpg) top no-repeat;
+    background-size: cover;  position: relative;
+    /* padding-top: 100px; */
+}
+#content4 .product {letter-spacing: -0.02em;display: inline-block; margin: 144px 0 144px 15%;position: relative; z-index: 15;}
+#content4 .product p:nth-child(1) {
+    color: #FDD000; font-size: 3.125rem; font-weight: 700;
+}
+#content4 .product span {margin-top: 50px; width: 140px; height: 3px; display: block; background: #fff;}
+#content4 .product p:nth-child(3) em {font-size: 1.875rem;color: #FDD000; font-weight: 700;}
+#content4 .product p:nth-child(3) {margin: 50px 0; font-size: 1.875rem; color: #fff; line-height: 40px;}
+#content4 .product a {
+    display: inline-block; color: #333; 
+    font-size: 1.562rem; letter-spacing: -0.02em; 
+    padding: 20px 10px; border: 1px solid #997d02;}
+#content4 .bar {
+    display: block; width: 280px; height: 55px; background: #444444;
+    position: absolute; bottom: 270px; left: 200px; z-index: 10;}

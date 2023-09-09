@@ -1,0 +1,62 @@
+@media screen and (max-width:800px){
+    body {width: 800px;}
+}
+@media screen and (max-width:1600px){
+    #top {width: calc(100% - 30px);}
+    footer {width: 1600px;}
+    main .content4 {}
+    main .content4 .bg4 iframe {width: 700px; height: 500px; left: 0;}
+    main .content4 .bg4 .txt4 {background: rgba(158, 163, 166, 55%); height: 500px; padding: 15px;}
+}
+@media screen and (max-width:1550px){
+    main .content2 .bg2 {
+        background: url(../test_img/bg2_uiux.jpg) center no-repeat;
+        background-size: cover; text-align: center;
+    }
+    main .content2 .bg2 .txt2 {
+        background: rgba(254, 248, 229, 64%);
+        display: inline-block; padding: 10px;
+        height: 320px;
+    }
+}
+@media screen and (max-width:1430px){
+    main .content1 .bg1 {display: flex; flex-flow: column nowrap; align-items: center;}
+    main .content1 .bg1 .shaptitle a span:last-child{
+        display: none;
+    }
+    main .content1 .bg1 .shaptitle {
+        background: rgba(214, 191, 157, 40%);
+        width: 900px; border-radius: 100px;
+    }
+    main .content1 .bg1 .shaptitle a {margin:10px 20px 0 0;}
+    main .content1 .bg1 .shaptitle a:nth-child(1) {right: 0px;}
+    main .content1 .bg1 .shaptitle a:nth-child(2) {right: 0px;}
+    main .content1 .bg1 .shaptitle a:nth-child(3) {left: 0px;}
+    main .content1 .bg1 .shaptitle a:nth-child(4) {margin-right:0; left: 0px;}
+}
+@media screen and (max-width:1200px) {
+    main .content1 .bg1 {height: 500px;}
+    main .content1 .bg1 .title .name .info {display: none;}
+    main .content1 .bg1 .shaptitle {margin-top: 50px;}
+    main .content1 .bg1 .title .sub_title span {width: 100px;}
+    main .content3 .bg3 {
+        background: url(../test_img/bg3_uiux.jpg) center no-repeat;
+        background-size: cover; text-align: center;
+    }
+    main .content3 .bg3 .txt3 {
+        background: rgba(28, 25, 18, 80%); 
+        display: inline-block; padding: 15px; margin-left: 0;
+        height: 330px;
+    }
+    main .content4 .bg4 .txt4 h2 {font-size: 1.25rem; line-height: 28px;}
+    main .content4 .bg4 .txt4 p {
+        display: none;
+    }
+    main .content5{width: calc(100% - 30px);}
+    main .content5 > div a {width: 300px; height: 300px;}
+    main .content5 > div > div{padding: 15px;}
+}
+@media screen and (max-width:1000px) {
+    main .content5 > div a {width: 200px; height: 200px; margin-bottom: 40px;}
+    main .content5 > div > div{display: none;}
+}

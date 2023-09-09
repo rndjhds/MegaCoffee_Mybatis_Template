@@ -1,0 +1,18 @@
+        main {margin: 0 30px; text-align: center;}
+        main .rew_title {
+            background: #444444;
+            display: flex; flex-flow: column nowrap;
+            align-items: center; padding: 100px 0 55px;
+        }
+        main .rew_title p {letter-spacing: -0.02em; color: #fff;}
+        main .rew_title p:nth-child(1) {font-size: 3.125rem; font-weight: 700; color: #fdd000;}
+        main .rew_title p:nth-child(2) {font-size: 1.875rem; font-weight: 500; margin: 50px 0;}
+        main .rew_title p:nth-child(3) {line-height: 25px;}
+        main .rew_info {}
+        main .rew_info p {
+            text-align: end; padding: 40px 150px 40px 0;
+        }
+        main .rew_info p a {
+            font-size: 1.2rem; letter-spacing: -0.02em;
+        }
+        main .rew_info iframe {padding: 50px 0; width: 90%; height: 100vh;}

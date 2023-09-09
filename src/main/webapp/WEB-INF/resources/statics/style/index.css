@@ -1,0 +1,350 @@
+body,html {scroll-behavior: smooth;}
+/* header======================================================================================================================================================================== */
+header {
+    position: fixed; width: 100%; 
+    display: flex; flex-flow: column nowrap; align-items: center;
+    padding: 10px 0 0; background: #fff; z-index: 900; height: 100px;
+}
+header h1 {margin-bottom: 20px; width: 150px;}
+header h1 a {}
+header h1 a img {width: 100%;}
+header nav {
+    z-index: 910;
+}
+header nav .main_nav {
+    display: flex;
+}
+header nav .main_nav > li {margin-right: 40px;}
+header nav .main_nav > li:last-child {margin-right: 0;}
+header nav .main_nav > li > a {
+    display: inline-block; font-size: 1rem; font-weight: 700;
+    padding-bottom: 10px; width: 92px; transition: all 0.1s; 
+    margin-bottom: 20px;
+}
+header nav .main_nav > li > a:hover {
+    border-bottom: 3px solid #FDD000;
+}
+header nav .main_nav > li > .sub_nav {}
+header nav .main_nav > li > .sub_nav > li {margin-bottom: 25px;}
+header nav .main_nav > li > .sub_nav > li:last-child {margin-bottom: 0;}
+header nav .main_nav > li > .sub_nav > li > a{font-size: 1.1rem; transition: all 0.2s;}
+header nav .main_nav > li > .sub_nav > li > a:hover{
+    font-size: 1rem; color: #FDB925; border-bottom: 2px solid #FDD000;
+}
+
+#login {position: absolute; top: 50px; right: 100px;}
+#login a {font-size: 14px; font-weight: 700; letter-spacing: -0.02em; margin-right: 5px}
+
+header .bg0{height: 250px; width: 100%; background: #fff;  position: absolute; top: 65px;}  
+/* aside ============================================================================================================================================================================ */
+aside {margin-left: 40px; position: relative; z-index: 900;}
+aside .btn {position: fixed; top: 500px;} 
+aside .btn a {
+    display: block; width: 20px; height: 20px; 
+    border-radius: 100px;
+    background: #fff; border: 2px solid #FDD000;
+    margin-bottom: 15px;
+}
+aside .btn a:hover {background: #6B2E2F;}
+aside .btn a:last-child {margin-bottom: 0;}
+/* main top ========================================================================================================================================================================*/
+main {padding-top: 50px; position: relative; margin:0 30px;} 
+main .top {background: #ddd;} 
+main .top .swiper {
+    width: 100%;
+}
+main .top .swiper .swiper-wrapper {} 
+main .top .swiper .swiper-wrapper .swiper-slide {
+    background-repeat: no-repeat;
+    background-size: 88%; background-position: center; height: 750px;
+} 
+main .top .swiper .swiper-wrapper .may_slide1 {
+    background-image: url(../test_img/slide1.jpg);
+} 
+main .top .swiper .swiper-wrapper .may_slide2 {
+    background-image: url(../test_img/slide2bg.jpg);
+} 
+main .top .swiper .swiper-button-prev {} 
+main .top .swiper .swiper-button-next {} 
+main .top .asidebtn {
+    position: fixed; right: 50px; top: 700px; z-index: 980;
+    animation: xy 1s linear alternate infinite;
+} 
+main .top .asidebtn a {display: flex; flex-flow: column nowrap; align-items: center; width: 37px;} 
+main .top .asidebtn a span {font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em;} 
+main .top .asidebtn a :last-child img {width: 100%;} 
+@keyframes xy {
+    0%{transform: translateY(-15px);}
+    100%{transform: translateY(10px);}
+}
+/* main content1 ========================================================================================================================================================================*/
+main .content1  {
+    padding-top: 100px;
+    background: #EEDDCD;
+}
+main .content1 .bg1 {
+    background: url(../test_img/bg1_1.jpg) center no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 730px;
+}
+main .content1 .bg1 .title {
+    display: flex; flex-flow: column nowrap; align-items: center;
+    padding-top: 35px;
+}
+main .content1 .bg1 .title h1 {
+    font-size: 3.125rem; font-weight: 700; letter-spacing: -0.02em;
+    color: #6B2E2F; margin-bottom: 35px;
+}
+main .content1 .bg1 .title h1 em {
+    font-size: 3.125rem; font-weight: 700; letter-spacing: -0.02em;
+    color: #AE846C;
+}
+main .content1 .bg1 .title .sub_title {
+    display: flex; align-items: center;
+    margin-bottom: 30px;
+}
+main .content1 .bg1 .title .sub_title span {
+    width: 400px; height: 2px; background: #6B2E2F;
+    display: block;
+}
+main .content1 .bg1 .title .sub_title p {
+    font-size: 1.25rem; color: #6B2E2F; margin:0 30px;
+}
+main .content1 .bg1 .title .name {
+    width: 100%; display: flex; 
+    flex-flow: row nowrap; justify-content: space-around;
+}
+main .content1 .bg1 .title .name .leftname {
+    text-align: center; margin-left: 270px;
+}
+main .content1 .bg1 .title .name .h2 {
+    font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em;
+    margin-bottom: 10px;
+}
+main .content1 .bg1 .title .name .info {
+    font-weight: 500; letter-spacing: -0.02em;
+    line-height: 20px;
+}
+main .content1 .bg1 .title .name .rigtname {
+    text-align: center; margin-right: 250px;
+}
+main .content1 .bg1 .title .name .rigtname .h2 {}
+main .content1 .bg1 .title .name .rigtname .info {}
+main .content1 .bg1 .shaptitle {
+    display: flex; margin-top: 410px; justify-content: center;
+    position: relative;
+}
+main .content1 .bg1 .shaptitle a {}
+main .content1 .bg1 .shaptitle a span{}
+main .content1 .bg1 .shaptitle a span:first-child {
+    padding: 5px; font-size: 0.812rem; font-weight: 700; letter-spacing: -0.02em;
+    border-radius: 100px; text-align: center; margin-bottom: 5px;
+}
+main .content1 .bg1 .shaptitle a span:last-child {
+    font-size: 1.125rem; font-weight: 700; letter-spacing: -0.02em; transition: all 0.2s;
+}
+main .content1 .bg1 .shaptitle a {display: flex; flex-flow: column nowrap;}
+main .content1 .bg1 .shaptitle a:nth-child(1) {position: relative;right: 350px;}
+main .content1 .bg1 .shaptitle a:nth-child(1) span:first-child {
+    background: #FDB925; color: #6B2E2F;
+}
+main .content1 .bg1 .shaptitle a:nth-child(1) span:last-child {}
+main .content1 .bg1 .shaptitle a:hover span:last-child {
+    color: #FDB925;
+}
+main .content1 .bg1 .shaptitle a:nth-child(2) {position: relative; right: 180px;}
+main .content1 .bg1 .shaptitle a:nth-child(2) span:first-child {
+    background: #E98919; color: #6B2E2F;
+}
+main .content1 .bg1 .shaptitle a:nth-child(3) {position: relative; left: 20px;}
+main .content1 .bg1 .shaptitle a:nth-child(3) span:first-child {
+    background: #81BC00; color: #fff;
+}
+main .content1 .bg1 .shaptitle a:nth-child(4) {position: relative; left: 150px;}
+main .content1 .bg1 .shaptitle a:nth-child(4) span:first-child {
+    background: #008136; color: #fff;
+}
+/* content2======================================================================================================================================================================== */
+main .content2 {
+    padding-top: 100px;
+    background: #FDD000;
+}
+main .content2 .bg2 {
+    background: url(../test_img/bg2.jpg) center no-repeat;
+    background-size: cover;
+    height: 730px;
+}
+main .content2 .bg2 .txt2 {
+    display: flex; flex-flow: column nowrap; 
+    position: relative;
+    top: 300px; padding-left: 300px;
+}
+main .content2 .bg2 .txt2 h1 {
+    font-size: 2.81rem; letter-spacing: -0.02em; 
+    font-weight: 700; line-height: 45px;
+    color: #6B2E2F;
+}
+main .content2 .bg2 .txt2 p {
+    letter-spacing: -0.02em; line-height: 30px;
+    color: #6B2E2F; margin: 30px 0;
+    font-size: 1.25rem;
+}
+main .content2 .bg2 .txt2 .btn {}
+main .content2 .bg2 .txt2 .btn a {
+    display: inline-block; width: 130px;
+    background-color: #6B2E2F; color: #FDD000;
+    font-size: 1.25rem; font-weight: 500; letter-spacing: -0.02em;
+    padding: 10px; text-align: center; transition: all 0.7s linear;
+}
+main .content2 .bg2 .txt2 .btn a:hover {
+    border-radius: 100px; border: 2px solid #6B2E2F;
+    background-color: #FDD000; color: #6B2E2F;
+    transform: translateY(-10px);
+}
+/* content3======================================================================================================================================================================== */
+main .content3 {
+    background: #13140F;
+    padding-top: 100px;}
+main .content3 .bg3 {
+    background: url(../test_img/bg3.jpg) center no-repeat;
+    background-size: cover;
+    color: #AE846C; padding: 150px 0;
+}
+main .content3 .bg3 .txt3 {margin-left: 300px;}
+main .content3 .bg3 .txt3 h1 {
+    font-size: 2.812rem; letter-spacing: -0.02em;
+    font-weight: 700;
+}
+main .content3 .bg3 .txt3 h2 {
+    font-size: 1.875rem; letter-spacing: -0.02em;
+    font-weight: 700; margin-top: 20px;
+}
+main .content3 .bg3 .txt3 p {
+    letter-spacing: -0.02em; line-height: 30px;
+    margin: 30px 0; font-size: 1.25rem;
+}
+main .content3 .bg3 .txt3 a {
+    padding: 10px; background: #AE846C; display: inline-block;
+    font-size: 1.25rem; letter-spacing: -0.02em; color: #13140F;
+    transition: all 0.7s linear;
+}
+main .content3 .bg3 .txt3 a:hover {
+    border: 2px solid #AE846C; color: #AE846C;
+    transform: translateY(-10px); border-radius: 100px;
+    background-color: #13140F;;
+}
+/* content4============================================================================================================================================================================= */
+main .content4 {
+    padding-top: 100px;
+    background: url(../test_img/bg4.jpg) center no-repeat;
+    background-size: cover;
+        
+}
+main .content4 .bg4 {
+    display: flex; align-items: center; justify-content: space-around;
+    position: relative;
+}
+main .content4 .bg4 iframe {
+    width:600px; height:350px; 
+    position: relative; left: 370px;
+}
+main .content4 .bg4 .txt4 {
+    color: #6B2E2F; text-align: end;
+    margin: 100px 0; position: relative; z-index: 80;
+}
+main .content4 .bg4 .txt4 h1 {
+    font-size: 2.8125rem; font-weight: 700;
+    letter-spacing: -0.02em; line-height: 50px;
+}
+main .content4 .bg4 .txt4 h1 em {
+    font-size: 1.875rem; font-weight: 700;
+    letter-spacing: -0.02em;
+}
+main .content4 .bg4 .txt4 h2 {
+    font-size: 1.875rem; font-weight: 700;
+    letter-spacing: -0.02em; line-height: 40px;
+    margin: 30px 0;
+}
+main .content4 .bg4 .txt4 p {
+    line-height: 28px; margin-bottom: 30px;
+    font-size: 1.25rem;
+}
+main .content4 .bg4 .txt4 a {
+    display: inline-block;
+    font-size: 1.25rem; color: #6B2E2F; 
+    padding: 10px; border: 1px solid #AE846C;
+    transition: all 0.7s linear;
+}
+main .content4 .bg4 .txt4 a:hover {
+    border-radius: 100px;
+    transform: translateY(-10px);
+}
+/* content5======================================================================================================================================================================== */
+main .content5 {
+    display: flex; justify-content: center;
+    padding-top: 40px; position: relative;
+}
+main .content5 > div a {display: inline-block; width: 360px; height: 360px; overflow: hidden;}
+main .content5 > div a img {width: 100%; transition: all 0.3s linear; }
+main .content5 > div a:hover img {
+    transform: scale(1.05);
+}
+main .content5 > div > div {
+    color: #6B2E2F; letter-spacing: -0.02em; 
+    padding: 20px 50px;
+    height: 150px; position: relative; bottom: 10px;
+}
+main .content5 > div > div p:first-child{font-size: 1.25rem;}
+main .content5 > div > div p:last-child{font-size: 0.812rem;}
+main .content5 .onepay {}
+main .content5 .onepay a {}
+main .content5 .onepay a img {}
+main .content5 .onepay .info1 { background: #FFFCE3;}
+main .content5 .onepay .info1 p:first-child {
+    margin-bottom: 20px;
+}
+main .content5 .onepay .info1 p:last-child {
+    line-height: 20px;
+}
+main .content5 .kakaopay {margin:  0 50px;}
+main .content5 .kakaopay a {}
+main .content5 .kakaopay a img {}
+main .content5 .kakaopay .info2 {background: #FFEB00;}
+main .content5 .kakaopay .info2 p:first-child {
+    margin-bottom: 60px;
+}
+main .content5 .kakaopay .info2 p:last-child {}
+main .content5 .event {}
+main .content5 .event a {}
+main .content5 .event a img {}
+main .content5 .event .info3 {background: #F4EFD1;}
+main .content5 .event .info3 p:first-child {
+    margin-bottom: 60px;
+}
+main .content5 .event .info3 p:last-child {}
+/* footer ==================================================================================================================== */
+footer {background: #000; display: flex; justify-content: space-between; padding: 50px 60px;}
+footer .left {color: #fff;}
+footer .left .icon {
+    display: flex; align-items: end;
+    margin-bottom: 40px;
+}
+footer .left .icon p {margin-right: 20px;}
+footer .left .icon p img {}
+footer .left .icon .sns {}
+footer .left .icon .sns a {margin-right: 15px;}
+footer .left .icon .sns a:last-child {margin-right: 0;}
+footer .left .icon .sns a img {
+    background: #fff; border-radius: 100px;
+}
+footer .left .left_txt {line-height: 33px; letter-spacing: -0.02em;}
+footer .left .left_txt em {font-weight: 700;}
+footer .rigt {color: #fff;}
+footer .rigt .rigt_txt {display: flex;}
+footer .rigt .rigt_txt > li {margin-left: 25px;}
+footer .rigt .rigt_txt > li:last-child {margin-left: 0;}
+footer .rigt .rigt_txt li .rigt_sub {margin-top: 35px;}
+footer .rigt .rigt_txt li .rigt_sub li {margin-top: 15px;}
+footer .rigt .rigt_txt li .rigt_sub li:first-child {margin-top: 0;}
+footer .rigt .rigt_txt li .rigt_sub li a {color: #fff;}

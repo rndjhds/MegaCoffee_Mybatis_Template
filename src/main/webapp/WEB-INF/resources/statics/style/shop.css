@@ -1,0 +1,175 @@
+main {}
+/* 위로 올라가는 버튼 ------------------------------------------------------------------- */
+body,html {scroll-behavior: smooth;}
+main .topgo a {
+    display: flex; flex-flow: column nowrap; 
+    align-items: center; width: 37px; 
+    position: fixed; right: 50px; top: 700px;
+    animation: xy 1s alternate linear infinite;
+} 
+main .topgo a span {font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em;} 
+main .topgo a :last-child img {width: 100%;} 
+@keyframes xy {
+    0%{transform: translateY(-15px);}
+    100%{transform: translateY(10px);}
+}
+/* dirnk_page===================================================================================================================================== */
+main .shap_top {
+    background: url(../shop_img/nathan-dumlao-UoehHcoiMB0-unsplash.jpg) center no-repeat;
+    background-size: cover; 
+    text-align: center;
+}
+main .shap_top .shap_page {
+    display: flex; flex-flow: column nowrap; align-items: center;
+    padding: 107px 0;
+    background: rgba(5, 5, 5, 35%);
+}
+main .shap_top .shap_page p:nth-child(1) {
+    font-size: 5rem; font-weight: 700; 
+    letter-spacing: -0.02em; color: #FDD000;
+}
+main .shap_top .shap_page a {display: inline-block; width: 39px; height: 55px; margin-top: 50px;}
+main .shap_top .shap_page a img {width: 100%;}
+main .shap_top .shap_page .shap_page_info {
+    font-size: 2.5rem; letter-spacing: -0.02em; color: #232321;
+    line-height: 50px; margin: 50px 0;
+}
+main .shap_top .shap_page .shap_page_info em {
+    font-size: 2.5rem; letter-spacing: -0.02em; color: #fff;
+    font-weight: 700;
+}
+main .shap_top .shap_page .listbtn {
+    display: flex; flex-flow: row nowrap; 
+    justify-content: center; text-align: center;
+}
+main .shap_top .shap_page .listbtn a {
+    display: inline-block; letter-spacing: -0.02em; 
+    padding: 10px; font-size: 1.56rem; font-weight: 700;
+    color: #fff; width: 200px;
+    margin-top: 0; transition: all 0.2s linear;
+}
+main .shap_top .shap_page .listbtn a:hover {
+    background: #FDD000; color: #6B2E2F;
+}
+main .shap_top .shap_page .listbtn a:first-child {border:1px solid #fff;}
+main .shap_top .shap_page .listbtn a:nth-child(2) {
+    border-top:1px solid #fff; 
+    border-bottom:1px solid #fff;
+}
+main .shap_top .shap_page .listbtn a:last-child {border:1px solid #fff;}
+/* drink_title ===================================================================================================================================== */
+main .shap_title {text-align: center; padding: 50px 0;}
+main .shap_title > p:first-child {
+    font-size: 1.25rem; letter-spacing: -0.02em; color: #AE846C; font-weight: 500;
+}
+main .shap_title .shap_title_center {
+    display: flex; align-items: center; justify-content: center; margin: 5px 0 50px;
+}
+main .shap_title .shap_title_center span {
+    display: inline-block; width: 400px; height: 3px; background: #6B2E2F;
+}
+main .shap_title .shap_title_center p {
+    font-size: 5rem; letter-spacing: -0.02em; color: #6B2E2F; font-weight: 700;
+    margin: 0 40px;
+}
+main .shap_title >p:last-child {
+    font-size: 0.8125rem; letter-spacing: -0.02em; color: #515151;
+}
+/* drink_search ============================================================================================================== */
+main .shap_search {display: flex; justify-content: center;}
+main .shap_search form {padding: 50px 0;}
+main .shap_search form fieldset {}
+main .shap_search form fieldset .search {
+    display: flex; align-items: center;
+    justify-content: center; padding: 30px 0; border-bottom: 1px solid black; 
+}
+main .shap_search form fieldset .search p {
+    font-size: 1.25rem; letter-spacing: -0.02em; font-weight: 500;
+    margin-right: 400px;
+}
+main .shap_search form fieldset .search .search_bar {background: #fff;}
+main .shap_search form fieldset .search .search_bar > input {}
+main .shap_search form fieldset .search .search_bar button {}
+main .shap_search form fieldset .cheack {text-align: center; padding: 30px 0;display: inline-block;}
+main .shap_search form fieldset .cheack label {
+    letter-spacing: -0.02em; font-weight: 500;
+    padding-right: 5px; margin-right: 20px;
+}
+main .shap_search form fieldset .cheack label:last-child{margin-right: 0px;}
+main .shap_search form fieldset .cheack label > input {}
+/* drink_list ==============================================================================================================================================================*/
+main .shap_list {
+    display: flex; flex-flow: row wrap; justify-content: center;
+    width: 1205px; margin: 50px auto; 
+}
+/* drink_1 */
+main .shap_list > div {width: 260px; height: 284px; margin-right: 55px; margin-bottom: 200px; position: relative;}
+main .shap_list > div:nth-child(4) {margin-right: 0;}
+main .shap_list > div:nth-child(8) {margin-right: 0;}
+main .shap_list div /* .drink_1 */ .shap_poji {text-align: center; padding-bottom: 20px;}
+main .shap_list div /* .drink_1 */ .shap_poji > a {display: block; width: 260px; height: 284px;}
+main .shap_list div /* .drink_1 */ .shap_poji > a img {width: 100%; transition: all 0.3s linear;}
+main .shap_list div /* .drink_1 */ .shap_poji > a img:hover {transform: scale(1.05);}
+main .shap_list .shap_1 .shap_poji .poji_title {}
+main .shap_list div /* .drink_1 */ .shap_poji .poji_title > p {
+    font-size: 1.25rem; letter-spacing: -0.02em; font-weight: 500;
+    margin-bottom: 30px;
+}
+main .shap_list div /* .drink_1 */ .shap_poji .poji_title > a {
+    display: inline-block;
+    font-size: 0.875rem; letter-spacing: -0.02em; font-weight: 700;
+    padding: 10px; border-radius: 10px;
+    border-bottom: 2px solid #000; border-right: 2px solid #000;  
+    transition: all 0.2s linear;
+}
+main .shap_list div /* .drink_1 */ .shap_poji .poji_title > a:hover{
+    background: #FDD000;
+}
+main .shap_list > div .shap_txt {
+    position: relative; bottom: 440px; background: #fff; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 45%);
+    /* display: none; */
+}
+main .shap_list > div .shap_txt > div:nth-child(1) {
+    display: flex;  padding: 20px 0; justify-content: space-around;
+    border-bottom: 1px solid #000;
+}
+main .shap_list > div .shap_txt > div:nth-child(1) > p {
+    font-size: 1.25rem; font-weight: 500;
+    letter-spacing: -0.02em; text-align: center;
+}
+main .shap_list > div .shap_txt .shap_info {
+    padding: 13px 21.5px;
+}
+main .shap_list > div .shap_txt .shap_info p {}
+main .shap_list >  div .shap_txt .shap_info p:nth-child(1) {
+    letter-spacing: -0.02em; line-height: 30px; margin-bottom: 20px;
+}
+main .shap_list > div .shap_txt .shap_info p:nth-child(2) {
+    font-size: 0.875rem; line-height: 20px; letter-spacing: -0.02em;
+    margin-bottom: 20px;
+}
+main .shap_list > div .shap_txt .shap_info p:nth-child(3) {
+    font-size: 0.875rem; letter-spacing: -0.02em; line-height: 20px;
+}
+main .shap_list > div .shap_txt ul {
+    display: flex; flex-flow: row wrap;
+    padding: 15px 20px;
+}
+main .shap_list > div .shap_txt ul li {
+    font-size: 0.875rem; letter-spacing: -0.02em;
+    padding: 0 10px 10px;
+}
+main .pagenume {
+    display: flex; justify-content: center;
+    margin: 50px 10px;
+}
+main .pagenume a {
+    display: inline-block; text-align: center;
+    font-size: 1rem; letter-spacing: -0.02em; font-weight: 700;
+    width: 60px; border: 1px solid #9c9c9c; padding: 5px 10px;
+    border-radius: 10px; margin-right: 10px;
+    transition: all 0.2s linear;
+}
+main .pagenume a:last-child {margin-right: 0;}
+main .pagenume a:hover {background: #FDD000;}
