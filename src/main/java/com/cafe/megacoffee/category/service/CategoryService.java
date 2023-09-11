@@ -9,5 +9,7 @@ public interface CategoryService {
     public List<CategoryDTO> findParentCategoryAll();
 
     public List<CategoryDTO> findChildCategoryById(CategoryDTO categoryDTO);
+
+    public int getTotalCount(CategoryDTO categoryDTO);
 }
 

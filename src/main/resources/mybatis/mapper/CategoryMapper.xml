@@ -15,7 +15,8 @@
 
     <select id="findChildCategoryById" parameterType="com.cafe.megacoffee.category.controller.CategoryDTO" resultType="com.cafe.megacoffee.category.controller.CategoryDTO">
         select
-            rowNum as categoryId,
+            rowNum num,
+            category_id categoryId,
             NAME categoryName,
             case
                 when parent_id = 1 then '음료'
@@ -30,7 +31,28 @@
             and
                 parent_id = #{parentId}
         </if>
-        <if test="categoryId == 0">
+        <if test="parentId == 0">
+            and
+                parent_id is not null
+        </if>
+        <if test="categoryName != null or categoryName != ''">
+            and
+                name like '%'|| #{categoryName} || '%'
+        </if>
+    </select>
+
+    <select id="getTotalCount" parameterType="com.cafe.megacoffee.category.controller.CategoryDTO" resultType="int">
+        select
+            count(category_id)
+        from
+            category
+        where
+        1=1
+        <if test="parentId != 0">
+            and
+                parent_id = #{parentId}
+        </if>
+        <if test="parentId == 0">
             and
                 parent_id is not null
         </if>

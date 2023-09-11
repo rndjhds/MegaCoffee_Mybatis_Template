@@ -29,6 +29,9 @@ public class CategoryController {
     @PostMapping("/findCategory")
     @ResponseBody
     public List<CategoryDTO> findCategoryById(CategoryDTO categoryDTO) {
+        int totalCount = categoryService.getTotalCount(categoryDTO);
+        System.out.println("totalCount = " + totalCount);
+        categoryDTO.setTotalCount(totalCount);
         List<CategoryDTO> data = categoryService.findChildCategoryById(categoryDTO);
         return data;
     }

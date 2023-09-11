@@ -24,4 +24,9 @@ public class CategoryServiceImpl implements CategoryService{
         return categoryMapper.findChildCategoryById(categoryDTO);
     }
 
+    @Override
+    public int getTotalCount(CategoryDTO categoryDTO) {
+        return categoryMapper.getTotalCount(categoryDTO);
+    }
+
 }

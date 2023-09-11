@@ -56,9 +56,9 @@
     <table id="dataTable" class="display">
         <thead>
         <tr>
-            <th>PARENTNAME</th>
-            <th>CATEGORYID</th>
-            <th>CATEGORYNAME</th>
+            <th>순서</th>
+            <th>대분류</th>
+            <th>중분류</th>
         </tr>
         </thead>
         <tbody>
@@ -68,7 +68,6 @@
 </main>
 <script>
     $(document).ready(function () {
-        console.log("DataTables initialization script is running.");
         const dataTable = $('#dataTable').DataTable({
             searching: false,
             processing: true,
@@ -83,8 +82,8 @@
                 dataSrc: ''
             },
             columns: [
-                {data: "parentName"},
                 {data: "categoryId"},
+                {data: "parentName"},
                 {data: "categoryName"}
             ],
             dom: 'Bfrtip', // Add buttons for copy, csv, excel, pdf, and print
