@@ -1,8 +1,11 @@
 package com.cafe.megacoffee.category.controller;
 
+import com.cafe.megacoffee.util.page.Pagination;
+
+
 public class CategoryDTO {
 
-    private int id;
+    private int rnum;
 
     private int categoryId;
 
@@ -14,12 +17,22 @@ public class CategoryDTO {
 
     private String parentName;
 
-    public int getId() {
-        return id;
+    private Pagination pagination;
+
+    public Pagination getPagination() {
+        return pagination;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPagination(Pagination pagination) {
+        this.pagination = pagination;
+    }
+
+    public int getRnum() {
+        return rnum;
+    }
+
+    public void setRnum(int rnum) {
+        this.rnum = rnum;
     }
 
     public int getCategoryId() {

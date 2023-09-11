@@ -18,6 +18,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+    <style>
+        #searchForm {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 20px;
+        }
+
+        select, #searchButton {
+            font-size: 1.08em;
+        }
+
+    </style>
 </head>
 <body>
 <main style="padding-top: 150px">
@@ -79,11 +91,16 @@
             },
         },
         columns: [
-            {data: "id"},
+            {data: "rnum"},
             {data: "parentName"},
             {data: "categoryName"}
 
+        ],
+        /*dom: 'Bfrtip', // Add buttons for copy, csv, excel, pdf, and print
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
         ]
+*/
         });
 
         $('#searchButton').on('click', function () {

@@ -1,6 +1,7 @@
 package com.cafe.megacoffee.category.controller;
 
 import com.cafe.megacoffee.category.service.CategoryService;
+import com.cafe.megacoffee.util.page.Pagination;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,8 +27,8 @@ public class CategoryController {
 
     @PostMapping("/findCategory")
     @ResponseBody
-    public Map<String, Object> findCategoryById(CategoryDTO categoryDTO, @RequestParam("length") String length) {
-        System.out.println("length = " + length);
+    public Map<String, Object> findCategoryById(CategoryDTO categoryDTO, Pagination pagination) {
+        categoryDTO.setPagination(pagination);
         int totalCount = categoryService.getTotalCount(categoryDTO);
         List<CategoryDTO> data = categoryService.findChildCategoryById(categoryDTO);
         Map<String, Object> map = new HashMap<>();
@@ -36,5 +37,5 @@ public class CategoryController {
         map.put("recordsTotal", totalCount);
         return map;
     }
-  
+
 }
