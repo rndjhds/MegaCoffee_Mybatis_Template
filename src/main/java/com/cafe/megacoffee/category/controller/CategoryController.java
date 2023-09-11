@@ -4,11 +4,9 @@ import com.cafe.megacoffee.category.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -28,12 +26,15 @@ public class CategoryController {
 
     @PostMapping("/findCategory")
     @ResponseBody
-    public List<CategoryDTO> findCategoryById(CategoryDTO categoryDTO) {
+    public Map<String, Object> findCategoryById(CategoryDTO categoryDTO, @RequestParam("length") String length) {
+        System.out.println("length = " + length);
         int totalCount = categoryService.getTotalCount(categoryDTO);
-        System.out.println("totalCount = " + totalCount);
-        categoryDTO.setTotalCount(totalCount);
         List<CategoryDTO> data = categoryService.findChildCategoryById(categoryDTO);
-        return data;
+        Map<String, Object> map = new HashMap<>();
+        map.put("data", data);
+        map.put("recordsFiltered", totalCount);
+        map.put("recordsTotal", totalCount);
+        return map;
     }
   
 }

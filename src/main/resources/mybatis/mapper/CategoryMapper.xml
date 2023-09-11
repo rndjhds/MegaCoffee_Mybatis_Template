@@ -15,7 +15,7 @@
 
     <select id="findChildCategoryById" parameterType="com.cafe.megacoffee.category.controller.CategoryDTO" resultType="com.cafe.megacoffee.category.controller.CategoryDTO">
         select
-            rowNum num,
+            rowNum id,
             category_id categoryId,
             NAME categoryName,
             case

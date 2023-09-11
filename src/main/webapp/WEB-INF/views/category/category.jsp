@@ -18,18 +18,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
-    <style>
-        #searchForm {
-            display: flex;
-            justify-content: space-between;
-            padding-bottom: 20px;
-        }
-
-        select, #searchButton {
-            font-size: 1.08em;
-        }
-
-    </style>
 </head>
 <body>
 <main style="padding-top: 150px">
@@ -64,39 +52,44 @@
         <tbody>
         <!-- Data rows will be populated here -->
         </tbody>
+        <tfoot>
+        <tr>
+            <th>순서</th>
+            <th>대분류</th>
+            <th>중분류</th>
+        </tr>
+        </tfoot>
     </table>
 </main>
+
+</body>
 <script>
+
     $(document).ready(function () {
-        const dataTable = $('#dataTable').DataTable({
-            searching: false,
+        let dataTable = $('#dataTable').DataTable({
+            searching : false,
             processing: true,
             serverSide: true,
-            ajax: {
-                url: '/category/findCategory', // Replace with your server endpoint
-                type: 'POST',
-                data: function (d) {
-                    d.parentId = $("select[name='parentId']").val();
-                    d.categoryName = $("#category_name").val();
-                },
-                dataSrc: ''
+            ajax:{
+            url: '/category/findCategory',
+            type: 'POST',
+            data: function (d) {
+                d.parentId = $("select[name='parentId']").val();
+                d.categoryName = $("#category_name").val();
             },
-            columns: [
-                {data: "categoryId"},
-                {data: "parentName"},
-                {data: "categoryName"}
-            ],
-            dom: 'Bfrtip', // Add buttons for copy, csv, excel, pdf, and print
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ]
+        },
+        columns: [
+            {data: "id"},
+            {data: "parentName"},
+            {data: "categoryName"}
+
+        ]
         });
 
-        // Add an event listener to the Search button
         $('#searchButton').on('click', function () {
             dataTable.draw(); // Trigger a new DataTables request
         });
     });
+
 </script>
-</body>
 </html>

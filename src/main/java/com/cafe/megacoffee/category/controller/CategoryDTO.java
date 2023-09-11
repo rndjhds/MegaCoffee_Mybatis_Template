@@ -2,9 +2,7 @@ package com.cafe.megacoffee.category.controller;
 
 public class CategoryDTO {
 
-    private int num;
-
-    private int totalCount;
+    private int id;
 
     private int categoryId;
 
@@ -16,20 +14,12 @@ public class CategoryDTO {
 
     private String parentName;
 
-    public int getNum() {
-        return num;
+    public int getId() {
+        return id;
     }
 
-    public void setNum(int num) {
-        this.num = num;
-    }
-
-    public int getTotalCount() {
-        return totalCount;
-    }
-
-    public void setTotalCount(int totalCount) {
-        this.totalCount = totalCount;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getCategoryId() {
