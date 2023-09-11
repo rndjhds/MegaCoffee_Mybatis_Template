@@ -3,5 +3,40 @@
 
 <mapper namespace="com.cafe.megacoffee.category.repository.CategoryMapper">
 
+    <select id="findParentCategoryAll" resultType="com.cafe.megacoffee.category.controller.CategoryDTO">
+        select
+            category_id categoryId,
+            NAME categoryName
+        from
+            category
+        where
+            parent_id is null
+    </select>
 
+    <select id="findChildCategoryById" parameterType="com.cafe.megacoffee.category.controller.CategoryDTO" resultType="com.cafe.megacoffee.category.controller.CategoryDTO">
+        select
+            rowNum as categoryId,
+            NAME categoryName,
+            case
+                when parent_id = 1 then '음료'
+                when parent_id = 2 then '식품'
+                when parent_id = 3 then '상품'
+            end as parentName
+        from
+            category
+        where
+            1=1
+        <if test="parentId != 0">
+            and
+                parent_id = #{parentId}
+        </if>
+        <if test="categoryId == 0">
+            and
+                parent_id is not null
+        </if>
+        <if test="categoryName != null or categoryName != ''">
+            and
+                name like '%'|| #{categoryName} || '%'
+        </if>
+    </select>
 </mapper>

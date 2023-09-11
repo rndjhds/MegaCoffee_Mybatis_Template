@@ -55,7 +55,7 @@
             </li>
             <li><a href="#">墨抛绊府 包府</a>
                 <ul class="sub_nav">
-                    <li><a href="#">墨抛绊府 包府</a></li>
+                    <li><a href="/category/manage">墨抛绊府 包府</a></li>
                 </ul>
             </li>
         </ul>
