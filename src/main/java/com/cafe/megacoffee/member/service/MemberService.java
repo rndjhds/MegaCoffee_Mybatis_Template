@@ -1,6 +1,6 @@
 package com.cafe.megacoffee.member.service;
 
-import com.cafe.megacoffee.member.MemberDTO;
+import com.cafe.megacoffee.member.dto.MemberDTO;
 
 public interface MemberService {
 

@@ -1,9 +1,7 @@
 package com.cafe.megacoffee.member.controller;
 
-import com.cafe.megacoffee.member.MemberDTO;
+import com.cafe.megacoffee.member.dto.MemberDTO;
 import com.cafe.megacoffee.member.service.MemberService;
-import com.cafe.megacoffee.member.type.MemberType;
-import com.cafe.megacoffee.member.type.PermitStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

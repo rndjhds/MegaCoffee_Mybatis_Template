@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="common/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../resources/statics/style/review.css">
     <link rel="stylesheet" href="../resources/statics/style/index.css">
     <link rel="stylesheet" href="../resources/statics/style/index_uiux.css">
-    <title>°Ô½ÃÆÇ | ¸Þ°¡Ä¿ÇÇ</title>
+    <title>ê²Œì‹œíŒ | ë©”ê°€ì»¤í”¼</title>
 </head>
 <body>
 <main>
@@ -17,15 +17,15 @@
         <p>MEGA NOTICE</p>
         <p>review</p>
         <p>
-            ¿©·¯ Á¤º¸¸¦ Á¦°øÇÏ¸ç ½Å·Ú°¡´Â Ä¿ÇÇ ºê·»µå,<br>
-            ¸ðµç »ç¶÷µé¿¡°Ô »ç¶û¹Þ´Â ¸Þ°¡MGCÄ¿ÇÇ ÀÔ´Ï´Ù.
+            ì—¬ëŸ¬ ì •ë³´ë¥¼ ì œê³µí•˜ë©° ì‹ ë¢°ê°€ëŠ” ì»¤í”¼ ë¸Œë Œë“œ,<br>
+            ëª¨ë“  ì‚¬ëžŒë“¤ì—ê²Œ ì‚¬ëž‘ë°›ëŠ” ë©”ê°€MGCì»¤í”¼ ìž…ë‹ˆë‹¤.
         </p>
     </section>
     <section class="rew_info">
         <p>
-            <a href="indexte.html">È¨</a> > <a href="./review.html">¸Þ°¡¼Ò½Ä</a> > <a href="./review.html">°í°´ÀÇ ¼Ò¸®</a>
+            <a href="indexte.html">í™ˆ</a> > <a href="./review.html">ë©”ê°€ì†Œì‹</a> > <a href="./review.html">ê³ ê°ì˜ ì†Œë¦¬</a>
         </p>
-        <!-- ¿ÜºÎ À¥ÁÖ¼Ò(°Ô½ÃÆÇ, Áöµµ)¸¦ ³»ºÎ html·Î »ðÀÔÇÏ´Â ¹æ¹ý -->
+        <!-- ì™¸ë¶€ ì›¹ì£¼ì†Œ(ê²Œì‹œíŒ, ì§€ë„)ë¥¼ ë‚´ë¶€ htmlë¡œ ì‚½ìž…í•˜ëŠ” ë°©ë²• -->
         <iframe src="http://jline.pe.kr/gnuboard5/bbs/board.php?bo_table=gentle_review" frameborder="0" scrolling="no"></iframe>
     </section>
 </main>

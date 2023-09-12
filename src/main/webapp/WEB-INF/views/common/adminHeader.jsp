@@ -53,7 +53,7 @@
                     <li><a href="./review.html">绊按狼 家府</a></li>
                 </ul>
             </li>
-            <li><a href="#">墨抛绊府 包府</a>
+            <li><a href="#">墨抛绊府</a>
                 <ul class="sub_nav">
                     <li><a href="/category/manage">墨抛绊府 包府</a></li>
                 </ul>

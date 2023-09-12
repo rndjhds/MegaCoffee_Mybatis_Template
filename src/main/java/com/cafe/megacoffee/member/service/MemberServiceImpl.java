@@ -1,6 +1,6 @@
 package com.cafe.megacoffee.member.service;
 
-import com.cafe.megacoffee.member.MemberDTO;
+import com.cafe.megacoffee.member.dto.MemberDTO;
 import com.cafe.megacoffee.member.repository.MemberMapper;
 import com.cafe.megacoffee.member.type.MemberType;
 import com.cafe.megacoffee.member.type.PermitStatus;

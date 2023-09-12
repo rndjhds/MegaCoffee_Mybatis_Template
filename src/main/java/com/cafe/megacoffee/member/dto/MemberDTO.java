@@ -1,4 +1,4 @@
-package com.cafe.megacoffee.member;
+package com.cafe.megacoffee.member.dto;
 
 import com.cafe.megacoffee.member.type.MemberType;
 import com.cafe.megacoffee.member.type.PermitStatus;

@@ -1,6 +1,6 @@
 package com.cafe.megacoffee.util.mailsender;
 
-import com.cafe.megacoffee.member.MemberDTO;
+import com.cafe.megacoffee.member.dto.MemberDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;

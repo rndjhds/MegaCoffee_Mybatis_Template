@@ -1,6 +1,6 @@
 package com.cafe.megacoffee.member.repository;
 
-import com.cafe.megacoffee.member.MemberDTO;
+import com.cafe.megacoffee.member.dto.MemberDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.sql.SQLIntegrityConstraintViolationException;
