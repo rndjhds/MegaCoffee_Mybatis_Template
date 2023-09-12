@@ -41,15 +41,12 @@
                     <option value=${category.categoryId}>${category.categoryName}</option>
                 </c:forEach>
             </select>
-            <label for="startDate">Start Date:</label>
-            <input type="date" id="startDate" name="startDate" style="border: 1px solid black">
-            <label for="endDate">End Date:</label>
-            <input type="date" id="endDate" name="endDate" style="border: 1px solid black">
-        </div>
-        <div class="right">
             <label for="category_name">Category Name:</label>
             <input type="text" id="category_name" name="category_name" style="border: 1px solid black">
             <button type="button" id="searchButton" style="border: 1px solid black">Search</button>
+        </div>
+        <div class="right">
+            <button type="button" id="addButton" style="border: 1px solid black" onclick="openInfo('')">New Category</button>
         </div>
 
     </form>
@@ -57,8 +54,9 @@
         <thead>
         <tr>
             <th>순서</th>
-            <th>대분류</th>
-            <th>중분류</th>
+            <th>상위 카테고리</th>
+            <th>하위 카테고리</th>
+            <th>수정</th>
         </tr>
         </thead>
         <tbody>
@@ -67,8 +65,9 @@
         <tfoot>
         <tr>
             <th>순서</th>
-            <th>대분류</th>
-            <th>중분류</th>
+            <th>상위 카테고리</th>
+            <th>하위 카테고리</th>
+            <th>수정</th>
         </tr>
         </tfoot>
     </table>
@@ -80,6 +79,7 @@
     $(document).ready(function () {
         let dataTable = $('#dataTable').DataTable({
             searching : false,
+            ordering: false,
             processing: true,
             serverSide: true,
             ajax:{
@@ -93,9 +93,20 @@
         columns: [
             {data: "rnum"},
             {data: "parentName"},
-            {data: "categoryName"}
+            {data: "categoryName"},
+            {data: "", render: function (data, type, row){
+                    return "<button id='btn_info' type='button' onClick='openInfo("+row.categoryId+")'>상세정보</button>";
+                }
+            }
+        ]
 
-        ],
+        // 컬럼들의 넓이 조절
+        /*columnDefs: [
+            { targets: 0, width: 100 },
+            { targets: 1, width: 150 },
+            { targets: 1, width: 180 },
+            { targets: 1, width: 100 }
+        ]*/
         /*dom: 'Bfrtip', // Add buttons for copy, csv, excel, pdf, and print
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
@@ -107,6 +118,10 @@
             dataTable.draw(); // Trigger a new DataTables request
         });
     });
+
+    function openInfo(categoryId) {
+        window.open("/category/saveChildCategory?categoryId="+categoryId, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=300,left=500,width=600,height=600");
+    }
 
 </script>
 </html>

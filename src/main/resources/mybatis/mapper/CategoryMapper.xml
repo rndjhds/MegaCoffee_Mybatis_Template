@@ -3,7 +3,7 @@
 
 <mapper namespace="com.cafe.megacoffee.category.repository.CategoryMapper">
 
-    <select id="findParentCategoryAll" resultType="com.cafe.megacoffee.category.controller.CategoryDTO">
+    <select id="findParentCategoryAll" resultType="com.cafe.megacoffee.category.dto.CategoryDTO">
         select
             category_id categoryId,
             NAME categoryName
@@ -13,7 +13,7 @@
             parent_id is null
     </select>
 
-    <select id="findChildCategoryById" parameterType="com.cafe.megacoffee.category.controller.CategoryDTO" resultType="com.cafe.megacoffee.category.controller.CategoryDTO">
+    <select id="findAllChildCategoryById" parameterType="com.cafe.megacoffee.category.dto.CategoryDTO" resultType="com.cafe.megacoffee.category.dto.CategoryDTO">
         select *
             from (
                 select
@@ -44,6 +44,7 @@
                     and
                         name like '%'|| #{categoryName} || '%'
                     </if>
+                    order by category_id desc
                     )
                     cate
                 )
@@ -51,7 +52,7 @@
                 rnum between ${pagination.start+1} and ${pagination.start + pagination.length}
     </select>
 
-    <select id="getTotalCount" parameterType="com.cafe.megacoffee.category.controller.CategoryDTO" resultType="int">
+    <select id="getTotalCount" parameterType="com.cafe.megacoffee.category.dto.CategoryDTO" resultType="int">
         select
             count(category_id)
         from
@@ -71,4 +72,43 @@
                 name like '%'|| #{categoryName} || '%'
         </if>
     </select>
+
+    <select id="findChildCategoryById" parameterType="Integer" resultType="com.cafe.megacoffee.category.dto.CategoryDTO">
+        select
+            category_id categoryId,
+            member_id memberId,
+            name categoryName,
+            parent_id parentId,
+            case
+                when parent_id = 1 then '음료'
+                when parent_id = 2 then '식품'
+                when parent_id = 3 then '상품'
+            end as parentName
+        from
+            category
+        where
+            category_id = #{categoryId}
+    </select>
+
+    <update id="save" parameterType="com.cafe.megacoffee.category.dto.CategoryDTO">
+        merge into
+            category cate
+        using
+            dual
+        on (cate.category_id = ${categoryId})
+        when
+            matched
+        then
+            update
+                set
+                    name = #{categoryName},
+                    parent_id = #{parentId}
+        when
+            not matched
+        then
+            insert
+                (cate.category_id, cate.name, cate.member_id, parent_id)
+            values
+                (category_seq.nextval,#{categoryName}, #{memberId}, #{parentId})
+    </update>
 </mapper>

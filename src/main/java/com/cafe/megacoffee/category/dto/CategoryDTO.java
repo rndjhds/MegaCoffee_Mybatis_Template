@@ -1,4 +1,4 @@
-package com.cafe.megacoffee.category.controller;
+package com.cafe.megacoffee.category.dto;
 
 import com.cafe.megacoffee.util.page.Pagination;
 
@@ -7,7 +7,7 @@ public class CategoryDTO {
 
     private int rnum;
 
-    private int categoryId;
+    private Integer categoryId;
 
     private String memberId;
 
@@ -35,11 +35,11 @@ public class CategoryDTO {
         this.rnum = rnum;
     }
 
-    public int getCategoryId() {
+    public Integer getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
 

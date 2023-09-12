@@ -1,16 +1,19 @@
 package com.cafe.megacoffee.category.repository;
 
-import com.cafe.megacoffee.category.controller.CategoryDTO;
+import com.cafe.megacoffee.category.dto.CategoryDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
-import java.util.Map;
 
 @Mapper
 public interface CategoryMapper {
     public List<CategoryDTO> findParentCategoryAll();
 
-    public List<CategoryDTO> findChildCategoryById(CategoryDTO categoryDTO);
+    public List<CategoryDTO> findAllChildCategoryById(CategoryDTO categoryDTO);
 
     public int getTotalCount(CategoryDTO categoryDTO);
+
+    public CategoryDTO findChildCategoryById(int categoryId);
+
+    public void save(CategoryDTO categoryDTO);
 }
