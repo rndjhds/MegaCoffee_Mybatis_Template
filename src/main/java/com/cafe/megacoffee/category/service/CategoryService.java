@@ -9,7 +9,7 @@ public interface CategoryService {
 
     public List<CategoryDTO> findAllChildCategoryById(CategoryDTO categoryDTO);
 
-    public int getTotalCount(CategoryDTO categoryDTO);
+    public int getChildCategoryTotalCount(CategoryDTO categoryDTO);
 
     public CategoryDTO findChildCategoryById(int categoryId);
 

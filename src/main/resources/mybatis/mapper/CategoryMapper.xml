@@ -60,7 +60,7 @@
                 rnum between ${pagination.start+1} and ${pagination.start + pagination.length}
     </select>
 
-    <select id="getTotalCount" parameterType="com.cafe.megacoffee.category.dto.CategoryDTO" resultType="int">
+    <select id="getChildCategoryTotalCount" parameterType="com.cafe.megacoffee.category.dto.CategoryDTO" resultType="int">
         select
             count(category_id)
         from
@@ -75,9 +75,17 @@
             and
                 parent_id is not null
         </if>
-        <if test="categoryName != null or categoryName != ''">
+        <if test="categoryName != null and categoryName neq ''">
             and
-                name like '%'|| #{categoryName} || '%'
+            name like '%'|| #{categoryName} || '%'
+        </if>
+        <if test="searchDate.startDate != null and searchDate.startDate neq ''">
+            and
+            to_char(reg_date, 'yyyy-MM-dd') <![CDATA[>=]]> #{searchDate.startDate}
+        </if>
+        <if test="searchDate.endDate != null and searchDate.endDate neq ''">
+            and
+            to_char(reg_date, 'yyyy-MM-dd') <![CDATA[<=]]> #{searchDate.endDate}
         </if>
     </select>
 

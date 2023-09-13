@@ -38,7 +38,7 @@ public class CategoryController {
         categoryDTO.setPagination(pagination);
         categoryDTO.setSearchDate(searchDate);
 
-        int totalCount = categoryService.getTotalCount(categoryDTO);
+        int totalCount = categoryService.getChildCategoryTotalCount(categoryDTO);
         List<CategoryDTO> data = categoryService.findAllChildCategoryById(categoryDTO);
 
         Map<String, Object> map = new HashMap<>();
