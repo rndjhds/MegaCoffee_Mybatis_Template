@@ -40,9 +40,17 @@
                     and
                         parent_id is not null
                     </if>
-                    <if test="categoryName != null or categoryName != ''">
+                    <if test="categoryName != null">
                     and
                         name like '%'|| #{categoryName} || '%'
+                    </if>
+                    <if test="searchDate.startDate != null">
+                        and
+                            to_char(reg_date, 'yyyy-MM-dd') <![CDATA[>=]]> #{searchDate.startDate}
+                    </if>
+                    <if test="searchDate.endDate != null">
+                        and
+                            to_char(reg_date, 'yyyy-MM-dd') <![CDATA[<=]]> #{searchDate.endDate}
                     </if>
                     order by category_id desc
                     )

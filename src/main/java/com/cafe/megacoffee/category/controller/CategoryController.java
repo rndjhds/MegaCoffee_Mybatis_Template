@@ -2,6 +2,7 @@ package com.cafe.megacoffee.category.controller;
 
 import com.cafe.megacoffee.category.dto.CategoryDTO;
 import com.cafe.megacoffee.category.service.CategoryService;
+import com.cafe.megacoffee.util.date.SearchDate;
 import com.cafe.megacoffee.util.page.Pagination;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -28,10 +29,13 @@ public class CategoryController {
 
     @PostMapping("/findCategory")
     @ResponseBody
-    public Map<String, Object> findCategoryById(CategoryDTO categoryDTO, Pagination pagination) {
+    public Map<String, Object> findCategoryById(CategoryDTO categoryDTO, Pagination pagination, SearchDate searchDate) {
         categoryDTO.setPagination(pagination);
+        categoryDTO.setSearchDate(searchDate);
+
         int totalCount = categoryService.getTotalCount(categoryDTO);
         List<CategoryDTO> data = categoryService.findAllChildCategoryById(categoryDTO);
+
         Map<String, Object> map = new HashMap<>();
         map.put("data", data);
         map.put("recordsFiltered", totalCount);
@@ -55,13 +59,6 @@ public class CategoryController {
         if (categoryDTO.getCategoryId() == null) {
             categoryDTO.setCategoryId(0);
         }
-
-        System.out.println("categoryId" + categoryDTO.getCategoryId());
-        System.out.println("category");
-        System.out.println("category");
-        System.out.println("category");
-        System.out.println("category");
-
         categoryService.save(categoryDTO);
         return "";
     }
