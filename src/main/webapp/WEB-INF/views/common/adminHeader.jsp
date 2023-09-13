@@ -55,7 +55,8 @@
             </li>
             <li><a href="#">카테고리</a>
                 <ul class="sub_nav">
-                    <li><a href="/category/manage">카테고리 관리</a></li>
+                    <li><a href="/category/parentCategory">상위 카테고리</a></li>
+                    <li><a href="/category/childCategory">하위 카테고리</a></li>
                 </ul>
             </li>
         </ul>
