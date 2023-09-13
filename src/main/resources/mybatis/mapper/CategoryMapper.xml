@@ -18,41 +18,39 @@
             from (
                 select
                     rowNum rnum,
-                    cate.category_id categoryId,
-                    cate.name categoryName,
-                    case
-                        when cate.parent_id = 1 then '음료'
-                        when cate.parent_id = 2 then '식품'
-                        when cate.parent_id = 3 then '상품'
-                    end as parentName
+                    cate.categoryId,
+                    cate.categoryName,
+                    cate.parentName
                 from (
                     select
-                        *
+                        child_cate.category_id categoryId,
+                        child_cate.name categoryName,
+                        parent_cate.name parentName
                     from
-                        category
+                        category parent_cate, category child_cate
                     where
-                        1=1
+                        parent_cate.category_id = child_cate.parent_id
                     <if test="parentId != 0">
                     and
-                        parent_id = #{parentId}
+                        child_cate.parent_id = #{parentId}
                     </if>
                     <if test="parentId == 0">
                     and
-                        parent_id is not null
+                        child_cate.parent_id is not null
                     </if>
                     <if test="categoryName != null and categoryName neq ''">
                     and
-                        name like '%'|| #{categoryName} || '%'
+                        child_cate.name like '%'|| #{categoryName} || '%'
                     </if>
                     <if test="searchDate.startDate != null and searchDate.startDate neq ''">
                         and
-                            to_char(reg_date, 'yyyy-MM-dd') <![CDATA[>=]]> #{searchDate.startDate}
+                            to_char(child_cate.reg_date, 'yyyy-MM-dd') <![CDATA[>=]]> #{searchDate.startDate}
                     </if>
                     <if test="searchDate.endDate != null and searchDate.endDate neq ''">
                         and
-                            to_char(reg_date, 'yyyy-MM-dd') <![CDATA[<=]]> #{searchDate.endDate}
+                            to_char(child_cate.reg_date, 'yyyy-MM-dd') <![CDATA[<=]]> #{searchDate.endDate}
                     </if>
-                    order by category_id desc
+                    order by child_cate.category_id desc
                     )
                     cate
                 )
