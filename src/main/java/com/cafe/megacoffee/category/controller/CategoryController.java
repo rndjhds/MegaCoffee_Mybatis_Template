@@ -20,11 +20,16 @@ public class CategoryController {
 
     private final CategoryService categoryService;
 
-    @GetMapping("/manage")
-    public String categoryManageView(Model model) {
+    @GetMapping("/parentCategory")
+    public String categoryParentView(Model model) {
+        return "/category/findParentCategory";
+    }
+
+    @GetMapping("/childCategory")
+    public String categoryChildView(Model model) {
         List<CategoryDTO> findCategory = categoryService.findParentCategoryAll();
         model.addAttribute("category", findCategory);
-        return "/category/findCategory";
+        return "/category/findChildCategory";
     }
 
     @PostMapping("/findCategory")
