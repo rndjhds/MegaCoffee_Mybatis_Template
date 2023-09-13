@@ -65,10 +65,7 @@ public class CategoryController {
         if (categoryDTO.getCategoryId() == null) {
             categoryDTO.setCategoryId(0);
         }
-        int result = categoryService.save(categoryDTO);
-        System.out.println("result = " + result);
-
-        return result;
+        return categoryService.save(categoryDTO);
     }
 
 
