@@ -3,7 +3,7 @@
 
 <mapper namespace="com.cafe.megacoffee.category.repository.CategoryMapper">
 
-    <select id="findParentCategoryAll" resultType="com.cafe.megacoffee.category.dto.CategoryDTO">
+    <select id="getParentCategoryAll" resultType="com.cafe.megacoffee.category.dto.CategoryDTO">
         select
             category_id categoryId,
             NAME categoryName
@@ -87,17 +87,12 @@
         </if>
     </select>
 
-    <select id="findChildCategoryById" parameterType="Integer" resultType="com.cafe.megacoffee.category.dto.CategoryDTO">
+    <select id="findCategoryById" parameterType="Integer" resultType="com.cafe.megacoffee.category.dto.CategoryDTO">
         select
             category_id categoryId,
             member_id memberId,
             name categoryName,
-            parent_id parentId,
-            case
-                when parent_id = 1 then '음료'
-                when parent_id = 2 then '식품'
-                when parent_id = 3 then '상품'
-            end as parentName
+            parent_id parentId
         from
             category
         where
@@ -115,14 +110,106 @@
         then
             update
                 set
-                    name = #{categoryName},
-                    parent_id = #{parentId}
+                    <choose>
+                        <when test="parentId != null and parentId neq ''">
+                            parent_id = #{parentId},
+                        </when>
+                        <otherwise>
+                            parent_id = null,
+                        </otherwise>
+                    </choose>
+                    name = #{categoryName}
         when
             not matched
         then
-            insert
-                (cate.category_id, cate.name, cate.member_id, parent_id)
-            values
-                (category_seq.nextval,#{categoryName}, #{memberId}, #{parentId})
+        <choose>
+            <when test="parentId != null and parentId neq ''">
+                insert
+                    (cate.category_id, cate.name, cate.member_id, parent_id)
+                values
+                    (category_seq.nextval,#{categoryName}, #{memberId}, #{parentId})
+            </when>
+            <otherwise>
+                insert
+                    (cate.category_id, cate.name, cate.member_id, parent_id)
+                values
+                    (category_seq.nextval,#{categoryName}, #{memberId}, null)
+            </otherwise>
+        </choose>
+
     </update>
+
+    <select id="getParentCategoryTotalCount" parameterType="com.cafe.megacoffee.category.dto.CategoryDTO" resultType="int">
+        select
+            count(category_id)
+        from
+            category
+        where
+            parent_id is null
+        <if test='deleteYN != null and deleteYN neq ""'>
+            <if test='deleteYN eq "N"'>
+                and delete_yn = 'N'
+            </if>
+            <if test='deleteYN eq "Y"'>
+                and delete_yn = 'Y'
+            </if>
+        </if>
+        <if test="categoryName != null and categoryName neq ''">
+        and
+            name like '%'|| #{categoryName} || '%'
+        </if>
+        <if test="searchDate.startDate != null and searchDate.startDate neq ''">
+        and
+            to_char(reg_date, 'yyyy-MM-dd') <![CDATA[>=]]> #{searchDate.startDate}
+        </if>
+        <if test="searchDate.endDate != null and searchDate.endDate neq ''">
+        and
+            to_char(reg_date, 'yyyy-MM-dd') <![CDATA[<=]]> #{searchDate.endDate}
+        </if>
+    </select>
+
+    <select id="findParentCategoryAll" parameterType="com.cafe.megacoffee.category.dto.CategoryDTO" resultType="com.cafe.megacoffee.category.dto.CategoryDTO">
+        select
+            *
+        from (
+            select
+                rowNum rnum,
+                cate.categoryId,
+                cate.categoryName
+            from (
+                select
+                    category_id categoryId,
+                    name categoryName
+                from
+                    category
+                where
+                    parent_id is null
+                <if test='deleteYN != null and deleteYN neq ""'>
+                    <if test='deleteYN eq "N"'>
+                        and delete_yn = 'N'
+                    </if>
+                    <if test='deleteYN eq "Y"'>
+                        and delete_yn = 'Y'
+                    </if>
+                </if>
+                <if test="categoryName != null and categoryName neq ''">
+                and
+                    name like '%'|| #{categoryName} || '%'
+                </if>
+                <if test="searchDate.startDate != null and searchDate.startDate neq ''">
+                and
+                    to_char(reg_date, 'yyyy-MM-dd') <![CDATA[>=]]> #{searchDate.startDate}
+                </if>
+                <if test="searchDate.endDate != null and searchDate.endDate neq ''">
+                and
+                    to_char(reg_date, 'yyyy-MM-dd') <![CDATA[<=]]> #{searchDate.endDate}
+                </if>
+                order by category_id desc
+            )
+            cate
+            )
+        where
+            rnum between ${pagination.start+1} and ${pagination.start + pagination.length}
+    </select>
+
 </mapper>

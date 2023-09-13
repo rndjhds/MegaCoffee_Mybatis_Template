@@ -25,10 +25,25 @@ public class CategoryController {
         return "/category/findParentCategory";
     }
 
+    @PostMapping("/findParentCategoryAll")
+    @ResponseBody
+    public Map<String, Object> findParentCategoryAll(CategoryDTO categoryDTO, Pagination pagination, SearchDate searchDate) {
+        categoryDTO.setPagination(pagination);
+        categoryDTO.setSearchDate(searchDate);
+        int totalCount = categoryService.getParentCategoryTotalCount(categoryDTO);
+        List<CategoryDTO> data = categoryService.findParentCategoryAll(categoryDTO);
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("data", data);
+        map.put("recordsFiltered", totalCount);
+        map.put("recordsTotal", totalCount);
+        return map;
+    }
+
     @GetMapping("/childCategory")
     public String categoryChildView(Model model) {
-        List<CategoryDTO> findCategory = categoryService.findParentCategoryAll();
-        model.addAttribute("category", findCategory);
+        List<CategoryDTO> findParentCategory = categoryService.getParentCategoryAll();
+        model.addAttribute("category", findParentCategory);
         return "/category/findChildCategory";
     }
 
@@ -51,21 +66,31 @@ public class CategoryController {
     @GetMapping("/saveChildCategory")
     public String saveChildCategory(@RequestParam(value = "categoryId", required = false) Integer categoryId, Model model) {
         if (categoryId != null) {
-            CategoryDTO findChildCategory = categoryService.findChildCategoryById(categoryId);
+            CategoryDTO findChildCategory = categoryService.findCategoryById(categoryId);
             model.addAttribute("category", findChildCategory);
         }
-        List<CategoryDTO> findParentCategory = categoryService.findParentCategoryAll();
+        List<CategoryDTO> findParentCategory = categoryService.getParentCategoryAll();
         model.addAttribute("parentCategory", findParentCategory);
         return "/category/saveChildCateogry";
     }
 
-    @PostMapping("/saveChildCategory")
+    @PostMapping("/saveCategory")
     @ResponseBody
     public int save(@RequestBody CategoryDTO categoryDTO) {
+        System.out.println("categoryDTO.parent_id = " +categoryDTO.getParentId());
         if (categoryDTO.getCategoryId() == null) {
             categoryDTO.setCategoryId(0);
         }
         return categoryService.save(categoryDTO);
+    }
+
+    @GetMapping("/saveParentCategory")
+    public String saveParentCategory(@RequestParam(value = "categoryId", required = false) Integer categoryId, Model model) {
+        if (categoryId != null) {
+            CategoryDTO findParentCategory = categoryService.findCategoryById(categoryId);
+            model.addAttribute("category", findParentCategory);
+        }
+        return "/category/saveParentCategory";
     }
 
 

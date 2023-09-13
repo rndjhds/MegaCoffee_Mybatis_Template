@@ -41,18 +41,7 @@
                 <input type="hidden" id="categoryId" name="categoryId" value=${category.categoryId}>
                 <input type="hidden" id="memberId" name="memberId" readonly value="${sessionScope.member.memberId}">
                 <fieldset>
-                    <label for="parentId">상위 카테고리
-                        <select id="parentId" name="parentId" style="width: 150px; height: 30px;">
-                            <option value="">전체</option>
-                            <c:forEach var="parentCategory" items="${parentCategory}">
-                                <option value=${parentCategory.categoryId}
-                                <c:if test ="${category.parentId eq parentCategory.categoryId}">selected="selected"</c:if>>
-                                        ${parentCategory.categoryName}
-                                </option>
-                            </c:forEach>
-                        </select>
-                    </label>
-                    <label for="categoryName">하위 카테고리
+                    <label for="categoryName">상위 카테고리
                         <input type="text" id="categoryName" name="categoryName" value="${category.categoryName}">
                     </label>
                 </fieldset>
@@ -75,17 +64,11 @@
             rules: {
                 categoryName: {
                     required: true
-                },
-                parentId: {
-                    required: true
                 }
             },
             messages: {
                 categoryName: {
-                    required: "하위 카테고리를 입력해야 합니다."
-                },
-                parentId: {
-                    required: "상위 카테고리를 선택해주세요."
+                    required: "카테고리를 입력해야 합니다."
                 }
             },
             submitHandler: function () {
@@ -97,12 +80,11 @@
                     data: JSON.stringify({
                         categoryId: $("#categoryId").val(),
                         memberId: $("#memberId").val(),
-                        parentId: $("select[name='parentId']").val(),
                         categoryName: $("#categoryName").val()
                     }),
                     success: function (data) {
-                            alert("정상적으로 완료되었습니다");
-                            window.close();
+                        alert("정상적으로 완료되었습니다");
+                        window.close();
                     },
                     error: function () {
                         alert("정상적으로 완료하지 못하였습니다.");

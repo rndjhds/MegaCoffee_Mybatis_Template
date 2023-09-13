@@ -9,13 +9,13 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class CategoryServiceImpl implements CategoryService{
+public class CategoryServiceImpl implements CategoryService {
 
     private final CategoryMapper categoryMapper;
 
     @Override
-    public List<CategoryDTO> findParentCategoryAll() {
-        return categoryMapper.findParentCategoryAll();
+    public List<CategoryDTO> getParentCategoryAll() {
+        return categoryMapper.getParentCategoryAll();
     }
 
     @Override
@@ -29,12 +29,22 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public CategoryDTO findChildCategoryById(int categoryId) {
-        return categoryMapper.findChildCategoryById(categoryId);
+    public CategoryDTO findCategoryById(Integer categoryId) {
+        return categoryMapper.findCategoryById(categoryId);
     }
 
     @Override
     public int save(CategoryDTO categoryDTO) {
         return categoryMapper.save(categoryDTO);
+    }
+
+    @Override
+    public int getParentCategoryTotalCount(CategoryDTO categoryDTO) {
+        return categoryMapper.getParentCategoryTotalCount(categoryDTO);
+    }
+
+    @Override
+    public List<CategoryDTO> findParentCategoryAll(CategoryDTO categoryDTO) {
+        return categoryMapper.findParentCategoryAll(categoryDTO);
     }
 }

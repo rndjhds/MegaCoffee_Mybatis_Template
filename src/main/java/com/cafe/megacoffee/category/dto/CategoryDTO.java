@@ -10,7 +10,7 @@ public class CategoryDTO {
     private Integer categoryId;
     private String memberId;
     private String categoryName;
-    private int parentId;
+    private Integer parentId;
     private String regDate;
     private String deleteYN;
     private String parentName;
@@ -49,11 +49,11 @@ public class CategoryDTO {
         this.categoryName = categoryName;
     }
 
-    public int getParentId() {
+    public Integer getParentId() {
         return parentId;
     }
 
-    public void setParentId(int parentId) {
+    public void setParentId(Integer parentId) {
         this.parentId = parentId;
     }
 
