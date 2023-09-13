@@ -34,7 +34,7 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public void save(CategoryDTO categoryDTO) {
-        categoryMapper.save(categoryDTO);
+    public int save(CategoryDTO categoryDTO) {
+        return categoryMapper.save(categoryDTO);
     }
 }

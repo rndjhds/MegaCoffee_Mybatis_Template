@@ -15,5 +15,5 @@ public interface CategoryMapper {
 
     public CategoryDTO findChildCategoryById(int categoryId);
 
-    public void save(CategoryDTO categoryDTO);
+    public int save(CategoryDTO categoryDTO);
 }

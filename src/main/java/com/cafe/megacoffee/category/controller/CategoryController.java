@@ -60,12 +60,16 @@ public class CategoryController {
     }
 
     @PostMapping("/saveChildCategory")
-    public String save(CategoryDTO categoryDTO) {
+    @ResponseBody
+    public int save(@RequestBody CategoryDTO categoryDTO) {
         if (categoryDTO.getCategoryId() == null) {
             categoryDTO.setCategoryId(0);
         }
-        categoryService.save(categoryDTO);
-        return "";
+        int result = categoryService.save(categoryDTO);
+        System.out.println("result = " + result);
+
+        return result;
     }
+
 
 }

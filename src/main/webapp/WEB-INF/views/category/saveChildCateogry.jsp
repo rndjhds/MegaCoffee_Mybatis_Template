@@ -37,8 +37,8 @@
     </section>
     <section class="content3">
         <div class="left">
-            <form action="/category/saveChildCategory" method="post">
-                <input type="hidden" name="categoryId" value=${category.categoryId}>
+            <form>
+                <input type="hidden" id="categoryId" name="categoryId" value=${category.categoryId}>
                 <input type="hidden" id="memberId" name="memberId" readonly value="${sessionScope.member.memberId}">
                 <fieldset>
                     <label for="parentId">상위 카테고리
@@ -89,8 +89,25 @@
                 }
             },
             submitHandler: function () {
-                $('form').submit();
-                window.close();
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/category/saveChildCategory",
+                    contentType: "application/json; charset-utf-8",
+                    type: "POST",
+                    dataType: "json",
+                    data: JSON.stringify({
+                        categoryId: $("#categoryId").val(),
+                        memberId: $("#memberId").val(),
+                        parentId: $("select[name='parentId']").val(),
+                        categoryName: $("#categoryName").val()
+                    }),
+                    success: function (data) {
+                            alert("정상적으로 완료되었습니다");
+                            window.close();
+                    },
+                    error: function () {
+                        alert("정상적으로 완료하지 못하였습니다.");
+                    }
+                });
             }
         });
     });
