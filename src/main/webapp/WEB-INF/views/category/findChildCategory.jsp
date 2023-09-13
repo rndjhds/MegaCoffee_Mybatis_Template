@@ -45,8 +45,8 @@
             <input type="date" id="startDate" name="startDate" style="border: 1px solid black">
             <label for="endDate">End Date:</label>
             <input type="date" id="endDate" name="endDate" style="border: 1px solid black">
-            <label for="category_name">Category Name:</label>
-            <input type="text" id="category_name" name="category_name" style="border: 1px solid black">
+            <label for="categoryName">Category Name:</label>
+            <input type="text" id="categoryName" name="categoryName" style="border: 1px solid black">
             <button type="button" id="searchButton" style="border: 1px solid black">Search</button>
         </div>
         <div class="right">
@@ -91,7 +91,7 @@
             type: 'POST',
             data: function (d) {
                 d.parentId = $("select[name='parentId']").val();
-                d.categoryName = $("#category_name").val();
+                d.categoryName = $("#categoryName").val();
                 d.startDate = $("#startDate").val();
                 d.endDate = $("#endDate").val();
             },
