@@ -27,6 +27,7 @@ dependencies {
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.1'
     implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
     implementation 'javax.servlet:jstl'
+    implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
     implementation group: 'org.webjars', name: 'jquery', version: '3.5.1'
     compileOnly 'org.projectlombok:lombok'
     compileOnly("org.springframework.boot:spring-boot-devtools")
