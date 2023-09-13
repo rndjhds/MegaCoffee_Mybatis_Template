@@ -87,7 +87,7 @@
             processing: true,
             serverSide: true,
             ajax:{
-            url: '/category/findCategory',
+            url: '/category/findChildCategoryAll',
             type: 'POST',
             data: function (d) {
                 d.parentId = $("select[name='parentId']").val();

@@ -32,9 +32,9 @@ public class CategoryController {
         return "/category/findChildCategory";
     }
 
-    @PostMapping("/findCategory")
+    @PostMapping("/findChildCategoryAll")
     @ResponseBody
-    public Map<String, Object> findCategoryById(CategoryDTO categoryDTO, Pagination pagination, SearchDate searchDate) {
+    public Map<String, Object> findChildCategoryAllById(CategoryDTO categoryDTO, Pagination pagination, SearchDate searchDate) {
         categoryDTO.setPagination(pagination);
         categoryDTO.setSearchDate(searchDate);
 
