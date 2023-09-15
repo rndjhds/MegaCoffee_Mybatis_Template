@@ -2,9 +2,16 @@ package com.cafe.megacoffee.member.dto;
 
 import com.cafe.megacoffee.member.type.MemberType;
 import com.cafe.megacoffee.member.type.PermitStatus;
+import com.cafe.megacoffee.util.page.Pagination;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 
 public class MemberDTO {
 
+    private int rnum;
     private String memberId; // 회원 아이디
 
     private String password; // 비밀번호
@@ -21,71 +28,9 @@ public class MemberDTO {
 
     private String deleteYN; // 삭제 여부
 
-    public String getMemberId() {
-        return memberId;
-    }
+    private Pagination pagination;
 
-    private void setMemberId(String memberId) {
-        this.memberId = memberId;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    private void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    private void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    private void setEmail(String email) {
-        this.email = email;
-    }
-
-    public MemberType getMemberType() {
-        return memberType;
-    }
-
-    private void setMemberType(MemberType memberType) {
-        this.memberType = memberType;
-    }
-
-    public PermitStatus getPermitStatus() {
-        return permitStatus;
-    }
-
-    private void setPermitStatus(PermitStatus permitStatus) {
-        this.permitStatus = permitStatus;
-    }
-
-    public int getMemberPoint() {
-        return memberPoint;
-    }
-
-    public void setMemberPoint(int memberPoint) {
-        this.memberPoint = memberPoint;
-    }
-
-    public String getDeleteYN() {
-        return deleteYN;
-    }
-
-    private void setDeleteYN(String deleteYN) {
-        this.deleteYN = deleteYN;
-    }
-
-    public void changeMemberStatus(MemberType memberType, PermitStatus permitStatus){
+    public void changeMemberStatus(MemberType memberType, PermitStatus permitStatus) {
         this.memberType = memberType;
         this.permitStatus = permitStatus;
     }
@@ -97,6 +42,6 @@ public class MemberDTO {
     }
 
     public void chargePoint(int totalPrice) {
-        this.memberPoint = totalPrice/100*3;
+        this.memberPoint = totalPrice / 100 * 3;
     }
 }

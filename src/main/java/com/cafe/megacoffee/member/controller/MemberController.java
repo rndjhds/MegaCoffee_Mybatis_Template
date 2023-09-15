@@ -2,11 +2,17 @@ package com.cafe.megacoffee.member.controller;
 
 import com.cafe.megacoffee.member.dto.MemberDTO;
 import com.cafe.megacoffee.member.service.MemberService;
+import com.cafe.megacoffee.member.type.MemberType;
+import com.cafe.megacoffee.util.page.Pagination;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
@@ -63,5 +69,25 @@ public class MemberController {
     @GetMapping("/admin")
     public String adminLoginView() {
         return "/member/adminLogin";
+    }
+
+    @GetMapping("/memberList")
+    public String memberList() {
+        return "/member/memberList";
+    }
+
+    @PostMapping("/findAllMember")
+    @ResponseBody
+    public Map<String, Object> findAllMember(MemberDTO memberDTO, Pagination pagination) {
+        memberDTO.setPagination(pagination);
+        List<MemberDTO> members = memberService.findAllMember(memberDTO);
+        int resultTotalCount = memberService.findAllMemberCount(memberDTO);
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("data", members);
+        map.put("recordsFiltered", resultTotalCount);
+        map.put("recordsTotal", resultTotalCount);
+
+        return map;
     }
 }

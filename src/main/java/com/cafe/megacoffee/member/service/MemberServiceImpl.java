@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -57,12 +58,22 @@ public class MemberServiceImpl implements MemberService {
 
         try {
             findMember = memberMapper.findMemberById(memberDTO);
-        }catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             log.debug("회원 유형 또는 승인여부가 등록되지 않은 데이터입니다.");
             e.printStackTrace();
         } catch (Exception e) {
             log.debug("찾는 회원이 없습니다.");
         }
         return findMember;
+    }
+
+    @Override
+    public List<MemberDTO> findAllMember(MemberDTO memberDTO) {
+        return memberMapper.findAllMember(memberDTO);
+    }
+
+    @Override
+    public int findAllMemberCount(MemberDTO memberDTO) {
+        return memberMapper.findAllMemberCount(memberDTO);
     }
 }

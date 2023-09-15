@@ -50,5 +50,76 @@
             delete_yn = 'N'
     </select>
 
+    <select id="findAllMember" parameterType="com.cafe.megacoffee.member.dto.MemberDTO" resultType="com.cafe.megacoffee.member.dto.MemberDTO">
+        select
+            *
+        from (
+            select
+                rowNum rnum,
+                member.*
+            from (
+                select
+                    member_id memberID,
+                    username,
+                    email,
+                    member_type memberType,
+                    permit_status permitStatus,
+                    delete_yn deleteYN
+                from
+                    member
+                where
+                    member_type != 'ADMIN'
+                <if test="memberType.name() neq 'NONE'">
+                    and
+                        member_type = #{memberType}
+                </if>
+                <if test="permitStatus.name() neq 'NONE'">
+                    and
+                        permit_status = #{permitStatus}
+                </if>
+                <if test='deleteYN != null and deleteYN neq ""'>
+                    <if test='deleteYN eq "N"'>
+                        and delete_yn = 'N'
+                    </if>
+                    <if test='deleteYN eq "Y"'>
+                        and delete_yn = 'Y'
+                    </if>
+                </if>
+                <if test="username != null and username neq ''">
+                    and username like '%'|| #{username} || '%'
+                </if>
+                 ) member
+            )
+            where
+                rnum between ${pagination.start+1} and ${pagination.start + pagination.length}
+    </select>
+
+    <select id="findAllMemberCount" parameterType="com.cafe.megacoffee.member.dto.MemberDTO" resultType="int">
+        select
+            count(member_id)
+        from
+            member
+        where
+            member_type != 'ADMIN'
+        <if test="memberType.name() neq 'NONE'">
+            and
+            member_type = #{memberType}
+        </if>
+        <if test="permitStatus.name() neq 'NONE'">
+            and
+                permit_status = #{permitStatus}
+        </if>
+        <if test='deleteYN != null and deleteYN neq ""'>
+            <if test='deleteYN eq "N"'>
+                and delete_yn = 'N'
+            </if>
+            <if test='deleteYN eq "Y"'>
+                and delete_yn = 'Y'
+            </if>
+        </if>
+        <if test="username != null and username neq ''">
+            and username like '%'|| #{username} || '%'
+        </if>
+    </select>
 
 </mapper>

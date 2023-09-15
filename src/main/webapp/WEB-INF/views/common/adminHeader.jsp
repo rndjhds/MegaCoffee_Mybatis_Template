@@ -24,6 +24,7 @@
                     <li><a href="#">브랜드</a></li>
                     <li><a href="#">BI</a></li>
                     <li><a href="./map.html">오시는길</a></li>
+                    <li><a href="/member/memberList">회원관리</a></li>
                 </ul>
             </li>
             <li><a href="/menu/menuView">메뉴소개</a>
