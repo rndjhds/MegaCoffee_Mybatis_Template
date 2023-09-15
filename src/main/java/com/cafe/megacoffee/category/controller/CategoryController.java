@@ -77,7 +77,6 @@ public class CategoryController {
     @PostMapping("/saveCategory")
     @ResponseBody
     public int save(@RequestBody CategoryDTO categoryDTO) {
-        System.out.println("categoryDTO.parent_id = " +categoryDTO.getParentId());
         if (categoryDTO.getCategoryId() == null) {
             categoryDTO.setCategoryId(0);
         }
