@@ -26,11 +26,11 @@
                     <li><a href="./map.html">오시는길</a></li>
                 </ul>
             </li>
-            <li><a href="/menu/menuView">메뉴소개</a>
+            <li><a href="/item/menuView">메뉴소개</a>
                 <ul class="sub_nav">
-                    <li><a href="/menu/drinkView">음료</a></li>
-                    <li><a href="/menu/foodView">푸드</a></li>
-                    <li><a href="/menu/productView">상품</a></li>
+                    <li><a href="/item/drinkView">음료</a></li>
+                    <li><a href="/item/foodView">푸드</a></li>
+                    <li><a href="/item/productView">상품</a></li>
                 </ul>
             </li>
             <li><a href="./map.html">매장</a>

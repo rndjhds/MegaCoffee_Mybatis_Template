@@ -24,9 +24,9 @@
                 음료와 잘 어울리는 <em>다양한 디저트</em>
             </p>
             <div class="listbtn">
-                <a href="/menu/drinkView">음료</a>
-                <a href="/menu/foodView">푸드</a>
-                <a href="/menu/productView">상품</a>
+                <a href="/item/drinkView">음료</a>
+                <a href="/item/foodView">푸드</a>
+                <a href="/item/productView">상품</a>
             </div>
         </div>
     </section>
@@ -38,7 +38,7 @@
                 <em>깊고 부드러운 커피 맛의 비밀</em><br>
                 행복을 선사하는 다양한 음료
             </p>
-            <a href="/menu/drinkView">음료 보러가기</a>
+            <a href="/item/drinkView">음료 보러가기</a>
         </div>
         <span class="bar"></span>
     </section>
@@ -50,7 +50,7 @@
                 <em>음료와 잘 어울리는</em><br>
                 다양한 디저트
             </p>
-            <a href="/menu/foodView">푸드 보러가기</a>
+            <a href="/item/foodView">푸드 보러가기</a>
         </div>
         <span class="bar"></span>
     </section>
@@ -62,7 +62,7 @@
                 <em>MEGA</em><br>
                 DAILY GOODS
             </p>
-            <a href="/menu/productView">상품 보러가기</a>
+            <a href="/item/productView">상품 보러가기</a>
         </div>
         <span class="bar"></span>
     </section>
