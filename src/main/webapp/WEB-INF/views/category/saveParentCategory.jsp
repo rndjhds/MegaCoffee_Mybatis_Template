@@ -7,7 +7,7 @@
     <meta name="keywords" content="">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../resources/statics/style/saveMenu.css">
+    <link rel="stylesheet" href="../../resources/statics/style/saveCategory.css">
     <link rel="stylesheet" href="../../resources/statics/style/reset.css">
     <script src="../webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
@@ -44,13 +44,13 @@
                     <label for="categoryName">상위 카테고리
                         <input type="text" id="categoryName" name="categoryName" value="${category.categoryName}">
                     </label>
+                    <c:if test="${not empty category}">
+                        <button type="submit" class="btn">수정</button>
+                    </c:if>
+                    <c:if test="${empty category}">
+                        <button type="submit" class="btn">저장</button>
+                    </c:if>
                 </fieldset>
-                <c:if test="${not empty category}">
-                    <button type="submit">수정</button>
-                </c:if>
-                <c:if test="${empty category}">
-                    <button type="submit">저장</button>
-                </c:if>
             </form>
         </div>
     </section>

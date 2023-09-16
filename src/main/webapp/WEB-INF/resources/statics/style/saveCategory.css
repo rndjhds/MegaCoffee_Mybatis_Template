@@ -1,6 +1,6 @@
 main {}
 main .content1 {
-    background: url(../img/fanning-tseng-adfYYUkJnIg-unsplash.jpg) center no-repeat;
+    background: url(../shop_img/img.png) center no-repeat;
     background-size: cover;
 }
 main .content1 div {
@@ -63,7 +63,6 @@ main .content1 div p:nth-child(2) {
 .content3 .left form fieldset label {
     font-size: 1.875rem; font-weight: 700; letter-spacing: -0.02em;
     margin-bottom: 50px; width: 1000px; text-align: center;
-    color: #fff;
 }
 .content3 .left form fieldset label:last-child{margin-bottom: 0;}
 .content3 .left form fieldset label input {
@@ -75,7 +74,7 @@ main .content1 div p:nth-child(2) {
     border-right: 3px solid #969696;
     border-radius: 20px; padding:0 40px;
 }
-.content3 .left form fieldset #options {
+.content3 .left form fieldset #parentId {
     border-style: none;
     width: 200px; padding: 10px 0;
     border-radius: 18px;
@@ -83,7 +82,7 @@ main .content1 div p:nth-child(2) {
     border-right: 3px solid #969696;
     margin-bottom: 20px;
 }
-.content3 .left form fieldset #options option {}
+.content3 .left form fieldset #parentId option {}
 .content3 .left form fieldset .btn {
     width: 200px; padding: 10px; transition: all 0.5s linear;
 }

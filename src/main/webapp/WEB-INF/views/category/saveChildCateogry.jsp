@@ -7,7 +7,7 @@
     <meta name="keywords" content="">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../resources/statics/style/saveMenu.css">
+    <link rel="stylesheet" href="../../resources/statics/style/saveCategory.css">
     <link rel="stylesheet" href="../../resources/statics/style/reset.css">
     <script src="../webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
@@ -41,8 +41,8 @@
                 <input type="hidden" id="categoryId" name="categoryId" value=${category.categoryId}>
                 <input type="hidden" id="memberId" name="memberId" readonly value="${sessionScope.member.memberId}">
                 <fieldset>
-                    <label for="parentId">상위 카테고리
-                        <select id="parentId" name="parentId" style="width: 150px; height: 30px;">
+                    <label for="parentId">상위 카테고리</label>
+                        <select id="parentId" name="parentId">
                             <option value="">전체</option>
                             <c:forEach var="parentCategory" items="${parentCategory}">
                                 <option value=${parentCategory.categoryId}
@@ -51,17 +51,16 @@
                                 </option>
                             </c:forEach>
                         </select>
-                    </label>
                     <label for="categoryName">하위 카테고리
                         <input type="text" id="categoryName" name="categoryName" value="${category.categoryName}">
                     </label>
+                    <c:if test="${not empty category}">
+                        <button type="submit" class="btn">수정</button>
+                    </c:if>
+                    <c:if test="${empty category}">
+                        <button type="submit" class="btn">저장</button>
+                    </c:if>
                 </fieldset>
-                <c:if test="${not empty category}">
-                    <button type="submit">수정</button>
-                </c:if>
-                <c:if test="${empty category}">
-                    <button type="submit">저장</button>
-                </c:if>
             </form>
         </div>
     </section>
