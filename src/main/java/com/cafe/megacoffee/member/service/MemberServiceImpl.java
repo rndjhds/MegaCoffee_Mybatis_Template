@@ -76,4 +76,19 @@ public class MemberServiceImpl implements MemberService {
     public int findAllMemberCount(MemberDTO memberDTO) {
         return memberMapper.findAllMemberCount(memberDTO);
     }
+
+    @Override
+    public List<MemberDTO> findPermitStatusWaitMember(MemberDTO memberDTO) {
+        return memberMapper.findPermitStatusWaitMember(memberDTO);
+    }
+
+    @Override
+    public int findPermitStatusWaitMemberCount(MemberDTO memberDTO) {
+        return memberMapper.findPermitStatusWaitMemberCount(memberDTO);
+    }
+
+    @Override
+    public int updatePermitStatusToWait(MemberDTO memberDTO) {
+        return memberMapper.updatePermitStatusToWait(memberDTO);
+    }
 }

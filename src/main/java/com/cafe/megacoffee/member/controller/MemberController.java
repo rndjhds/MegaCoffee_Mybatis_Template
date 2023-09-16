@@ -3,6 +3,7 @@ package com.cafe.megacoffee.member.controller;
 import com.cafe.megacoffee.member.dto.MemberDTO;
 import com.cafe.megacoffee.member.service.MemberService;
 import com.cafe.megacoffee.member.type.MemberType;
+import com.cafe.megacoffee.member.type.PermitStatus;
 import com.cafe.megacoffee.util.page.Pagination;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -89,5 +90,36 @@ public class MemberController {
         map.put("recordsTotal", resultTotalCount);
 
         return map;
+    }
+
+    @GetMapping("/accessManager")
+    public String accessManager() {
+        return "/member/accessManager";
+    }
+
+    @PostMapping("/findPermitStatusWaitMember")
+    @ResponseBody
+    public Map<String, Object> findPermitStatusWaitMember(MemberDTO memberDTO, Pagination pagination) {
+        memberDTO.setPagination(pagination);
+        List<MemberDTO> members = memberService.findPermitStatusWaitMember(memberDTO);
+        int resultTotalCount = memberService.findPermitStatusWaitMemberCount(memberDTO);
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("data", members);
+        map.put("recordsFiltered", resultTotalCount);
+        map.put("recordsTotal", resultTotalCount);
+        return map;
+    }
+
+    @PostMapping("/updatePermitStatusToWait")
+    @ResponseBody
+    public int updatePermitStatusToWait(@RequestParam(value = "memberId", required = false) String memberId) {
+        System.out.println("memberId = " + memberId);
+        MemberDTO memberDTO = new MemberDTO();
+        memberDTO.setMemberId(memberId);
+        memberDTO.setPermitStatus(PermitStatus.ACCESS);
+        memberDTO.setMemberType(MemberType.MANAGER);
+        int result = memberService.updatePermitStatusToWait(memberDTO);
+        return result;
     }
 }

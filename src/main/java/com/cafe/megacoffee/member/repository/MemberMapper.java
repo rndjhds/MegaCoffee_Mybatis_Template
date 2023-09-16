@@ -19,4 +19,10 @@ public interface MemberMapper {
     public List<MemberDTO> findAllMember(MemberDTO memberDTO);
 
     public int findAllMemberCount(MemberDTO memberDTO);
+
+    public List<MemberDTO> findPermitStatusWaitMember(MemberDTO memberDTO);
+
+    public int findPermitStatusWaitMemberCount(MemberDTO memberDTO);
+
+    public int updatePermitStatusToWait(MemberDTO memberDTO);
 }

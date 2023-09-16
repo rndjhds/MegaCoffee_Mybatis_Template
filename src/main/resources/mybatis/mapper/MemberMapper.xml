@@ -122,4 +122,62 @@
         </if>
     </select>
 
+    <select id="findPermitStatusWaitMember" parameterType="com.cafe.megacoffee.member.dto.MemberDTO" resultType="com.cafe.megacoffee.member.dto.MemberDTO">
+        select
+            *
+        from (
+            select
+            rowNum rnum,
+            member.*
+            from (
+                select
+                    member_id memberID,
+                    username,
+                    email,
+                    member_type memberType,
+                    permit_status permitStatus,
+                    delete_yn deleteYN
+                from
+                    member
+                where
+                    member_type = 'BUYER'
+                and
+                    delete_yn = 'N'
+                and
+                    permit_status = 'WAIT'
+                <if test="username != null and username neq ''">
+                    and username like '%'|| #{username} || '%'
+                </if>
+            ) member
+        )
+        where
+            rnum between ${pagination.start+1} and ${pagination.start + pagination.length}
+    </select>
+
+    <select id="findPermitStatusWaitMemberCount" parameterType="com.cafe.megacoffee.member.dto.MemberDTO" resultType="int">
+        select
+            count(member_id)
+        from
+            member
+        where
+            member_type = 'BUYER'
+        and
+            delete_yn = 'N'
+        and
+            permit_status = 'WAIT'
+        <if test="username != null and username neq ''">
+            and username like '%'|| #{username} || '%'
+        </if>
+    </select>
+
+    <update id="updatePermitStatusToWait" parameterType="com.cafe.megacoffee.member.dto.MemberDTO">
+        update
+            member
+        set
+            permit_status = #{permitStatus},
+            member_type = #{memberType}
+        where
+            member_id = #{memberId}
+    </update>
+
 </mapper>
