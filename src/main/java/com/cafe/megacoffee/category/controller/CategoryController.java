@@ -92,5 +92,10 @@ public class CategoryController {
         return "/category/saveParentCategory";
     }
 
+    @PostMapping("/getHeaderCategory")
+    @ResponseBody
+    public List<CategoryDTO> getHeaderCategory() {
+        return categoryService.getParentCategoryAll();
+    }
 
 }
