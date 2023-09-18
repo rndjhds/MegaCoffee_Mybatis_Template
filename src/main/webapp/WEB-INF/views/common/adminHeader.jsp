@@ -26,11 +26,11 @@
                 </ul>
             </li>
             <li><a href="/menu/menuView">메뉴</a>
-                <ul class="sub_nav">
-                    <li><a href="/menu/drinkView">메뉴 관리</a></li>
+                <ul class="sub_nav" id="menu">
+                    <%--<li><a href="/menu/drinkView">메뉴 관리</a></li>
                     <li><a href="/menu/drinkView">음료</a></li>
                     <li><a href="/menu/foodView">푸드</a></li>
-                    <li><a href="/menu/productView">상품</a></li>
+                    <li><a href="/menu/productView">상품</a></li>--%>
                 </ul>
             </li>
             <li><a href="./map.html">매장</a>
@@ -68,5 +68,22 @@
 </header>
 
 <script src="../../resources/statics/js/index.js"></script>
+<script>
+
+    $.ajax({
+        url: "${pageContext.request.contextPath}/category/getHeaderCategory",
+        type: "POST",
+        dataType: "json",
+        success: function (data) {
+            for (let i = 0; i < data.length; i++) {
+                $("#menu").append('<li><a href="/menu/drinkView/' + data[i].categoryId + '">' + data[i].categoryName + '</a></li>');
+            }
+        },
+        error: function () {
+            alert("에러");
+        }
+    });
+
+</script>
 </body>
 </html>
