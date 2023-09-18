@@ -47,4 +47,9 @@ public class CategoryServiceImpl implements CategoryService {
     public List<CategoryDTO> findParentCategoryAll(CategoryDTO categoryDTO) {
         return categoryMapper.findParentCategoryAll(categoryDTO);
     }
+
+    @Override
+    public List<CategoryDTO> findChildCategoryByParentId(Integer categoryId) {
+        return categoryMapper.findChildCategoryByParentId(categoryId);
+    }
 }

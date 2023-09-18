@@ -20,4 +20,6 @@ public interface CategoryMapper {
     public int getParentCategoryTotalCount(CategoryDTO categoryDTO);
 
     public List<CategoryDTO> findParentCategoryAll(CategoryDTO categoryDTO);
+
+    public List<CategoryDTO> findChildCategoryByParentId(Integer categoryId);
 }

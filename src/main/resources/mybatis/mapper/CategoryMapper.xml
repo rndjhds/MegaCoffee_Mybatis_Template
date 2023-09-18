@@ -212,4 +212,14 @@
             rnum between ${pagination.start+1} and ${pagination.start + pagination.length}
     </select>
 
+    <select id="findChildCategoryByParentId" parameterType="Integer" resultType="com.cafe.megacoffee.category.dto.CategoryDTO">
+        select
+            category_id categoryId,
+            name categoryName
+        from
+            category
+        where
+            parent_id = #{categoryId}
+    </select>
+
 </mapper>
