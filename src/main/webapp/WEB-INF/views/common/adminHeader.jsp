@@ -38,6 +38,7 @@
             <li><a href="./map.html">매장</a>
                 <ul class="sub_nav">
                     <li><a href="./map.html">매장 찾기</a></li>
+                    <li><a href="./map.html">매장 조회</a></li>
                 </ul>
             </li>
             <li><a href="#">창업안내</a>
