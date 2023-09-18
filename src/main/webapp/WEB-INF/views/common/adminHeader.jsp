@@ -21,15 +21,13 @@
         <ul class="main_nav">
             <li><a href="#">회원</a>
                 <ul class="sub_nav">
-                    <li><a href="#">브랜드</a></li>
-                    <li><a href="#">BI</a></li>
-                    <li><a href="./map.html">오시는길</a></li>
                     <li><a href="/member/memberList">회원리스트</a></li>
                     <li><a href="/member/accessManager">가맹점주 승인</a></li>
                 </ul>
             </li>
-            <li><a href="/menu/menuView">메뉴소개</a>
+            <li><a href="/menu/menuView">메뉴</a>
                 <ul class="sub_nav">
+                    <li><a href="/menu/drinkView">메뉴 관리</a></li>
                     <li><a href="/menu/drinkView">음료</a></li>
                     <li><a href="/menu/foodView">푸드</a></li>
                     <li><a href="/menu/productView">상품</a></li>
@@ -37,8 +35,7 @@
             </li>
             <li><a href="./map.html">매장</a>
                 <ul class="sub_nav">
-                    <li><a href="./map.html">매장 찾기</a></li>
-                    <li><a href="./map.html">매장 조회</a></li>
+                    <li><a href="/store/List">매장 관리</a></li>
                 </ul>
             </li>
             <li><a href="#">창업안내</a>
