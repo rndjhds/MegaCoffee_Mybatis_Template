@@ -76,7 +76,7 @@
         dataType: "json",
         success: function (data) {
             for (let i = 0; i < data.length; i++) {
-                $("#menu").append('<li><a href="/menu/drinkView/' + data[i].categoryId + '">' + data[i].categoryName + '</a></li>');
+                $("#menu").append('<li><a href="/item/manageItemList/' + data[i].categoryId + '">' + data[i].categoryName + '</a></li>');
             }
         },
         error: function () {
