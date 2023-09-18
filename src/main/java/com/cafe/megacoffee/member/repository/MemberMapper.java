@@ -25,4 +25,6 @@ public interface MemberMapper {
     public int findPermitStatusWaitMemberCount(MemberDTO memberDTO);
 
     public int updatePermitStatusToWait(MemberDTO memberDTO);
+
+    public List<MemberDTO> findMemberStatusByManager();
 }

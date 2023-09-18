@@ -91,4 +91,9 @@ public class MemberServiceImpl implements MemberService {
     public int updatePermitStatusToWait(MemberDTO memberDTO) {
         return memberMapper.updatePermitStatusToWait(memberDTO);
     }
+
+    @Override
+    public List<MemberDTO> findMemberStatusByManager() {
+        return memberMapper.findMemberStatusByManager();
+    }
 }

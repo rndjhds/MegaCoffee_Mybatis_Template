@@ -180,4 +180,15 @@
             member_id = #{memberId}
     </update>
 
+    <select id="findMemberStatusByManager" resultType="com.cafe.megacoffee.member.dto.MemberDTO">
+        select
+            member_id memberId,
+            username
+        from
+            member
+        where
+            member_type = 'MANAGER'
+        and
+            delete_yn = 'N'
+    </select>
 </mapper>
