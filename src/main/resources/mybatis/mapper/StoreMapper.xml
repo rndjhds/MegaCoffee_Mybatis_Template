@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cafe.megacoffee.store.repository.StoreMapper">
+
+    <select id="getTotalCount" parameterType="com.cafe.megacoffee.store.dto.StoreDTO" resultType="int">
+        select
+            count(store_id)
+f       from
+            store
+        where
+            1=1
+        <if test='deleteYN != null and deleteYN neq ""'>
+            <if test='deleteYN eq "N"'>
+                and delete_yn = 'N'
+            </if>
+            <if test='deleteYN eq "Y"'>
+                and delete_yn = 'Y'
+            </if>
+        </if>
+        <if test="storeName != null and storeName neq ''">
+            and
+            store_name like '%'|| #{storeName} || '%'
+        </if>
+        <if test="memberId != null and memberId neq ''">
+            and
+            member_id like '%'|| #{memberId} || '%'
+        </if>
+        <if test="searchDate.startDate != null and searchDate.startDate neq ''">
+            and
+            to_char(reg_date, 'yyyy-MM-dd') <![CDATA[>=]]> #{searchDate.startDate}
+        </if>
+        <if test="searchDate.endDate != null and searchDate.endDate neq ''">
+            and
+            to_char(reg_date, 'yyyy-MM-dd') <![CDATA[<=]]> #{searchDate.endDate}
+        </if>
+    </select>
+
+    <select id="findStoreAll" parameterType="com.cafe.megacoffee.store.dto.StoreDTO" resultType="com.cafe.megacoffee.store.dto.StoreDTO">
+        select
+            *
+        from (
+            select
+                rowNum rnum,
+                store.*
+            from (
+                select
+                    store_id storeId,
+                    store_name storeName,
+                    member_id memberId,
+                    zipcode,
+                    address,
+                    address_detail addressDetail,
+                    delete_yn deleteYN,
+                    register,
+                    to_char(reg_date, 'yyyy-MM-dd') regDate,
+                    case
+                        when modifier is null then '수정자 없음'
+                        else modifier
+                    end  as modifier
+                from
+                    store
+                where
+                    1=1
+                <if test='deleteYN != null and deleteYN neq ""'>
+                    <if test='deleteYN eq "N"'>
+                    and
+                        delete_yn = 'N'
+                    </if>
+                    <if test='deleteYN eq "Y"'>
+                    and
+                        delete_yn = 'Y'
+                    </if>
+                </if>
+                <if test="storeName != null and storeName neq ''">
+                    and
+                        store_name like '%'|| #{storeName} || '%'
+                </if>
+                <if test="memberId != null and memberId neq ''">
+                    and
+                        member_id like '%'|| #{memberId} || '%'
+                </if>
+                <if test="searchDate.startDate != null and searchDate.startDate neq ''">
+                    and
+                        to_char(reg_date, 'yyyy-MM-dd') <![CDATA[>=]]> #{searchDate.startDate}
+                </if>
+                <if test="searchDate.endDate != null and searchDate.endDate neq ''">
+                    and
+                        to_char(reg_date, 'yyyy-MM-dd') <![CDATA[<=]]> #{searchDate.endDate}
+                </if>
+                order by store_id desc
+                   )
+                store
+             )
+        where
+        rnum between ${pagination.start+1} and ${pagination.start + pagination.length}
+    </select>
+
+    <select id="findStoreById" parameterType="Integer" resultType="com.cafe.megacoffee.store.dto.StoreDTO">
+        select
+            store_id storeId,
+            store_name storeName,
+            address,
+            zipcode,
+            address_detail addressDetail,
+            delete_yn deleteYN,
+            member_id memberId
+        from
+            store
+        where
+            store_id = #{storeId}
+
+    </select>
+
+    <update id="saveStore" parameterType="com.cafe.megacoffee.store.dto.StoreDTO">
+        merge into
+            store store
+        using
+            dual
+        on (store.store_id = ${storeId})
+        when matched
+            then
+                update set
+                    modifier = #{register},
+                    store_name = #{storeName},
+                    zipcode = #{zipcode},
+                    address = #{address},
+                    address_detail = #{addressDetail},
+                    member_id = #{memberId},
+                    delete_yn = #{deleteYN},
+                    mod_date = sysdate
+        when not matched
+            then
+                insert
+                    (
+                    store.store_id,
+                    store.store_name,
+                    store.register,
+                    store.zipcode,
+                    store.address,
+                    store.address_detail,
+                    store.member_id,
+                    store.delete_yn
+                    )
+                values
+                    (
+                     store_seq.nextval,
+                     #{storeName},
+                     #{register},
+                     #{zipcode},
+                     #{address},
+                     #{addressDetail},
+                     #{memberId},
+                     #{deleteYN}
+                    )
+    </update>
+
+</mapper>

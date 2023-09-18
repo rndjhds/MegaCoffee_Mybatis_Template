@@ -5,6 +5,7 @@
     <mappers>
         <mapper resource="MemberMapper.xml"/>
         <mapper resource="CategoryMapper.xml"/>
+        <mapper resource="StoreMapper.xml"/>
     </mappers>
 
 </configuration>
