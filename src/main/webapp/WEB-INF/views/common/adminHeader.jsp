@@ -19,7 +19,7 @@
     <h1><a href="indexte.html"><img src="../../resources/statics/test_img/header_logo.png" alt=""></a></h1>
     <nav>
         <ul class="main_nav">
-            <li><a href="#">메가스토리</a>
+            <li><a href="#">회원</a>
                 <ul class="sub_nav">
                     <li><a href="#">브랜드</a></li>
                     <li><a href="#">BI</a></li>
