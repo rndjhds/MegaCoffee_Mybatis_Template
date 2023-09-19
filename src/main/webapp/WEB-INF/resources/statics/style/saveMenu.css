@@ -43,7 +43,7 @@ main .content1 div p:nth-child(2) {
 /* =========================================================== */
 .content3 {
     display: flex;
-    width: 1205px; margin:0 auto;
+    width: 100%; margin:0 auto;
     padding: 100px 0; justify-content: center;
 }
 .content3 .left {
@@ -77,3 +77,17 @@ main .content1 div p:nth-child(2) {
     width: 520px; height: 400px; margin-top: 20px;
     font-size: 1.25rem;
 }
+.content3 .left form fieldset #parentId {
+    border-style: none;
+    width: 200px; padding: 10px 0;
+    border-radius: 18px;
+    border-bottom: 3px solid #969696;
+    border-right: 3px solid #969696;
+    margin-bottom: 20px;
+}
+.content3 .left form fieldset #parentId option {}
+.content3 .left form fieldset .btn {
+    width: 200px; padding: 10px; transition: all 0.5s linear;
+}
+.content3 .left form fieldset .btn:hover {width: 250px; border-radius: 50px 5px 50px 5px;}
+.content3 .left form fieldset .btn img {width: 100%;}

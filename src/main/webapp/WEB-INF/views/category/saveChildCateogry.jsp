@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../resources/statics/style/saveCategory.css">
     <link rel="stylesheet" href="../../resources/statics/style/reset.css">
-    <script src="../webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
     <title>하위 카테고리등록</title>
 </head>
