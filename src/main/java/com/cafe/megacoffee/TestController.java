@@ -8,6 +8,6 @@ public class TestController {
 
     @GetMapping("/")
     public String main() {
-        return "index";
+        return "/common/adminHeader";
     }
 }

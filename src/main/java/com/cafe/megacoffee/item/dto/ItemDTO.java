@@ -1,8 +1,16 @@
 package com.cafe.megacoffee.item.dto;
 
-import com.cafe.megacoffee.item.type.ItemType;
+import com.cafe.megacoffee.util.date.SearchDate;
+import com.cafe.megacoffee.util.page.Pagination;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
+@Getter
+@Setter
 public class ItemDTO {
+
+    private int rnum;
 
     private Integer itemId;
 
@@ -16,71 +24,25 @@ public class ItemDTO {
 
     private String title;
 
-    private ItemType itemType;
-
     private Integer categoryId;
 
-    public Integer getItemId() {
-        return itemId;
-    }
+    private String categoryName;
 
-    public void setItemId(Integer itemId) {
-        this.itemId = itemId;
-    }
+    private String regDate;
 
-    public int getPrice() {
-        return price;
-    }
+    private String modDate;
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
+    private String modifier;
 
-    public String getMemberId() {
-        return memberId;
-    }
+    private String deleteYN;
 
-    public void setMemberId(String memberId) {
-        this.memberId = memberId;
-    }
+    private Integer parentCategoryId;
 
-    public String getContent() {
-        return content;
-    }
+    private MultipartFile uploadImg;
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+    private Pagination pagination;
 
-    public String getImg() {
-        return img;
-    }
+    private SearchDate searchDate;
 
-    public void setImg(String img) {
-        this.img = img;
-    }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public ItemType getItemType() {
-        return itemType;
-    }
-
-    public void setItemType(ItemType itemType) {
-        this.itemType = itemType;
-    }
-
-    public Integer getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
-    }
 }

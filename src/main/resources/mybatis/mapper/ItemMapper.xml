@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cafe.megacoffee.item.repository.ItemMapper">
+
+    <select id="findItemByCategoryId" parameterType="com.cafe.megacoffee.item.dto.ItemDTO" resultType="com.cafe.megacoffee.item.dto.ItemDTO">
+        select
+            *
+        from (
+            select
+                rownum rnum,
+                item.*
+            from (
+                select
+                    item.item_id itemId,
+                    item.title,
+                    item.content,
+                    item.price,
+                    item.img,
+                    category.name categoryName,
+                    item.member_id memberId,
+                    item.reg_date regDate,
+                    item.modifier,
+                    item.mod_date modDate
+                from
+                    item inner join category on item.category_id = category.category_id
+                where
+                    category.parent_id = #{parentCategoryId}
+                <if test="categoryId != null">
+                    and item.category_id = #{categoryId}
+                </if>
+                <if test='deleteYN != null and deleteYN neq ""'>
+                    <if test='deleteYN eq "N"'>
+                        and item.delete_yn = 'N'
+                    </if>
+                    <if test='deleteYN eq "Y"'>
+                        and item.delete_yn = 'Y'
+                    </if>
+                </if>
+                <if test="title != null and title neq ''">
+                    and
+                    item.title like '%'|| #{title} || '%'
+                </if>
+                <if test="searchDate.startDate != null and searchDate.startDate neq ''">
+                    and
+                    to_char(item.reg_date, 'yyyy-MM-dd') <![CDATA[>=]]> #{searchDate.startDate}
+                </if>
+                <if test="searchDate.endDate != null and searchDate.endDate neq ''">
+                    and
+                    to_char(item.reg_date, 'yyyy-MM-dd') <![CDATA[<=]]> #{searchDate.endDate}
+                </if>
+                order by item.item_id desc
+                 )
+            item
+             )
+        where
+            rnum between ${pagination.start+1} and ${pagination.start + pagination.length}
+    </select>
+
+    <select id="findItemCountByCategoryId" parameterType="com.cafe.megacoffee.item.dto.ItemDTO" resultType="int">
+        select
+            count(item.item_id)
+        from
+            item inner join category on item.category_id = category.category_id
+        where
+            category.parent_id = #{parentCategoryId}
+            <if test="categoryId != null">
+                and item.category_id = #{categoryId}
+            </if>
+            <if test='deleteYN != null and deleteYN neq ""'>
+                <if test='deleteYN eq "N"'>
+                    and item.delete_yn = 'N'
+                </if>
+                <if test='deleteYN eq "Y"'>
+                    and item.delete_yn = 'Y'
+                </if>
+            </if>
+            <if test="title != null and title neq ''">
+                and
+                item.title like '%'|| #{title} || '%'
+            </if>
+            <if test="searchDate.startDate != null and searchDate.startDate neq ''">
+                and
+                to_char(item.reg_date, 'yyyy-MM-dd') <![CDATA[>=]]> #{searchDate.startDate}
+            </if>
+            <if test="searchDate.endDate != null and searchDate.endDate neq ''">
+                and
+                to_char(item.reg_date, 'yyyy-MM-dd') <![CDATA[<=]]> #{searchDate.endDate}
+            </if>
+    </select>
+
+    <select id="findItemById" parameterType="Integer" resultType="com.cafe.megacoffee.item.dto.ItemDTO">
+        select
+            category_id categoryId,
+            title,
+            price,
+            content
+        from
+            item
+        where
+            item_id = #{itemId}
+    </select>
+
+    <insert id="saveItem" parameterType="com.cafe.megacoffee.item.dto.ItemDTO">
+        insert into
+            item(
+                 item_id,
+                 price,
+                 content,
+                 img,
+                 title,
+                 delete_yn,
+                 member_id,
+                 category_id
+                 )
+        values(
+               item_seq.nextval,
+               #{price},
+               #{content},
+               #{img},
+               #{title},
+               'N',
+               #{memberId},
+               #{categoryId})
+    </insert>
+</mapper>
