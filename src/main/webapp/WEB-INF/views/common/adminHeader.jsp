@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../resources/statics/style/reset.css">
     <link rel="stylesheet" href="../../resources/statics/style/index.css">
-    <script src="../webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
     <title>푸드 | 메가커피</title>
 </head>
 <body>
@@ -71,7 +71,7 @@
 <script>
 
     $.ajax({
-        url: "${pageContext.request.contextPath}/category/getHeaderCategory",
+        url: "/category/getHeaderCategory",
         type: "POST",
         dataType: "json",
         success: function (data) {
