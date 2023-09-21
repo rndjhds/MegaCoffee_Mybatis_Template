@@ -58,7 +58,7 @@
             <button type="button" id="searchButton" style="border: 1px solid black">Search</button>
         </div>
         <div class="right">
-            <button type="button" id="addButton" style="border: 1px solid black" onclick="openInfo('')">New Category
+            <button type="button" id="addButton" style="border: 1px solid black" onclick="openInfo()">New Category
             </button>
         </div>
 
@@ -68,9 +68,9 @@
         <tr>
             <th>순서</th>
             <th>상품명</th>
+            <th>상품이미지</th>
             <th>상품내용</th>
             <th>상품가격</th>
-            <th>상품이미지</th>
             <th>상품 카테고리</th>
             <th>등록자</th>
             <th>등록일</th>
@@ -87,9 +87,9 @@
         <tr>
             <th>순서</th>
             <th>상품명</th>
+            <th>상품이미지</th>
             <th>상품내용</th>
             <th>상품가격</th>
-            <th>상품이미지</th>
             <th>상품 카테고리</th>
             <th>등록자</th>
             <th>등록일</th>
@@ -126,11 +126,13 @@
             columns: [
                 {data: "rnum"},
                 {data: "title"},
+                {
+                    data: "", render: function (data, type, row) {
+                        return "<img src='${pageContext.request.contextPath}/resources/statics/img/" + row.img + "' style='width:100px'>";
+                    }
+                },
                 {data: "content"},
                 {data: "price"},
-                {data: "", render: function (data,type,row) {
-                    return "<img src=" + row.img + ">";
-                    }},
                 {data: "categoryName"},
                 {data: "memberId"},
                 {data: "regDate"},
@@ -167,8 +169,8 @@
         });
     });
 
-    function openInfo(itemId) {
-        window.open("/item/createItemForm/" + $("#parentCategoryId").val() + "?itemId=" + itemId, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=300,left=250,width=1200,height=600");
+    function openInfo() {
+        window.open("/item/createItemForm/" + $("#parentCategoryId").val(), "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=300,left=250,width=1200,height=600");
     }
 
 
