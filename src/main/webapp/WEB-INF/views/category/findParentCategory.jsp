@@ -58,8 +58,13 @@
         <thead>
         <tr>
             <th>순서</th>
-            <th>카테고리</th>
-            <th>수정</th>
+            <th>상위 카테고리명</th>
+            <th>등록자</th>
+            <th>등록일</th>
+            <th>수정자</th>
+            <th>수정일</th>
+            <th>삭제 여부</th>
+            <th>수정 버튼</th>
         </tr>
         </thead>
         <tbody>
@@ -68,8 +73,13 @@
         <tfoot>
         <tr>
             <th>순서</th>
-            <th>카테고리</th>
-            <th>수정</th>
+            <th>상위 카테고리명</th>
+            <th>등록자</th>
+            <th>등록일</th>
+            <th>수정자</th>
+            <th>수정일</th>
+            <th>삭제 여부</th>
+            <th>수정 버튼</th>
         </tr>
         </tfoot>
     </table>
@@ -97,6 +107,11 @@
             columns: [
                 {data: "rnum"},
                 {data: "categoryName"},
+                {data: "memberId"},
+                {data: "regDate"},
+                {data: "modifier"},
+                {data: "modDate"},
+                {data: "deleteYN"},
                 {data: "", render: function (data, type, row){
                         return "<button id='btn_info' type='button' onClick='openInfo("+row.categoryId+")'>상세정보</button>";
                     }

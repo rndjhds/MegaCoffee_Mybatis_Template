@@ -77,8 +77,9 @@ public class CategoryController {
     @PostMapping("/saveCategory")
     @ResponseBody
     public int save(@RequestBody CategoryDTO categoryDTO) {
-        if (categoryDTO.getCategoryId() == null) {
+        if (categoryDTO.getCategoryId() == null && categoryDTO.getDeleteYN() == null) {
             categoryDTO.setCategoryId(0);
+            categoryDTO.setDeleteYN("N");
         }
         return categoryService.save(categoryDTO);
     }

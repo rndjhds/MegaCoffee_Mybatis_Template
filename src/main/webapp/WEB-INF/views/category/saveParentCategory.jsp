@@ -38,12 +38,20 @@
     <section class="content3">
         <div class="left">
             <form>
+                <input type="hidden" id="deleteChk" value="${category.deleteYN}">
                 <input type="hidden" id="categoryId" name="categoryId" value=${category.categoryId}>
                 <input type="hidden" id="memberId" name="memberId" readonly value="${sessionScope.member.memberId}">
                 <fieldset>
                     <label for="categoryName">상위 카테고리
                         <input type="text" id="categoryName" name="categoryName" value="${category.categoryName}">
                     </label>
+                    <c:if test="${category.categoryId != null}">
+                        <label>삭제 여부</label>
+                        <select id="deleteYN" name="deleteYN">
+                            <option value="N">삭제X</option>
+                            <option value="Y">삭제</option>
+                        </select>
+                    </c:if>
                     <c:if test="${not empty category}">
                         <button type="submit" class="btn">수정</button>
                     </c:if>
@@ -60,15 +68,26 @@
 <script>
 
     $(document).ready(function () {
+        let deleteChk = $("#deleteChk").val();
+        if (deleteChk != null && deleteChk != "") {
+            $("#deleteYN").val(deleteChk).prop("selected", true);
+        }
+
         $("form").validate({
             rules: {
                 categoryName: {
+                    required: true
+                },
+                deleteYN: {
                     required: true
                 }
             },
             messages: {
                 categoryName: {
                     required: "카테고리를 입력해야 합니다."
+                },
+                deleteYN: {
+                    required: "삭제여부를 선택해야 합니다."
                 }
             },
             submitHandler: function () {
@@ -79,6 +98,7 @@
                     dataType: "json",
                     data: JSON.stringify({
                         categoryId: $("#categoryId").val(),
+                        deleteYN: $("select[name='deleteYN']").val(),
                         memberId: $("#memberId").val(),
                         categoryName: $("#categoryName").val()
                     }),

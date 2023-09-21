@@ -92,7 +92,8 @@
             category_id categoryId,
             member_id memberId,
             name categoryName,
-            parent_id parentId
+            parent_id parentId,
+            delete_yn deleteYN
         from
             category
         where
@@ -118,7 +119,10 @@
                             parent_id = null,
                         </otherwise>
                     </choose>
-                    name = #{categoryName}
+                    name = #{categoryName},
+                    delete_yn = #{deleteYN},
+                    modifier = #{memberId},
+                    mod_date = sysdate
         when
             not matched
         then
@@ -175,11 +179,21 @@
             select
                 rowNum rnum,
                 cate.categoryId,
-                cate.categoryName
+                cate.categoryName,
+                cate.memberId,
+                cate.regDate,
+                cate.modifier,
+                cate.modDate,
+                cate.deleteYN
             from (
                 select
                     category_id categoryId,
-                    name categoryName
+                    name categoryName,
+                    member_id memberId,
+                    to_char(reg_date,'yyyy/MM/dd') regDate,
+                    modifier,
+                    to_char(mod_date, 'yyyy/MM/dd') modDate,
+                    delete_yn deleteYN
                 from
                     category
                 where
