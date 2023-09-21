@@ -79,8 +79,8 @@
                     </label>
                     <label for="deleteYN">삭제 여부</label>
                     <select id="deleteYN" name="deleteYN">
-                        <option value="Y">삭제</option>
                         <option value="N">삭제X</option>
+                        <option value="Y">삭제</option>
                     </select>
                     <c:if test="${not empty store}">
                         <button type="submit" class="btn">수정</button>
