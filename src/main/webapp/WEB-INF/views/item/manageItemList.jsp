@@ -148,15 +148,23 @@
                         return "<button id='btn_info' type='button' onClick='openInfo(" + row.itemId + ")'>이미지변경</button>";
                     }
                 }
-            ]
+            ],
 
             // 컬럼들의 넓이 조절
-            /*columnDefs: [
-                { targets: 0, width: 100 },
-                { targets: 1, width: 150 },
-                { targets: 1, width: 180 },
-                { targets: 1, width: 100 }
-            ]*/
+            columnDefs: [
+                { targets: 0, width: 50 },
+                { targets: 1, width: 120 },
+                { targets: 2, width: 100 },
+                { targets: 3, width: 500 },
+                { targets: 4, width: 80 },
+                { targets: 5, width: 120 },
+                { targets: 6, width: 80 },
+                { targets: 7, width: 100 },
+                { targets: 8, width: 80 },
+                { targets: 9, width: 100 },
+                { targets: 10, width: 100 },
+                { targets: 11, width: 100 }
+            ]
             /*dom: 'Bfrtip', // Add buttons for copy, csv, excel, pdf, and print
             buttons: [
                 'copy', 'csv', 'excel', 'pdf', 'print'
