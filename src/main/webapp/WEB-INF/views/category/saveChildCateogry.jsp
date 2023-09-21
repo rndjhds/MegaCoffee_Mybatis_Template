@@ -38,6 +38,7 @@
     <section class="content3">
         <div class="left">
             <form>
+                <input type="hidden" id="deleteChk" value="${category.deleteYN}">
                 <input type="hidden" id="categoryId" name="categoryId" value=${category.categoryId}>
                 <input type="hidden" id="memberId" name="memberId" readonly value="${sessionScope.member.memberId}">
                 <fieldset>
@@ -54,6 +55,13 @@
                     <label for="categoryName">하위 카테고리
                         <input type="text" id="categoryName" name="categoryName" value="${category.categoryName}">
                     </label>
+                    <c:if test="${category.categoryId != null}">
+                        <label>삭제 여부</label>
+                        <select id="deleteYN" name="deleteYN">
+                            <option value="N">삭제X</option>
+                            <option value="Y">삭제</option>
+                        </select>
+                    </c:if>
                     <c:if test="${not empty category}">
                         <button type="submit" class="btn">수정</button>
                     </c:if>
@@ -70,6 +78,11 @@
 <script>
 
     $(document).ready(function () {
+        let deleteChk = $("#deleteChk").val();
+        if (deleteChk != null && deleteChk != "") {
+            $("#deleteYN").val(deleteChk).prop("selected", true);
+        }
+
         $("form").validate({
             rules: {
                 categoryName: {
@@ -94,6 +107,7 @@
                     type: "POST",
                     dataType: "json",
                     data: JSON.stringify({
+                        deleteYN: $("select[name='deleteYN']").val(),
                         categoryId: $("#categoryId").val(),
                         memberId: $("#memberId").val(),
                         parentId: $("select[name='parentId']").val(),

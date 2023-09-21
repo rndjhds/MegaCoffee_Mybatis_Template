@@ -20,16 +20,34 @@
                     rowNum rnum,
                     cate.categoryId,
                     cate.categoryName,
-                    cate.parentName
+                    cate.parentName,
+                    cate.memberId,
+                    cate.regDate,
+                    cate.modifier,
+                    cate.modDate,
+                    cate.deleteYN
                 from (
                     select
                         child_cate.category_id categoryId,
                         child_cate.name categoryName,
-                        parent_cate.name parentName
+                        parent_cate.name parentName,
+                        child_cate.member_id memberId,
+                        to_char(child_cate.reg_date,'yyyy/MM/dd') regDate,
+                        child_cate.modifier,
+                        to_char(child_cate.mod_date,'yyyy/MM/dd') modDate,
+                        child_cate.delete_yn deleteYN
                     from
                         category parent_cate, category child_cate
                     where
                         parent_cate.category_id = child_cate.parent_id
+                    <if test='deleteYN != null and deleteYN neq ""'>
+                        <if test='deleteYN eq "N"'>
+                            and child_cate.delete_yn = 'N'
+                        </if>
+                        <if test='deleteYN eq "Y"'>
+                            and child_cate.delete_yn = 'Y'
+                        </if>
+                    </if>
                     <if test="parentId != 0">
                     and
                         child_cate.parent_id = #{parentId}
@@ -65,6 +83,14 @@
             category
         where
         1=1
+        <if test='deleteYN != null and deleteYN neq ""'>
+            <if test='deleteYN eq "N"'>
+                and delete_yn = 'N'
+            </if>
+            <if test='deleteYN eq "Y"'>
+                and delete_yn = 'Y'
+            </if>
+        </if>
         <if test="parentId != 0">
             and
                 parent_id = #{parentId}

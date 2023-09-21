@@ -35,6 +35,13 @@
 <main style="padding-top: 150px">
     <form id="searchForm">
         <div class="left">
+            <label for="deleteYN">삭제 여부</label>
+            <select name="deleteYN" id="deleteYN">
+                <option value=''>전체</option>
+                <option value='Y'>삭제완료</option>
+                <option value='N'>삭제완료X</option>
+            </select>
+            <label for="parentId">상위 카테고리</label>
             <select name="parentId" id="parentId">
                 <option value=0>전체</option>
                 <c:forEach var="category" items="${category}">
@@ -58,9 +65,14 @@
         <thead>
         <tr>
             <th>순서</th>
-            <th>상위 카테고리</th>
-            <th>하위 카테고리</th>
-            <th>수정</th>
+            <th>상위 카테고리명</th>
+            <th>하위 카테고리명</th>
+            <th>등록자</th>
+            <th>등록일</th>
+            <th>수정자</th>
+            <th>수정일</th>
+            <th>삭제 여부</th>
+            <th>수정 버튼</th>
         </tr>
         </thead>
         <tbody>
@@ -69,9 +81,14 @@
         <tfoot>
         <tr>
             <th>순서</th>
-            <th>상위 카테고리</th>
-            <th>하위 카테고리</th>
-            <th>수정</th>
+            <th>상위 카테고리명</th>
+            <th>하위 카테고리명</th>
+            <th>등록자</th>
+            <th>등록일</th>
+            <th>수정자</th>
+            <th>수정일</th>
+            <th>삭제 여부</th>
+            <th>수정 버튼</th>
         </tr>
         </tfoot>
     </table>
@@ -90,6 +107,7 @@
             url: '/category/findChildCategoryAll',
             type: 'POST',
             data: function (d) {
+                d.deleteYN = $("select[name='deleteYN']").val();
                 d.parentId = $("select[name='parentId']").val();
                 d.categoryName = $("#categoryName").val();
                 d.startDate = $("#startDate").val();
@@ -100,6 +118,11 @@
             {data: "rnum"},
             {data: "parentName"},
             {data: "categoryName"},
+            {data: "memberId"},
+            {data: "regDate"},
+            {data: "modifier"},
+            {data: "modDate"},
+            {data: "deleteYN"},
             {data: "", render: function (data, type, row){
                     return "<button id='btn_info' type='button' onClick='openInfo("+row.categoryId+")'>상세정보</button>";
                 }
