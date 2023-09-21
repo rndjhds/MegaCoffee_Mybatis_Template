@@ -127,7 +127,7 @@
             // 컬럼들의 넓이 조절
             columnDefs: [
                 { targets: 0, width: 50 },
-                { targets: 1, width: 100 },
+                { targets: 1, width: 150 },
                 { targets: 1, width: 80 },
                 { targets: 1, width: 100 },
                 { targets: 1, width: 80 },
