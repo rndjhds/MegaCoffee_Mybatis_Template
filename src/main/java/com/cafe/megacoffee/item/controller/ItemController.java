@@ -3,10 +3,9 @@ package com.cafe.megacoffee.item.controller;
 import com.cafe.megacoffee.category.dto.CategoryDTO;
 import com.cafe.megacoffee.category.service.CategoryService;
 import com.cafe.megacoffee.item.dto.ItemDTO;
-import com.cafe.megacoffee.item.repository.ItemMapper;
 import com.cafe.megacoffee.item.service.ItemService;
-import com.cafe.megacoffee.util.file.FileUpload;
 import com.cafe.megacoffee.util.date.SearchDate;
+import com.cafe.megacoffee.util.file.FileUpload;
 import com.cafe.megacoffee.util.page.Pagination;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -77,6 +76,20 @@ public class ItemController {
             e.printStackTrace();
         }
 
+        return result;
+    }
+
+    @GetMapping("/updateItem/{itemId}")
+    public String updateItemForm(@PathVariable("itemId") Integer itemId, Model model) {
+        ItemDTO item = itemService.findItemById(itemId);
+        model.addAttribute("item", item);
+        return "/item/updateItem";
+    }
+
+    @PostMapping("/updateItem")
+    @ResponseBody
+    public int updateItem(ItemDTO itemDTO) {
+        int result = itemService.updateItem(itemDTO);
         return result;
     }
 }

@@ -21,7 +21,8 @@
                     item.member_id memberId,
                     to_char(item.reg_date, 'yyyy/MM/dd') regDate,
                     item.modifier,
-                    to_char(item.mod_date, 'yyyy/MM/dd') modDate
+                    to_char(item.mod_date, 'yyyy/MM/dd') modDate,
+                    item.delete_yn deleteYN
                 from
                     item inner join category on item.category_id = category.category_id
                 where
@@ -91,10 +92,12 @@
 
     <select id="findItemById" parameterType="Integer" resultType="com.cafe.megacoffee.item.dto.ItemDTO">
         select
+            item_id itemId,
             category_id categoryId,
             title,
             price,
-            content
+            content,
+            delete_yn deleteYN
         from
             item
         where
@@ -123,4 +126,18 @@
                #{memberId},
                #{categoryId})
     </insert>
+
+    <update id="updateItem" parameterType="com.cafe.megacoffee.item.dto.ItemDTO">
+        update
+            item
+        set
+            price = #{price},
+            title = #{title},
+            content = #{content},
+            modifier = #{memberId},
+            mod_date = sysdate,
+            delete_yn  = #{deleteYN}
+        where
+            item_id = #{itemId}
+    </update>
 </mapper>

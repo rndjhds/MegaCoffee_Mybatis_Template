@@ -76,6 +76,7 @@
             <th>등록일</th>
             <th>수정자</th>
             <th>수정일</th>
+            <th>삭제여부</th>
             <th>수정 버튼</th>
             <th>이미지 수정</th>
         </tr>
@@ -95,6 +96,7 @@
             <th>등록일</th>
             <th>수정자</th>
             <th>수정일</th>
+            <th>삭제여부</th>
             <th>수정 버튼</th>
             <th>이미지 수정</th>
         </tr>
@@ -108,7 +110,7 @@
     $(document).ready(function () {
         let maxDate = Date.now();
         let timeOff = new Date().getTimezoneOffset() * 60000;
-        let today = new Date(maxDate-timeOff).toISOString().split("T")[0];
+        let today = new Date(maxDate - timeOff).toISOString().split("T")[0];
         document.getElementById("startDate").setAttribute("max", today);
         document.getElementById("endDate").setAttribute("max", today);
 
@@ -144,9 +146,10 @@
                 {data: "regDate"},
                 {data: "modifier"},
                 {data: "modDate"},
+                {data: "deleteYN"},
                 {
                     data: "", render: function (data, type, row) {
-                        return "<button id='btn_info' type='button' onClick='openInfo(" + row.itemId + ")'>내용변경</button>";
+                        return "<button id='btn_info' type='button' onClick='openItemInfo(" + row.itemId + ")'>내용변경</button>";
                     }
                 },
                 {
@@ -158,18 +161,19 @@
 
             // 컬럼들의 넓이 조절
             columnDefs: [
-                { targets: 0, width: 50 },
-                { targets: 1, width: 120 },
-                { targets: 2, width: 100 },
-                { targets: 3, width: 500 },
-                { targets: 4, width: 80 },
-                { targets: 5, width: 120 },
-                { targets: 6, width: 80 },
-                { targets: 7, width: 100 },
-                { targets: 8, width: 80 },
-                { targets: 9, width: 100 },
-                { targets: 10, width: 100 },
-                { targets: 11, width: 100 }
+                {targets: 0, width: 50},
+                {targets: 1, width: 120},
+                {targets: 2, width: 100},
+                {targets: 3, width: 500},
+                {targets: 4, width: 80},
+                {targets: 5, width: 120},
+                {targets: 6, width: 80},
+                {targets: 7, width: 100},
+                {targets: 8, width: 80},
+                {targets: 9, width: 100},
+                {targets: 10, width: 80},
+                {targets: 11, width: 100},
+                {targets: 12, width: 100}
             ]
             /*dom: 'Bfrtip', // Add buttons for copy, csv, excel, pdf, and print
             buttons: [
@@ -185,6 +189,11 @@
 
     function openInfo() {
         window.open("/item/createItemForm/" + $("#parentCategoryId").val(), "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=300,left=250,width=1200,height=600");
+    }
+
+    function openItemInfo(itemId) {
+        window.open("/item/updateItem/" + itemId, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=300,left=250,width=1200,height=600");
+
     }
 
 

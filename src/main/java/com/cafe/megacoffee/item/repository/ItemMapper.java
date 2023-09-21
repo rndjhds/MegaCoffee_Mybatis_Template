@@ -15,4 +15,6 @@ public interface ItemMapper {
     public ItemDTO findItemById(Integer itemId);
 
     public int saveItem(ItemDTO itemDTO);
+
+    public int updateItem(ItemDTO itemDTO);
 }

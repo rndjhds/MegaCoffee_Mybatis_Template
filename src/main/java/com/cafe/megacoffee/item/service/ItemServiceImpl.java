@@ -33,4 +33,8 @@ public class ItemServiceImpl implements ItemService {
         return itemMapper.saveItem(itemDTO);
     }
 
+    @Override
+    public int updateItem(ItemDTO itemDTO) {
+        return itemMapper.updateItem(itemDTO);
+    }
 }
