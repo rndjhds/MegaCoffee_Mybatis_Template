@@ -127,15 +127,19 @@
                     return "<button id='btn_info' type='button' onClick='openInfo("+row.categoryId+")'>상세정보</button>";
                 }
             }
-        ]
-
+        ],
         // 컬럼들의 넓이 조절
-        /*columnDefs: [
-            { targets: 0, width: 100 },
-            { targets: 1, width: 150 },
-            { targets: 1, width: 180 },
-            { targets: 1, width: 100 }
-        ]*/
+        columnDefs: [
+            { targets: 0, width: 50 },
+            { targets: 1, width: 100 },
+            { targets: 2, width: 100 },
+            { targets: 3, width: 100 },
+            { targets: 4, width: 80 },
+            { targets: 5, width: 100 },
+            { targets: 6, width: 80 },
+            { targets: 7, width: 50 },
+            { targets: 8, width: 100 }
+        ]
         /*dom: 'Bfrtip', // Add buttons for copy, csv, excel, pdf, and print
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
