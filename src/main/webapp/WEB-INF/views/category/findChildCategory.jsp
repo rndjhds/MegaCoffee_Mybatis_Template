@@ -98,6 +98,12 @@
 <script>
 
     $(document).ready(function () {
+        let maxDate = Date.now();
+        let timeOff = new Date().getTimezoneOffset() * 60000;
+        let today = new Date(maxDate-timeOff).toISOString().split("T")[0];
+        document.getElementById("startDate").setAttribute("max", today);
+        document.getElementById("endDate").setAttribute("max", today);
+
         let dataTable = $('#dataTable').DataTable({
             searching : false,
             ordering: false,

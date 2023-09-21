@@ -89,6 +89,12 @@
 <script>
 
     $(document).ready(function () {
+        let maxDate = Date.now();
+        let timeOff = new Date().getTimezoneOffset() * 60000;
+        let today = new Date(maxDate-timeOff).toISOString().split("T")[0];
+        document.getElementById("startDate").setAttribute("max", today);
+        document.getElementById("endDate").setAttribute("max", today);
+
         let dataTable = $('#dataTable').DataTable({
             searching : false,
             ordering: false,
@@ -116,15 +122,19 @@
                         return "<button id='btn_info' type='button' onClick='openInfo("+row.categoryId+")'>상세정보</button>";
                     }
                 }
-            ]
+            ],
 
             // 컬럼들의 넓이 조절
-            /*columnDefs: [
-                { targets: 0, width: 100 },
-                { targets: 1, width: 150 },
-                { targets: 1, width: 180 },
+            columnDefs: [
+                { targets: 0, width: 50 },
+                { targets: 1, width: 100 },
+                { targets: 1, width: 80 },
+                { targets: 1, width: 100 },
+                { targets: 1, width: 80 },
+                { targets: 1, width: 100 },
+                { targets: 1, width: 50 },
                 { targets: 1, width: 100 }
-            ]*/
+            ]
             /*dom: 'Bfrtip', // Add buttons for copy, csv, excel, pdf, and print
             buttons: [
                 'copy', 'csv', 'excel', 'pdf', 'print'
