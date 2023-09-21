@@ -10,7 +10,7 @@ public interface MemberService {
 
     public boolean hasMemberById(String memberId);
 
-    public MemberDTO findMemberById(MemberDTO memberDTO);
+    public MemberDTO findMemberByIdWithPassword(MemberDTO memberDTO);
 
     public List<MemberDTO> findAllMember(MemberDTO memberDTO);
 
@@ -23,4 +23,8 @@ public interface MemberService {
     public int updatePermitStatusToWait(MemberDTO memberDTO);
 
     public List<MemberDTO> findMemberStatusByManager();
+
+    public MemberDTO findMemberById(String memberId);
+
+    public int updateMember(MemberDTO memberDTO);
 }

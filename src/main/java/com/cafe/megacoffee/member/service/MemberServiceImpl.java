@@ -53,11 +53,11 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public MemberDTO findMemberById(MemberDTO memberDTO) {
+    public MemberDTO findMemberByIdWithPassword(MemberDTO memberDTO) {
         MemberDTO findMember = null;
 
         try {
-            findMember = memberMapper.findMemberById(memberDTO);
+            findMember = memberMapper.findMemberByIdWithPassword(memberDTO);
         } catch (IllegalArgumentException e) {
             log.debug("회원 유형 또는 승인여부가 등록되지 않은 데이터입니다.");
             e.printStackTrace();
@@ -95,5 +95,15 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public List<MemberDTO> findMemberStatusByManager() {
         return memberMapper.findMemberStatusByManager();
+    }
+
+    @Override
+    public MemberDTO findMemberById(String memberId) {
+        return memberMapper.findMemberById(memberId);
+    }
+
+    @Override
+    public int updateMember(MemberDTO memberDTO) {
+        return memberMapper.updateMember(memberDTO);
     }
 }

@@ -68,6 +68,7 @@
             <th>회원 타입</th>
             <th>승인 여부</th>
             <th>삭제 여부</th>
+            <th>회원정보 수정</th>
         </tr>
         </thead>
         <tbody>
@@ -82,6 +83,7 @@
             <th>회원 타입</th>
             <th>승인 여부</th>
             <th>삭제 여부</th>
+            <th>회원정보 수정</th>
         </tr>
         </tfoot>
     </table>
@@ -113,16 +115,25 @@
                 {data: "email"},
                 {data: "memberType"},
                 {data: "permitStatus"},
-                {data: "deleteYN"}
-            ]
+                {data: "deleteYN"},
+                {data: "",
+                    render: function(data,type,row){
+                        return "<button id='btn_info' type='button' class='btn' onClick='openInfo(\"" + row.memberId + "\")'>회원정보 수정</button>";
+                    }
+                }
+            ],
 
             // 컬럼들의 넓이 조절
-            /*columnDefs: [
-                { targets: 0, width: 100 },
-                { targets: 1, width: 150 },
-                { targets: 1, width: 180 },
-                { targets: 1, width: 100 }
-            ]*/
+            columnDefs: [
+                { targets: 0, width: 50 },
+                { targets: 1, width: 80 },
+                { targets: 2, width: 80 },
+                { targets: 3, width: 100 },
+                { targets: 4, width: 100 },
+                { targets: 5, width: 100 },
+                { targets: 6, width: 80 },
+                { targets: 7, width: 100 }
+            ]
             /*dom: 'Bfrtip', // Add buttons for copy, csv, excel, pdf, and print
             buttons: [
                 'copy', 'csv', 'excel', 'pdf', 'print'
@@ -133,6 +144,10 @@
             dataTable.draw(); // Trigger a new DataTables request
         });
     });
+
+    function openInfo(memberId) {
+        window.open("/member/updateMember?member_id="+memberId, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=300,left=500,width=600,height=600");
+    }
 
 </script>
 </html>

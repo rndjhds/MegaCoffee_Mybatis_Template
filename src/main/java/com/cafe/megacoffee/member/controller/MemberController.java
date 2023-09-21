@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +31,7 @@ public class MemberController {
     @PostMapping("/login")
     @ResponseBody
     public boolean login(@RequestBody MemberDTO memberDTO, HttpSession session) {
-        MemberDTO findMember = memberService.findMemberById(memberDTO);
+        MemberDTO findMember = memberService.findMemberByIdWithPassword(memberDTO);
         if (findMember != null) {
             session.setAttribute("member", findMember);
             return true;
@@ -114,12 +115,38 @@ public class MemberController {
     @PostMapping("/updatePermitStatusToWait")
     @ResponseBody
     public int updatePermitStatusToWait(@RequestParam(value = "memberId", required = false) String memberId) {
-        System.out.println("memberId = " + memberId);
         MemberDTO memberDTO = new MemberDTO();
         memberDTO.setMemberId(memberId);
         memberDTO.setPermitStatus(PermitStatus.ACCESS);
         memberDTO.setMemberType(MemberType.MANAGER);
-        int result = memberService.updatePermitStatusToWait(memberDTO);
+
+        return memberService.updatePermitStatusToWait(memberDTO);
+    }
+
+    @GetMapping("/updateMember")
+    public String updateMember(@RequestParam("member_id") String memberId, Model model) {
+        MemberDTO member = memberService.findMemberById(memberId);
+
+        List<MemberType> memberTypes = new ArrayList<>();
+        memberTypes.add(MemberType.BUYER);
+        memberTypes.add(MemberType.MANAGER);
+
+        List<PermitStatus> permitStatuses = new ArrayList<>();
+        permitStatuses.add(PermitStatus.ACCESS);
+        permitStatuses.add(PermitStatus.DENIED);
+        permitStatuses.add(PermitStatus.WAIT);
+
+        model.addAttribute("member", member);
+        model.addAttribute("memberType", memberTypes);
+        model.addAttribute("permitStatus", permitStatuses);
+
+        return "/member/updateMember";
+    }
+
+    @PostMapping("/updateMember")
+    @ResponseBody
+    public int updateMember(@RequestBody MemberDTO memberDTO) {
+        int result = memberService.updateMember(memberDTO);
         return result;
     }
 }

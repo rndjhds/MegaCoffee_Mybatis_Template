@@ -37,7 +37,7 @@
             member_id = #{memberId}
     </select>
 
-    <select id="findMemberById" parameterType="com.cafe.megacoffee.member.dto.MemberDTO" resultMap="member">
+    <select id="findMemberByIdWithPassword" parameterType="com.cafe.megacoffee.member.dto.MemberDTO" resultMap="member">
         select
             *
         from
@@ -191,4 +191,31 @@
         and
             delete_yn = 'N'
     </select>
+
+    <select id="findMemberById" parameterType="String" resultType="com.cafe.megacoffee.member.dto.MemberDTO">
+        select
+            member_id memberId,
+            username,
+            email,
+            member_type memberType,
+            permit_status permitStatus,
+            delete_yn deleteYN
+        from
+            member
+        where
+            member_id = #{memberId}
+    </select>
+
+    <update id="updateMember" parameterType="com.cafe.megacoffee.member.dto.MemberDTO">
+        update
+            member
+        set
+            username = #{username},
+            email = #{email},
+            member_type = #{memberType},
+            permit_status = #{permitStatus},
+            delete_yn = #{deleteYN}
+        where
+            member_id = #{memberId}
+    </update>
 </mapper>

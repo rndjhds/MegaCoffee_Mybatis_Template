@@ -14,7 +14,7 @@ public interface MemberMapper {
 
     public int hasMemberById(String memberId);
 
-    public MemberDTO findMemberById(MemberDTO memberDTO) throws IllegalArgumentException;
+    public MemberDTO findMemberByIdWithPassword(MemberDTO memberDTO) throws IllegalArgumentException;
 
     public List<MemberDTO> findAllMember(MemberDTO memberDTO);
 
@@ -27,4 +27,8 @@ public interface MemberMapper {
     public int updatePermitStatusToWait(MemberDTO memberDTO);
 
     public List<MemberDTO> findMemberStatusByManager();
+
+    public MemberDTO findMemberById(String memberId);
+
+    public int updateMember(MemberDTO memberDTO);
 }
