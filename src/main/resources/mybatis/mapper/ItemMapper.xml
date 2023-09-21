@@ -19,9 +19,9 @@
                     item.img,
                     category.name categoryName,
                     item.member_id memberId,
-                    item.reg_date regDate,
+                    to_char(item.reg_date, 'yyyy/MM/dd') regDate,
                     item.modifier,
-                    item.mod_date modDate
+                    to_char(item.mod_date, 'yyyy/MM/dd') modDate
                 from
                     item inner join category on item.category_id = category.category_id
                 where
