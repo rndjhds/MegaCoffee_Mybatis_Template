@@ -154,7 +154,7 @@
                 },
                 {
                     data: "", render: function (data, type, row) {
-                        return "<button id='btn_info' type='button' onClick='openInfo(" + row.itemId + ")'>이미지변경</button>";
+                        return "<button id='btn_info' type='button' onClick='openImgInfo(" + row.itemId + ")'>이미지변경</button>";
                     }
                 }
             ],
@@ -193,6 +193,11 @@
 
     function openItemInfo(itemId) {
         window.open("/item/updateItem/" + itemId, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=300,left=250,width=1200,height=600");
+
+    }
+
+    function openImgInfo(itemId) {
+        window.open("/item/updateItemImg/" + itemId, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=300,left=250,width=1200,height=600");
 
     }
 

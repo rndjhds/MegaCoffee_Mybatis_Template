@@ -33,4 +33,9 @@ public class FileUpload {
         int pos = originalFilename.lastIndexOf(".");
         return originalFilename.substring(pos + 1);
     }
+
+    public boolean deleteFile(String originalFilename, String fileDir){
+        File file = new File(fileDir, originalFilename);
+        return file.delete();
+    }
 }

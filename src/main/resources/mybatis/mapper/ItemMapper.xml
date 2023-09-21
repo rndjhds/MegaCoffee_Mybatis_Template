@@ -97,7 +97,8 @@
             title,
             price,
             content,
-            delete_yn deleteYN
+            delete_yn deleteYN,
+            img
         from
             item
         where
@@ -137,6 +138,17 @@
             modifier = #{memberId},
             mod_date = sysdate,
             delete_yn  = #{deleteYN}
+        where
+            item_id = #{itemId}
+    </update>
+
+    <update id="updateItemImg" parameterType="com.cafe.megacoffee.item.dto.ItemDTO">
+        update
+            item
+        set
+            img = #{img},
+            modifier = #{memberId},
+            mod_date = sysdate
         where
             item_id = #{itemId}
     </update>

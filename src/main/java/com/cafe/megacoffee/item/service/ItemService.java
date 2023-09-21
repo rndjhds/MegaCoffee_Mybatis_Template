@@ -14,4 +14,6 @@ public interface ItemService {
     public int saveItem(ItemDTO itemDTO);
 
     public int updateItem(ItemDTO itemDTO);
+
+    public int updateItemImg(ItemDTO itemDTO);
 }

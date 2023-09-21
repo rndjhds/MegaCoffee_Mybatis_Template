@@ -92,4 +92,33 @@ public class ItemController {
         int result = itemService.updateItem(itemDTO);
         return result;
     }
+
+    @GetMapping("/updateItemImg/{itemId}")
+    public String updateItemImgForm(@PathVariable("itemId") Integer itemId, Model model) {
+        ItemDTO item = itemService.findItemById(itemId);
+        model.addAttribute("item", item);
+        return "/item/updateItemImgForm";
+    }
+
+    @PostMapping("/updateItemImg")
+    @ResponseBody
+    public int updateItemImg(HttpServletRequest request, ItemDTO itemDTO) {
+
+        int result = 0;
+
+        try {
+            String originItemImg = itemService.findItemById(itemDTO.getItemId()).getImg();
+
+            String path = request.getServletContext().getRealPath("/WEB-INF/resources/statics/img");
+            fileUpload.deleteFile(originItemImg, path);
+            String img = fileUpload.serverUploadFile(itemDTO.getUploadImg(), path);
+            itemDTO.setImg(img);
+
+            result = itemService.updateItemImg(itemDTO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
 }
