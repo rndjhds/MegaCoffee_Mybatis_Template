@@ -7,16 +7,17 @@
     <meta name="keywords" content="">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../resources/statics/style/reset.css">
-    <link rel="stylesheet" href="../../resources/statics/style/index.css">
-    <script src="../webjars/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/reset.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/index.css">
+    <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
     <title>푸드 | 메가커피</title>
 </head>
 <body>
 <header>
     <input type="hidden" id="memberType" name="memberType" value="${sessionScope.member.memberType}">
     <input type="hidden" id="permitStatus" name="permitStatus" value="${sessionScope.member.permitStatus}">
-    <h1><a href="indexte.html"><img src="../../resources/statics/test_img/header_logo.png" alt=""></a></h1>
+    <h1><a href="indexte.html"><img src="${pageContext.request.contextPath}/resources/statics/test_img/header_logo.png"
+                                    alt=""></a></h1>
     <nav>
         <ul class="main_nav">
             <li><a href="#">메가스토리</a>
@@ -27,10 +28,7 @@
                 </ul>
             </li>
             <li><a href="/item/menuView">메뉴소개</a>
-                <ul class="sub_nav">
-                    <li><a href="/item/drinkView">음료</a></li>
-                    <li><a href="/item/foodView">푸드</a></li>
-                    <li><a href="/item/productView">상품</a></li>
+                <ul class="sub_nav" id="menu">
                 </ul>
             </li>
             <li><a href="./map.html">매장</a>
@@ -74,8 +72,24 @@
     <div class="bg0"></div>
 </header>
 
-<script src="../../resources/statics/js/index.js"></script>
+<script src="${pageContext.request.contextPath}/resources/statics/js/index.js"></script>
 <script>
+
+    $(document).ready(function () {
+        $.ajax({
+            url: "/category/getHeaderCategory",
+            type: "POST",
+            dataType: "json",
+            success: function (data) {
+                for (let i = 0; i < data.length; i++) {
+                    $("#menu").append('<li><a href="/item/manageItemList/' + data[i].categoryId + '">' + data[i].categoryName + '</a></li>');
+                }
+            },
+            error: function () {
+                alert("에러");
+            }
+        })
+    });
 
     $("#managerLogin").click(function () {
         const memberType = $("#memberType").val();
@@ -85,9 +99,9 @@
             alert("본사에서 확인중입니다.");
         } else if (memberType === "MANAGER") {
             alert("환영합니다. 관리자님");
-            location.href="/member/login";
+            location.href = "/member/login";
         }
-        location.href="/member/manager";
+        location.href = "/member/manager";
     })
 
 </script>

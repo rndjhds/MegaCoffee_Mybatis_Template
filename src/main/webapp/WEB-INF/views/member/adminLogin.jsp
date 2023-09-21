@@ -9,12 +9,12 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <title>LOGIN</title>
-    <link rel="stylesheet" href="../../resources/statics/style/reset.css">
-    <link rel="stylesheet" href="../../resources/statics/style/login.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/reset.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/login.css">
     <!--swiper slide-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="../webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
 </head>
 <body>

@@ -5,10 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../resources/statics/style/reset.css">
-    <link rel="stylesheet" href="../../resources/statics/style/drink.css">
-    <link rel="stylesheet" href="../../resources/statics/style/index.css">
-    <link rel="stylesheet" href="../../resources/statics/style/index_uiux.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/reset.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/drink.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/index.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/index_uiux.css">
     <title>음료메뉴 | 메가커피</title>
 </head>
 <body>
@@ -16,13 +16,13 @@
     <div class="topgo">
         <a href="#">
             <span>Top</span>
-            <span><img src="../../resources/statics/test_img/toplogo.png" alt=""></span>
+            <span><img src="${pageContext.request.contextPath}/resources/statics/test_img/toplogo.png" alt=""></span>
         </a>
     </div>
     <section class="drink_top">
         <div class="drink_page">
             <p>DRINK MENU</p>
-            <a href="#"><img src="../../resources/statics/test_img/yellow_logo.png" alt=""></a>
+            <a href="#"><img src="${pageContext.request.contextPath}/resources/statics/test_img/yellow_logo.png" alt=""></a>
             <p class="drink_page_info">
                 <em>깊고 부드러운 커피 맛의 비밀</em><br>
                 행복을 선사하는 다양한 음료
@@ -51,7 +51,7 @@
                     <p>메뉴검색</p>
                     <div class="search_bar">
                         <input type="search" placeholder="검색하여 손 쉽게 찾아보세요.">
-                        <button type="submit"><img src="../../resources/statics/drink_img/icon_search.gif" alt=""></button>
+                        <button type="submit"><img src="${pageContext.request.contextPath}/resources/statics/drink_img/icon_search.gif" alt=""></button>
                     </div>
                 </div>
                 <div class="cheack">
@@ -86,7 +86,7 @@
     <section class="drink_list">
         <div class="drink_1">
             <div class="drink_poji">
-                <a><img src="../../resources/statics/drink_img/drink_1.jpg" alt=""></a>
+                <a><img src="${pageContext.request.contextPath}/resources/statics/drink_img/drink_1.jpg" alt=""></a>
                 <div class="poji_title">
                     <p>고흥 유자망고 스무디</p>
                     <a>정보 더 보기</a>
@@ -95,7 +95,7 @@
             <div class="drink_txt">
                 <div class="txt_title">
                     <p>고흥 유자망고 스무디</p>
-                    <a href="#"><img src="../../resources/statics/drink_img/icon_x.png" alt=""></a>
+                    <a href="#"><img src="${pageContext.request.contextPath}/resources/statics/drink_img/icon_x.png" alt=""></a>
                 </div>
                 <div class="drink_info">
                     <p>
@@ -123,7 +123,7 @@
         </div>
         <div class="drink_2">
             <div class="drink_poji">
-                <a><img src="../../resources/statics/drink_img/drink_2.jpg" alt=""></a>
+                <a><img src="${pageContext.request.contextPath}/resources/statics/drink_img/drink_2.jpg" alt=""></a>
                 <div class="poji_title">
                     <p>나주 플럼코트 스무디</p>
                     <a>정보 더 보기</a>
@@ -132,7 +132,7 @@
             <div class="drink_txt">
                 <div class="txt_title">
                     <p>나주 플럼코트 스무디</p>
-                    <a href="#"><img src="../../resources/statics/drink_img/icon_x.png" alt=""></a>
+                    <a href="#"><img src="${pageContext.request.contextPath}/resources/statics/drink_img/icon_x.png" alt=""></a>
                 </div>
                 <div class="drink_info">
                     <p>
@@ -160,7 +160,7 @@
         </div>
         <div class="drink_3">
             <div class="drink_poji">
-                <a><img src="../../resources/statics/drink_img/drink_3.jpg" alt=""></a>
+                <a><img src="${pageContext.request.contextPath}/resources/statics/drink_img/drink_3.jpg" alt=""></a>
                 <div class="poji_title">
                     <p>고흥 유자 하이볼 에이드</p>
                     <a>정보 더 보기</a>
@@ -169,7 +169,7 @@
             <div class="drink_txt">
                 <div class="txt_title">
                     <p>고흥유자 하이볼 에이드</p>
-                    <a href="#"><img src="../../resources/statics/drink_img/icon_x.png" alt=""></a>
+                    <a href="#"><img src="${pageContext.request.contextPath}/resources/statics/drink_img/icon_x.png" alt=""></a>
                 </div>
                 <div class="drink_info">
                     <p>
@@ -197,7 +197,7 @@
         </div>
         <div class="drink_4">
             <div class="drink_poji">
-                <a><img src="../../resources/statics/drink_img/drink_4.jpg" alt=""></a>
+                <a><img src="${pageContext.request.contextPath}/resources/statics/drink_img/drink_4.jpg" alt=""></a>
                 <div class="poji_title">
                     <p>보성 녹차레몬 에이드</p>
                     <a>정보 더 보기</a>
@@ -206,7 +206,7 @@
             <div class="drink_txt">
                 <div class="txt_title">
                     <p>보성 녹차레몬 에이드</p>
-                    <a href="#"><img src="../../resources/statics/drink_img/icon_x.png" alt=""></a>
+                    <a href="#"><img src="${pageContext.request.contextPath}/resources/statics/drink_img/icon_x.png" alt=""></a>
                 </div>
                 <div class="drink_info">
                     <p>
@@ -234,7 +234,7 @@
         </div>
         <div class="drink_5">
             <div class="drink_poji">
-                <a><img src="../../resources/statics/drink_img/drink_5.jpg" alt=""></a>
+                <a><img src="${pageContext.request.contextPath}/resources/statics/drink_img/drink_5.jpg" alt=""></a>
                 <div class="poji_title">
                     <p>디카페인 에스프레스</p>
                     <a>정보 더 보기</a>
@@ -243,7 +243,7 @@
             <div class="drink_txt">
                 <div class="txt_title">
                     <p>디카페인 에스프레스</p>
-                    <a href="#"><img src="../../resources/statics/drink_img/icon_x.png" alt=""></a>
+                    <a href="#"><img src="${pageContext.request.contextPath}/resources/statics/drink_img/icon_x.png" alt=""></a>
                 </div>
                 <div class="drink_info">
                     <p>
@@ -271,7 +271,7 @@
         </div>
         <div class="drink_6">
             <div class="drink_poji">
-                <a><img src="../../resources/statics/drink_img/drink_6.jpg" alt=""></a>
+                <a><img src="${pageContext.request.contextPath}/resources/statics/drink_img/drink_6.jpg" alt=""></a>
                 <div class="poji_title">
                     <p>에스프레스 피에노</p>
                     <a>정보 더 보기</a>
@@ -280,7 +280,7 @@
             <div class="drink_txt">
                 <div class="txt_title">
                     <p>에스프레스 피에노</p>
-                    <a href="#"><img src="../../resources/statics/drink_img/icon_x.png" alt=""></a>
+                    <a href="#"><img src="${pageContext.request.contextPath}/resources/statics/drink_img/icon_x.png" alt=""></a>
                 </div>
                 <div class="drink_info">
                     <p>
@@ -308,7 +308,7 @@
         </div>
         <div class="drink_7">
             <div class="drink_poji">
-                <a><img src="../../resources/statics/drink_img/drink_7.jpg" alt=""></a>
+                <a><img src="${pageContext.request.contextPath}/resources/statics/drink_img/drink_7.jpg" alt=""></a>
                 <div class="poji_title">
                     <p>디카페인 아메리카노</p>
                     <a>정보 더 보기</a>
@@ -317,7 +317,7 @@
             <div class="drink_txt">
                 <div class="txt_title">
                     <p>다카페인 아메리카노</p>
-                    <a href="#"><img src="../../resources/statics/drink_img/icon_x.png" alt=""></a>
+                    <a href="#"><img src="${pageContext.request.contextPath}/resources/statics/drink_img/icon_x.png" alt=""></a>
                 </div>
                 <div class="drink_info">
                     <p>
@@ -345,7 +345,7 @@
         </div>
         <div class="drink_8">
             <div class="drink_poji">
-                <a><img src="../../resources/statics/drink_img/drink_8.jpg" alt=""></a>
+                <a><img src="${pageContext.request.contextPath}/resources/statics/drink_img/drink_8.jpg" alt=""></a>
                 <div class="poji_title">
                     <p>디카페인 카푸치노</p>
                     <a>정보 더 보기</a>
@@ -354,7 +354,7 @@
             <div class="drink_txt">
                 <div class="txt_title">
                     <p>디카페인 카푸치노</p>
-                    <a href="#"><img src="../../resources/statics/drink_img/icon_x.png" alt=""></a>
+                    <a href="#"><img src="${pageContext.request.contextPath}/resources/statics/drink_img/icon_x.png" alt=""></a>
                 </div>
                 <div class="drink_info">
                     <p>
@@ -389,7 +389,7 @@
     </section>
 </main>
 <%@include file="../common/footer.jsp"%>
-<script src="../../resources/statics/js/drink.js"></script>
-<script src="../../resources/statics/js/index.js"></script>
+<script src="${pageContext.request.contextPath}/resources/statics/js/drink.js"></script>
+<script src="${pageContext.request.contextPath}/resources/statics/js/index.js"></script>
 </body>
 </html>

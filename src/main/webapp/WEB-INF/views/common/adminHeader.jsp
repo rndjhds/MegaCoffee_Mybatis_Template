@@ -7,8 +7,8 @@
     <meta name="keywords" content="">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../resources/statics/style/reset.css">
-    <link rel="stylesheet" href="../../resources/statics/style/index.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/reset.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/index.css">
     <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
     <title>푸드 | 메가커피</title>
 </head>
@@ -16,7 +16,7 @@
 <header>
     <input type="hidden" id="memberType" name="memberType" value="${sessionScope.member.memberType}">
     <input type="hidden" id="permitStatus" name="permitStatus" value="${sessionScope.member.permitStatus}">
-    <h1><a href="indexte.html"><img src="../../resources/statics/test_img/header_logo.png" alt=""></a></h1>
+    <h1><a href="indexte.html"><img src="${pageContext.request.contextPath}/resources/statics/test_img/header_logo.png" alt=""></a></h1>
     <nav>
         <ul class="main_nav">
             <li><a href="#">회원</a>
@@ -27,10 +27,6 @@
             </li>
             <li><a href="/menu/menuView">메뉴</a>
                 <ul class="sub_nav" id="menu">
-                    <%--<li><a href="/menu/drinkView">메뉴 관리</a></li>
-                    <li><a href="/menu/drinkView">음료</a></li>
-                    <li><a href="/menu/foodView">푸드</a></li>
-                    <li><a href="/menu/productView">상품</a></li>--%>
                 </ul>
             </li>
             <li><a href="./map.html">매장</a>
@@ -67,7 +63,7 @@
     <div class="bg0"></div>
 </header>
 
-<script src="../../resources/statics/js/index.js"></script>
+<script src="${pageContext.request.contextPath}/resources/statics/js/index.js"></script>
 <script>
 
     $.ajax({

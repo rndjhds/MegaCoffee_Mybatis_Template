@@ -7,8 +7,8 @@
     <meta name="keywords" content="">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../resources/statics/style/saveMenu.css">
-    <link rel="stylesheet" href="../../resources/statics/style/reset.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/saveMenu.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/reset.css">
     <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
     <title>상품등록</title>

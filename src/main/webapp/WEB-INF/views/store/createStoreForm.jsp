@@ -7,9 +7,9 @@
     <meta name="keywords" content="">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../resources/statics/style/saveCategory.css">
-    <link rel="stylesheet" href="../../resources/statics/style/reset.css">
-    <script src="../webjars/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/saveCategory.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/reset.css">
+    <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>

@@ -6,19 +6,19 @@
     <meta name="keywords" content="">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../resources/statics/style/reset.css">
-    <link rel="stylesheet" href="../resources/statics/style/index.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/reset.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/index.css">
         <title>푸드 | 메가커피</title>
 </head>
 <body>
 <footer>
     <div class="left">
         <div class="icon">
-            <p><img src="../resources/statics/test_img/footerlogo.png" alt=""></p>
+            <p><img src="${pageContext.request.contextPath}/resources/statics/test_img/footerlogo.png" alt=""></p>
             <div class="sns">
-                <a href="#"><img src="../resources/statics/test_img/footericon1.png" alt=""></a>
-                <a href="#"><img src="../resources/statics/test_img/footericon2.png" alt=""></a>
-                <a href="#"><img src="../resources/statics/test_img/footericon3.png" alt=""></a>
+                <a href="#"><img src="${pageContext.request.contextPath}/resources/statics/test_img/footericon1.png" alt=""></a>
+                <a href="#"><img src="${pageContext.request.contextPath}/resources/statics/test_img/footericon2.png" alt=""></a>
+                <a href="#"><img src="${pageContext.request.contextPath}/resources/statics/test_img/footericon3.png" alt=""></a>
             </div>
         </div>
         <p class="left_txt">
@@ -73,6 +73,6 @@
     </div>
 </footer>
 
-<script src="../resources/statics/js/index.js"></script>
+<script src="${pageContext.request.contextPath}/resources/statics/js/index.js"></script>
 </body>
 </html>
