@@ -58,22 +58,13 @@
                     <label for="price">가격
                         <input type="number" id="price" name="price" placeholder="가격을 입력해주세요.">
                     </label>
-                        <button type="submit" class="btn">저장</button>
-<%--
-                </fieldset>
---%>
-       <%--     </form>--%>
+                    <button type="submit" class="btn">저장</button>
                 </div>
                 <div class="right">
-<%--            <form class="createItemForm">--%>
-<%--
-                <fieldset>
---%>
                     <label for="content">자세한 설명
                         <textarea name="content" id="content" cols="30" rows="10"></textarea>
                     </label>
-
-        </div>
+                </div>
             </fieldset>
         </form>
     </section>
@@ -130,8 +121,13 @@
                     enctype:"multipart/form-data",
                     data: formData,
                     success: function (data) {
-                        alert("정상적으로 완료되었습니다");
-                        window.close();
+                        if(data != 0) {
+                            alert("정상적으로 완료되었습니다");
+                            window.close();
+                        } else {
+                            alert("정상적으로 완료되지 못했습니다.")
+                            window.close();
+                        }
                     },
                     error: function () {
                         alert("정상적으로 완료하지 못하였습니다.");

@@ -41,53 +41,49 @@ main .content1 div p:nth-child(2) {
     letter-spacing: -0.02em; color: #6B2E2F;
 }
 /* =========================================================== */
-.content3 {
-    display: flex;
-    width: 100%; margin:0 auto;
-    padding: 100px 0; justify-content: center;
+.content3 {width: 100%; margin: 0 auto;}
+.content3 #form {}
+.content3 #form fieldset {
+    display: flex; justify-content: space-around;
+    padding: 50px 150px;
 }
-.content3 .left {
-    margin-right: 100px;
-}
-.content3 .left form {}
-.content3 .left form fieldset {
+.content3 #form fieldset .left {}
+.content3 #form fieldset .left #memberId {}
+.content3 #form fieldset .left label {
     display: flex; flex-flow: column nowrap;
+    justify-content: center;
+    font-size: 25px; font-weight: 700;
+    width: 300px; margin: 40px 0;
 }
-.content3 .left form fieldset label {
-    font-size: 1.875rem; font-weight: 700; letter-spacing: -0.02em;
-    margin-bottom: 50px;
-}
-.content3 .left form fieldset label:last-child{margin-bottom: 0;}
-.content3 .left form fieldset label input {
-    display: flex; flex-flow: column nowrap;
-    font-size: 1.25rem; font-weight: 500; letter-spacing: -0.02em;
-    width: 520px; height: 50px;
-    margin-top: 20px; border-bottom: 3px solid #6B2E2F;
+.content3 #form fieldset .left label input {
+    width: 100%; height: 50px;
+    margin: 20px 0; border-radius: 100px;
+    border-bottom: 3px solid #6B2E2F;
     border-right: 3px solid #6B2E2F;
-    border-radius: 20px; padding:0 40px;
+    padding: 0 30px;
 }
-.content3 .right {}
-.content3 .right form {}
-.content3 .right form fieldset {}
-.content3 .right form fieldset label {
-    font-size: 1.875rem; font-weight: 700; letter-spacing: -0.02em;
+.content3 #form fieldset .left label:nth-child(1) {}
+.content3 #form fieldset .left #categoryId {width: 200px}
+.content3 #form fieldset .left #categoryId option {}
+.content3 #form fieldset .left label:nth-child(2) {margin-top: 0;}
+.content3 #form fieldset .left label:nth-child(2) #title {}
+.content3 #form fieldset .left label:nth-child(3) {}
+.content3 #form fieldset .left label:nth-child(3) #uploadImg {}
+.content3 #form fieldset .left label:nth-child(4) {}
+.content3 #form fieldset .left label:nth-child(4) #price {}
+.content3 #form fieldset .left .btn {
+    background: #6B2E2F; width: 500px;
+    font-size: 20px;font-weight: 500;
+    padding: 10px 0; color: #FDD000;
+    border-radius: 100px;
+}
+.content3 #form fieldset .right {}
+.content3 #form fieldset .right label {
     display: flex; flex-flow: column nowrap;
+    font-size: 25px; font-weight: 700;
+    letter-spacing: -0.02em;
 }
-.content3 .right form fieldset label textarea {
-    width: 520px; height: 400px; margin-top: 20px;
-    font-size: 1.25rem;
+.content3 #form fieldset .right label #content {
+    width: 400px; height: 500px;
+    margin-top: 40px; border: 2px solid #6B2E2F;
 }
-.content3 .left form fieldset #parentId {
-    border-style: none;
-    width: 200px; padding: 10px 0;
-    border-radius: 18px;
-    border-bottom: 3px solid #969696;
-    border-right: 3px solid #969696;
-    margin-bottom: 20px;
-}
-.content3 .left form fieldset #parentId option {}
-.content3 .left form fieldset .btn {
-    width: 200px; padding: 10px; transition: all 0.5s linear;
-}
-.content3 .left form fieldset .btn:hover {width: 250px; border-radius: 50px 5px 50px 5px;}
-.content3 .left form fieldset .btn img {width: 100%;}
