@@ -3,18 +3,17 @@ package com.cafe.megacoffee.item.controller;
 import com.cafe.megacoffee.category.dto.CategoryDTO;
 import com.cafe.megacoffee.category.service.CategoryService;
 import com.cafe.megacoffee.item.dto.ItemDTO;
+import com.cafe.megacoffee.item.repository.ItemMapper;
 import com.cafe.megacoffee.item.service.ItemService;
-import com.cafe.megacoffee.util.FileUpload;
+import com.cafe.megacoffee.util.file.FileUpload;
 import com.cafe.megacoffee.util.date.SearchDate;
 import com.cafe.megacoffee.util.page.Pagination;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,9 +27,6 @@ public class ItemController {
     private final CategoryService categoryService;
 
     private final FileUpload fileUpload;
-
-    @Value("${spring.servlet.multipart.location}")
-    private String path;
 
     @GetMapping("/manageItemList/{categoryId}")
     public String manageItemList(@PathVariable("categoryId") Integer categoryId, Model model) {
@@ -67,18 +63,19 @@ public class ItemController {
 
     @PostMapping("/saveItem")
     @ResponseBody
-    public int saveItem(ItemDTO itemDTO) {
+    public int saveItem(HttpServletRequest request, ItemDTO itemDTO) {
 
         int result = 0;
+
         try {
+            String path = request.getServletContext().getRealPath("/WEB-INF/resources/statics/img");
             String img = fileUpload.serverUploadFile(itemDTO.getUploadImg(), path);
             itemDTO.setImg(img);
 
             result = itemService.saveItem(itemDTO);
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
 
         return result;
     }
