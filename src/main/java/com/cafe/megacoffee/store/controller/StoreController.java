@@ -59,8 +59,9 @@ public class StoreController {
     @PostMapping("/savestore")
     @ResponseBody
     public int saveStore(@RequestBody StoreDTO storeDTO) {
-        if (storeDTO.getStoreId() == null){
+        if (storeDTO.getStoreId() == null && storeDTO.getDeleteYN() == null){
             storeDTO.setStoreId(0);
+            storeDTO.setDeleteYN("N");
         }
         return storeService.saveStore(storeDTO);
     }

@@ -77,11 +77,13 @@
                     <label for="addressDetail">상세주소
                         <input type="text" id="addressDetail" name="addressDetail" value="${store.addressDetail}">
                     </label>
+                    <c:if test="${store.storeId != null}">
                     <label for="deleteYN">삭제 여부</label>
-                    <select id="deleteYN" name="deleteYN">
-                        <option value="N">삭제X</option>
-                        <option value="Y">삭제</option>
-                    </select>
+                        <select id="deleteYN" name="deleteYN">
+                            <option value="N">삭제X</option>
+                            <option value="Y">삭제</option>
+                        </select>
+                    </c:if>
                     <c:if test="${not empty store}">
                         <button type="submit" class="btn">수정</button>
                     </c:if>
