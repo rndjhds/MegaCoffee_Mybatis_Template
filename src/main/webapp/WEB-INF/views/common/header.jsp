@@ -82,7 +82,7 @@
             dataType: "json",
             success: function (data) {
                 for (let i = 0; i < data.length; i++) {
-                    $("#menu").append('<li><a href="/item/manageItemList/' + data[i].categoryId + '">' + data[i].categoryName + '</a></li>');
+                    $("#menu").append('<li><a href="/item/ItemList/' + data[i].categoryId + '">' + data[i].categoryName + '</a></li>');
                 }
             },
             error: function () {
@@ -99,9 +99,10 @@
             alert("본사에서 확인중입니다.");
         } else if (memberType === "MANAGER") {
             alert("환영합니다. 관리자님");
-            location.href = "/member/login";
+            return false;
+            // 추후 관리자 페이지 작성 후 관리자 페이지로 이동할 예정
         }
-        location.href = "/member/manager";
+        location.href="/member/manager";
     })
 
 </script>

@@ -71,7 +71,7 @@
             },
             submitHandler: function () {
                 $.ajax({
-                    url: "${pageContext.request.contextPath}/member/login",
+                    url: "${pageContext.request.contextPath}/member/managerLogin",
                     contentType: "application/json; charset-utf-8",
                     type: "POST",
                     dataType: "json",
@@ -82,9 +82,9 @@
                     success: function (data) {
                         if (data == true) {
                             alert("성공적으로 로그인이 되었습니다.");
-                            location.href="/menu/drinkView"
+                            // 추후 관리자 페이지 작성 후 관리자 페이지로 이동할 예정
                         } else {
-                            alert("아이디 또는 비밀번호를 확인해주세요");
+                            alert("관리자 아이디가 맞는지 확인해주세요.");
                         }
                     },
                     error: function () {

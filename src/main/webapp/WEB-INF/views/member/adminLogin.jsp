@@ -70,7 +70,7 @@
             },
             submitHandler: function () {
                 $.ajax({
-                    url: "${pageContext.request.contextPath}/member/login",
+                    url: "${pageContext.request.contextPath}/member/adminLogin",
                     contentType: "application/json; charset-utf-8",
                     type: "POST",
                     dataType: "json",

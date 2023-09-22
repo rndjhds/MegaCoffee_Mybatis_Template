@@ -31,13 +31,21 @@ public class MemberController {
     @PostMapping("/login")
     @ResponseBody
     public boolean login(@RequestBody MemberDTO memberDTO, HttpSession session) {
-        MemberDTO findMember = memberService.findMemberByIdWithPassword(memberDTO);
-        if (findMember != null) {
-            session.setAttribute("member", findMember);
-            return true;
-        } else {
+
+        try {
+            MemberDTO findMember = memberService.findMemberByIdWithPassword(memberDTO);
+            if (findMember != null) {
+                session.setAttribute("member", findMember);
+                return true;
+            } else {
+                return false;
+            }
+        } catch (NullPointerException e) {
+            return false;
+        }catch (Exception e) {
             return false;
         }
+
     }
 
     @GetMapping("/save")
@@ -66,6 +74,47 @@ public class MemberController {
     @GetMapping("/manager")
     public String managerView() {
         return "/member/managerLogin";
+    }
+
+    @PostMapping("/managerLogin")
+    @ResponseBody
+    public boolean managerLogin(@RequestBody MemberDTO memberDTO) {
+
+        boolean result = false;
+        try {
+            MemberDTO findMember = memberService.findMemberByIdWithPassword(memberDTO);
+
+            if (findMember.getMemberType() == MemberType.MANAGER) {
+                result = true;
+            }
+
+        }catch (NullPointerException e) {
+            result = false;
+        } catch (Exception e) {
+            result = false;
+        }
+
+        return result;
+    }
+
+    @PostMapping("/adminLogin")
+    @ResponseBody
+    public boolean adminLogin(@RequestBody MemberDTO memberDTO) {
+
+        boolean result = false;
+        try {
+            MemberDTO findMember = memberService.findMemberByIdWithPassword(memberDTO);
+
+            if (findMember.getMemberType() == MemberType.ADMIN) {
+                result = true;
+            }
+        } catch (NullPointerException e) {
+            result = false;
+        } catch (Exception e) {
+            result = false;
+        }
+
+        return result;
     }
 
     @GetMapping("/admin")

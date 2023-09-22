@@ -93,7 +93,7 @@
                     success: function (data) {
                         if (data == true) {
                             alert("성공적으로 로그인이 되었습니다.");
-                            location.href="/menu/drinkView"
+                            location.href="/index";
                         } else {
                             alert("아이디 또는 비밀번호를 확인해주세요");
                         }
