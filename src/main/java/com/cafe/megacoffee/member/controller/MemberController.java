@@ -84,7 +84,7 @@ public class MemberController {
         try {
             MemberDTO findMember = memberService.findMemberByIdWithPassword(memberDTO);
 
-            if (findMember.getMemberType() == MemberType.MANAGER) {
+            if (findMember.getMemberType() == MemberType.MANAGER && findMember.getPermitStatus() == PermitStatus.ACCESS) {
                 result = true;
             }
 
@@ -105,7 +105,7 @@ public class MemberController {
         try {
             MemberDTO findMember = memberService.findMemberByIdWithPassword(memberDTO);
 
-            if (findMember.getMemberType() == MemberType.ADMIN) {
+            if (findMember.getMemberType() == MemberType.ADMIN && findMember.getPermitStatus() == PermitStatus.ACCESS) {
                 result = true;
             }
         } catch (NullPointerException e) {
@@ -177,6 +177,7 @@ public class MemberController {
         MemberDTO member = memberService.findMemberById(memberId);
 
         List<MemberType> memberTypes = new ArrayList<>();
+        memberTypes.add(MemberType.ADMIN);
         memberTypes.add(MemberType.BUYER);
         memberTypes.add(MemberType.MANAGER);
 
