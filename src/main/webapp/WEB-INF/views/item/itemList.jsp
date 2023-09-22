@@ -46,6 +46,7 @@
     </section>
     <section class="drink_search">
         <form action="#" method="get">
+            <input type="hidden" id="start">
             <input type="hidden" name="parentCategoryId" id="parentCategoryId" value="${parentCategoryId}">
             <input type="hidden" name="deleteYN" id="deleteYN" value="N">
             <fieldset>
@@ -54,7 +55,7 @@
                     <p>메뉴검색</p>
                     <div class="search_bar">
                         <input type="text" name="title" id="title" placeholder="검색하여 손 쉽게 찾아보세요.">
-                        <button type="button" onclick="searchItem()"><img
+                        <button type="button" onclick="reloadPage()"><img
                                 src="${pageContext.request.contextPath}/resources/statics/drink_img/icon_search.gif"
                                 alt=""></button>
                     </div>
@@ -74,20 +75,18 @@
     <section class="drink_list">
     </section>
     <section class="pagenum">
-        <a href="#">처음</a>
-        <a href="#">1</a>
-        <a href="#">2</a>
-        <a href="#">다음</a>
+
     </section>
 </main>
 <script src="${pageContext.request.contextPath}/resources/statics/js/drink.js"></script>
 <script type="text/javascript">
 
     $(document).ready(function () {
-        searchItem();
+        searchItem(1);
+        createPageCountNum();
     })
 
-    function searchItem() {
+    function searchItem(ths) {
         $(".drink_list").empty();
         $.ajax({
             url: "${pageContext.request.contextPath}/item/itemList",
@@ -100,7 +99,7 @@
                 categoryId: $("input[name='categoryId']:checked").val(),
                 title: $("#title").val(),
                 pagination: {
-                    start: 0 * 8,
+                    start: (ths -1)  * 8,
                     length: 8
                 }
             }),
@@ -126,6 +125,38 @@
         });
     }
 
+    function createPageCountNum() {
+        $.ajax({
+            url: "${pageContext.request.contextPath}/item/createPageCount",
+            type: "POST",
+            contentType: "application/json; charset-utf-8",
+            dataType: "json",
+            data: JSON.stringify({
+                parentCategoryId: $("#parentCategoryId").val(),
+                deleteYN: $("#deleteYN").val(),
+                categoryId: $("input[name='categoryId']:checked").val(),
+                title: $("#title").val()
+            }),
+            success: function (data) {
+                for (let i = 1; i <= data; i++) {
+                    $(".pagenum").html("<a onclick='movePageNum(this)'>" + i + "</a>");
+                }
+            },
+            error: function () {
+                alert("정상적으로 완료하지 못하였습니다.");
+            }
+        });
+    }
+
+    function movePageNum(ths) {
+        let start = $(ths).text();
+        searchItem(start);
+    }
+
+    function reloadPage() {
+        searchItem(1);
+        createPageCountNum();
+    }
 </script>
 <%@include file="../common/footer.jsp" %>
 </body>

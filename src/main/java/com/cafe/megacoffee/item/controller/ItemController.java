@@ -136,6 +136,21 @@ public class ItemController {
         return findItemList;
     }
 
+    @PostMapping("/createPageCount")
+    @ResponseBody
+    public int createPageCount(@RequestBody ItemDTO itemDTO) {
+        int totalCount = itemService.findItemCountByCategoryId(itemDTO);
+        System.out.println("총 리턴값 : " + totalCount);
+        int pageCount = totalCount / 8;
+        System.out.println("현재 페이지 수 :" + pageCount);
+        if(totalCount % 8 != 0) {
+            pageCount = totalCount / 8 + 1;
+            System.out.println("if 카운트 수 : " + pageCount);
+        }
+
+        return pageCount;
+    }
+
     @GetMapping("/itemDetail/{itemId}")
     public String itemDetail(@PathVariable("itemId") Integer itemId, Model model){
         ItemDTO findItem = itemService.findItemById(itemId);
