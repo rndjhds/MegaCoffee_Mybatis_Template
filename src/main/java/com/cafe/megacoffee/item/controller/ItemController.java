@@ -121,4 +121,9 @@ public class ItemController {
 
         return result;
     }
+
+    @GetMapping("/ItemList/{categoryId}")
+    public String itemList(Model model, @PathVariable("categoryId") Integer categoryId){
+        return "/item/drink";
+    }
 }
