@@ -159,18 +159,18 @@ main .drink_list > div .drink_txt ul li {
     font-size: 0.875rem; letter-spacing: -0.02em;
     padding: 0 10px 10px;
 }
-main .pagenume {
+main .pagenum {
     display: flex; justify-content: center;
     margin: 50px 10px;
 }
-main .pagenume a {
+main .pagenum a {
     display: inline-block; text-align: center;
     font-size: 1rem; letter-spacing: -0.02em; font-weight: 700;
     width: 60px; border: 1px solid #9c9c9c; padding: 5px 10px;
     border-radius: 10px; margin-right: 10px;
     transition: all 0.2s linear;
 }
-main .pagenume a:last-child {margin-right: 0;}
-main .pagenume a:hover {
+main .pagenum a:last-child {margin-right: 0;}
+main .pagenum a:hover {
     background: #FDD000;
 }

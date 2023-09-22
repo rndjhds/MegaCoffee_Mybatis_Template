@@ -42,13 +42,15 @@
                     and
                     item.title like '%'|| #{title} || '%'
                 </if>
-                <if test="searchDate.startDate != null and searchDate.startDate neq ''">
-                    and
-                    to_char(item.reg_date, 'yyyy-MM-dd') <![CDATA[>=]]> #{searchDate.startDate}
-                </if>
-                <if test="searchDate.endDate != null and searchDate.endDate neq ''">
-                    and
-                    to_char(item.reg_date, 'yyyy-MM-dd') <![CDATA[<=]]> #{searchDate.endDate}
+                <if test="searchDate != null">
+                    <if test="searchDate.startDate != null and searchDate.startDate neq ''">
+                        and
+                        to_char(item.reg_date, 'yyyy-MM-dd') <![CDATA[>=]]> #{searchDate.startDate}
+                    </if>
+                    <if test="searchDate.endDate != null and searchDate.endDate neq ''">
+                        and
+                        to_char(item.reg_date, 'yyyy-MM-dd') <![CDATA[<=]]> #{searchDate.endDate}
+                    </if>
                 </if>
                 order by item.item_id desc
                  )
@@ -80,13 +82,15 @@
                 and
                 item.title like '%'|| #{title} || '%'
             </if>
-            <if test="searchDate.startDate != null and searchDate.startDate neq ''">
-                and
-                to_char(item.reg_date, 'yyyy-MM-dd') <![CDATA[>=]]> #{searchDate.startDate}
-            </if>
-            <if test="searchDate.endDate != null and searchDate.endDate neq ''">
-                and
-                to_char(item.reg_date, 'yyyy-MM-dd') <![CDATA[<=]]> #{searchDate.endDate}
+            <if test="searchDate != null">
+                <if test="searchDate.startDate != null and searchDate.startDate neq ''">
+                    and
+                    to_char(item.reg_date, 'yyyy-MM-dd') <![CDATA[>=]]> #{searchDate.startDate}
+                </if>
+                <if test="searchDate.endDate != null and searchDate.endDate neq ''">
+                    and
+                    to_char(item.reg_date, 'yyyy-MM-dd') <![CDATA[<=]]> #{searchDate.endDate}
+                </if>
             </if>
     </select>
 

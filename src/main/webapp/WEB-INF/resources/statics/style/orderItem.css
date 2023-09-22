@@ -1,0 +1,111 @@
+* {
+    list-style: none;
+    padding: 0; margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #000;
+}
+
+main .deta_top {
+    text-align: center; background-size: cover;
+    background: url(../img/farsai-chaikulngamdee-SMPe5xfbPT0-unsplash.jpg) center no-repeat;
+    background-size: cover;
+}
+main .deta_top .deta_page {
+    display: flex; flex-flow: column nowrap; align-items: center;
+    padding: 107px 0; background-color: rgba(5,5, 5, 35%);
+}
+main .deta_top .deta_page p:nth-child(1) {
+    font-size: 5rem; font-weight: 700;
+    letter-spacing: -0.02em; color: #FDD000;
+    margin: 25px 0;
+}
+main .deta_top .deta_page .deta_page_info {
+    font-size: 2.5rem; letter-spacing: -0.02em; color: #fff;
+    line-height: 50px; margin: 25px 0;
+}
+main .deta_top .deta_page .deta_page_info em {
+    font-size: 2.5rem; letter-spacing: -0.02em; color: #fff;
+    font-weight: 700;
+}
+/* drink_title ===================================================================================================================================== */
+main .deta_title {text-align: center; padding: 50px 0;}
+main .deta_title > p:first-child {
+    font-size: 1.25rem; letter-spacing: -0.02em; color: #AE846C; font-weight: 500;
+}
+main .deta_title .deta_title_center {
+    display: flex; align-items: center; justify-content: center; margin: 5px 0 50px;
+}
+main .deta_title .deta_title_center span {
+    display: inline-block; width: 400px; height: 3px; background: #6B2E2F;
+}
+main .deta_title .deta_title_center p {
+    font-size: 5rem; letter-spacing: -0.02em; color: #6B2E2F; font-weight: 700;
+    margin: 0 40px;
+}
+main .deta_title >p:last-child {
+    font-size: 0.8125rem; letter-spacing: -0.02em; color: #515151;
+}
+.contents1 {
+    display: flex; justify-content: center;
+    padding: 80px 0;
+}
+.contents1 .menuimg {
+    margin-right: 30px;
+}
+.contents1 .menuimg p:nth-child(2) {
+    font-size: 30px; font-weight: 700;
+    letter-spacing: -0.02em; text-align: center;
+    margin-top: 30px;
+}
+.contents1 .menuimg p:nth-child(1) {width: 366px; height: 366px;}
+.contents1 .menuimg p:nth-child(1) img {width: 100%;}
+.contents1 .op {margin-left: 30px;}
+.contents1 .op > ul {
+    padding: 20px;
+}
+.contents1 .op > ul > li {
+    margin-bottom: 50px; padding: 0 0 15px 15px;
+    border-bottom: 3px solid #6B2E2F;
+}
+.contents1 .op > ul > li p {
+    font-size: 25px; font-weight: 700;
+    letter-spacing: -0.02em;
+}
+.contents1 .op > ul > li .sub {
+    display: flex; margin-top: 20px;
+}
+.contents1 .op > ul > li .sub:first-child {margin-top: 0;}
+.contents1 .op > ul > li .sub li {margin-right: 30px;}
+.contents1 .op > ul > li .sub li:last-child {margin-right: 0;}
+.contents1 .op > ul > li .sub li a {
+    font-size: 20px; padding: 5px 10px; border: 2px solid #6B2E2F;
+    border-radius: 15px; display: block; transition: all 0.4s ease;
+}
+.contents1 .op > ul > li .sub li a:hover {
+    font-weight: 700; color: #FDD000;
+    background: #6B2E2F;
+}
+.contents1 .op > .sum {
+    display: flex; width: 650px;
+    padding: 20px; margin-top: 50px;
+    justify-content: space-around;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 0px #000;
+}
+.contents1 .op > .sum > p {
+    font-size: 20px;
+}
+.contents1 .op > .sum .pm {
+    display: flex;
+    align-items: center;
+}
+.contents1 .op > .sum .pm a {
+    display: block; width: 20px; height: 20px;
+}
+.contents1 .op > .sum .pm a img {
+    width: 100%;
+}
+.contents1 .op > .sum .pm p {
+    margin: 0 30px; font-size: 20px;
+}

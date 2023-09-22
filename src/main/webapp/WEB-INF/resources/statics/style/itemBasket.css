@@ -1,0 +1,199 @@
+html {min-width: 390px;}
+* {
+    list-style: none;
+    padding: 0; margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #000;
+}
+
+main .deta_top {
+    text-align: center; background-size: cover;
+    background: url(../img/farsai-chaikulngamdee-SMPe5xfbPT0-unsplash.jpg) center no-repeat;
+    background-size: cover;
+}
+main .deta_top .deta_page {
+    display: flex; flex-flow: column nowrap; align-items: center;
+    padding: 107px 0; background-color: rgba(5,5, 5, 35%);
+}
+main .deta_top .deta_page p:nth-child(1) {
+    font-size: 5rem; font-weight: 700;
+    letter-spacing: -0.02em; color: #FDD000;
+    margin: 25px 0;
+}
+main .deta_top .deta_page .deta_page_info {
+    font-size: 2.5rem; letter-spacing: -0.02em; color: #fff;
+    line-height: 50px; margin: 25px 0;
+}
+main .deta_top .deta_page .deta_page_info em {
+    font-size: 2.5rem; letter-spacing: -0.02em; color: #fff;
+    font-weight: 700;
+}
+/* drink_title ===================================================================================================================================== */
+main .deta_title {text-align: center; padding: 50px 0;}
+main .deta_title > p:first-child {
+    font-size: 1.25rem; letter-spacing: -0.02em; color: #AE846C; font-weight: 500;
+}
+main .deta_title .deta_title_center {
+    display: flex; align-items: center; justify-content: center; margin: 5px 0 50px;
+}
+main .deta_title .deta_title_center span {
+    display: inline-block; width: 400px; height: 3px; background: #6B2E2F;
+}
+main .deta_title .deta_title_center p {
+    font-size: 5rem; letter-spacing: -0.02em; color: #6B2E2F; font-weight: 700;
+    margin: 0 40px;
+}
+main .deta_title >p:last-child {
+    font-size: 0.8125rem; letter-spacing: -0.02em; color: #515151;
+}
+.contents1 {}
+.contents1 .menu1 {
+    display: flex; justify-content: center;
+    width: 1000px; margin:0 auto;
+    padding: 80px 0; border-bottom: 3px solid #6B2E2F;
+    margin-bottom: 80px;
+}
+.contents1 .menu1 p {}
+.contents1 .menu1 p img {}
+.contents1 .menu1 .op {}
+.contents1 .menu1 .op .infowrap {
+    width: 450px;
+}
+.contents1 .menu1 .op .infowrap .info_title {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.contents1 .menu1 .op .infowrap  .info_title h1 {}
+.contents1 .menu1 .op .infowrap  .info_title a {
+    font-size: 18px; display: block; width: 60px;
+    border: 1px solid #6B2E2F; text-align: center;
+    letter-spacing: -0.02em; border-radius: 8px;
+    padding: 2px 8px; transition: all 0.2s linear;
+}
+.contents1 .menu1 .op .infowrap  .info_title a:hover {
+    background: #333; color: #FDD000;
+    border: 0;
+}
+.contents1 .menu1 .op  .infowrap .info {}
+.contents1 .menu1 .op .infowrap .info p {
+    font-size: 18px; font-weight: 700;
+    width: 150px;
+    border-bottom: 3px solid #6B2E2F;
+    margin-bottom: 25px; padding: 0 0 5px 5px;
+}
+.contents1 .menu1 .op .infowrap .info p:last-child {margin-bottom: 0;}
+.contents1 .menu1 .op > .sum {
+    display: flex; width: 650px;
+    padding: 20px; margin-top: 50px;
+    justify-content: space-around;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 0px #000;
+}
+.contents1 .menu1 .op > .sum > p {
+    font-size: 20px;
+}
+.contents1 .menu1 .op > .sum .pm {
+    display: flex;
+    align-items: center;
+}
+.contents1 .menu1 .op > .sum .pm a {
+    display: block; width: 20px; height: 20px;
+}
+.contents1 .menu1 .op > .sum .pm a img {
+    width: 100%;
+}
+.contents1 .menu1 .op > .sum .pm p {
+    margin: 0 30px; font-size: 20px;
+}
+/* menu2 */
+.contents1 .menu2 {
+    display: flex; justify-content: center;
+    width: 1000px; margin:0 auto;
+    padding: 80px 0; border-bottom: 3px solid #6B2E2F;
+    margin-bottom: 80px;
+}
+.contents1 .menu2 p {}
+.contents1 .menu2 p img {}
+.contents1 .menu2 .op {}
+.contents1 .menu2 .op .infowrap {
+    width: 450px;
+}
+.contents1 .menu2 .op .infowrap .info_title {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.contents1 .menu2 .op .infowrap  .info_title h1 {}
+.contents1 .menu2 .op .infowrap  .info_title a {
+    font-size: 18px; display: block; width: 60px;
+    border: 1px solid #6B2E2F; text-align: center;
+    letter-spacing: -0.02em; border-radius: 8px;
+    padding: 2px 8px; transition: all 0.2s linear;
+}
+.contents1 .menu2 .op .infowrap  .info_title a:hover {
+    background: #333; color: #FDD000;
+    border: 0;
+}
+.contents1 .menu2 .op  .infowrap .info {}
+.contents1 .menu2 .op .infowrap .info p {
+    font-size: 18px; font-weight: 700;
+    width: 150px;
+    border-bottom: 3px solid #6B2E2F;
+    margin-bottom: 25px; padding: 0 0 5px 5px;
+}
+.contents1 .menu2 .op .infowrap .info p:last-child {margin-bottom: 0;}
+.contents1 .menu2 .op > .sum {
+    display: flex; width: 650px;
+    padding: 20px; margin-top: 50px;
+    justify-content: space-around;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 0px #000;
+}
+.contents1 .menu2 .op > .sum > p {
+    font-size: 20px;
+}
+.contents1 .menu2 .op > .sum .pm {
+    display: flex;
+    align-items: center;
+}
+.contents1 .menu2 .op > .sum .pm a {
+    display: block; width: 20px; height: 20px;
+}
+.contents1 .menu2 .op > .sum .pm a img {
+    width: 100%;
+}
+.contents1 .menu2 .op > .sum .pm p {
+    margin: 0 30px; font-size: 20px;
+}
+
+@media screen and (max-width:1020px) {
+    .contents1 .menu1,
+    .contents1 .menu2 {
+        width: 90%;
+    }
+    .contents1 .menu1 .op > .sum,
+    .contents1 .menu2 .op > .sum {
+        width: 100%;
+    }
+}
+@media screen and (max-width:875px) {
+    .contents1 .menu1 .op,
+    .contents1 .menu2 .op {width: 100%;}
+    .contents1 .menu1 .op .infowrap,
+    .contents1 .menu2 .op .infowrap {
+        width: 100%;
+    }
+}
+@media screen and (max-width:730px) {
+    .contents1 .menu1,
+    .contents1 .menu2 {
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+    .contents1 .menu1 p,
+    .contents1 .menu2 p {
+        margin-bottom: 50px;
+    }
+}

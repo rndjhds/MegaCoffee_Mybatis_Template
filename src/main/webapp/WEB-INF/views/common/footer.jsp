@@ -73,6 +73,5 @@
     </div>
 </footer>
 
-<script src="${pageContext.request.contextPath}/resources/statics/js/index.js"></script>
 </body>
 </html>

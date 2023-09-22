@@ -24,7 +24,6 @@ public class ItemController {
 
     private final ItemService itemService;
     private final CategoryService categoryService;
-
     private final FileUpload fileUpload;
 
     @GetMapping("/manageItemList/{categoryId}")
@@ -123,7 +122,30 @@ public class ItemController {
     }
 
     @GetMapping("/ItemList/{categoryId}")
-    public String itemList(Model model, @PathVariable("categoryId") Integer categoryId){
+    public String itemList(Model model, @PathVariable("categoryId") Integer categoryId) {
+        List<CategoryDTO> categoryList = categoryService.findChildCategoryByParentId(categoryId);
+        model.addAttribute("categoryList", categoryList);
+        model.addAttribute("parentCategoryId", categoryId);
         return "/item/drink";
+    }
+
+    @PostMapping("/itemList")
+    @ResponseBody
+    public List<ItemDTO> itemList(@RequestBody ItemDTO itemDTO) {
+        Pagination pagination =new Pagination();
+        pagination.setStart(0);
+        pagination.setLength(8);
+        itemDTO.setPagination(pagination);
+        List<ItemDTO> findItemList = itemService.findItemByCategoryId(itemDTO);
+        return findItemList;
+    }
+
+    @GetMapping("/itemDetail/{itemId}")
+    public String itemDetail(@PathVariable("itemId") Integer itemId, Model model){
+        ItemDTO findItem = itemService.findItemById(itemId);
+        model.addAttribute("findItem",findItem);
+
+        return "/orders/itemOrder";
+
     }
 }
