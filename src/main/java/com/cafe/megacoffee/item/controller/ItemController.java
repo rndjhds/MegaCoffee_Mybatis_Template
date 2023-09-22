@@ -132,10 +132,6 @@ public class ItemController {
     @PostMapping("/itemList")
     @ResponseBody
     public List<ItemDTO> itemList(@RequestBody ItemDTO itemDTO) {
-        Pagination pagination =new Pagination();
-        pagination.setStart(0);
-        pagination.setLength(8);
-        itemDTO.setPagination(pagination);
         List<ItemDTO> findItemList = itemService.findItemByCategoryId(itemDTO);
         return findItemList;
     }

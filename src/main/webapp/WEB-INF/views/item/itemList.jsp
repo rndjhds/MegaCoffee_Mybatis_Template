@@ -98,7 +98,11 @@
                 parentCategoryId: $("#parentCategoryId").val(),
                 deleteYN: $("#deleteYN").val(),
                 categoryId: $("input[name='categoryId']:checked").val(),
-                title: $("#title").val()
+                title: $("#title").val(),
+                pagination: {
+                    start: 0 * 8,
+                    length: 8
+                }
             }),
             success: function (data) {
                 for (let i = 0; i < data.length; i++) {
