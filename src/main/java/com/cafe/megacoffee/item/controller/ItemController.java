@@ -126,7 +126,7 @@ public class ItemController {
         List<CategoryDTO> categoryList = categoryService.findChildCategoryByParentId(categoryId);
         model.addAttribute("categoryList", categoryList);
         model.addAttribute("parentCategoryId", categoryId);
-        return "/item/drink";
+        return "/item/itemList";
     }
 
     @PostMapping("/itemList")
