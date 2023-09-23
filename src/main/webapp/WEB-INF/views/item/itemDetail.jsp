@@ -33,45 +33,51 @@
     <section class="contents1">
         <div class="top">
             <div class="menuimg">
-                <p><img src="${pageContext.request.contextPath}/resources/statics/img/drink_1.jpg" alt=""></p>
-                <p>제주 한라봉 감귤 스무디</p>
+                <p><img src="${pageContext.request.contextPath}/resources/statics/img/${findItem.img}"></p>
+                <p>${findItem.title}</p>
             </div>
             <form action="#" method="get" class="op">
                 <fieldset>
                     <ul>
                         <li><p>컵 선택</p>
                             <ul class="sub">
-                                <li><label for="cup1" >일회용컵 사용
-                                    <input type="radio" name="ck1" id="cup1">
+                                <li><label for="cup" >일회용컵 사용
+                                    <input type="radio" name="cupOption" id="cup">
                                 </label></li>
                                 <li><label for="cup2">텀블러 사용
-                                    <input type="radio" name="ck1" id="cup2">
+                                    <input type="radio" name="cupOption" id="cup2">
                                 </label></li>
                                 <li><label for="cup3">매장컵(먹고 갈게요)
-                                    <input type="radio" name="ck1" id="cup3">
+                                    <input type="radio" name="cupOption" id="cup3">
                                 </label></li>
                             </ul>
                         </li>
                         <li><p>OPTION</p>
                             <ul class="sub">
                                 <li><label for="op1">ICE
-                                    <input type="radio" name="ck2" id="op1">
+                                    <input type="radio" name="option" id="op1">
                                 </label></li>
                                 <li><label for="op2">HOT
-                                    <input type="radio" name="ck2" id="op2">
+                                    <input type="radio" name="option" id="op2">
                                 </label></li>
                             </ul>
                         </li>
                         <li><p>SIZE</p>
                             <ul class="sub">
-                                <li><label for="sz">M(+0)
-                                    <input type="radio" name="ck3" id="sz">
+                                <li><label for="sz">S
+                                    <input type="radio" name="size" id="sz">
+                                </label></li>
+                                <li><label for="sz2">M
+                                    <input type="radio" name="size" id="sz2">
+                                </label></li><li>
+                                <label for="sz3">L
+                                    <input type="radio" name="size" id="sz3">
                                 </label></li>
                             </ul>
                         </li>
                     </ul>
                     <div class="sum">
-                        <p>4,500원</p>
+                        <p>${findItem.price}</p>
                         <div class="pm">
                             <a href="#"><img src="${pageContext.request.contextPath}/resources/statics/img/icon1.png" alt=""></a>
                             <p>1</p>
