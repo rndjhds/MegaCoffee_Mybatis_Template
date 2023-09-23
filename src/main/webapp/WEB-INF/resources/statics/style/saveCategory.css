@@ -74,7 +74,7 @@ main .content1 div p:nth-child(2) {
     border-right: 3px solid #969696;
     border-radius: 20px; padding:0 40px;
 }
-.content3 .left form fieldset #parentId {
+.content3 .left form fieldset select {
     border-style: none;
     width: 200px; padding: 10px 0;
     border-radius: 18px;
@@ -82,7 +82,7 @@ main .content1 div p:nth-child(2) {
     border-right: 3px solid #969696;
     margin-bottom: 20px;
 }
-.content3 .left form fieldset #parentId option {}
+.content3 .left form fieldset select option {}
 .content3 .left form fieldset .btn {
     width: 200px; padding: 10px; transition: all 0.5s linear;
 }

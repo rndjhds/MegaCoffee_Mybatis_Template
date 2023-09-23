@@ -46,11 +46,12 @@
                         <input type="text" id="categoryName" name="categoryName" value="${category.categoryName}">
                     </label>
                     <c:if test="${category.categoryId != null}">
-                        <label>삭제 여부</label>
-                        <select id="deleteYN" name="deleteYN">
-                            <option value="N">삭제X</option>
-                            <option value="Y">삭제</option>
-                        </select>
+                        <label style="display: flex;align-items: center;flex-flow: column;">삭제 여부
+                            <select id="deleteYN" name="deleteYN" style="margin-top: 10px;width: 150px;">
+                                <option value="N">삭제X</option>
+                                <option value="Y">삭제</option>
+                            </select>
+                        </label>
                     </c:if>
                     <c:if test="${not empty category}">
                         <button type="submit" class="btn">수정</button>

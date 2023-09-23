@@ -48,11 +48,12 @@
                     <label for="price">가격
                         <input type="number" id="price" name="price" placeholder="가격을 입력해주세요." value="${item.price}"}>
                     </label>
-                    <label for="deleteYN">삭제여부</label>
-                    <select name="deleteYN" id="deleteYN">
-                        <option value="N">삭제X</option>
-                        <option value="Y">삭제</option>
-                    </select>
+                    <label for="deleteYN">삭제여부
+                        <select style="margin-top: 10px; width: 100px;" name="deleteYN" id="deleteYN">
+                            <option value="N">삭제X</option>
+                            <option value="Y">삭제</option>
+                        </select>
+                    </label>
                     <button type="submit" class="btn">저장</button>
                 </div>
                 <div class="right">

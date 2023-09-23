@@ -57,16 +57,17 @@
                     <label for="storeName">매장명
                         <input type="text" id="storeName" name="storeName" value="${store.storeName}">
                     </label>
-                    <label for="memberId">가맹점주</label>
-                    <select id="memberId" name="memberId">
-                        <option value="">전체</option>
-                        <c:forEach var="manager" items="${managers}">
-                            <option value=${manager.memberId}
-                                            <c:if test ="${store.memberId eq manager.memberId}">selected="selected"</c:if>>
-                                    ${manager.username}
-                            </option>
-                        </c:forEach>
-                    </select>
+                    <label for="memberId" style="display: flex;align-items: center;flex-flow: column;">가맹점주
+                        <select style="margin-top: 10px;width: 150px;" id="memberId" name="memberId">
+                            <option value="">전체</option>
+                            <c:forEach var="manager" items="${managers}">
+                                <option value=${manager.memberId}
+                                                <c:if test ="${store.memberId eq manager.memberId}">selected="selected"</c:if>>
+                                        ${manager.username}
+                                </option>
+                            </c:forEach>
+                        </select>
+                    </label>
                     <label for="zipcode">우편번호
                         <input type="text" id="zipcode" name="zipcode" value="${store.zipcode}" readonly
                                onclick="openDaumPostcode()">
@@ -78,11 +79,12 @@
                         <input type="text" id="addressDetail" name="addressDetail" value="${store.addressDetail}">
                     </label>
                     <c:if test="${store.storeId != null}">
-                    <label for="deleteYN">삭제 여부</label>
-                        <select id="deleteYN" name="deleteYN">
+                    <label for="deleteYN"  style="display: flex;align-items: center;flex-flow: column;">삭제 여부
+                        <select id="deleteYN" name="deleteYN" style="margin-top: 10px;width: 150px;">
                             <option value="N">삭제X</option>
                             <option value="Y">삭제</option>
                         </select>
+                    </label>
                     </c:if>
                     <c:if test="${not empty store}">
                         <button type="submit" class="btn">수정</button>

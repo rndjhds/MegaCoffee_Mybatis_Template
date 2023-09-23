@@ -49,7 +49,7 @@ aside .btn a:hover {background: #6B2E2F;}
 aside .btn a:last-child {margin-bottom: 0;}
 /* main top ========================================================================================================================================================================*/
 main {padding-top: 50px; position: relative; margin:0 30px;} 
-main .top {background: #ddd;} 
+main .top {}
 main .top .swiper {
     width: 100%;
 }

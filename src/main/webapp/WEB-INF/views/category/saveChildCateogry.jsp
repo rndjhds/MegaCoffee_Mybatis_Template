@@ -42,8 +42,8 @@
                 <input type="hidden" id="categoryId" name="categoryId" value=${category.categoryId}>
                 <input type="hidden" id="memberId" name="memberId" readonly value="${sessionScope.member.memberId}">
                 <fieldset>
-                    <label for="parentId">상위 카테고리</label>
-                        <select id="parentId" name="parentId">
+                    <label for="parentId" style="display: flex;align-items: center;flex-flow: column;">상위 카테고리
+                        <select id="parentId" name="parentId" style="margin-top: 10px;width: 150px;">
                             <option value="">전체</option>
                             <c:forEach var="parentCategory" items="${parentCategory}">
                                 <option value=${parentCategory.categoryId}
@@ -52,15 +52,17 @@
                                 </option>
                             </c:forEach>
                         </select>
+                    </label>
                     <label for="categoryName">하위 카테고리
                         <input type="text" id="categoryName" name="categoryName" value="${category.categoryName}">
                     </label>
                     <c:if test="${category.categoryId != null}">
-                        <label>삭제 여부</label>
-                        <select id="deleteYN" name="deleteYN">
-                            <option value="N">삭제X</option>
-                            <option value="Y">삭제</option>
-                        </select>
+                        <label style="display: flex;align-items: center;flex-flow: column;">삭제 여부
+                            <select id="deleteYN" name="deleteYN" style="margin-top: 10px;width: 150px;">
+                                <option value="N">삭제X</option>
+                                <option value="Y">삭제</option>
+                            </select>
+                        </label>
                     </c:if>
                     <c:if test="${not empty category}">
                         <button type="submit" class="btn">수정</button>

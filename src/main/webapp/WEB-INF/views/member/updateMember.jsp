@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/register.css">
     <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
-    <title>회원가입</title>
+    <title>회원수정</title>
 </head>
 <body>
 <main>
@@ -25,29 +25,32 @@
                     <input type="text" id="memberId" name="memberId" readonly value="${member.memberId}">
                 </label>
                 <label for="username">회원이름
-                    <input type="text" id="username" name="username" value="${member.username}">
+                    <input type="text" id="username" name="username" value="${member.username}" placeholder="회원가입 명을 적어주세요">
                 </label>
                 <label for="email">이메일
                     <input type="email" id="email" name="email" value="${member.email}">
                 </label>
-                <label for="memberType">회원 타입</label>
-                <select name="memberType" id="memberType">
-                    <c:forEach var="memberType" items="${memberType}">
-                        <option value="${memberType}">${memberType}</option>
-                    </c:forEach>
-                </select>
-                <label for="permitStatus">승인 여부</label>
-                <select name="permitStatus" id="permitStatus">
-                    <c:forEach var="permitStatus" items="${permitStatus}">
-                        <option value="${permitStatus}">${permitStatus}</option>
-                    </c:forEach>
-                </select>
-                <label for="deleteYN">삭제 여부</label>
-                <select name="deleteYN" id="deleteYN">
-                    <option value="Y">삭제</option>
-                    <option value="N">삭제X</option>
-                </select>
-                <button type="submit">회원가입</button>
+                <label for="memberType">회원 타입
+                    <select style="margin-top: 10px; "name="memberType" id="memberType">
+                        <c:forEach var="memberType" items="${memberType}">
+                            <option value="${memberType}">${memberType}</option>
+                        </c:forEach>
+                    </select>
+                </label>
+                <label for="permitStatus">승인 여부
+                    <select style="margin-top: 10px;" name="permitStatus" id="permitStatus">
+                        <c:forEach var="permitStatus" items="${permitStatus}">
+                            <option value="${permitStatus}">${permitStatus}</option>
+                        </c:forEach>
+                    </select>
+                </label>
+                <label for="deleteYN">삭제 여부
+                    <select style="margin-top: 10px;" name="deleteYN" id="deleteYN">
+                        <option value="Y">삭제</option>
+                        <option value="N">삭제X</option>
+                    </select>
+                </label>
+                <button type="submit">회원수정</button>
             </fieldset>
         </form>
     </div>

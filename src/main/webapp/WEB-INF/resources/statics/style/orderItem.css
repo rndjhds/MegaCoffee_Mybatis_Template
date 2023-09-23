@@ -4,6 +4,7 @@
     box-sizing: border-box;
     text-decoration: none;
     color: #000;
+    border: 0;
 }
 
 main .deta_top {
@@ -47,8 +48,11 @@ main .deta_title >p:last-child {
     font-size: 0.8125rem; letter-spacing: -0.02em; color: #515151;
 }
 .contents1 {
+    display: flex; align-items: center;
+    padding: 80px 0;  flex-flow: column nowrap;
+}
+.contents1 .top {
     display: flex; justify-content: center;
-    padding: 80px 0;
 }
 .contents1 .menuimg {
     margin-right: 30px;
@@ -60,52 +64,81 @@ main .deta_title >p:last-child {
 }
 .contents1 .menuimg p:nth-child(1) {width: 366px; height: 366px;}
 .contents1 .menuimg p:nth-child(1) img {width: 100%;}
-.contents1 .op {margin-left: 30px;}
-.contents1 .op > ul {
+.contents1 .op fieldset {margin-left: 30px;}
+.contents1 .op fieldset > ul {
     padding: 20px;
 }
-.contents1 .op > ul > li {
-    margin-bottom: 50px; padding: 0 0 15px 15px;
+.contents1 .op fieldset > ul > li {
+    margin-bottom: 50px; padding: 0 15px 15px 15px;
     border-bottom: 3px solid #6B2E2F;
 }
-.contents1 .op > ul > li p {
+.contents1 .op fieldset > ul > li p {
     font-size: 25px; font-weight: 700;
     letter-spacing: -0.02em;
 }
-.contents1 .op > ul > li .sub {
+.contents1 .op fieldset > ul > li .sub {
     display: flex; margin-top: 20px;
 }
-.contents1 .op > ul > li .sub:first-child {margin-top: 0;}
-.contents1 .op > ul > li .sub li {margin-right: 30px;}
-.contents1 .op > ul > li .sub li:last-child {margin-right: 0;}
-.contents1 .op > ul > li .sub li a {
+.contents1 .op fieldset > ul > li .sub:first-child {margin-top: 0;}
+.contents1 .op fieldset > ul > li .sub li {margin-right: 30px;}
+.contents1 .op fieldset > ul > li .sub li:last-child {margin-right: 0;}
+.contents1 .op fieldset > ul > li .sub li label {
     font-size: 20px; padding: 5px 10px; border: 2px solid #6B2E2F;
     border-radius: 15px; display: block; transition: all 0.4s ease;
+    cursor: pointer;
 }
-.contents1 .op > ul > li .sub li a:hover {
-    font-weight: 700; color: #FDD000;
-    background: #6B2E2F;
+.btnevent {
+    color: #FDD000; background: #6B2E2F;
 }
-.contents1 .op > .sum {
-    display: flex; width: 650px;
+.contents1 .op fieldset > ul > li .sub li label input {
+    display: none;
+}
+.contents1 .op fieldset > .sum {
+    display: flex; width: 675px;
     padding: 20px; margin-top: 50px;
     justify-content: space-around;
     border-radius: 15px;
     box-shadow: 0px 0px 10px 0px #000;
 }
-.contents1 .op > .sum > p {
+.contents1 .op fieldset > .sum > p {
     font-size: 20px;
 }
-.contents1 .op > .sum .pm {
+.contents1 .op fieldset > .sum .pm {
     display: flex;
     align-items: center;
 }
-.contents1 .op > .sum .pm a {
+.contents1 .op fieldset > .sum .pm a {
     display: block; width: 20px; height: 20px;
 }
-.contents1 .op > .sum .pm a img {
+.contents1 .op fieldset > .sum .pm a img {
     width: 100%;
 }
-.contents1 .op > .sum .pm p {
+.contents1 .op fieldset > .sum .pm p {
     margin: 0 30px; font-size: 20px;
+}
+.contents1 .btm {background: #fff; margin-top: 80px;}
+.contents1 .btm button {
+    width: 250px; font-size: 25px; font-weight: 700;
+    border: 2px solid #6B2E2F; margin-right: 200px;
+    padding: 5px 10px; transition: all 0.3s linear;
+    cursor: pointer;
+}
+.contents1 .btm button:hover {
+    background: #6B2E2F; color: #FDD000;
+    border-color: #fff;
+}
+.contents1 .btm button:last-child {margin-right: 0;}
+
+@media screen and (max-width:1120px) {
+
+    .contents1 {flex-flow: column nowrap; width: 700px; margin:0 auto;
+        align-items: center;}
+    .contents1 .menuimg {
+        display: flex; flex-flow: column nowrap; justify-content: center;
+        margin-right: 0; margin-bottom: 50px;
+    }
+    .contents1 .menuimg p:nth-child(2) {
+        text-align: start;
+    }
+    .contents1 .op > ul > li {width: 700px;}
 }

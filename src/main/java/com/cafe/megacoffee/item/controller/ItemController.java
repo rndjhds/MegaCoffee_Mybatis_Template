@@ -156,7 +156,7 @@ public class ItemController {
         ItemDTO findItem = itemService.findItemById(itemId);
         model.addAttribute("findItem",findItem);
 
-        return "/orders/itemOrder";
+        return "/orders/orderItem";
 
     }
 }

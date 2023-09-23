@@ -40,15 +40,16 @@
             <fieldset>
                 <div class="left">
                     <input type="hidden" value="${sessionScope.member.memberId}" name="memberId" id="memberId"/>
-                    <label for="categoryId">상위 카테고리</label>
-                    <select id="categoryId" name="categoryId">
-                        <option value="">전체</option>
-                        <c:forEach var="parentCategory" items="${parentCategoryId}">
-                            <option value=${parentCategory.categoryId}>
-                                    ${parentCategory.categoryName}
-                            </option>
-                        </c:forEach>
-                    </select>
+                    <label for="categoryId">상위 카테고리
+                        <select style="margin-top: 10px" id="categoryId" name="categoryId">
+                            <option value="">전체</option>
+                            <c:forEach var="parentCategory" items="${parentCategoryId}">
+                                <option value=${parentCategory.categoryId}>
+                                        ${parentCategory.categoryName}
+                                </option>
+                            </c:forEach>
+                        </select>
+                    </label>
                     <label for="title">상품명
                         <input type="text" id="title" name="title" placeholder="상품명을 입력해주세요.">
                     </label>
