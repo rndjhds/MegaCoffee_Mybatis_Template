@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<%@include file="../common/header.jsp"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@include file="../common/header.jsp" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -37,76 +37,120 @@
                 <p>${findItem.title}</p>
             </div>
             <form action="#" method="get" class="op">
+                <input type="hidden" id="price" name="price" value="${findItem.price}">
+                <input type="hidden" id="itemId" name="itemId" value="${findItem.itemId}">
                 <fieldset>
                     <ul>
                         <li><p>컵 선택</p>
                             <ul class="sub">
-                                <li><label for="cup" >일회용컵 사용
-                                    <input type="radio" name="cupOption" id="cup">
+                                <li><label for="cup">일회용컵 사용
+                                    <input type="radio" name="orderCup" id="cup" value="disposable" checked>
                                 </label></li>
                                 <li><label for="cup2">텀블러 사용
-                                    <input type="radio" name="cupOption" id="cup2">
+                                    <input type="radio" name="orderCup" id="cup2" value="tumbler">
                                 </label></li>
                                 <li><label for="cup3">매장컵(먹고 갈게요)
-                                    <input type="radio" name="cupOption" id="cup3">
+                                    <input type="radio" name="orderCup" id="cup3" value="shopCup">
                                 </label></li>
                             </ul>
                         </li>
                         <li><p>OPTION</p>
                             <ul class="sub">
                                 <li><label for="op1">ICE
-                                    <input type="radio" name="option" id="op1">
+                                    <input type="radio" name="orderOption" id="op1" value="ice" checked>
                                 </label></li>
                                 <li><label for="op2">HOT
-                                    <input type="radio" name="option" id="op2">
+                                    <input type="radio" name="orderOption" id="op2" value="hot">
                                 </label></li>
                             </ul>
                         </li>
                         <li><p>SIZE</p>
                             <ul class="sub">
                                 <li><label for="sz">S
-                                    <input type="radio" name="size" id="sz">
+                                    <input type="radio" name="orderSize" id="sz" value="small" checked>
                                 </label></li>
                                 <li><label for="sz2">M
-                                    <input type="radio" name="size" id="sz2">
-                                </label></li><li>
-                                <label for="sz3">L
-                                    <input type="radio" name="size" id="sz3">
+                                    <input type="radio" name="orderSize" id="sz2" value="medium">
                                 </label></li>
+                                <li>
+                                    <label for="sz3">L
+                                        <input type="radio" name="orderSize" id="sz3" value="large">
+                                    </label></li>
                             </ul>
                         </li>
                     </ul>
                     <div class="sum">
-                        <p>${findItem.price}</p>
+                        <p id="totalPrice">${findItem.price}</p>
                         <div class="pm">
-                            <a href="#"><img src="${pageContext.request.contextPath}/resources/statics/img/icon1.png" alt=""></a>
-                            <p>1</p>
-                            <a href="#"><img src="${pageContext.request.contextPath}/resources/statics/img/icon2.png" alt=""></a>
+                            <a id="minus"><img src="${pageContext.request.contextPath}/resources/statics/img/icon1.png"></a>
+                            <p id="count">1</p>
+                            <a id="add"><img
+                                    src="${pageContext.request.contextPath}/resources/statics/img/icon2.png"></a>
                         </div>
                     </div>
                 </fieldset>
             </form>
         </div>
         <div class="btm">
-            <button type="button">장바구니 담기</button>
-            <button type="button">바로 주문</button>
+            <button type="button" id="basket" onclick="createBasket()">장바구니 담기</button>
+            <button type="button" id="orders">바로 주문</button>
         </div>
     </section>
 </main>
 <script>
 
-    $('fieldset > ul > li:nth-child(1) .sub li label').on('click',function(){
+    $('fieldset > ul > li:nth-child(1) .sub li label').on('click', function () {
         $('.contents1 .op fieldset > ul > li:nth-child(1) .sub li label').removeClass()
         $(this).addClass('btnevent')
-    })
-    $('fieldset > ul > li:nth-child(2) .sub li label').on('click',function(){
+    });
+    $('fieldset > ul > li:nth-child(2) .sub li label').on('click', function () {
         $('.contents1 .op fieldset > ul > li:nth-child(2) .sub li label').removeClass()
         $(this).addClass('btnevent')
-    })
-    $('fieldset > ul > li:nth-child(3) .sub li label').on('click',function(){
+    });
+    $('fieldset > ul > li:nth-child(3) .sub li label').on('click', function () {
         $('.contents1 .op fieldset > ul > li:nth-child(3) .sub li label').removeClass()
         $(this).addClass('btnevent')
-    })
+    });
+
+    $("#add").click(function () {
+        let count = $("#count").text();
+        count++;
+        $("#count").text(count);
+
+        $("#totalPrice").text($("#price").val() * count);
+    });
+
+    $("#minus").click(function () {
+        let count = $("#count").text();
+        count--;
+        $("#count").text(count);
+
+        $("#totalPrice").text($("#price").val() * count);
+    });
+
+    function createBasket() {
+        $.ajax({
+            url: "/basket/createBasket",
+            contentType: "application/json; charset-utf-8",
+            type: "POST",
+            dataType: "json",
+            data: JSON.stringify({
+                itemId: $("#itemId").val(),
+                orderCount: $("#count").text(),
+                orderPrice: $("#totalPrice").text(),
+                orderCup: $("input[name='orderCup']:checked").val(),
+                orderOption: $("input[name='orderOption']:checked").val(),
+                orderSize: $("input[name='orderSize']:checked").val()
+            }),
+            success: function (data) {
+
+            },
+            error: function () {
+
+            }
+        });
+    }
+
 
 </script>
 
