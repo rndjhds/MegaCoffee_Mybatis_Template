@@ -87,7 +87,6 @@
     })
 
     function searchItem(ths) {
-        $(".drink_list").empty();
         $.ajax({
             url: "${pageContext.request.contextPath}/item/itemList",
             type: "POST",
@@ -105,7 +104,7 @@
             }),
             success: function (data) {
                 for (let i = 0; i < data.length; i++) {
-                    $(".drink_list").html(
+                    $(".drink_list").append(
                         "<div class='drink_1'> " +
                         "<div class='drink_poji'>" +
                         " <a href='/item/itemDetail/" + data[i].itemId + "'>" +
@@ -139,7 +138,7 @@
             }),
             success: function (data) {
                 for (let i = 1; i <= data; i++) {
-                    $(".pagenum").html("<a onclick='movePageNum(this)'>" + i + "</a>");
+                    $(".pagenum").append("<a onclick='movePageNum(this)'>" + i + "</a>");
                 }
             },
             error: function () {
@@ -149,11 +148,14 @@
     }
 
     function movePageNum(ths) {
+        $(".drink_list").empty();
         let start = $(ths).text();
         searchItem(start);
     }
 
     function reloadPage() {
+        $(".drink_list").empty();
+        $(".pagenum").empty();
         searchItem(1);
         createPageCountNum();
     }

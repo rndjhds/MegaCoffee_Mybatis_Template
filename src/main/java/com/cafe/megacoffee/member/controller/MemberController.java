@@ -78,13 +78,14 @@ public class MemberController {
 
     @PostMapping("/managerLogin")
     @ResponseBody
-    public boolean managerLogin(@RequestBody MemberDTO memberDTO) {
+    public boolean managerLogin(@RequestBody MemberDTO memberDTO, HttpSession session) {
 
         boolean result = false;
         try {
             MemberDTO findMember = memberService.findMemberByIdWithPassword(memberDTO);
 
             if (findMember.getMemberType() == MemberType.MANAGER && findMember.getPermitStatus() == PermitStatus.ACCESS) {
+                session.setAttribute("member", findMember);
                 result = true;
             }
 
@@ -99,13 +100,14 @@ public class MemberController {
 
     @PostMapping("/adminLogin")
     @ResponseBody
-    public boolean adminLogin(@RequestBody MemberDTO memberDTO) {
+    public boolean adminLogin(@RequestBody MemberDTO memberDTO, HttpSession session) {
 
         boolean result = false;
         try {
             MemberDTO findMember = memberService.findMemberByIdWithPassword(memberDTO);
 
             if (findMember.getMemberType() == MemberType.ADMIN && findMember.getPermitStatus() == PermitStatus.ACCESS) {
+                session.setAttribute("member", findMember);
                 result = true;
             }
         } catch (NullPointerException e) {
