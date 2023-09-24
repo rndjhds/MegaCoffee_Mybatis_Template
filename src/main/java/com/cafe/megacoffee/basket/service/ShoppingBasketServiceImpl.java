@@ -7,12 +7,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class ShoppingBasketServiceImpl implements ShoppingBasketService{
+public class ShoppingBasketServiceImpl implements ShoppingBasketService {
 
     private final ShoppingBasketMapper shoppingBasketMapper;
 
     @Override
     public Integer findshoppingBasketId(BasketDTO basketDTO) {
-        return shoppingBasketMapper.findshoppingBasketId(basketDTO);
+        shoppingBasketMapper.findshoppingBasketId(basketDTO);
+        return basketDTO.getShoppingBasketId();
     }
 }

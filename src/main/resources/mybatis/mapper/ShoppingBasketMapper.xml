@@ -4,9 +4,9 @@
 <mapper namespace="com.cafe.megacoffee.basket.repository.ShoppingBasketMapper">
 
     <update id="findshoppingBasketId" parameterType="com.cafe.megacoffee.basket.dto.BasketDTO">
-        <selectKey keyProperty="shoppingBasketId" keyColumn="shopping_basket_id" resultType="java.lang.Integer" order="AFTER">
+        <selectKey keyProperty="shoppingBasketId" resultType="java.lang.Integer" order="AFTER">
             select
-                shopping_basket_id
+                shopping_basket_id shoppingBasketId
             from
                 shopping_basket
             where
@@ -20,7 +20,7 @@
         else shopping_basket_id end shopping_basket_id
         from shopping_basket
         where member_id = #{memberId}
-        and shopping_basket_status = 'READY'))
+        and shopping_basket_status = #{shoppingBasketStatus}))
             when matched then
                 update set
                     SHOPPING_BASKET_DATE = sysdate
@@ -28,6 +28,40 @@
             insert
                 (sb.shopping_basket_id, sb.member_id, sb.shopping_basket_status)
             values
-                (shopping_basket_seq.nextval, #{memberId}, 'READY')
+                (shopping_basket_seq.nextval, #{memberId}, #{shoppingBasketStatus})
+    </update>
+
+    <update id="saveShoppingItem" parameterType="com.cafe.megacoffee.basket.dto.ShoppingItem">
+        merge into
+            shopping_item si
+            using
+                dual
+            on (si.shopping_item_id = (select case
+                                                  when
+                                                      shopping_item_id is null
+                                                      then 0
+                                                  else shopping_item_id end shopping_item_id
+                                       from shopping_item
+                                       where shopping_basket_id = #{shoppingBasketId}
+                                         and item_id = #{itemId} and order_cup = #{orderCup} and
+                order_option = #{orderOption} and order_size = #{orderSize}))
+            when matched then
+                update
+                    set
+                        si.order_count = (select order_count + #{orderCount}
+                                          from shopping_item
+                                          where shopping_basket_id = #{shoppingBasketId}
+                                            and item_id = #{itemId} and order_cup = #{orderCup} and
+                                         order_option = #{orderOption} and order_size = #{orderSize}),
+                        si.order_price = (select order_price + #{orderPrice}
+                                            from shopping_item
+                                            where shopping_basket_id = #{shoppingBasketId}
+                                            and item_id = #{itemId} and order_cup = #{orderCup} and
+                                            order_option = #{orderOption} and order_size = #{orderSize})
+            when not matched then
+                insert
+                    (si.shopping_item_id, si.shopping_basket_id, si.item_id, si.order_count, si.order_price, si.order_cup, si.order_option, si.order_size)
+                values
+                    (shopping_item_id_seq.nextval, #{shoppingBasketId}, #{itemId}, #{orderCount},#{orderPrice},#{orderCup},#{orderOption},#{orderSize})
     </update>
 </mapper>
