@@ -15,5 +15,6 @@ public class ShoppingItem {
     private String orderCup;
     private String orderOption;
     private String orderSize;
+    private BasketDTO basketDTO;
 
 }

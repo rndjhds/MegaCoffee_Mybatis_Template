@@ -4,6 +4,8 @@ import com.cafe.megacoffee.category.dto.CategoryDTO;
 import com.cafe.megacoffee.category.service.CategoryService;
 import com.cafe.megacoffee.item.dto.ItemDTO;
 import com.cafe.megacoffee.item.service.ItemService;
+import com.cafe.megacoffee.store.dto.StoreDTO;
+import com.cafe.megacoffee.store.service.StoreService;
 import com.cafe.megacoffee.util.date.SearchDate;
 import com.cafe.megacoffee.util.file.FileUpload;
 import com.cafe.megacoffee.util.page.Pagination;
@@ -25,6 +27,8 @@ public class ItemController {
     private final ItemService itemService;
     private final CategoryService categoryService;
     private final FileUpload fileUpload;
+
+    private final StoreService storeService;
 
     @GetMapping("/manageItemList/{categoryId}")
     public String manageItemList(@PathVariable("categoryId") Integer categoryId, Model model) {
@@ -123,7 +127,7 @@ public class ItemController {
 
     @GetMapping("/ItemList/{categoryId}")
     public String itemList(Model model, @PathVariable("categoryId") Integer categoryId) {
-        List<CategoryDTO> categoryList = categoryService.findChildCategoryByParentId(categoryId);
+        List<CategoryDTO> categoryList = categoryService.findNoDeleteChildCategoryByParentId(categoryId);
         model.addAttribute("categoryList", categoryList);
         model.addAttribute("parentCategoryId", categoryId);
         return "/item/itemList";
@@ -140,9 +144,7 @@ public class ItemController {
     @ResponseBody
     public int createPageCount(@RequestBody ItemDTO itemDTO) {
         int totalCount = itemService.findItemCountByCategoryId(itemDTO);
-        System.out.println("총 리턴값 : " + totalCount);
         int pageCount = totalCount / 8;
-        System.out.println("현재 페이지 수 :" + pageCount);
         if(totalCount % 8 != 0) {
             pageCount = totalCount / 8 + 1;
             System.out.println("if 카운트 수 : " + pageCount);
@@ -154,7 +156,9 @@ public class ItemController {
     @GetMapping("/itemDetail/{itemId}")
     public String itemDetail(@PathVariable("itemId") Integer itemId, Model model){
         ItemDTO findItem = itemService.findItemById(itemId);
+        List<StoreDTO> stores =  storeService.findNoDeleteStore();
         model.addAttribute("findItem",findItem);
+        model.addAttribute("stores",stores);
 
         return "/item/itemDetail";
 

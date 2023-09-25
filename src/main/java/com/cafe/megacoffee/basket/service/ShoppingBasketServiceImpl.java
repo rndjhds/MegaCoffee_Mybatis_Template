@@ -19,7 +19,7 @@ public class ShoppingBasketServiceImpl implements ShoppingBasketService {
     }
 
     @Override
-    public void saveShoppingItem(ShoppingItem shoppingItem) {
-        shoppingBasketMapper.saveShoppingItem(shoppingItem);
+    public int saveShoppingItem(ShoppingItem shoppingItem) {
+        return shoppingBasketMapper.saveShoppingItem(shoppingItem);
     }
 }

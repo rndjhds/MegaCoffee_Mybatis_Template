@@ -7,5 +7,5 @@ public interface ShoppingBasketService {
 
     public Integer findshoppingBasketId(BasketDTO basketDTO);
 
-    public void saveShoppingItem(ShoppingItem shoppingItem);
+    public int saveShoppingItem(ShoppingItem shoppingItem);
 }

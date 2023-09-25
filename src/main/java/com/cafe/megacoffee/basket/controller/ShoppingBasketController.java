@@ -24,17 +24,29 @@ public class ShoppingBasketController {
     @ResponseBody
     public boolean createBasket(@RequestBody ShoppingItem shoppingItem, HttpSession session) {
 
-        MemberDTO member = (MemberDTO) session.getAttribute("member");
-        BasketDTO basketDTO = new BasketDTO();
-        basketDTO.setMemberId(member.getMemberId());
-        basketDTO.setShoppingBasketStatus(ShoppingBasketStatus.READY);
-        Integer findshoppingBasketId = shoppingBasketService.findshoppingBasketId(basketDTO);
-        shoppingItem.setShoppingBasketId(findshoppingBasketId);
-        shoppingBasketService.saveShoppingItem(shoppingItem);
-
-
         boolean result = false;
+        try {
+            MemberDTO member = (MemberDTO) session.getAttribute("member");
+
+            BasketDTO basketDTO = shoppingItem.getBasketDTO();
+            basketDTO.setMemberId(member.getMemberId());
+            basketDTO.setShoppingBasketStatus(ShoppingBasketStatus.READY);
+
+            Integer findshoppingBasketId = shoppingBasketService.findshoppingBasketId(basketDTO);
+            shoppingItem.setShoppingBasketId(findshoppingBasketId);
+
+            if (shoppingBasketService.saveShoppingItem(shoppingItem) != 0) {
+                result = true;
+            }
+        }catch (Exception e) {
+            result = false;
+        }
 
         return result;
     }
+
+  /*  @GetMapping("/basketList")
+    public String basketList() {
+
+    }*/
 }

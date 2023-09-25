@@ -15,4 +15,6 @@ public class BasketDTO {
     private ShoppingBasketStatus shoppingBasketStatus;
 
     private String shoppingBasketDate;
+
+    private Integer storeId;
 }

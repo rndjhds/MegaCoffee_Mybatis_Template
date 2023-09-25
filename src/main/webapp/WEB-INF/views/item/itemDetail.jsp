@@ -7,7 +7,7 @@
     <meta name="keywords" content="">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/orderItem.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/itemDetail.css">
     <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
     <title>메뉴상세페이지</title>
 </head>
@@ -40,6 +40,15 @@
                 <input type="hidden" id="price" name="price" value="${findItem.price}">
                 <input type="hidden" id="itemId" name="itemId" value="${findItem.itemId}">
                 <fieldset>
+                    <div class="mainmenu">
+                        <p>가맹점</p>
+                        <select name="storeId" id="storeId">
+                            <option value="">전체</option>
+                            <c:forEach var="stores" items="${stores}">
+                                <option value=${stores.storeId}>${stores.storeName}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
                     <ul>
                         <li><p>컵 선택</p>
                             <ul class="sub">
@@ -140,10 +149,17 @@
                 orderPrice: $("#totalPrice").text(),
                 orderCup: $("input[name='orderCup']:checked").val(),
                 orderOption: $("input[name='orderOption']:checked").val(),
-                orderSize: $("input[name='orderSize']:checked").val()
+                orderSize: $("input[name='orderSize']:checked").val(),
+                basketDTO: {
+                    storeId : $("select[name='storeId']").val()
+                }
             }),
             success: function (data) {
+                if(data == true) {
 
+                } else {
+
+                }
             },
             error: function () {
 

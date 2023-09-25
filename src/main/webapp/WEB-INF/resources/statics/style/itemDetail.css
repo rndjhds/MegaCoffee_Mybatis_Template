@@ -65,11 +65,23 @@ main .deta_title >p:last-child {
 .contents1 .menuimg p:nth-child(1) {width: 366px; height: 366px;}
 .contents1 .menuimg p:nth-child(1) img {width: 100%;}
 .contents1 .op fieldset {margin-left: 30px;}
+.contents1 .op fieldset > .mainmenu {
+    display: flex; padding-left: 35px;
+    align-items: center;
+}
+.contents1 .op fieldset > .mainmenu > p {
+    font-size: 20px; font-weight: 700;
+    letter-spacing: -0.02em; margin-right: 25px;
+}
+.contents1 .op fieldset > .mainmenu > #storeId {
+    font-size: 16px; padding: 5px 10px; border: 2px solid #6B2E2F;
+    border-radius: 5px;    }
+.contents1 .op fieldset > .mainmenu > #storeId option {}
 .contents1 .op fieldset > ul {
     padding: 20px;
 }
 .contents1 .op fieldset > ul > li {
-    margin-bottom: 50px; padding: 0 15px 15px 15px;
+    margin: 50px 0; padding: 0 15px 15px 15px;
     border-bottom: 3px solid #6B2E2F;
 }
 .contents1 .op fieldset > ul > li p {
@@ -95,7 +107,7 @@ main .deta_title >p:last-child {
 }
 .contents1 .op fieldset > .sum {
     display: flex; width: 675px;
-    padding: 20px; margin-top: 50px;
+    padding: 20px;
     justify-content: space-around;
     border-radius: 15px;
     box-shadow: 0px 0px 10px 0px #000;
@@ -128,17 +140,3 @@ main .deta_title >p:last-child {
     border-color: #fff;
 }
 .contents1 .btm button:last-child {margin-right: 0;}
-
-@media screen and (max-width:1120px) {
-
-    .contents1 {flex-flow: column nowrap; width: 700px; margin:0 auto;
-        align-items: center;}
-    .contents1 .menuimg {
-        display: flex; flex-flow: column nowrap; justify-content: center;
-        margin-right: 0; margin-bottom: 50px;
-    }
-    .contents1 .menuimg p:nth-child(2) {
-        text-align: start;
-    }
-    .contents1 .op > ul > li {width: 700px;}
-}
