@@ -67,4 +67,50 @@
                 values
                     (shopping_item_id_seq.nextval, #{shoppingBasketId}, #{itemId}, #{orderCount},#{orderPrice},#{orderCup},#{orderOption},#{orderSize})
     </update>
+
+    <select id="findMyBasketWithMemberIdAndStoreId" parameterType="com.cafe.megacoffee.basket.dto.BasketDTO" resultType="Map">
+        select
+        sb.shopping_basket_id shoppingBasketId,
+        sb.member_id memberId,
+        sb.store_id storeId,
+        si.order_count orderCount,
+        si.order_price orderPrice,
+        si.order_cup orderCup,
+        si.order_option orderOption,
+        si.order_size orderSize,
+        si.shopping_item_id shoppingItemId,
+        item.img,
+        item.title,
+        (select
+        sum(shopping_item.order_count * shopping_item.order_price) total_price
+        from
+        shopping_item , shopping_basket
+        where
+        shopping_item.shopping_basket_id = shopping_basket.shopping_basket_id
+        and
+        member_id = #{memberId}
+        <if test="storeId != 0">
+            and
+            sb.store_id = #{storeId}
+        </if>
+        ) totalPrice
+        from
+        shopping_basket sb
+        inner join
+        shopping_item si
+        on
+        sb.shopping_basket_id = si.shopping_basket_id
+        inner join
+        item item
+        on
+        si.item_id = item.item_id
+        where
+        sb.member_id = #{memberId}
+        and
+        sb.shopping_basket_status = #{shoppingBasketStatus}
+        <if test="storeId != 0">
+            and
+            sb.store_id = #{storeId}
+        </if>
+    </select>
 </mapper>

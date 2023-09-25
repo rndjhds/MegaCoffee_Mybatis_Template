@@ -47,6 +47,21 @@ main .deta_title .deta_title_center p {
 main .deta_title >p:last-child {
     font-size: 0.8125rem; letter-spacing: -0.02em; color: #515151;
 }
+.contentstop {
+    display: flex; width: 1000px;
+    justify-content: end;
+    margin:0 auto;
+}
+.contentstop > p {
+    font-size: 20px; font-weight: 700;
+    margin-right: 15px;
+}
+.contentstop #storeId {
+    font-size: 16px; font-weight: 700;
+    padding: 5px 10px;
+    border: 0; border-left: 3px solid #FDD000;
+}
+.contentstop #storeId option {}
 .contents1 {}
 .contents1 .menu1 {
     display: flex; justify-content: center;
@@ -166,34 +181,4 @@ main .deta_title >p:last-child {
 }
 .contents1 .menu2 .op > .sum .pm p {
     margin: 0 30px; font-size: 20px;
-}
-
-@media screen and (max-width:1020px) {
-    .contents1 .menu1,
-    .contents1 .menu2 {
-        width: 90%;
-    }
-    .contents1 .menu1 .op > .sum,
-    .contents1 .menu2 .op > .sum {
-        width: 100%;
-    }
-}
-@media screen and (max-width:875px) {
-    .contents1 .menu1 .op,
-    .contents1 .menu2 .op {width: 100%;}
-    .contents1 .menu1 .op .infowrap,
-    .contents1 .menu2 .op .infowrap {
-        width: 100%;
-    }
-}
-@media screen and (max-width:730px) {
-    .contents1 .menu1,
-    .contents1 .menu2 {
-        flex-flow: column nowrap;
-        align-items: center;
-    }
-    .contents1 .menu1 p,
-    .contents1 .menu2 p {
-        margin-bottom: 50px;
-    }
 }

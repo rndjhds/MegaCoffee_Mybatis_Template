@@ -43,7 +43,7 @@
                     <div class="mainmenu">
                         <p>가맹점</p>
                         <select name="storeId" id="storeId">
-                            <option value="">전체</option>
+                            <option value=0>전체</option>
                             <c:forEach var="stores" items="${stores}">
                                 <option value=${stores.storeId}>${stores.storeName}</option>
                             </c:forEach>
@@ -138,6 +138,10 @@
     });
 
     function createBasket() {
+        if($("select[name='storeId']").val() == 0) {
+            alert("상품을 구매할 가맹점을 골라주세요");
+            return false;
+        }
         $.ajax({
             url: "/basket/createBasket",
             contentType: "application/json; charset-utf-8",
@@ -146,7 +150,7 @@
             data: JSON.stringify({
                 itemId: $("#itemId").val(),
                 orderCount: $("#count").text(),
-                orderPrice: $("#totalPrice").text(),
+                orderPrice: $("#price").val(),
                 orderCup: $("input[name='orderCup']:checked").val(),
                 orderOption: $("input[name='orderOption']:checked").val(),
                 orderSize: $("input[name='orderSize']:checked").val(),
@@ -156,7 +160,7 @@
             }),
             success: function (data) {
                 if(data == true) {
-
+                    location.href="/basket/myBasketList"
                 } else {
 
                 }

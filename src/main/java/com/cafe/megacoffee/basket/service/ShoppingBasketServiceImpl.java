@@ -6,6 +6,9 @@ import com.cafe.megacoffee.basket.repository.ShoppingBasketMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
+
 @Service
 @RequiredArgsConstructor
 public class ShoppingBasketServiceImpl implements ShoppingBasketService {
@@ -21,5 +24,10 @@ public class ShoppingBasketServiceImpl implements ShoppingBasketService {
     @Override
     public int saveShoppingItem(ShoppingItem shoppingItem) {
         return shoppingBasketMapper.saveShoppingItem(shoppingItem);
+    }
+
+    @Override
+    public List<Map<String, Object>> findMyBasketWithMemberIdAndStoreId(BasketDTO basketDTO) {
+        return shoppingBasketMapper.findMyBasketWithMemberIdAndStoreId(basketDTO);
     }
 }
