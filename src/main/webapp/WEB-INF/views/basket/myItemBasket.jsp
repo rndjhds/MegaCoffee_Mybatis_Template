@@ -84,13 +84,13 @@
                             '</div> ' +
                             '</div> ' +
                             '<div class="sum"> ' +
-                            '<p>' + (data[i].ORDERPRICE * data[i].ORDERCOUNT) + '</p> ' +
+                            '<p id="' + data[i].SHOPPINGITEMID + '_sum">' + (data[i].ORDERPRICE * data[i].ORDERCOUNT) + '</p> ' +
                             '<div class="pm"> ' +
-                            '<a onclick="add(' + data[i].SHOPPINGITEMID + ', ' + data[i].ORDEPRICE + ',' + data[i].ORDERCOUNT + ')">' +
+                            '<a onclick="minus(' + data[i].SHOPPINGITEMID + ', ' + data[i].ORDERPRICE +')">' +
                             '<img src="${pageContext.request.contextPath}/resources/statics/img/icon1.png">' +
                             '</a> ' +
-                            '<p>' + data[i].ORDERCOUNT + '</p> ' +
-                            '<a onclick="minus(' + data[i].SHOPPINGITEMID + ',' + data[i].ORDERPRICE + ',' + data[i].ORDERCOUNT + ')">' +
+                            '<p id="' + data[i].SHOPPINGITEMID + '_count">' + data[i].ORDERCOUNT + '</p> ' +
+                            '<a onclick="add(' + data[i].SHOPPINGITEMID + ',' + data[i].ORDERPRICE +')">' +
                             '<img src="${pageContext.request.contextPath}/resources/statics/img/icon2.png">' +
                             '</a> ' +
                             '</div> ' +
@@ -119,6 +119,33 @@
                 }
             }
         });
+    }
+
+
+    function add(shoppingItemId, orderPrice) {
+        let count = $("#" + shoppingItemId + "_count").text();
+        count++;
+        $("#" + shoppingItemId + "_count").text(count);
+
+        let sum = orderPrice * count;
+        $("#" + shoppingItemId + "_sum").text(sum);
+
+    }
+
+    function minus(shoppingItemId, orderPrice) {
+        let count = $("#" + shoppingItemId + "_count").text();
+        count--;
+        if(count < 1) {
+            count = 1;
+        }
+        $("#" + shoppingItemId + "_count").text(count);
+
+        let sum = orderPrice * count;
+        console.log(sum);
+        console.log(count);
+        console.log(orderPrice);
+        $("#" + shoppingItemId + "_sum").text(sum);
+
     }
 
 </script>

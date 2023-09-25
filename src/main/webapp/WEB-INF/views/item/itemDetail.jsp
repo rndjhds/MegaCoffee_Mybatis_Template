@@ -132,6 +132,9 @@
     $("#minus").click(function () {
         let count = $("#count").text();
         count--;
+        if(count < 1) {
+            count = 1;
+        }
         $("#count").text(count);
 
         $("#totalPrice").text($("#price").val() * count);
