@@ -22,5 +22,7 @@ public interface CategoryService {
     public List<CategoryDTO> findChildCategoryByParentId(Integer categoryId);
 
     public List<CategoryDTO> getHeaderCategory();
+
+    public List<CategoryDTO> findNoDeleteChildCategoryByParentId(Integer categoryId);
 }
 

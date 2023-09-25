@@ -57,4 +57,9 @@ public class CategoryServiceImpl implements CategoryService {
     public List<CategoryDTO> getHeaderCategory() {
         return categoryMapper.getHeaderCategory();
     }
+
+    @Override
+    public List<CategoryDTO> findNoDeleteChildCategoryByParentId(Integer categoryId) {
+        return categoryMapper.findNoDeleteChildCategoryByParentId(categoryId);
+    }
 }

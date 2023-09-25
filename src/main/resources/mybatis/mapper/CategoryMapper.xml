@@ -274,4 +274,15 @@
             delete_yn = 'N'
     </select>
 
+    <select id="findNoDeleteChildCategoryByParentId" parameterType="Integer" resultType="com.cafe.megacoffee.category.dto.CategoryDTO">
+        select
+            category_id categoryId,
+            name categoryName
+        from
+            category
+        where
+            parent_id = #{categoryId}
+        and
+            delete_yn = 'N'
+    </select>
 </mapper>
