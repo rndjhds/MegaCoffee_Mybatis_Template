@@ -113,4 +113,8 @@
             sb.store_id = #{storeId}
         </if>
     </select>
+
+    <delete id="deleteShoppingItem" parameterType="Integer">
+        delete from shopping_item where shopping_item_id = #{shoppingItemId}
+    </delete>
 </mapper>

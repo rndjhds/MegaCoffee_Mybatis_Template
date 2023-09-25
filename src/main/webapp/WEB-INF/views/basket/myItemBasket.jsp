@@ -50,11 +50,11 @@
     $(document).ready(createBasketForm());
 
     $("#storeId").change(function () {
-        $(".contents1").empty();
         createBasketForm();
     });
 
     function createBasketForm() {
+        $(".contents1").empty();
         $.ajax({
                 url: "/basket/myBasketByStoreId",
                 type: "post",
@@ -75,7 +75,7 @@
                             '<div class="infowrap">' +
                             '<div class="info_title">' +
                             '<h1>' + data[i].TITLE + '</h1> ' +
-                            '<a onclick="delete(' + data[i].SHOPPINGITEMID + ')">삭제</a>' +
+                            '<a onclick="deleteShoppingItem(' + data[i].SHOPPINGITEMID + ')">삭제</a>' +
                             '</div>' +
                             '<div class="info"> ' +
                             '<p>' + data[i].ORDERCUP + '</p> ' +
@@ -104,6 +104,22 @@
             }
         );
     };
+
+    function deleteShoppingItem(shoppingItemId) {
+        $.ajax({
+            url: "/basket/deleteShoppingItem/" + shoppingItemId,
+            type: "delete",
+            contentType: "application/json; charset-utf-8",
+            dataType: "json",
+            success: function (data) {
+                if (data == true) {
+                    createBasketForm();
+                } else {
+                    alert("삭제 실패하였습니다.");
+                }
+            }
+        });
+    }
 
 </script>
 <%@include file="../common/footer.jsp" %>

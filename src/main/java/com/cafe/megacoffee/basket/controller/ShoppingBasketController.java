@@ -72,4 +72,15 @@ public class ShoppingBasketController {
         }
         return myBasketList;
     }
+
+    @DeleteMapping("/deleteShoppingItem/{shoppingItemId}")
+    @ResponseBody
+    public boolean deleteShoppingItem(@PathVariable("shoppingItemId") Integer shoppingItemId) {
+        int result = shoppingBasketService.deleteShoppingItem(shoppingItemId);
+
+        if(result > 0) {
+            return true;
+        }
+        return false;
+    }
 }

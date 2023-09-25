@@ -30,4 +30,9 @@ public class ShoppingBasketServiceImpl implements ShoppingBasketService {
     public List<Map<String, Object>> findMyBasketWithMemberIdAndStoreId(BasketDTO basketDTO) {
         return shoppingBasketMapper.findMyBasketWithMemberIdAndStoreId(basketDTO);
     }
+
+    @Override
+    public int deleteShoppingItem(Integer shoppingItemId) {
+        return shoppingBasketMapper.deleteShoppingItem(shoppingItemId);
+    }
 }
