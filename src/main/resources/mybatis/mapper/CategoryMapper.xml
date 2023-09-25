@@ -262,4 +262,16 @@
             parent_id = #{categoryId}
     </select>
 
+    <select id="getHeaderCategory" resultType="com.cafe.megacoffee.category.dto.CategoryDTO">
+        select
+            category_id categoryId,
+            NAME categoryName
+        from
+            category
+        where
+            parent_id is null
+        and
+            delete_yn = 'N'
+    </select>
+
 </mapper>

@@ -96,7 +96,7 @@ public class CategoryController {
     @PostMapping("/getHeaderCategory")
     @ResponseBody
     public List<CategoryDTO> getHeaderCategory() {
-        return categoryService.getParentCategoryAll();
+        return categoryService.getHeaderCategory();
     }
 
 }
