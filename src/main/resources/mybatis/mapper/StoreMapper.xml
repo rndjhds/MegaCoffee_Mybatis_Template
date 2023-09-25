@@ -155,4 +155,13 @@ f       from
                     )
     </update>
 
+    <select id="findNoDeleteStore" resultType="com.cafe.megacoffee.store.dto.StoreDTO">
+        select
+            store_id storeId,
+            store_name storeName
+        from
+            store
+        where
+            delete_yn = 'N'
+    </select>
 </mapper>

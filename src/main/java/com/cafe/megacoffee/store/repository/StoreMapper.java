@@ -14,4 +14,7 @@ public interface StoreMapper {
     public StoreDTO findStoreById(Integer storeId);
 
     public int saveStore(StoreDTO storeDTO);
+
+    public List<StoreDTO> findNoDeleteStore();
+
 }

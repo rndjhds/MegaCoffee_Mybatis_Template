@@ -32,4 +32,9 @@ public class StoreServiceImpl implements StoreService{
     public int saveStore(StoreDTO storeDTO) {
         return storeMapper.saveStore(storeDTO);
     }
+
+    @Override
+    public List<StoreDTO> findNoDeleteStore() {
+        return storeMapper.findNoDeleteStore();
+    }
 }
