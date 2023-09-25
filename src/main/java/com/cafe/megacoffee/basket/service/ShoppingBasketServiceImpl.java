@@ -1,6 +1,7 @@
 package com.cafe.megacoffee.basket.service;
 
 import com.cafe.megacoffee.basket.dto.BasketDTO;
+import com.cafe.megacoffee.basket.dto.ShoppingItem;
 import com.cafe.megacoffee.basket.repository.ShoppingBasketMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,5 +16,10 @@ public class ShoppingBasketServiceImpl implements ShoppingBasketService {
     public Integer findshoppingBasketId(BasketDTO basketDTO) {
         shoppingBasketMapper.findshoppingBasketId(basketDTO);
         return basketDTO.getShoppingBasketId();
+    }
+
+    @Override
+    public void saveShoppingItem(ShoppingItem shoppingItem) {
+        shoppingBasketMapper.saveShoppingItem(shoppingItem);
     }
 }

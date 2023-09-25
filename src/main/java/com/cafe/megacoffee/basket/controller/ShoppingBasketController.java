@@ -29,9 +29,8 @@ public class ShoppingBasketController {
         basketDTO.setMemberId(member.getMemberId());
         basketDTO.setShoppingBasketStatus(ShoppingBasketStatus.READY);
         Integer findshoppingBasketId = shoppingBasketService.findshoppingBasketId(basketDTO);
-        System.out.println(findshoppingBasketId);
         shoppingItem.setShoppingBasketId(findshoppingBasketId);
-        shoppingBasketMapper.saveShoppingItem(shoppingItem);
+        shoppingBasketService.saveShoppingItem(shoppingItem);
 
 
         boolean result = false;
