@@ -23,7 +23,7 @@
     <insert id="creatOrderItem" parameterType="com.cafe.megacoffee.order.dto.OrderItem">
         insert into
             order_item (order_item_id, order_id, item_id, order_price, order_count, order_cup, order_option, order_size)
-        values (order_item_seq.nextval, #{orderId}, #{itemId}, #{orderPrice}, #{orderCount}, #{orderCup}, #{orderOption}, #{orderSize})
+        values (order_item_seq.nextval, #{orderId}, #{itemId}, #{orderPrice}, #{orderCount}, #{orderCup, jdbcType=VARCHAR}, #{orderOption, jdbcType=VARCHAR}, #{orderSize, jdbcType=VARCHAR})
     </insert>
 
 
