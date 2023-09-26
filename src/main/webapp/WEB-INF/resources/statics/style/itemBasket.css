@@ -6,7 +6,7 @@ html {min-width: 390px;}
     text-decoration: none;
     color: #000; border: 0;
 }
-main {padding: 80px 0;}
+main {margin: 80px 30px;}
 main .deta_top {
     text-align: center; background-size: cover;
     background: url(../img/farsai-chaikulngamdee-SMPe5xfbPT0-unsplash.jpg) center no-repeat;
@@ -48,6 +48,7 @@ main .deta_title >p:last-child {
     font-size: 0.8125rem; letter-spacing: -0.02em; color: #515151;
 }
 .contentstop {
+    align-items: center;
     display: flex; width: 1000px;
     justify-content: end;
     margin:0 auto;
@@ -70,7 +71,6 @@ main .deta_title >p:last-child {
     display: flex; justify-content: center;
     width: 1000px; margin:0 auto;
     padding: 80px 0; border-bottom: 3px solid #6B2E2F;
-    margin-bottom: 80px;
 }
 .contents1 .menu1 p {}
 .contents1 .menu1 p img {}
@@ -186,6 +186,7 @@ main .deta_title >p:last-child {
     margin: 0 30px; font-size: 20px;
 }
 .contents2 {
+    padding: 80px 0 80px;
     width: 650px; margin:0 auto;
     display: flex; flex-flow: column nowrap;
     align-items: center;

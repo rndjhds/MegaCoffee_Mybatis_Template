@@ -65,8 +65,9 @@
                         <input name="categoryId" type="radio" checked value="">
                     </label>
                     <c:forEach var="categoryList" items="${categoryList}">
-                        <label>${categoryList.categoryName}</label>
-                        <input type="radio" name="categoryId" id="categoryId" value="${categoryList.categoryId}">
+                        <label>${categoryList.categoryName}
+                            <input type="radio" name="categoryId" id="categoryId" value="${categoryList.categoryId}">
+                        </label>
                     </c:forEach>
                 </div>
             </fieldset>

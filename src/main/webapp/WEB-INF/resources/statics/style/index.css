@@ -324,7 +324,7 @@ main .content5 .event .info3 p:first-child {
 }
 main .content5 .event .info3 p:last-child {}
 /* footer ==================================================================================================================== */
-footer {background: #000; display: flex; justify-content: space-between; padding: 50px 60px;}
+footer {background: #000; display: flex; justify-content: space-between; padding: 50px 60px;margin-top: 30px;}
 footer .left {color: #fff;}
 footer .left .icon {
     display: flex; align-items: end;
