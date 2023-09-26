@@ -59,12 +59,18 @@
                     shopping_basket_id = #{shoppingBasketId}
                 and
                     item_id = #{itemId}
+                <if test="orderCup != null and orderCup neq ''">
                 and
                     order_cup = #{orderCup}
+                </if>
+                <if test="orderOption != null and orderOption neq ''">
                 and
                     order_option = #{orderOption}
+                </if>
+                <if test="orderSize != null and orderSize neq ''">
                 and
-                    order_size = #{orderSize}))
+                    order_size = #{orderSize}
+                </if>))
         when matched then
             update set
                 si.order_count = (
@@ -76,32 +82,23 @@
                         shopping_basket_id = #{shoppingBasketId}
                     and
                         item_id = #{itemId}
+                    <if test="orderCup != null and orderCup neq ''">
                     and
                         order_cup = #{orderCup}
+                    </if>
+                    <if test="orderOption != null and orderOption neq ''">
                     and
                         order_option = #{orderOption}
+                    </if>
+                    <if test="orderSize != null and orderSize neq ''">
                     and
-                        order_size = #{orderSize}),
-                si.order_price = (
-                    select
-                        order_price + #{orderPrice}
-                    from
-                        shopping_item
-                    where
-                        shopping_basket_id = #{shoppingBasketId}
-                    and
-                        item_id = #{itemId}
-                    and
-                        order_cup = #{orderCup}
-                    and
-                        order_option = #{orderOption}
-                    and
-                        order_size = #{orderSize})
+                        order_size = #{orderSize}
+                    </if>)
             when not matched then
                 insert
                     (si.shopping_item_id, si.shopping_basket_id, si.item_id, si.order_count, si.order_price, si.order_cup, si.order_option, si.order_size)
                 values
-                    (shopping_item_id_seq.nextval, #{shoppingBasketId}, #{itemId}, #{orderCount},#{orderPrice},#{orderCup},#{orderOption},#{orderSize})
+                    (shopping_item_id_seq.nextval, #{shoppingBasketId}, #{itemId}, #{orderCount},#{orderPrice},#{orderCup, jdbcType=VARCHAR},#{orderOption, jdbcType=VARCHAR},#{orderSize, jdbcType=VARCHAR})
     </update>
 
     <select id="findMyBasketWithMemberIdAndStoreId" parameterType="com.cafe.megacoffee.basket.dto.BasketDTO" resultType="Map">

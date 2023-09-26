@@ -23,6 +23,15 @@ public class ShoppingBasketServiceImpl implements ShoppingBasketService {
 
     @Override
     public int saveShoppingItem(ShoppingItem shoppingItem) {
+        System.out.println(shoppingItem.getItemId());
+        System.out.println(shoppingItem.getShoppingItemId());
+        System.out.println(shoppingItem.getShoppingBasketId());
+        System.out.println(shoppingItem.getOrderCup());
+        System.out.println(shoppingItem.getOrderCount());
+        System.out.println(shoppingItem.getOrderPrice());
+        System.out.println(shoppingItem.getOrderOption());
+        System.out.println(shoppingItem.getItemId());
+        System.out.println(shoppingItem.getOrderSize());
         return shoppingBasketMapper.saveShoppingItem(shoppingItem);
     }
 

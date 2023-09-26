@@ -154,9 +154,9 @@
                 itemId: $("#itemId").val(),
                 orderCount: $("#count").text(),
                 orderPrice: $("#price").val(),
-                orderCup: $("input[name='orderCup']:checked").val(),
+                /*orderCup: $("input[name='orderCup']:checked").val(),
                 orderOption: $("input[name='orderOption']:checked").val(),
-                orderSize: $("input[name='orderSize']:checked").val(),
+                orderSize: $("input[name='orderSize']:checked").val(),*/
                 basketDTO: {
                     storeId : $("select[name='storeId']").val()
                 }
