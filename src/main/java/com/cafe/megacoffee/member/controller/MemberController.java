@@ -216,4 +216,20 @@ public class MemberController {
 
         return memberService.updatePermitStatus(memberDTO);
     }
+
+    @GetMapping("/deleteMember")
+    public String deleteMember() {
+        return "/member/deleteMember";
+    }
+
+    @PatchMapping("/deleteMember")
+    @ResponseBody
+    public boolean deleteMember(@RequestParam("memberId") String memberId, HttpSession session) {
+        int result = memberService.deleteMember(memberId);
+        if(result > 0) {
+            session.invalidate();
+            return true;
+        }
+        return false;
+    }
 }

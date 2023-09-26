@@ -27,4 +27,6 @@ public interface MemberService {
     public MemberDTO findMemberById(String memberId);
 
     public int updateMember(MemberDTO memberDTO);
+
+    public int deleteMember(String memberId);
 }

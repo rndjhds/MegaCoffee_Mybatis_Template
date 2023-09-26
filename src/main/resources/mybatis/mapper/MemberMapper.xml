@@ -218,4 +218,13 @@
         where
             member_id = #{memberId}
     </update>
+
+    <update id="deleteMember" parameterType="String">
+        update
+            member
+        set
+            delete_yn = 'Y'
+        where
+            member_id = #{memberId}
+    </update>
 </mapper>

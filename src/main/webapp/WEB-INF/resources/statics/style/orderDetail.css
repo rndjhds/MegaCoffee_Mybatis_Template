@@ -1,0 +1,137 @@
+html {min-width: 390px;}
+* {
+    list-style: none;
+    padding: 0; margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #000; font-size: 16px;
+    font-style: normal;
+}
+main {height: 3000px;}
+main .deta_top {
+    text-align: center; background-size: cover;
+    background: url(../img/farsai-chaikulngamdee-SMPe5xfbPT0-unsplash.jpg) center no-repeat;
+    background-size: cover;
+}
+main .deta_top .deta_page {
+    display: flex; flex-flow: column nowrap; align-items: center;
+    padding: 107px 0; background-color: rgba(5,5, 5, 35%);
+}
+main .deta_top .deta_page p:nth-child(1) {
+    font-size: 5rem; font-weight: 700;
+    letter-spacing: -0.02em; color: #FDD000;
+    margin: 25px 0;
+}
+main .deta_top .deta_page .deta_page_info {
+    font-size: 2.5rem; letter-spacing: -0.02em; color: #fff;
+    line-height: 50px; margin: 25px 0;
+}
+main .deta_top .deta_page .deta_page_info em {
+    font-size: 2.5rem; letter-spacing: -0.02em; color: #fff;
+    font-weight: 700;
+}
+/* drink_title ===================================================================================================================================== */
+main .deta_title {text-align: center; padding: 50px 0;}
+main .deta_title > p:first-child {
+    font-size: 1.25rem; letter-spacing: -0.02em; color: #AE846C; font-weight: 500;
+}
+main .deta_title .deta_title_center {
+    display: flex; align-items: center; justify-content: center; margin: 5px 0 50px;
+}
+main .deta_title .deta_title_center span {
+    display: inline-block; width: 400px; height: 3px; background: #6B2E2F;
+}
+main .deta_title .deta_title_center p {
+    font-size: 5rem; letter-spacing: -0.02em; color: #6B2E2F; font-weight: 700;
+    margin: 0 40px;
+}
+main .deta_title >p:last-child {
+    font-size: 0.8125rem; letter-spacing: -0.02em; color: #515151;
+}
+/* 내용======================================================================== */
+aside {
+    position: fixed; top: 50%; left: 50%;
+    background: #000; text-align: center;
+    padding: 5px 0;
+    transform: translate(-50%, -50%);
+}
+aside a {
+    font-size: 18px; font-weight: 700;
+    display: inline-block;
+    width: 60px; color: #FDD000;
+}
+.start {
+    width: 670px; margin:0 auto;
+    position: fixed;
+    top: 50%; left: 50%;
+    background: #e4e4e4; border: 3px solid #6B2E2F;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+.start .title {
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+}
+.start .title h1 {
+    font-size: 35px; font-weight: 700; letter-spacing: -0.02em;
+    margin-bottom: 5px;
+}
+.start .title p {
+    font-size: 20px; letter-spacing: -0.02em;
+}
+.start .title .btn {
+    border: 1px solid #000;
+    display: inline-block; position: absolute;
+    top: 30px; right: 30px;
+}
+.start .title .btn a {padding: 5px 10px;}
+.start .info {
+    display: flex; align-items: center;
+    margin-top:30px; justify-content: space-around;
+    background: #fff;
+    padding: 20px;
+}
+.start .info p {width: 200px;}
+.start .info p img {width: 100%;}
+.start .info .list {
+    display: flex; flex-flow: column nowrap;
+}
+.start .info .list p {}
+.start .info .list p:first-child {margin-bottom: 20px;}
+.start .info .list p:last-child {margin-top: 20px;}
+.start .info .list p em {
+    font-weight: 700; font-size: 25px; letter-spacing: -0.02em;
+}
+.start .info .list span {
+    font-size: 18px; letter-spacing: -0.02em;
+    margin-bottom: 15px;
+}
+.start .info .list span:last-child {margin-bottom: 0;}
+.start ul {
+    margin: 30px 0; width: 100%;
+    background: #fff;
+    padding: 20px;
+}
+.start ul li:last-child {margin-bottom: 0;}
+.start ul li {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.start ul li p {
+    font-size: 20px;
+}
+.start ul li p em {
+    font-size: 25px; font-weight: 700; letter-spacing: -0.02em;
+}
+.start ul li:last-child p em {color: #f53030;}
+.start .reds {
+    background: #fff;
+    font-size: 20px; font-weight: 700; letter-spacing: -0.02em;
+    color: #f53030;
+    padding: 20px;
+}
+
+
+

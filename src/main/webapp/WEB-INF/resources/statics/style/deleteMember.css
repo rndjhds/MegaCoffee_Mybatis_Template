@@ -1,0 +1,99 @@
+html {min-width: 390px;}
+* {
+    list-style: none;
+    padding: 0; margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #000; font-size: 16px;
+    font-style: normal;
+    border: 0;
+}
+main {height: 2000px;}
+main .deta_top {
+    text-align: center; background-size: cover;
+    background: url(../img/farsai-chaikulngamdee-SMPe5xfbPT0-unsplash.jpg) center no-repeat;
+    background-size: cover;
+}
+main .deta_top .deta_page {
+    display: flex; flex-flow: column nowrap; align-items: center;
+    padding: 107px 0; background-color: rgba(5,5, 5, 35%);
+}
+main .deta_top .deta_page p:nth-child(1) {
+    font-size: 5rem; font-weight: 700;
+    letter-spacing: -0.02em; color: #FDD000;
+    margin: 25px 0;
+}
+main .deta_top .deta_page .deta_page_info {
+    font-size: 2.5rem; letter-spacing: -0.02em; color: #fff;
+    line-height: 50px; margin: 25px 0;
+}
+main .deta_top .deta_page .deta_page_info em {
+    font-size: 2.5rem; letter-spacing: -0.02em; color: #fff;
+    font-weight: 700;
+}
+/* drink_title ===================================================================================================================================== */
+main .deta_title {text-align: center; padding: 50px 0;}
+main .deta_title > p:first-child {
+    font-size: 1.25rem; letter-spacing: -0.02em; color: #AE846C; font-weight: 500;
+}
+main .deta_title .deta_title_center {
+    display: flex; align-items: center; justify-content: center; margin: 5px 0 50px;
+}
+main .deta_title .deta_title_center span {
+    display: inline-block; width: 400px; height: 3px; background: #6B2E2F;
+}
+main .deta_title .deta_title_center p {
+    font-size: 5rem; letter-spacing: -0.02em; color: #6B2E2F; font-weight: 700;
+    margin: 0 40px;
+}
+main .deta_title >p:last-child {
+    font-size: 0.8125rem; letter-spacing: -0.02em; color: #515151;
+}
+/* 내용 ======================================================================================= */
+.info {
+    display: flex; flex-flow: column nowrap;
+    align-items: center;
+}
+.info .info_top {}
+.info .info_top h1 {
+    font-size: 25px; letter-spacing: -0.02em;
+    padding-bottom: 30px;
+}
+.info .info_top p {
+    letter-spacing: -0.02em; line-height: 30px;
+    font-size: 18px;
+}
+.info .info_top p span {
+    display: inline-block; width: 10px; height: 2px;
+    background: #6B2E2F; margin: 0 5px 5px 0;
+}
+.info form {
+    padding-top: 30px;
+}
+.info form fieldset {
+    display: flex; flex-flow: column nowrap;
+}
+.info form fieldset label {}
+.info form fieldset label input {}
+.info form fieldset button {
+    width: 500px; font-size: 20px;
+    border-radius: 25px; padding: 10px 0;
+    font-weight: 700; cursor: pointer;
+    transition: all 0.3s ease;
+}
+.info form fieldset .btn1 {
+    background: #515151; color: #FDD000;
+    margin: 20px 0;
+}
+.info form fieldset .btn1:hover {
+    background: #000; color: #FDD000;
+}
+.info form fieldset .btn2 {
+    border: 1px solid #AE846C; color: #AE846C;
+    background: #FFF;
+}
+.info form fieldset .btn2:hover {
+    border: 1px solid #6B2E2F; color: #6B2E2F;
+}
+
+

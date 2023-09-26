@@ -89,6 +89,10 @@
         location.href = "/member/logout";
     });
 
+    $("#btn4").click(function () {
+        location.href = "/member/deleteMember";
+    });
+
 </script>
 
 </html>
