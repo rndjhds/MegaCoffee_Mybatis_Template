@@ -8,6 +8,7 @@
         <mapper resource="StoreMapper.xml"/>
         <mapper resource="ItemMapper.xml"/>
         <mapper resource="ShoppingBasketMapper.xml"/>
+        <mapper resource="OrderMapper.xml"/>
     </mappers>
 
 </configuration>
