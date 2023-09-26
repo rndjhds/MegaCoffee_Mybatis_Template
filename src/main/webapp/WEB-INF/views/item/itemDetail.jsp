@@ -102,7 +102,7 @@
         </div>
         <div class="btm">
             <button type="button" id="basket" onclick="createBasket()">장바구니 담기</button>
-            <button type="button" id="orders">바로 주문</button>
+            <button type="button" id="orders" onclick="createItemOrder()">바로 주문</button>
         </div>
     </section>
 </main>
@@ -170,6 +170,44 @@
             },
             error: function () {
 
+            }
+        });
+    }
+
+    function createItemOrder() {
+        let orderList = new Array();
+        orderList.push({
+            itemId: $("#itemId").val(),
+            orderCount: $("#count").text(),
+            orderPrice: $("#price").val(),
+            orderCup: $("input[name='orderCup']:checked").val(),
+            orderOption: $("input[name='orderOption']:checked").val(),
+            orderSize: $("input[name='orderSize']:checked").val()
+        });
+
+        if($("select[name='storeId']").val() == 0) {
+            alert("상품을 구매할 가맹점을 골라주세요");
+            return false;
+        }
+        $.ajax({
+            url: "/order/creatOrderItem",
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset-utf-8",
+            data: JSON.stringify({
+                "list": orderList,
+                "memberId": "${sessionScope.member.memberId}",
+                "storeId": $("select[name='storeId']").val()
+            }),
+            success: function (data) {
+                if(data == true) {
+                    alert("주문이 완료되었습니다");
+                } else {
+                    alert("주문 도중 결제가 되지 않은 상품이 존재 합니다.");
+                }
+            },
+            error: function () {
+                alert("주문이 실패하였습니다.");
             }
         });
     }

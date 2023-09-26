@@ -3,5 +3,28 @@
 
 <mapper namespace="com.cafe.megacoffee.order.repository.OrderMapper">
 
+    <insert id="createOrder" parameterType="com.cafe.megacoffee.order.dto.Orders">
+        <selectKey keyProperty="orderId" resultType="java.lang.Integer" order="AFTER">
+            select
+                order_id orderId
+            from
+                orders
+            where
+                order_status = #{orderStatus}
+            and
+                member_id = #{memberId}
+        </selectKey>
+        insert into
+            orders (order_id, member_id, order_date, order_status, store_id)
+        values
+            (order_seq.nextval, #{memberId}, sysdate, #{orderStatus}, #{storeId})
+    </insert>
+
+    <insert id="creatOrderItem" parameterType="com.cafe.megacoffee.order.dto.OrderItem">
+        insert into
+            order_item (order_item_id, order_id, item_id, order_price, order_count, order_cup, order_option, order_size)
+        values (order_item_seq.nextval, #{orderId}, #{itemId}, #{orderPrice}, #{orderCount}, #{orderCup}, #{orderOption}, #{orderSize})
+    </insert>
+
 
 </mapper>

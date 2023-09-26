@@ -1,5 +1,5 @@
 package com.cafe.megacoffee.order.type;
 
 public enum OrderStatus {
-    ORDERCOMP, COMPITEM
+    PROCESSING, ORDERCOMP, COMPITEM
 }
