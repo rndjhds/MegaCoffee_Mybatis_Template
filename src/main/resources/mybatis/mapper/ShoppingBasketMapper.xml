@@ -16,18 +16,26 @@
         </selectKey>
         merge into
             shopping_basket sb
-            using
-                dual
-            on (sb.shopping_basket_id = (select case when shopping_basket_id is null then 0
-        else shopping_basket_id end shopping_basket_id
-        from shopping_basket
-        where member_id = #{memberId}
-        and shopping_basket_status = #{shoppingBasketStatus}
-        and store_id = #{storeId}))
-            when matched then
-                update set
-                    SHOPPING_BASKET_DATE = sysdate
-            when not matched then
+        using
+            dual
+        on
+            (sb.shopping_basket_id = (
+                select
+                    case when shopping_basket_id is null then 0
+                    else shopping_basket_id
+                    end shopping_basket_id
+                from
+                    shopping_basket
+                where
+                    member_id = #{memberId}
+                and
+                    shopping_basket_status = #{shoppingBasketStatus}
+                and
+                    store_id = #{storeId}))
+        when matched then
+            update set
+                SHOPPING_BASKET_DATE = sysdate
+        when not matched then
             insert
                 (sb.shopping_basket_id, sb.member_id, sb.shopping_basket_status, store_id)
             values
@@ -37,30 +45,58 @@
     <update id="saveShoppingItem" parameterType="com.cafe.megacoffee.basket.dto.ShoppingItem">
         merge into
             shopping_item si
-            using
-                dual
-            on (si.shopping_item_id = (select case
-                                                  when
-                                                      shopping_item_id is null
-                                                      then 0
-                                                  else shopping_item_id end shopping_item_id
-                                       from shopping_item
-                                       where shopping_basket_id = #{shoppingBasketId}
-                                         and item_id = #{itemId} and order_cup = #{orderCup} and
-                order_option = #{orderOption} and order_size = #{orderSize}))
-            when matched then
-                update
-                    set
-                        si.order_count = (select order_count + #{orderCount}
-                                          from shopping_item
-                                          where shopping_basket_id = #{shoppingBasketId}
-                                            and item_id = #{itemId} and order_cup = #{orderCup} and
-                                         order_option = #{orderOption} and order_size = #{orderSize}),
-                        si.order_price = (select order_price + #{orderPrice}
-                                            from shopping_item
-                                            where shopping_basket_id = #{shoppingBasketId}
-                                            and item_id = #{itemId} and order_cup = #{orderCup} and
-                                            order_option = #{orderOption} and order_size = #{orderSize})
+        using
+            dual
+        on
+            (si.shopping_item_id = (
+                select
+                    case when shopping_item_id is null then 0
+                    else shopping_item_id
+                    end shopping_item_id
+                from
+                    shopping_item
+                where
+                    shopping_basket_id = #{shoppingBasketId}
+                and
+                    item_id = #{itemId}
+                and
+                    order_cup = #{orderCup}
+                and
+                    order_option = #{orderOption}
+                and
+                    order_size = #{orderSize}))
+        when matched then
+            update set
+                si.order_count = (
+                    select
+                        order_count + #{orderCount}
+                    from
+                        shopping_item
+                    where
+                        shopping_basket_id = #{shoppingBasketId}
+                    and
+                        item_id = #{itemId}
+                    and
+                        order_cup = #{orderCup}
+                    and
+                        order_option = #{orderOption}
+                    and
+                        order_size = #{orderSize}),
+                si.order_price = (
+                    select
+                        order_price + #{orderPrice}
+                    from
+                        shopping_item
+                    where
+                        shopping_basket_id = #{shoppingBasketId}
+                    and
+                        item_id = #{itemId}
+                    and
+                        order_cup = #{orderCup}
+                    and
+                        order_option = #{orderOption}
+                    and
+                        order_size = #{orderSize})
             when not matched then
                 insert
                     (si.shopping_item_id, si.shopping_basket_id, si.item_id, si.order_count, si.order_price, si.order_cup, si.order_option, si.order_size)
@@ -70,46 +106,46 @@
 
     <select id="findMyBasketWithMemberIdAndStoreId" parameterType="com.cafe.megacoffee.basket.dto.BasketDTO" resultType="Map">
         select
-        sb.shopping_basket_id shoppingBasketId,
-        sb.member_id memberId,
-        sb.store_id storeId,
-        si.order_count orderCount,
-        si.order_price orderPrice,
-        si.order_cup orderCup,
-        si.order_option orderOption,
-        si.order_size orderSize,
-        si.shopping_item_id shoppingItemId,
-        item.img,
-        item.title,
-        (select
-        sum(shopping_item.order_count * shopping_item.order_price) total_price
-        from
-        shopping_item , shopping_basket
-        where
-        shopping_item.shopping_basket_id = shopping_basket.shopping_basket_id
-        and
-        member_id = #{memberId}
-        <if test="storeId != 0">
+            sb.shopping_basket_id shoppingBasketId,
+            sb.member_id memberId,
+            sb.store_id storeId,
+            si.order_count orderCount,
+            si.order_price orderPrice,
+            si.order_cup orderCup,
+            si.order_option orderOption,
+            si.order_size orderSize,
+            si.shopping_item_id shoppingItemId,
+            item.img,
+            item.title,
+            (select
+                sum(shopping_item.order_count * shopping_item.order_price) total_price
+            from
+                shopping_item , shopping_basket
+            where
+                shopping_item.shopping_basket_id = shopping_basket.shopping_basket_id
             and
-            sb.store_id = #{storeId}
-        </if>
-        ) totalPrice
-        from
-        shopping_basket sb
-        inner join
-        shopping_item si
-        on
-        sb.shopping_basket_id = si.shopping_basket_id
-        inner join
-        item item
-        on
-        si.item_id = item.item_id
-        where
-        sb.member_id = #{memberId}
-        and
-        sb.shopping_basket_status = #{shoppingBasketStatus}
-        <if test="storeId != 0">
+                member_id = #{memberId}
+            <if test="storeId != 0">
             and
+                sb.store_id = #{storeId}
+            </if>
+            ) totalPrice
+        from
+            shopping_basket sb
+        inner join
+            shopping_item si
+        on
+            sb.shopping_basket_id = si.shopping_basket_id
+        inner join
+            item item
+        on
+            si.item_id = item.item_id
+        where
+            sb.member_id = #{memberId}
+        and
+            sb.shopping_basket_status = #{shoppingBasketStatus}
+        <if test="storeId != 0">
+        and
             sb.store_id = #{storeId}
         </if>
     </select>
