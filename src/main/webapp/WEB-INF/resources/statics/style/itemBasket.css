@@ -4,9 +4,9 @@ html {min-width: 390px;}
     padding: 0; margin: 0;
     box-sizing: border-box;
     text-decoration: none;
-    color: #000;
+    color: #000; border: 0;
 }
-
+main {padding: 80px 0;}
 main .deta_top {
     text-align: center; background-size: cover;
     background: url(../img/farsai-chaikulngamdee-SMPe5xfbPT0-unsplash.jpg) center no-repeat;
@@ -62,7 +62,10 @@ main .deta_title >p:last-child {
     border: 0; border-left: 3px solid #FDD000;
 }
 .contentstop #storeId option {}
-.contents1 {}
+.contents1 {
+    display: flex; flex-flow: column nowrap;
+    align-items: center;
+}
 .contents1 .menu1 {
     display: flex; justify-content: center;
     width: 1000px; margin:0 auto;
@@ -182,3 +185,32 @@ main .deta_title >p:last-child {
 .contents1 .menu2 .op > .sum .pm p {
     margin: 0 30px; font-size: 20px;
 }
+.contents2 {
+    width: 650px; margin:0 auto;
+    display: flex; flex-flow: column nowrap;
+    align-items: center;
+}
+.contents2 > p {width: 180px;}
+.contents2 > p img {width: 100%;}
+.contents2 .txt {
+    display: flex; width: 100%;
+    justify-content: space-around;
+    margin: 30px 0;
+}
+.contents2 .txt p {
+    font-size: 20px; font-weight: 700;
+}
+.contents2 button {
+    width: 100%; font-size: 25px;
+    letter-spacing: -0.02em; font-weight: 700;
+    border: 1px solid #515151; color: #515151;
+    background: #fff;
+    padding: 15px 0; border-radius: 10px;
+    transition: all 0.4s linear; cursor: pointer;
+}
+.contents2 button:hover {
+    border: 1px solid #000; color: #FDD000;
+    background: #000;
+}
+
+

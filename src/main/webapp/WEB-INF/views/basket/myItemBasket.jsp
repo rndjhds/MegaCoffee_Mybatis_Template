@@ -43,6 +43,17 @@
     <section class="contents1">
 
     </section>
+    <section class="contents2">
+        <p><img src="./img/header_logo.png" alt=""></p>
+        <div class="txt">
+            <p>상품금액</p>
+            <p>9,000원</p>
+        </div>
+        <button type="button">
+            주문하기
+        </button>
+    </section>
+
 </main>
 </body>
 <script>

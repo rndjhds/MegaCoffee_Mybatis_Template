@@ -25,10 +25,10 @@ public class OrderController {
         orders.setOrderStatus(OrderStatus.PROCESSING);
         orders.setMemberId(list.getMemberId());
         orders.setStoreId(list.getStoreId());
-        Integer orderId = orderService.createOrder(orders);
+        orderService.createOrder(orders);
 
         for (OrderItem orderItem: list.getList()) {
-            orderItem.setOrderId(orderId);
+            orderItem.setOrderId(orders.getOrderId());
         }
         int orderItemCount = orderService.creatOrderItem(list.getList());
 
