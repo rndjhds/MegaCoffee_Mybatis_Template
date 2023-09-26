@@ -170,7 +170,7 @@
         </if>
     </select>
 
-    <update id="updatePermitStatusToWait" parameterType="com.cafe.megacoffee.member.dto.MemberDTO">
+    <update id="updatePermitStatus" parameterType="com.cafe.megacoffee.member.dto.MemberDTO">
         update
             member
         set

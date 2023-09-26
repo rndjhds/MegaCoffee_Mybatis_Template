@@ -27,7 +27,7 @@
                     <li><a href="./map.html">오시는길</a></li>
                 </ul>
             </li>
-            <li><a href="/item/menuView">메뉴소개</a>
+            <li><a href="#">메뉴소개</a>
                 <ul class="sub_nav" id="menu">
                 </ul>
             </li>
@@ -64,7 +64,7 @@
                 <a href="/member/login">로그인</a>
             </c:when>
             <c:otherwise>
-                <a href="/member/logout">${sessionScope.member.memberId}</a>
+                <a href="/member/info">${sessionScope.member.memberId}</a>
             </c:otherwise>
         </c:choose>
         <a href="#" id="managerLogin">가맹점 로그인</a>

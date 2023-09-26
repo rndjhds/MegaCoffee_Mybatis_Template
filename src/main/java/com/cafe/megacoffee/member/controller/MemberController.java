@@ -163,15 +163,15 @@ public class MemberController {
         return map;
     }
 
-    @PostMapping("/updatePermitStatusToWait")
+    @PostMapping("/updatePermitStatusFromWait")
     @ResponseBody
-    public int updatePermitStatusToWait(@RequestParam(value = "memberId", required = false) String memberId) {
+    public int updatePermitStatusFromWait(@RequestParam(value = "memberId", required = false) String memberId) {
         MemberDTO memberDTO = new MemberDTO();
         memberDTO.setMemberId(memberId);
         memberDTO.setPermitStatus(PermitStatus.ACCESS);
         memberDTO.setMemberType(MemberType.MANAGER);
 
-        return memberService.updatePermitStatusToWait(memberDTO);
+        return memberService.updatePermitStatus(memberDTO);
     }
 
     @GetMapping("/updateMember")
@@ -200,5 +200,20 @@ public class MemberController {
     public int updateMember(@RequestBody MemberDTO memberDTO) {
         int result = memberService.updateMember(memberDTO);
         return result;
+    }
+
+    @GetMapping("/info")
+    public String memberinfo() {
+        return "/member/memberInfo";
+    }
+
+    @PostMapping("/requestAccessManager")
+    @ResponseBody
+    public int requestAccessManager(@RequestParam("memberId") String memberId) {
+        MemberDTO memberDTO = new MemberDTO();
+        memberDTO.changeMemberStatus(MemberType.BUYER,PermitStatus.WAIT);
+        memberDTO.setMemberId(memberId);
+
+        return memberService.updatePermitStatus(memberDTO);
     }
 }

@@ -122,7 +122,7 @@
 
     function openInfo(memberId) {
         $.ajax({
-            url: "${pageContext.request.contextPath}/member/updatePermitStatusToWait",
+            url: "${pageContext.request.contextPath}/member/updatePermitStatusFromWait",
             type: "POST",
             dataType: "json",
             data: {

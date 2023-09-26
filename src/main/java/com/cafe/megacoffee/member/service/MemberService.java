@@ -20,7 +20,7 @@ public interface MemberService {
 
     public int findPermitStatusWaitMemberCount(MemberDTO memberDTO);
 
-    public int updatePermitStatusToWait(MemberDTO memberDTO);
+    public int updatePermitStatus(MemberDTO memberDTO);
 
     public List<MemberDTO> findMemberStatusByManager();
 
