@@ -10,4 +10,7 @@ public class OrderRequest<T> {
     private T list;
     private String memberId;
     private Integer storeId;
+    private int amount;
+    private String merchantUid;
+    private String orderProductName;
 }

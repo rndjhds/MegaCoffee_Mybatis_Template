@@ -107,7 +107,7 @@
         </div>
         <div class="btm">
             <button type="button" id="basket" onclick="createBasket()">장바구니 담기</button>
-            <button type="button" id="orders" onclick="createItemOrder()">바로 주문</button>
+            <button type="button" id="orders" onclick="sendRequestToImPort()">바로 주문</button>
         </div>
     </section>
 </main>
@@ -179,9 +179,9 @@
         });
     }
 
-    let orderList;
-    function createItemOrder() {
-        orderList = new Array();
+
+    function createItemOrder(amount, merchant_uid, name) {
+        let orderList = new Array();
         orderList.push({
             itemId: $("#itemId").val(),
             orderCount: $("#count").text(),
@@ -203,13 +203,15 @@
             data: JSON.stringify({
                 "list": orderList,
                 "memberId": "${sessionScope.member.memberId}",
-                "storeId": $("select[name='storeId']").val()
+                "storeId": $("select[name='storeId']").val(),
+                "amount": amount,
+                "merchantUid" : merchant_uid,
+                "orderProductName" : name
             }),
             success: function (data) {
                 if(data == true) {
-                    let amount = $("#totalPrice").text();
-                    let buyName = $("#buyName").val();
-                    sendRequestToImPort(amount, buyName);
+                    alert("결제 성공");
+                    // 결제 후 결제 정보 보여주는 페이지로 이동 할 에정
                 } else {
                     alert("주문 도중 결제가 되지 않은 상품이 존재 합니다.");
                 }
@@ -220,7 +222,9 @@
         });
     }
 
-    function sendRequestToImPort(amount, buyName) {
+    function sendRequestToImPort() {
+        let amount = $("#totalPrice").text();
+        let buyName = $("#buyName").val();
 
         const IMP = window.IMP;
         IMP.init('imp52714112');
@@ -232,10 +236,18 @@
             amount : amount,
             buyer_email : "${sessionScope.member.email}",
             buyer_name : '${sessionScope.member.username}'
-        }, function(rsp) { // callback 로직
-            //* ...중략 (README 파일에서 상세 샘플코드를 확인하세요)... *//
-        });
+        }, function(rsp) {
+            if ( !rsp.success ) {
+                //결제 시작 페이지로 리디렉션되기 전에 오류가 난 경우
+                var msg = '오류로 인하여 결제가 시작되지 못하였습니다.';
+                msg += '에러내용 : ' + rsp.error_msg;
 
+                alert(msg);
+            } if(rsp.success) {
+                createItemOrder(amount, "${sessionScope.member.memberId}"+new Date().getMilliseconds(), buyName);
+            }
+
+        });
     }
 
 

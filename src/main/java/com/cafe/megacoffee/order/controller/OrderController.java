@@ -22,9 +22,13 @@ public class OrderController {
     public boolean creatOrderItem(@RequestBody OrderRequest<List<OrderItem>> list) {
 
         Orders orders = new Orders();
-        orders.setOrderStatus(OrderStatus.PROCESSING);
+        orders.setOrderStatus(OrderStatus.ORDERCOMP);
         orders.setMemberId(list.getMemberId());
         orders.setStoreId(list.getStoreId());
+        orders.setOrderProductName(list.getOrderProductName());
+        orders.setAmount(list.getAmount());
+        orders.setMerchantUid(list.getMerchantUid());
+        System.out.println();
         orderService.createOrder(orders);
 
         for (OrderItem orderItem: list.getList()) {

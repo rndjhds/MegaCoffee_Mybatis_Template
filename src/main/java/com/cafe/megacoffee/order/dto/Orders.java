@@ -13,4 +13,7 @@ public class Orders {
     private String orderDate;
     private OrderStatus orderStatus;
     private Integer storeId;
+    private int amount;
+    private String merchantUid;
+    private String orderProductName;
 }

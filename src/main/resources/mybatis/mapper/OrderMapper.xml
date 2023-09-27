@@ -15,9 +15,9 @@
                 member_id = #{memberId}
         </selectKey>
         insert into
-            orders (order_id, member_id, order_date, order_status, store_id)
+            orders (order_id, member_id, order_date, order_status, store_id, amount, merchant_uid, order_product_name)
         values
-            (order_seq.nextval, #{memberId}, sysdate, #{orderStatus}, #{storeId})
+            (order_seq.nextval, #{memberId}, sysdate, #{orderStatus}, #{storeId}, #{amount}, #{merchantUid}, #{orderProductName})
     </insert>
 
     <insert id="creatOrderItem" parameterType="com.cafe.megacoffee.order.dto.OrderItem">
