@@ -26,5 +26,14 @@
         values (order_item_seq.nextval, #{orderId}, #{itemId}, #{orderPrice}, #{orderCount}, #{orderCup, jdbcType=VARCHAR}, #{orderOption, jdbcType=VARCHAR}, #{orderSize, jdbcType=VARCHAR})
     </insert>
 
+    <update id="updateOrderToOrderComp" parameterType="com.cafe.megacoffee.order.dto.Orders">
+        update
+            orders
+        set
+            order_status = #{orderStatus}
+        where
+            order_id = #{orderId}
+    </update>
+
 
 </mapper>

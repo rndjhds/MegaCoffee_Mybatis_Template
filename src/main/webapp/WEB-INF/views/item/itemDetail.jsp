@@ -191,10 +191,6 @@
             orderSize: $("input[name='orderSize']:checked").val()
         });
 
-        if($("select[name='storeId']").val() == 0) {
-            alert("상품을 구매할 가맹점을 골라주세요");
-            return false;
-        }
         $.ajax({
             url: "/order/creatOrderItem",
             type: "POST",
@@ -223,6 +219,11 @@
     }
 
     function sendRequestToImPort() {
+        if($("select[name='storeId']").val() == 0) {
+            alert("상품을 구매할 가맹점을 골라주세요");
+            return false;
+        }
+
         let amount = $("#totalPrice").text();
         let buyName = $("#buyName").val();
 

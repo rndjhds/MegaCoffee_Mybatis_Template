@@ -13,4 +13,5 @@ public interface OrderMapper {
     public Integer createOrder(Orders orders);
     public int creatOrderItem(OrderItem orderItem);
 
+    void updateOrderToOrderComp(Orders orders);
 }

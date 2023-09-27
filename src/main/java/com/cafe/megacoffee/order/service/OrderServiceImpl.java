@@ -29,4 +29,9 @@ public class OrderServiceImpl implements OrderService{
         return result;
 
     }
+
+    @Override
+    public void updateOrderToOrderComp(Orders orders) {
+        orderMapper.updateOrderToOrderComp(orders);
+    }
 }

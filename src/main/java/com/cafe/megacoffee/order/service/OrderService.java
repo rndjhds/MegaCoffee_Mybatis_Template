@@ -9,4 +9,6 @@ public interface OrderService {
     public int creatOrderItem(List<OrderItem> orderList);
 
     public Integer createOrder(Orders orders);
+
+    void updateOrderToOrderComp(Orders orders);
 }

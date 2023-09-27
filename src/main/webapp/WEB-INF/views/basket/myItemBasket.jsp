@@ -8,6 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/itemBasket.css">
+    <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
     <title>메뉴 장바구니</title>
 </head>
 <body>
@@ -47,9 +49,9 @@
         <p><img src="./img/header_logo.png" alt=""></p>
         <div class="txt">
             <p>상품금액</p>
-            <p id="product_sum"></p>
+            <p id="amount"></p>
         </div>
-        <button type="button" onclick="createItemOrder()">
+        <button type="button" onclick="sendRequestToImPort()">
             주문하기
         </button>
     </section>
@@ -67,9 +69,10 @@
     });
 
     let orderList = "";
-
+    let orderItemName = ""
     function createBasketForm() {
         orderList = new Array();
+        orderItemName = new Array();
         $(".contents1").empty();
         $.ajax({
                 url: "/basket/myBasketByStoreId",
@@ -81,7 +84,7 @@
                     memberId: $("#memberId").val()
                 }),
                 success: function (data) {
-                    let productSum = 0;
+                    let amount = 0;
                     for (let i = 0; i < data.length; i++) {
                         $(".contents1").append(
                             '<div class="menu1">' +
@@ -115,7 +118,7 @@
                             '</div>' +
                             ' </div>')
 
-                        productSum += parseInt($("#" + data[i].SHOPPINGITEMID + "_sum").text());
+                        amount += parseInt($("#" + data[i].SHOPPINGITEMID + "_sum").text());
 
                         orderList.push({
                             itemId: data[i].ITEMID,
@@ -125,8 +128,12 @@
                             orderOption: data[i].ORDEROPTION,
                             orderSize: data[i].ORDERSIZE
                         });
+
+                        orderItemName.push({
+                            title: data[i].TITLE
+                        })
                     }
-                    $("#product_sum").text(productSum);
+                    $("#amount").text(amount);
                 },
                 error: function () {
                 }
@@ -153,9 +160,9 @@
 
     function add(shoppingItemId, orderPrice) {
 
-        productSum = parseInt($("#product_sum").text());
-        productSum += parseInt(orderPrice);
-        $("#product_sum").text(productSum);
+        amount = parseInt($("#amount").text());
+        amount += parseInt(orderPrice);
+        $("#amount").text(amount);
 
         let count = $("#" + shoppingItemId + "_count").text();
         count++;
@@ -172,9 +179,9 @@
         if (count < 1) {
             count = 1;
         } else {
-            productSum = parseInt($("#product_sum").text());
-            productSum -= parseInt(orderPrice);
-            $("#product_sum").text(productSum);
+            amount = parseInt($("#amount").text());
+            amount -= parseInt(orderPrice);
+            $("#amount").text(amount);
         }
 
         $("#" + shoppingItemId + "_count").text(count);
@@ -183,11 +190,7 @@
         $("#" + shoppingItemId + "_sum").text(sum);
     }
 
-    function createItemOrder() {
-        if($("select[name='storeId']").val() == 0) {
-            alert("상품을 구매할 가맹점을 골라주세요");
-            return false;
-        }
+    function createItemOrder(amount, merchant_uid, name) {
         $.ajax({
             url: "/order/creatOrderItem",
             type: "POST",
@@ -196,7 +199,10 @@
             data: JSON.stringify({
                 "list": orderList,
                 "memberId": "${sessionScope.member.memberId}",
-                "storeId": $("select[name='storeId']").val()
+                "storeId": $("select[name='storeId']").val(),
+                "amount": amount,
+                "merchantUid" : merchant_uid,
+                "orderProductName" : name
             }),
             success: function (data) {
                 if(data == true) {
@@ -208,6 +214,42 @@
             error: function () {
                 alert("주문이 실패하였습니다.");
             }
+        });
+    }
+
+    function sendRequestToImPort() {
+        if($("select[name='storeId']").val() == 0) {
+            alert("상품을 구매할 가맹점을 골라주세요");
+            return false;
+        }
+
+        let amount = $("#amount").text();
+        let buyName ="";
+        for (let i =0; i < orderItemName.length; i++) {
+            buyName += orderItemName.pop().title + " ";
+        }
+
+        const IMP = window.IMP;
+        IMP.init('imp52714112');
+        IMP.request_pay({
+            pg : 'kakaopay',
+            pay_method : 'card',
+            merchant_uid: "${sessionScope.member.memberId}"+new Date().getMilliseconds(), // 상점에서 관리하는 주문 번호
+            name : buyName,
+            amount : amount,
+            buyer_email : "${sessionScope.member.email}",
+            buyer_name : '${sessionScope.member.username}'
+        }, function(rsp) {
+            if ( !rsp.success ) {
+                //결제 시작 페이지로 리디렉션되기 전에 오류가 난 경우
+                var msg = '오류로 인하여 결제가 시작되지 못하였습니다.';
+                msg += '에러내용 : ' + rsp.error_msg;
+
+                alert(msg);
+            } if(rsp.success) {
+                createItemOrder(amount, "${sessionScope.member.memberId}"+new Date().getMilliseconds(), buyName);
+            }
+
         });
     }
 
