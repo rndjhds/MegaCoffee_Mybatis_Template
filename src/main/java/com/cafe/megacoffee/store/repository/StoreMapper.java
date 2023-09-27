@@ -17,4 +17,5 @@ public interface StoreMapper {
 
     public List<StoreDTO> findNoDeleteStore();
 
+    public List<StoreDTO> findStoreByMemberId(String memberId);
 }

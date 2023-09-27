@@ -164,4 +164,14 @@ f       from
         where
             delete_yn = 'N'
     </select>
+
+    <select id="findStoreByMemberId" parameterType="String" resultType="com.cafe.megacoffee.store.dto.StoreDTO">
+        select
+            store_id storeId,
+            store_name storeName
+        from
+            store
+        where
+            member_id = #{memberId}
+    </select>
 </mapper>

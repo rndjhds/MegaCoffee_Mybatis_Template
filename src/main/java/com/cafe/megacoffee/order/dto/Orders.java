@@ -1,6 +1,7 @@
 package com.cafe.megacoffee.order.dto;
 
 import com.cafe.megacoffee.order.type.OrderStatus;
+import com.cafe.megacoffee.util.page.Pagination;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,4 +17,5 @@ public class Orders {
     private int amount;
     private String merchantUid;
     private String orderProductName;
+    private Pagination pagination;
 }

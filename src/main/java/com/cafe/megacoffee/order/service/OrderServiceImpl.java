@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -31,7 +32,17 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public void updateOrderToOrderComp(Orders orders) {
-        orderMapper.updateOrderToOrderComp(orders);
+    public void updateOrderStatus(Orders orders) {
+        orderMapper.updateOrderStatus(orders);
+    }
+
+    @Override
+    public List<Map<String, Object>> findOrderItemByStoreId(Orders orders) {
+        return orderMapper.findOrderItemByStoreId(orders);
+    }
+
+    @Override
+    public int findOrderItemCountByStoreId(Orders orders) {
+        return orderMapper.findOrderItemCountByStoreId(orders);
     }
 }

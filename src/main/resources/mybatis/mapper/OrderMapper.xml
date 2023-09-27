@@ -26,7 +26,7 @@
         values (order_item_seq.nextval, #{orderId}, #{itemId}, #{orderPrice}, #{orderCount}, #{orderCup, jdbcType=VARCHAR}, #{orderOption, jdbcType=VARCHAR}, #{orderSize, jdbcType=VARCHAR})
     </insert>
 
-    <update id="updateOrderToOrderComp" parameterType="com.cafe.megacoffee.order.dto.Orders">
+    <update id="updateOrderStatus" parameterType="com.cafe.megacoffee.order.dto.Orders">
         update
             orders
         set
@@ -35,5 +35,54 @@
             order_id = #{orderId}
     </update>
 
+    <select id="findOrderItemByStoreId" parameterType="com.cafe.megacoffee.order.dto.Orders" resultType="Map">
+        select
+            *
+        from (
+            select
+                rownum rnum,
+                orders.*
+            from (
+                select
+                    o.order_id orderId,
+                    listagg(i.title,',') within group(order by i.title) title,
+                    listagg(oi.order_option,',') within group(order by oi.order_option) orderOption,
+                    listagg(case when oi.order_cup is null then '컵이 필요없는 상품입니다'
+                                when oi.order_cup = 'disposable' then '일회용 컵'
+                                when oi.order_cup = 'tumbler' then '텀블러'
+                                when oi.order_cup = 'shopCup' then '매장컵'
+                                                        else oi.order_cup end,',') within group(order by oi.order_cup) orderCup,
+                    listagg(oi.order_size,',') within group(order by oi.order_size) orderSize,
+                    o.member_id buyer,
+                    o.amount
+                from
+                    item i
+                inner join
+                    order_item oi
+                on
+                    i.item_id = oi.item_id
+                inner join
+                    orders o
+                on
+                    o.order_id = oi.order_id
+                where
+                    o.store_id = #{storeId}
+                and
+                    o.order_status = 'ORDERCOMP'
+                group by o.order_id, o.member_id, o.amount
+                )orders)
+        where rnum between ${pagination.start + 1} and ${pagination.start + pagination.length}
+    </select>
+
+    <select id="findOrderItemCountByStoreId" parameterType="com.cafe.megacoffee.order.dto.Orders" resultType="int">
+        select
+            count(order_id)
+        from
+            orders
+        where
+            store_id = #{storeId}
+        and
+            order_status = 'ORDERCOMP'
+    </select>
 
 </mapper>

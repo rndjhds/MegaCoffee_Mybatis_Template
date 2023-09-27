@@ -36,11 +36,9 @@
                     <li><a href="./map.html">매장 찾기</a></li>
                 </ul>
             </li>
-            <li><a href="#">창업안내</a>
+            <li><a href="#">판매 현환</a>
                 <ul class="sub_nav">
-                    <li><a href="#">개설비용</a></li>
-                    <li><a href="#">인테리어</a></li>
-                    <li><a href="#">창업문의</a></li>
+                    <li><a href="/order/orderManagement">결제 요청</a></li>
                 </ul>
             </li>
             <li><a href="#">메가소식</a>

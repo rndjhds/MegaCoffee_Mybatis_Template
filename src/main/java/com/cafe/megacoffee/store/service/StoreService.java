@@ -15,4 +15,5 @@ public interface StoreService {
 
     public List<StoreDTO> findNoDeleteStore();
 
+    public List<StoreDTO> findStoreByMemberId(String memberId);
 }

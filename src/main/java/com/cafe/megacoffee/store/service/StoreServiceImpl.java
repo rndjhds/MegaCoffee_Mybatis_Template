@@ -37,4 +37,9 @@ public class StoreServiceImpl implements StoreService{
     public List<StoreDTO> findNoDeleteStore() {
         return storeMapper.findNoDeleteStore();
     }
+
+    @Override
+    public List<StoreDTO> findStoreByMemberId(String memberId) {
+        return storeMapper.findStoreByMemberId(memberId);
+    }
 }
