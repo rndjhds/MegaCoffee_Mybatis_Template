@@ -108,12 +108,26 @@
             sb.store_id storeId,
             si.order_count orderCount,
             si.order_price orderPrice,
-            si.order_cup orderCup,
-            si.order_option orderOption,
-            si.order_size orderSize,
+            case
+                when si.order_cup = 'disposable' then '일회용 컵'
+                when si.order_cup = 'tumbler' then '텀블러'
+                when si.order_cup = 'shopCup' then '매장컵'
+                else si.order_cup
+            end orderCup,
+            case
+                when si.order_option = 'ice' then 'ICE'
+                when si.order_option = 'hot' then 'HOT'
+                else si.order_option
+            end orderOption,
+            case
+                when si.order_size = 'small' then 'SMALL'
+                when si.order_size = 'medium' then 'MEDIUM'
+                when si.order_size = 'large' then 'LARGE'
+            end orderSize,
             si.shopping_item_id shoppingItemId,
             item.img,
             item.title,
+            item.item_id itemId,
             (select
                 sum(shopping_item.order_count * shopping_item.order_price) total_price
             from

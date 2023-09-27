@@ -42,11 +42,18 @@
                     <input type="hidden" value="${sessionScope.member.memberId}" name="memberId" id="memberId"/>
                     <input type="hidden" value="${item.itemId}" name="itemId" id="itemId"/>
                     <input type="hidden" value="${item.deleteYN}" name="deleteChk" id="deleteChk"/>
+                    <input type="hidden" value="${item.optionYN}" name="optionChk" id="optionChk"/>
                     <label for="title">상품명
                         <input type="text" id="title" name="title" placeholder="상품명을 입력해주세요." value="${item.title}">
                     </label>
                     <label for="price">가격
                         <input type="number" id="price" name="price" placeholder="가격을 입력해주세요." value="${item.price}"}>
+                    </label>
+                    <label for="optionYN">옵션 사용여부
+                        <select style="margin-top: 10px; width: 100px;" name="optionYN" id="optionYN">
+                            <option value="N">사용X</option>
+                            <option value="Y">사용</option>
+                        </select>
                     </label>
                     <label for="deleteYN">삭제여부
                         <select style="margin-top: 10px; width: 100px;" name="deleteYN" id="deleteYN">
@@ -72,6 +79,9 @@
     $(document).ready(function () {
         let deleteChk = $("#deleteChk").val();
         $("#deleteYN").val(deleteChk).prop("selected", true);
+
+        let optionChk = $("#optionChk").val();
+        $("#optionYN").val(optionChk).prop("selected", true);
 
         $("form").validate({
             rules: {

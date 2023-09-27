@@ -47,9 +47,9 @@
         <p><img src="./img/header_logo.png" alt=""></p>
         <div class="txt">
             <p>상품금액</p>
-            <p>9,000원</p>
+            <p id="product_sum"></p>
         </div>
-        <button type="button">
+        <button type="button" onclick="createItemOrder()">
             주문하기
         </button>
     </section>
@@ -58,13 +58,18 @@
 </body>
 <script>
 
-    $(document).ready(createBasketForm());
+    $(document).ready(function () {
+        createBasketForm();
+    });
 
     $("#storeId").change(function () {
         createBasketForm();
     });
 
+    let orderList = "";
+
     function createBasketForm() {
+        orderList = new Array();
         $(".contents1").empty();
         $.ajax({
                 url: "/basket/myBasketByStoreId",
@@ -76,6 +81,7 @@
                     memberId: $("#memberId").val()
                 }),
                 success: function (data) {
+                    let productSum = '';
                     for (let i = 0; i < data.length; i++) {
                         $(".contents1").append(
                             '<div class="menu1">' +
@@ -97,18 +103,30 @@
                             '<div class="sum"> ' +
                             '<p id="' + data[i].SHOPPINGITEMID + '_sum">' + (data[i].ORDERPRICE * data[i].ORDERCOUNT) + '</p> ' +
                             '<div class="pm"> ' +
-                            '<a onclick="minus(' + data[i].SHOPPINGITEMID + ', ' + data[i].ORDERPRICE +')">' +
+                            '<a onclick="minus(' + data[i].SHOPPINGITEMID + ', ' + data[i].ORDERPRICE + ')">' +
                             '<img src="${pageContext.request.contextPath}/resources/statics/img/icon1.png">' +
                             '</a> ' +
                             '<p id="' + data[i].SHOPPINGITEMID + '_count">' + data[i].ORDERCOUNT + '</p> ' +
-                            '<a onclick="add(' + data[i].SHOPPINGITEMID + ',' + data[i].ORDERPRICE +')">' +
+                            '<a onclick="add(' + data[i].SHOPPINGITEMID + ',' + data[i].ORDERPRICE + ')">' +
                             '<img src="${pageContext.request.contextPath}/resources/statics/img/icon2.png">' +
                             '</a> ' +
                             '</div> ' +
                             '</div> ' +
                             '</div>' +
                             ' </div>')
+
+                        productSum += $("#" + data[i].SHOPPINGITEMID + "_sum").text();
+
+                        orderList.push({
+                            itemId: data[i].ITEMID,
+                            orderCount: data[i].ORDERCOUNT,
+                            orderPrice: data[i].ORDERPRICE,
+                            orderCup: data[i].ORDERCUP,
+                            orderOption: data[i].ORDEROPTION,
+                            orderSize: data[i].ORDERSIZE
+                        });
                     }
+                    $("#product_sum").text(productSum);
                 },
                 error: function () {
                 }
@@ -146,17 +164,42 @@
     function minus(shoppingItemId, orderPrice) {
         let count = $("#" + shoppingItemId + "_count").text();
         count--;
-        if(count < 1) {
+        if (count < 1) {
             count = 1;
         }
+
         $("#" + shoppingItemId + "_count").text(count);
 
         let sum = orderPrice * count;
-        console.log(sum);
-        console.log(count);
-        console.log(orderPrice);
         $("#" + shoppingItemId + "_sum").text(sum);
+    }
 
+    function createItemOrder() {
+        if($("select[name='storeId']").val() == 0) {
+            alert("상품을 구매할 가맹점을 골라주세요");
+            return false;
+        }
+        $.ajax({
+            url: "/order/creatOrderItem",
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset-utf-8",
+            data: JSON.stringify({
+                "list": orderList,
+                "memberId": "${sessionScope.member.memberId}",
+                "storeId": $("select[name='storeId']").val()
+            }),
+            success: function (data) {
+                if(data == true) {
+                    alert("주문이 완료되었습니다");
+                } else {
+                    alert("주문 도중 결제가 되지 않은 상품이 존재 합니다.");
+                }
+            },
+            error: function () {
+                alert("주문이 실패하였습니다.");
+            }
+        });
     }
 
 </script>

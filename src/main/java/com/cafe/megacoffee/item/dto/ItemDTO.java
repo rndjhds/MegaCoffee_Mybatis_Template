@@ -36,6 +36,8 @@ public class ItemDTO {
 
     private String deleteYN;
 
+    private String optionYN;
+
     private Integer parentCategoryId;
 
     private MultipartFile uploadImg;

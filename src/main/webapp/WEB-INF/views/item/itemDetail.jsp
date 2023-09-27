@@ -50,6 +50,7 @@
                         </select>
                     </div>
                     <ul>
+                        <c:if test="${findItem.optionYN == 'Y'}">
                         <li><p>컵 선택</p>
                             <ul class="sub">
                                 <li><label for="cup">일회용컵 사용
@@ -84,9 +85,11 @@
                                 <li>
                                     <label for="sz3">L
                                         <input type="radio" name="orderSize" id="sz3" value="large">
-                                    </label></li>
+                                    </label>
+                                </li>
                             </ul>
                         </li>
+                        </c:if>
                     </ul>
                     <div class="sum">
                         <p id="totalPrice">${findItem.price}</p>
@@ -154,9 +157,9 @@
                 itemId: $("#itemId").val(),
                 orderCount: $("#count").text(),
                 orderPrice: $("#price").val(),
-                /*orderCup: $("input[name='orderCup']:checked").val(),    상품별로 필요한 상품이 있고 필요하지 않은 상품이 있음
+                orderCup: $("input[name='orderCup']:checked").val(),
                 orderOption: $("input[name='orderOption']:checked").val(),
-                orderSize: $("input[name='orderSize']:checked").val(),*/
+                orderSize: $("input[name='orderSize']:checked").val(),
                 basketDTO: {
                     storeId : $("select[name='storeId']").val()
                 }

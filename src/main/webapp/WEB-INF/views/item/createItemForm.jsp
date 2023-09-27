@@ -50,6 +50,12 @@
                             </c:forEach>
                         </select>
                     </label>
+                    <label for="optionYN">옵션 사용여부
+                        <select style="margin-top: 10px" id="optionYN" name="optionYN">
+                            <option value="N">사용X</option>
+                            <option value="Y">사용</option>
+                        </select>
+                    </label>
                     <label for="title">상품명
                         <input type="text" id="title" name="title" placeholder="상품명을 입력해주세요.">
                     </label>
@@ -119,10 +125,10 @@
                     type: "POST",
                     dataType: "json",
                     processData: false,
-                    enctype:"multipart/form-data",
+                    enctype: "multipart/form-data",
                     data: formData,
                     success: function (data) {
-                        if(data != 0) {
+                        if (data != 0) {
                             alert("정상적으로 완료되었습니다");
                             window.close();
                         } else {

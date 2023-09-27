@@ -72,6 +72,7 @@
             <th>상품내용</th>
             <th>상품가격</th>
             <th>상품 카테고리</th>
+            <th>옵션 사용여부</th>
             <th>등록자</th>
             <th>등록일</th>
             <th>수정자</th>
@@ -92,6 +93,7 @@
             <th>상품내용</th>
             <th>상품가격</th>
             <th>상품 카테고리</th>
+            <th>옵션 사용여부</th>
             <th>등록자</th>
             <th>등록일</th>
             <th>수정자</th>
@@ -142,6 +144,7 @@
                 {data: "content"},
                 {data: "price"},
                 {data: "categoryName"},
+                {data: "optionYN"},
                 {data: "memberId"},
                 {data: "regDate"},
                 {data: "modifier"},
@@ -164,16 +167,17 @@
                 {targets: 0, width: 50},
                 {targets: 1, width: 120},
                 {targets: 2, width: 100},
-                {targets: 3, width: 500},
+                {targets: 3, width: 300},
                 {targets: 4, width: 80},
                 {targets: 5, width: 120},
-                {targets: 6, width: 80},
+                {targets: 6, width: 120},
                 {targets: 7, width: 100},
                 {targets: 8, width: 80},
                 {targets: 9, width: 100},
                 {targets: 10, width: 80},
                 {targets: 11, width: 100},
-                {targets: 12, width: 100}
+                {targets: 12, width: 100},
+                {targets: 13, width: 100}
             ]
             /*dom: 'Bfrtip', // Add buttons for copy, csv, excel, pdf, and print
             buttons: [
