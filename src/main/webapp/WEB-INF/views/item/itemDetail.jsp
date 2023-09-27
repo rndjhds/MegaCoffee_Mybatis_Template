@@ -154,7 +154,7 @@
                 itemId: $("#itemId").val(),
                 orderCount: $("#count").text(),
                 orderPrice: $("#price").val(),
-                /*orderCup: $("input[name='orderCup']:checked").val(),
+                /*orderCup: $("input[name='orderCup']:checked").val(),    상품별로 필요한 상품이 있고 필요하지 않은 상품이 있음
                 orderOption: $("input[name='orderOption']:checked").val(),
                 orderSize: $("input[name='orderSize']:checked").val(),*/
                 basketDTO: {
