@@ -81,7 +81,7 @@
                     memberId: $("#memberId").val()
                 }),
                 success: function (data) {
-                    let productSum = '';
+                    let productSum = 0;
                     for (let i = 0; i < data.length; i++) {
                         $(".contents1").append(
                             '<div class="menu1">' +
@@ -115,7 +115,7 @@
                             '</div>' +
                             ' </div>')
 
-                        productSum += $("#" + data[i].SHOPPINGITEMID + "_sum").text();
+                        productSum += parseInt($("#" + data[i].SHOPPINGITEMID + "_sum").text());
 
                         orderList.push({
                             itemId: data[i].ITEMID,
@@ -152,6 +152,11 @@
 
 
     function add(shoppingItemId, orderPrice) {
+
+        productSum = parseInt($("#product_sum").text());
+        productSum += parseInt(orderPrice);
+        $("#product_sum").text(productSum);
+
         let count = $("#" + shoppingItemId + "_count").text();
         count++;
         $("#" + shoppingItemId + "_count").text(count);
@@ -166,6 +171,10 @@
         count--;
         if (count < 1) {
             count = 1;
+        } else {
+            productSum = parseInt($("#product_sum").text());
+            productSum -= parseInt(orderPrice);
+            $("#product_sum").text(productSum);
         }
 
         $("#" + shoppingItemId + "_count").text(count);
