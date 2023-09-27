@@ -98,6 +98,7 @@
     <select id="findItemById" parameterType="Integer" resultType="com.cafe.megacoffee.item.dto.ItemDTO">
         select
             item_id itemId,
+            title,
             category_id categoryId,
             title,
             price,

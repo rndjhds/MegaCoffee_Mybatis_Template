@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/itemDetail.css">
     <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
     <title>메뉴상세페이지</title>
 </head>
 <body>
@@ -39,6 +40,7 @@
             <form action="#" method="get" class="op">
                 <input type="hidden" id="price" name="price" value="${findItem.price}">
                 <input type="hidden" id="itemId" name="itemId" value="${findItem.itemId}">
+                <input type="hidden" id="buyName" name="buyName" value="${findItem.title}">
                 <fieldset>
                     <div class="mainmenu">
                         <p>가맹점</p>
@@ -177,8 +179,9 @@
         });
     }
 
+    let orderList;
     function createItemOrder() {
-        let orderList = new Array();
+        orderList = new Array();
         orderList.push({
             itemId: $("#itemId").val(),
             orderCount: $("#count").text(),
@@ -204,7 +207,9 @@
             }),
             success: function (data) {
                 if(data == true) {
-                    alert("주문이 완료되었습니다");
+                    let amount = $("#totalPrice").text();
+                    let buyName = $("#buyName").val();
+                    sendRequestToImPort(amount, buyName);
                 } else {
                     alert("주문 도중 결제가 되지 않은 상품이 존재 합니다.");
                 }
@@ -213,6 +218,24 @@
                 alert("주문이 실패하였습니다.");
             }
         });
+    }
+
+    function sendRequestToImPort(amount, buyName) {
+
+        const IMP = window.IMP;
+        IMP.init('imp52714112');
+        IMP.request_pay({
+            pg : 'kakaopay',
+            pay_method : 'card',
+            merchant_uid: "${sessionScope.member.memberId}"+new Date().getMilliseconds(), // 상점에서 관리하는 주문 번호
+            name : buyName,
+            amount : amount,
+            buyer_email : "${sessionScope.member.email}",
+            buyer_name : '${sessionScope.member.username}'
+        }, function(rsp) { // callback 로직
+            //* ...중략 (README 파일에서 상세 샘플코드를 확인하세요)... *//
+        });
+
     }
 
 
