@@ -37,6 +37,7 @@
             <li><a href="#">판매 현환</a>
                 <ul class="sub_nav">
                     <li><a href="/order/orderManagement">결제 요청</a></li>
+                    <li><a href="/order/orderdItemList">판매 목록</a></li>
                 </ul>
             </li>
             <li><a href="#">메가소식</a>
