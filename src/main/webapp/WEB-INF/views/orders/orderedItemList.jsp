@@ -158,12 +158,12 @@
                 {targets: 8, width: 80},
                 {targets: 9, width: 100},
                 {targets: 10, width: 80}
-            ]
-            /*dom: 'Bfrtip', // Add buttons for copy, csv, excel, pdf, and print
+            ],
+            dom: 'Bfrtip', // Add buttons for copy, csv, excel, pdf, and print
             buttons: [
                 'copy', 'csv', 'excel', 'pdf', 'print'
             ]
-    */
+
         });
 
         $('#searchButton').on('click', function () {
