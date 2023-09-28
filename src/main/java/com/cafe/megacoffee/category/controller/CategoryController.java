@@ -99,4 +99,9 @@ public class CategoryController {
         return categoryService.getHeaderCategory();
     }
 
+    @GetMapping("/findChildCategoryByParentId/{parentCategoryId}")
+    @ResponseBody
+    public List<CategoryDTO> findChildCategoryByParentId(@PathVariable("parentCategoryId") Integer parentCategoryId) {
+        return categoryService.findChildCategoryByParentId(parentCategoryId);
+    }
 }

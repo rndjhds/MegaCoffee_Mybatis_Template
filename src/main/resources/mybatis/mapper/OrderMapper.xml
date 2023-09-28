@@ -45,14 +45,15 @@
             from (
                 select
                     o.order_id orderId,
-                    listagg(i.title,',') within group(order by i.title) title,
-                    listagg(oi.order_option,',') within group(order by oi.order_option) orderOption,
+                    listagg(i.title,',') within group(order by oi.order_item_id desc) title,
+                    listagg(oi.order_option,',') within group(order by oi.order_item_id desc) orderOption,
                     listagg(case when oi.order_cup is null then '컵이 필요없는 상품입니다'
                                 when oi.order_cup = 'disposable' then '일회용 컵'
                                 when oi.order_cup = 'tumbler' then '텀블러'
                                 when oi.order_cup = 'shopCup' then '매장컵'
-                                                        else oi.order_cup end,',') within group(order by oi.order_cup) orderCup,
-                    listagg(oi.order_size,',') within group(order by oi.order_size) orderSize,
+                                                        else oi.order_cup end,',') within group(order by oi.order_item_id desc) orderCup,
+                    listagg(oi.order_size,',') within group(order by oi.order_item_id desc) orderSize,
+                    listagg(oi.order_count,',') within group (order by oi.order_item_id desc),
                     o.member_id buyer,
                     o.amount
                 from
@@ -70,7 +71,7 @@
                 and
                     o.order_status = 'ORDERCOMP'
                 group by o.order_id, o.member_id, o.amount
-                )orders)
+                )orders order by orders.orderId desc)
         where rnum between ${pagination.start + 1} and ${pagination.start + pagination.length}
     </select>
 
@@ -85,4 +86,150 @@
             order_status = 'ORDERCOMP'
     </select>
 
+    <select id="findOrderedItemList" parameterType="Map" resultType="Map">
+        select
+            *
+        from (
+            select
+                rownum rnum,
+                ordered.*
+            from (
+                select
+                    o.order_id,
+                    category.parent_name parentName,
+                    category.child_name childName,
+                    i.title,
+                    oi.order_option orderOption,
+                    oi.order_cup orderCup,
+                    oi.order_size orderSize,
+                    o.member_id buyer,
+                    s.store_name storeName,
+                    s.member_id manager,
+                    to_char(o.order_date,'yyyy/MM/dd') orderDate
+                from
+                    orders o
+                        inner join
+                    order_item oi
+                        on
+                    o.order_id = oi.order_id
+                        inner join
+                    item i
+                        on
+                    oi.item_id = i.item_id
+                        inner join
+                    store s
+                        on
+                    o.store_id = s.store_id
+                        inner join (
+                            select
+                                parent.name parent_name,
+                                child.name child_name,
+                                child.category_id child_category_id,
+                                parent.category_id parent_category_id
+                            from
+                                category child, category parent
+                            where
+                                child.parent_id = parent.category_id
+                            ) category
+                        on
+                    category.child_category_id = i.category_id
+                where
+                   1 = 1
+                <if test="parentCategoryId != null and parentCategoryId neq ''">
+                    and category.parent_category_id = #{parentCategoryId}
+                </if>
+                <if test="storeId != null and storeId neq ''">
+                    and s.store_id = #{storeId}
+                </if>
+                <if test="childCategoryId != null and childCategoryId neq ''">
+                    and category.child_category_id = #{childCategoryId}
+                </if>
+                <if test="title != null and title neq ''">
+                    and i.title = #{title}
+                </if>
+                <if test="startDate != null and startDate neq ''">
+                    and
+                    to_char(o.order_date, 'yyyy-MM-dd') <![CDATA[>=]]> #{startDate}
+                </if>
+                <if test="endDate != null and endDate neq ''">
+                    and
+                    to_char(o.order_date, 'yyyy-MM-dd') <![CDATA[<=]]> #{endDate}
+                </if>
+                    ) ordered order by ordered.order_id desc
+                )
+        where rnum between ${start + 1} and ${start + length}
+    </select>
+
+    <select id="getOrderedItemCount" parameterType="Map" resultType="int">
+        select
+            count(*)
+        from (
+            select
+                rownum rnum,
+                ordered.*
+            from (
+                select
+                    category.parent_name parentName,
+                    category.child_name childName,
+                    i.title,
+                    oi.order_option orderOption,
+                    oi.order_cup orderCup,
+                    oi.order_size orderSize,
+                    o.member_id buyer,
+                    s.store_name storeName,
+                    s.member_id manager,
+                    to_char(o.order_date,'yyyy/MM/dd') orderDate
+                from
+                    orders o
+                inner join
+                    order_item oi
+                on
+                    o.order_id = oi.order_id
+                inner join
+                    item i
+                on
+                    oi.item_id = i.item_id
+                inner join
+                    store s
+                on
+                    o.store_id = s.store_id
+                inner join (
+                        select
+                            parent.name parent_name,
+                            child.name child_name,
+                            child.category_id child_category_id,
+                            parent.category_id parent_category_id
+                        from
+                            category child, category parent
+                        where
+                            child.parent_id = parent.category_id
+                        ) category
+                on
+                    category.child_category_id = i.category_id
+                where
+                    1 = 1
+                <if test="parentCategoryId != null and parentCategoryId neq ''">
+                    and category.parent_category_id = #{parentCategoryId}
+                </if>
+                <if test="storeId != null and storeId neq ''">
+                    and s.store_id = #{storeId}
+                </if>
+                <if test="childCategoryId != null and childCategoryId neq ''">
+                    and category.child_category_id = #{childCategoryId}
+                </if>
+                <if test="title != null and title neq ''">
+                    and i.title = #{title}
+                </if>
+                <if test="startDate != null and startDate neq ''">
+                    and
+                    to_char(o.order_date, 'yyyy-MM-dd') <![CDATA[>=]]> #{startDate}
+                </if>
+                <if test="endDate != null and endDate neq ''">
+                    and
+                    to_char(o.order_date, 'yyyy-MM-dd') <![CDATA[<=]]> #{endDate}
+                </if>
+                ) ordered
+                )
+            where rnum between ${start + 1} and ${start + length}
+    </select>
 </mapper>

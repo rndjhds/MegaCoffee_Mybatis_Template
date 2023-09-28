@@ -19,4 +19,8 @@ public interface OrderMapper {
     public List<Map<String, Object>> findOrderItemByStoreId(Orders orders);
 
     public int findOrderItemCountByStoreId(Orders orders);
+
+    public List<Map<String, Object>> findOrderedItemList(Map<String, Object> map);
+
+    public int getOrderedItemCount(Map<String, Object> map);
 }

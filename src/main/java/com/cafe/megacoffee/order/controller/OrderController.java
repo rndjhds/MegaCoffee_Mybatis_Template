@@ -1,5 +1,7 @@
 package com.cafe.megacoffee.order.controller;
 
+import com.cafe.megacoffee.category.dto.CategoryDTO;
+import com.cafe.megacoffee.category.service.CategoryService;
 import com.cafe.megacoffee.member.dto.MemberDTO;
 import com.cafe.megacoffee.order.dto.OrderItem;
 import com.cafe.megacoffee.order.dto.OrderRequest;
@@ -18,6 +20,7 @@ import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 @RequiredArgsConstructor
@@ -26,6 +29,8 @@ public class OrderController {
 
     private final OrderService orderService;
     private final StoreService storeService;
+
+    private final CategoryService categoryService;
 
     @PostMapping("/creatOrderItem")
     @ResponseBody
@@ -82,5 +87,27 @@ public class OrderController {
         orders.setOrderId(orderId);
         orders.setOrderStatus(OrderStatus.COMPITEM);
         orderService.updateOrderStatus(orders);
+    }
+
+    @GetMapping("/orderdItemList")
+    public String orderedItemList(Model model) {
+        List<CategoryDTO> parentCategoryAll = categoryService.getParentCategoryAll();
+        model.addAttribute("parentCategories", parentCategoryAll);
+        List<StoreDTO> stores = storeService.findNoDeleteStore();
+        model.addAttribute("stores", stores);
+        return "/orders/orderedItemList";
+    }
+
+    @PostMapping("/findOrderedItemList")
+    @ResponseBody
+    public Map<String, Object> findOrderedItemList(@RequestParam Map<String, Object> map) {
+        List<Map<String, Object>> orderedItemList = orderService.findOrderedItemList(map);
+        int totalResultCount = orderService.getOrderedItemCount(map);
+
+        Map<String, Object> resultmap = new HashMap<>();
+        resultmap.put("data", orderedItemList);
+        resultmap.put("recordsFiltered", totalResultCount);
+        resultmap.put("recordsTotal", totalResultCount);
+        return resultmap;
     }
 }

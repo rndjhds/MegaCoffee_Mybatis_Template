@@ -45,4 +45,14 @@ public class OrderServiceImpl implements OrderService{
     public int findOrderItemCountByStoreId(Orders orders) {
         return orderMapper.findOrderItemCountByStoreId(orders);
     }
+
+    @Override
+    public List<Map<String, Object>> findOrderedItemList(Map<String, Object> map) {
+        return orderMapper.findOrderedItemList(map);
+    }
+
+    @Override
+    public int getOrderedItemCount(Map<String, Object> map) {
+        return orderMapper.getOrderedItemCount(map);
+    }
 }
