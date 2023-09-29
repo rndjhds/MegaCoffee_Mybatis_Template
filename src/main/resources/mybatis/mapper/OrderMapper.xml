@@ -135,6 +135,9 @@
                     category.child_category_id = i.category_id
                 where
                    1 = 1
+                <if test="memberId != null and memberId neq ''">
+                    and s.member_id = #{memberId}
+                </if>
                 <if test="parentCategoryId != null and parentCategoryId neq ''">
                     and category.parent_category_id = #{parentCategoryId}
                 </if>
@@ -208,6 +211,9 @@
                     category.child_category_id = i.category_id
                 where
                     1 = 1
+                <if test="memberId != null and memberId neq ''">
+                    and s.member_id = #{memberId}
+                </if>
                 <if test="parentCategoryId != null and parentCategoryId neq ''">
                     and category.parent_category_id = #{parentCategoryId}
                 </if>

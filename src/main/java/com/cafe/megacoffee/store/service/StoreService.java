@@ -2,6 +2,7 @@ package com.cafe.megacoffee.store.service;
 
 import com.cafe.megacoffee.store.dto.StoreDTO;
 
+import javax.mail.Store;
 import java.util.List;
 
 public interface StoreService {
@@ -16,4 +17,6 @@ public interface StoreService {
     public List<StoreDTO> findNoDeleteStore();
 
     public List<StoreDTO> findStoreByMemberId(String memberId);
+
+    public List<StoreDTO> findStore();
 }

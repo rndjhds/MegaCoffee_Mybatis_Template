@@ -174,4 +174,12 @@ f       from
         where
             member_id = #{memberId}
     </select>
+
+    <select id="findStore" resultType="com.cafe.megacoffee.store.dto.StoreDTO">
+        select
+            store_id storeId,
+            store_name storeName
+        from
+            store
+    </select>
 </mapper>

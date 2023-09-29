@@ -42,4 +42,9 @@ public class StoreServiceImpl implements StoreService{
     public List<StoreDTO> findStoreByMemberId(String memberId) {
         return storeMapper.findStoreByMemberId(memberId);
     }
+
+    @Override
+    public List<StoreDTO> findStore() {
+        return storeMapper.findStore();
+    }
 }

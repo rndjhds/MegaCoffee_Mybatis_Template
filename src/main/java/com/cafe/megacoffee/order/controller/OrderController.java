@@ -3,6 +3,7 @@ package com.cafe.megacoffee.order.controller;
 import com.cafe.megacoffee.category.dto.CategoryDTO;
 import com.cafe.megacoffee.category.service.CategoryService;
 import com.cafe.megacoffee.member.dto.MemberDTO;
+import com.cafe.megacoffee.member.type.MemberType;
 import com.cafe.megacoffee.order.dto.OrderItem;
 import com.cafe.megacoffee.order.dto.OrderRequest;
 import com.cafe.megacoffee.order.dto.Orders;
@@ -20,7 +21,6 @@ import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Controller
 @RequiredArgsConstructor
@@ -70,7 +70,7 @@ public class OrderController {
     @ResponseBody
     public Map<String, Object> findOrderItemByStoreId(Orders orders, Pagination pagination) {
         orders.setPagination(pagination);
-        List<Map<String, Object>> orderItemToStore= orderService.findOrderItemByStoreId(orders);
+        List<Map<String, Object>> orderItemToStore = orderService.findOrderItemByStoreId(orders);
         int totalCountResult = orderService.findOrderItemCountByStoreId(orders);
 
         Map<String, Object> map = new HashMap<>();
@@ -90,17 +90,25 @@ public class OrderController {
     }
 
     @GetMapping("/orderdItemList")
-    public String orderedItemList(Model model) {
+    public String orderedItemList(Model model, HttpSession session) {
+        MemberDTO member = (MemberDTO) session.getAttribute("member");
+        if (member.getMemberType() == MemberType.MANAGER) {
+            model.addAttribute("stores", storeService.findStoreByMemberId(member.getMemberId()));
+        } else if (member.getMemberType() == MemberType.ADMIN) {
+            model.addAttribute("stores", storeService.findStore());
+        }
         List<CategoryDTO> parentCategoryAll = categoryService.getParentCategoryAll();
         model.addAttribute("parentCategories", parentCategoryAll);
-        List<StoreDTO> stores = storeService.findNoDeleteStore();
-        model.addAttribute("stores", stores);
         return "/orders/orderedItemList";
     }
 
     @PostMapping("/findOrderedItemList")
     @ResponseBody
-    public Map<String, Object> findOrderedItemList(@RequestParam Map<String, Object> map) {
+    public Map<String, Object> findOrderedItemList(@RequestParam Map<String, Object> map, HttpSession session) {
+        MemberDTO member = (MemberDTO) session.getAttribute("member");
+        if (member.getMemberType() == MemberType.MANAGER) {
+            map.put("memberId", member.getMemberId());
+        }
         List<Map<String, Object>> orderedItemList = orderService.findOrderedItemList(map);
         int totalResultCount = orderService.getOrderedItemCount(map);
 
