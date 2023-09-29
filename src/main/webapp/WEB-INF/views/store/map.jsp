@@ -63,7 +63,8 @@
                             // 결과값으로 받은 위치를 마커로 표시합니다
                             var marker = new kakao.maps.Marker({
                                 map: map,
-                                position: coords
+                                position: coords,
+                                clickable: true
                             });
                             marker.setMap(map); //추가한 코드
 
@@ -79,6 +80,10 @@
                             // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
                             //map.setCenter(coords);
                             setBounds(); //추가한 코드
+                            kakao.maps.event.addListener(marker, 'click', function() {
+                                // 마커 위에 인포윈도우를 표시합니다
+                                window.location = "https://map.kakao.com/link/to/"+store.storeName+","+result[0].y+","+result[0].x;
+                            });
                         }
                     });
                 });
