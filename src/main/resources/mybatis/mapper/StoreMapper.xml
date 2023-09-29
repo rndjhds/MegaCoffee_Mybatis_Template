@@ -158,7 +158,10 @@ f       from
     <select id="findNoDeleteStore" resultType="com.cafe.megacoffee.store.dto.StoreDTO">
         select
             store_id storeId,
-            store_name storeName
+            store_name storeName,
+            address,
+            zipcode,
+            address_detail addressDetail
         from
             store
         where

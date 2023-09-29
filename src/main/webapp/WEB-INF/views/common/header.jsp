@@ -31,9 +31,9 @@
                 <ul class="sub_nav" id="menu">
                 </ul>
             </li>
-            <li><a href="./map.html">매장</a>
+            <li><a href="#">매장</a>
                 <ul class="sub_nav">
-                    <li><a href="./map.html">매장 찾기</a></li>
+                    <li><a href="/store/storeLocation">매장 찾기</a></li>
                 </ul>
             </li>
             <li><a href="#">판매</a>

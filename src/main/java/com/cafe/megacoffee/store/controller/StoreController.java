@@ -65,4 +65,16 @@ public class StoreController {
         }
         return storeService.saveStore(storeDTO);
     }
+
+    @GetMapping("/storeLocation")
+    public String storeLocation() {
+        return "/store/map";
+    }
+
+    @GetMapping("/getStoreLocation")
+    @ResponseBody
+    public List<StoreDTO> getStoreLocation() {
+        List<StoreDTO> getStoreLocation = storeService.findNoDeleteStore();
+        return getStoreLocation;
+    }
 }
