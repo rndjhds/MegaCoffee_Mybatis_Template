@@ -46,10 +46,10 @@
                 </p>
                 <div class="list">
                     <p><em>${orders.TITLE}</em></p>
-                    <c:if test="${orders.OPTION == 'Y'}">
+                    <c:if test="${orders.OPTIONYN eq 'Y'}">
                         <span>${orders.ORDERCUP}</span>
-                        <span>${orders.OPTION}</span>
-                        <span>${orders.SIZE}</span>
+                        <span>${orders.ORDEROPTION}</span>
+                        <span>${orders.ORDERSIZE}</span>
                     </c:if>
                     <p><em>${orders.ORDERPRICE}</em> (수량 : ${orders.ORDERCOUNT}개)</p>
                 </div>

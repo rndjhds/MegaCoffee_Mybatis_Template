@@ -205,8 +205,9 @@
                 "orderProductName" : name
             }),
             success: function (data) {
-                if(data == true) {
+                if(data.resultType == true) {
                     alert("주문이 완료되었습니다");
+                    location.href="/order/orderDetail/"+data.orderId;
                 } else {
                     alert("주문 도중 결제가 되지 않은 상품이 존재 합니다.");
                 }
