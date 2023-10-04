@@ -116,6 +116,10 @@ public class OrderController {
         if (member.getMemberType() == MemberType.MANAGER) {
             map.put("memberId", member.getMemberId());
         }
+        int start = Integer.parseInt(map.get("start").toString());
+        map.put("start", start);
+        int length = Integer.parseInt(map.get("length").toString());
+        map.put("length", length);
         List<Map<String, Object>> orderedItemList = orderService.findOrderedItemList(map);
         int totalResultCount = orderService.getOrderedItemCount(map);
 

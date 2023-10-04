@@ -168,7 +168,6 @@
             count(*)
         from (
             select
-                rownum rnum,
                 ordered.*
             from (
                 select
@@ -236,7 +235,6 @@
                 </if>
                 ) ordered
                 )
-            where rnum between ${start + 1} and ${start + length}
     </select>
 
     <select id="findOrderDetailByOrderId" parameterType="String" resultType="Map">
