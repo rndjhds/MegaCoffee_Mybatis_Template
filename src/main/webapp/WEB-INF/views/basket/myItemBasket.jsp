@@ -69,7 +69,8 @@
     });
 
     let orderList = "";
-    let orderItemName = ""
+    let orderItemName = "";
+    let shoppingBasketId;
     function createBasketForm() {
         orderList = new Array();
         orderItemName = new Array();
@@ -88,6 +89,7 @@
                     for (let i = 0; i < data.length; i++) {
                         $(".contents1").append(
                             '<div class="menu1">' +
+                            '<input type="hidden" name="shoppingBasketId" id="shoppingBasketId" value='+data[0].SHOPPINGBASKETID+'>' +
                             '<p>' +
                             '<img src="${pageContext.request.contextPath}/resources/statics/img/' + data[i].IMG + '" style="width:300px;">' +
                             '</p> ' +
@@ -131,7 +133,9 @@
 
                         orderItemName.push({
                             title: data[i].TITLE
-                        })
+                        });
+
+                        shoppingBasketId = $("#shoppingBasketId").val();
                     }
                     $("#amount").text(amount);
                 },
@@ -202,7 +206,8 @@
                 "storeId": $("select[name='storeId']").val(),
                 "amount": amount,
                 "merchantUid" : merchant_uid,
-                "orderProductName" : name
+                "orderProductName" : name,
+                "shoppingBasketId": shoppingBasketId
             }),
             success: function (data) {
                 if(data.resultType == true) {

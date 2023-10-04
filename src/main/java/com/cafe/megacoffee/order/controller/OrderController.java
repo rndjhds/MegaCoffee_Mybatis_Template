@@ -1,5 +1,6 @@
 package com.cafe.megacoffee.order.controller;
 
+import com.cafe.megacoffee.basket.service.ShoppingBasketService;
 import com.cafe.megacoffee.category.dto.CategoryDTO;
 import com.cafe.megacoffee.category.service.CategoryService;
 import com.cafe.megacoffee.member.dto.MemberDTO;
@@ -29,8 +30,8 @@ public class OrderController {
 
     private final OrderService orderService;
     private final StoreService storeService;
-
     private final CategoryService categoryService;
+    private final ShoppingBasketService shoppingBasketService;
 
     @PostMapping("/creatOrderItem")
     @ResponseBody
@@ -56,6 +57,10 @@ public class OrderController {
             orders.setOrderStatus(OrderStatus.ORDERCOMP);
             orderService.updateOrderStatus(orders);
             map.put("resultType", true);
+        }
+
+        if(list.getShoppingBasketId() != null && list.getShoppingBasketId() != 0) {
+            shoppingBasketService.deleteShoppingBasketWithBasketItem(list.getShoppingBasketId());
         }
         return map;
     }

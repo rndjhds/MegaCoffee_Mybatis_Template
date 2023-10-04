@@ -13,4 +13,5 @@ public class OrderRequest<T> {
     private int amount;
     private String merchantUid;
     private String orderProductName;
+    private Integer shoppingBasketId;
 }

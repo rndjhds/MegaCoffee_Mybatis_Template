@@ -44,4 +44,9 @@ public class ShoppingBasketServiceImpl implements ShoppingBasketService {
     public int deleteShoppingItem(Integer shoppingItemId) {
         return shoppingBasketMapper.deleteShoppingItem(shoppingItemId);
     }
+
+    @Override
+    public void deleteShoppingBasketWithBasketItem(Integer shoppingBasketId) {
+        shoppingBasketMapper.deleteShoppingBasketWithBasketItem(shoppingBasketId);
+    }
 }

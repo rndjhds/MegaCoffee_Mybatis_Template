@@ -164,4 +164,8 @@
     <delete id="deleteShoppingItem" parameterType="Integer">
         delete from shopping_item where shopping_item_id = #{shoppingItemId}
     </delete>
+
+    <delete id="deleteShoppingBasketWithBasketItem" parameterType="Integer">
+        delete from shopping_basket where shopping_basket_id = #{shoppingBasketId}
+    </delete>
 </mapper>

@@ -17,4 +17,6 @@ public interface ShoppingBasketMapper {
     public List<Map<String, Object>> findMyBasketWithMemberIdAndStoreId(BasketDTO basketDTO);
 
     public int deleteShoppingItem(Integer shoppingItemId);
+
+    void deleteShoppingBasketWithBasketItem(Integer shoppingBasketId);
 }
