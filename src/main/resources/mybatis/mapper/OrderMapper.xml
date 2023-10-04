@@ -238,4 +238,32 @@
                 )
             where rnum between ${start + 1} and ${start + length}
     </select>
+
+    <select id="findOrderDetailByOrderId" parameterType="String" resultType="Map">
+        select
+            orders.order_id orderId,
+            orders.amount,
+            store.store_name storeName,
+            item.title,
+            order_item.order_option orderOption,
+            order_item.order_cup orderCup,
+            order_item.order_size orderSize,
+            order_item.order_count orderCount,
+            order_item.order_price orderPrice,
+            orders.order_date orderDate,
+            item.img,
+            item.option_yn optionYN
+        from
+            orders inner join order_item
+        on
+            orders.order_id = order_item.order_id
+        inner join store
+        on
+            store.store_id = orders.store_id
+        inner join item
+        on
+            item.item_id = order_item.item_id
+        where
+            orders.order_id = #{orderId}
+    </select>
 </mapper>

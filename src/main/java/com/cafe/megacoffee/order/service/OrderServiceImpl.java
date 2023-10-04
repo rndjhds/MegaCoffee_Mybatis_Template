@@ -55,4 +55,9 @@ public class OrderServiceImpl implements OrderService{
     public int getOrderedItemCount(Map<String, Object> map) {
         return orderMapper.getOrderedItemCount(map);
     }
+
+    @Override
+    public List<Map<String, Object>> findOrderDetailByOrderId(String orderId) {
+        return orderMapper.findOrderDetailByOrderId(orderId);
+    }
 }

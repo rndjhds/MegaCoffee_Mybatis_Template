@@ -34,7 +34,7 @@ public class OrderController {
 
     @PostMapping("/creatOrderItem")
     @ResponseBody
-    public boolean creatOrderItem(@RequestBody OrderRequest<List<OrderItem>> list) {
+    public Map<String, Object> creatOrderItem(@RequestBody OrderRequest<List<OrderItem>> list) {
 
         Orders orders = new Orders();
         orders.setOrderStatus(OrderStatus.PROCESSING);
@@ -50,12 +50,14 @@ public class OrderController {
         }
         int orderItemCount = orderService.creatOrderItem(list.getList());
 
+        Map<String, Object> map = new HashMap<>();
+        map.put("orderId", orders.getOrderId());
         if (orderItemCount == list.getList().size()) {
             orders.setOrderStatus(OrderStatus.ORDERCOMP);
             orderService.updateOrderStatus(orders);
-            return true;
+            map.put("resultType", true);
         }
-        return false;
+        return map;
     }
 
     @GetMapping("/orderManagement")
@@ -117,5 +119,17 @@ public class OrderController {
         resultmap.put("recordsFiltered", totalResultCount);
         resultmap.put("recordsTotal", totalResultCount);
         return resultmap;
+    }
+
+    @GetMapping("/orderDetail/{orderId}")
+    public String orderDetail(Model model, @PathVariable("orderId") String orderId) {
+        List<Map<String, Object>> orders = orderService.findOrderDetailByOrderId(orderId);
+
+        model.addAttribute("orders", orders);
+        model.addAttribute("storeName", orders.get(0).get("STORENAME"));
+        model.addAttribute("orderDate", orders.get(0).get("ORDERDATE"));
+        model.addAttribute("orderId", orders.get(0).get("ORDERID"));
+        model.addAttribute("amount", orders.get(0).get("AMOUNT"));
+        return "/orders/orderDetail";
     }
 }

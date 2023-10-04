@@ -205,9 +205,9 @@
                 "orderProductName" : name
             }),
             success: function (data) {
-                if(data == true) {
+                if(data.resultType == true) {
                     alert("결제 성공");
-                    // 결제 후 결제 정보 보여주는 페이지로 이동 할 에정
+                    location.href="/order/orderDetail/"+data.orderId;
                 } else {
                     alert("주문 도중 결제가 되지 않은 상품이 존재 합니다.");
                 }

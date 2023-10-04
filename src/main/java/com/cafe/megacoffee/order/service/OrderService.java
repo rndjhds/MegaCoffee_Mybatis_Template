@@ -21,4 +21,6 @@ public interface OrderService {
     public List<Map<String, Object>> findOrderedItemList(Map<String, Object> map);
 
     public int getOrderedItemCount(Map<String, Object> map);
+
+    public List<Map<String, Object>> findOrderDetailByOrderId(String orderId);
 }

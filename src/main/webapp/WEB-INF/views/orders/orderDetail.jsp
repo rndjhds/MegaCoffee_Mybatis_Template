@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -7,23 +8,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/orderDetail.css">
-    <title>»ó¼¼ÁÖ¹®³»¿ª</title>
+    <title>ìƒì„¸ì£¼ë¬¸ë‚´ì—­</title>
 </head>
 <body>
 <main>
     <aside>
-        <a href="#">¿­±â</a>
+        <a href="#">ì—´ê¸°</a>
     </aside>
     <section class="deta_top">
         <div class="deta_page">
             <p>FUCKING</p>
             <p class="deta_page_info">
-                »ó¼¼ ÁÖ¹®³»¿ª
+                ìƒì„¸ ì£¼ë¬¸ë‚´ì—­
             </p>
         </div>
     </section>
     <section class="deta_title">
-        <p>¸Ş°¡ MGCÀÇ ÁÖ¹®³»¿ª</p>
+        <p>ë©”ê°€ MGCì˜ ì£¼ë¬¸ë‚´ì—­</p>
         <div class="deta_title_center">
             <span></span>
             <p>MEGA</p>
@@ -32,41 +33,45 @@
     </section>
     <section class="start">
         <div class="title">
-            <h1>ºÎÃµ¿ªÁ¡</h1>
-            <p>2023³â 09¿ù 25ÀÏ (ÁÖ¹®¹øÈ£ : 0753)</p>
+            <h1>${storeName}</h1>
+            <p>${orderDate} (ì£¼ë¬¸ë²ˆí˜¸ : ${orderId})</p>
             <div class="btn">
-                <a href="#">X ´İ±â</a>
+                <a href="#">X ë‹«ê¸°</a>
             </div>
         </div>
-        <div class="info">
-            <p>
-                <img src="./img/drink_1.jpg" alt="Ä¿ÇÇ ÀÌ¹ÌÁö">
-            </p>
-            <div class="list">
-                <p><em>¾Æ¸Ş¸®Ä«³ë</em></p>
-                <span>ÀÏÈ¸¿ëÄÅ »ç¿ë</span>
-                <span>ICE</span>
-                <span>M</span>
-                <p><em>1,600¿ø</em> (¼ö·® : 1°³)</p>
+        <c:forEach items="${orders}" var="orders">
+            <div class="info">
+                <p>
+                    <img src="${pageContext.request.contextPath}/resources/statics/img/${orders.IMG}">
+                </p>
+                <div class="list">
+                    <p><em>${orders.TITLE}</em></p>
+                    <c:if test="${orders.OPTION == 'Y'}">
+                        <span>${orders.ORDERCUP}</span>
+                        <span>${orders.OPTION}</span>
+                        <span>${orders.SIZE}</span>
+                    </c:if>
+                    <p><em>${orders.ORDERPRICE}</em> (ìˆ˜ëŸ‰ : ${orders.ORDERCOUNT}ê°œ)</p>
+                </div>
             </div>
-        </div>
+        </c:forEach>
         <ul>
             <li>
-                <p>°áÁ¦¼ö´Ü</p>
-                <p>½Å¿ëÄ«µå</p>
+                <p>ê²°ì œìˆ˜ë‹¨</p>
+                <p>ì¹´ì¹´ì˜¤ í˜ì´</p>
             </li>
             <li>
-                <p>»óÇ°±İ¾×</p>
-                <p><em>1,600¿ø</em></p>
+                <p>ìƒí’ˆê¸ˆì•¡</p>
+                <p><em>${amount}</em></p>
             </li>
             <li>
-                <p>°áÁ¦±İ¾×</p>
-                <p><em>1,600¿ø</em></p>
+                <p>ê²°ì œê¸ˆì•¡</p>
+                <p><em>${amount}</em></p>
             </li>
         </ul>
         <p class="reds">
-            Á¦Á¶ ¿Ï·áµÈ À½·á¿Í Çªµå´Â ¸ÅÀå¿¡¼­ 1½Ã°£ µ¿¾È º¸°ü ÈÄ
-            Æó±âµÇ¸ç ÀçÁ¦°ø ¹× È¯ºÒÀº ºÒ°¡ÇÇÇÕ´Ï´Ù.
+            ì œì¡° ì™„ë£Œëœ ìŒë£Œì™€ í‘¸ë“œëŠ” ë§¤ì¥ì—ì„œ 1ì‹œê°„ ë™ì•ˆ ë³´ê´€ í›„
+            íê¸°ë˜ë©° ì¬ì œê³µ ë° í™˜ë¶ˆì€ ë¶ˆê°€í”¼í•©ë‹ˆë‹¤.
         </p>
     </section>
 </main>
@@ -74,11 +79,11 @@
     let on = document.querySelector('aside')
     let btn = document.querySelector('.btn')
     let popup = document.querySelector('.start')
-    on.addEventListener('click',function(e){
+    on.addEventListener('click', function (e) {
         e.preventDefault()
         popup.style.display = 'block'
     })
-    btn.addEventListener('click',function(e){
+    btn.addEventListener('click', function (e) {
         e.preventDefault()
         popup.style.display = 'none'
     })
