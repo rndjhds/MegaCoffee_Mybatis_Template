@@ -56,13 +56,13 @@
                         <li><p>컵 선택</p>
                             <ul class="sub">
                                 <li><label for="cup">일회용컵 사용
-                                    <input type="radio" name="orderCup" id="cup" value="disposable" checked>
+                                    <input type="radio" name="orderCup" id="cup" value="일회용 컵" checked>
                                 </label></li>
                                 <li><label for="cup2">텀블러 사용
-                                    <input type="radio" name="orderCup" id="cup2" value="tumbler">
+                                    <input type="radio" name="orderCup" id="cup2" value="텀블러">
                                 </label></li>
                                 <li><label for="cup3">매장컵(먹고 갈게요)
-                                    <input type="radio" name="orderCup" id="cup3" value="shopCup">
+                                    <input type="radio" name="orderCup" id="cup3" value="매장컵">
                                 </label></li>
                             </ul>
                         </li>
