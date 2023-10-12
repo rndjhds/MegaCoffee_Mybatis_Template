@@ -36,7 +36,7 @@
     <form id="searchForm">
         <div class="left">
             <label for="storeId"></label>
-            <select name="storeId" id="storeId">
+            <select name="storeId" id="storeId" onchange="search()">
                 <option value="">ÀüÃ¼</option>
                 <c:forEach var="stores" items="${stores}">
                     <option value=${stores.storeId}>${stores.storeName}</option>
@@ -60,11 +60,6 @@
             <input type="text" id="title" name="title" style="border: 1px solid black">
             <button type="button" id="searchButton" style="border: 1px solid black">Search</button>
         </div>
-        <div class="right">
-            <button type="button" id="addButton" style="border: 1px solid black" onclick="openInfo()">New Category
-            </button>
-        </div>
-
     </form>
     <table id="dataTable" class="display">
         <thead>
@@ -108,7 +103,6 @@
 </body>
 <script>
 
-    $(document).ready(function () {
         let maxDate = Date.now();
         let timeOff = new Date().getTimezoneOffset() * 60000;
         let today = new Date(maxDate - timeOff).toISOString().split("T")[0];
@@ -171,8 +165,12 @@
         });
 
         $('#searchButton').on('click', function () {
-            dataTable.draw(); // Trigger a new DataTables request
+            search(); // Trigger a new DataTables request
         });
+
+        function search() {
+            dataTable.draw();
+        }
 
         $("#parentCategoryId").change(function (){
             $("#childCategoryId").empty();
@@ -197,7 +195,6 @@
                 });
             }
         })
-    });
 
 
 
