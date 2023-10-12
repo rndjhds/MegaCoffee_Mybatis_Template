@@ -102,6 +102,7 @@
                     oi.order_option orderOption,
                     oi.order_cup orderCup,
                     oi.order_size orderSize,
+                    oi.order_count orderCount,
                     o.member_id buyer,
                     s.store_name storeName,
                     s.member_id manager,

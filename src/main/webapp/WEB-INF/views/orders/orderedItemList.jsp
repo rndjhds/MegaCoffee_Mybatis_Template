@@ -76,6 +76,7 @@
             <th>ICE/HOT</th>
             <th>컵</th>
             <th>상품 사이즈</th>
+            <th>주문 수량</th>
             <th>주문자</th>
             <th>주문한 가맹점</th>
             <th>가맹점주</th>
@@ -94,6 +95,7 @@
             <th>ICE/HOT</th>
             <th>컵</th>
             <th>상품 사이즈</th>
+            <th>주문 수량</th>
             <th>주문자</th>
             <th>주문한 가맹점</th>
             <th>가맹점주</th>
@@ -139,6 +141,7 @@
                 {data: "ORDEROPTION"},
                 {data: "ORDERCUP"},
                 {data: "ORDERSIZE"},
+                {data: "ORDERCOUNT"},
                 {data: "BUYER"},
                 {data: "STORENAME"},
                 {data: "MANAGER"},
@@ -154,10 +157,11 @@
                 {targets: 4, width: 80},
                 {targets: 5, width: 120},
                 {targets: 6, width: 120},
-                {targets: 7, width: 100},
-                {targets: 8, width: 80},
-                {targets: 9, width: 100},
-                {targets: 10, width: 80}
+                {targets: 7, width: 120},
+                {targets: 8, width: 100},
+                {targets: 9, width: 80},
+                {targets: 10, width: 100},
+                {targets: 11, width: 80}
             ],
             dom: 'Bfrtip', // Add buttons for copy, csv, excel, pdf, and print
             buttons: [
