@@ -36,7 +36,7 @@
     <form id="searchForm">
         <div class="left">
             <label for="storeId"></label>
-            <select name="storeId" id="storeId">
+            <select name="storeId" id="storeId" onchange="search()">
                 <c:forEach var="stores" items="${stores}">
                     <option value=${stores.storeId}>${stores.storeName}</option>
                 </c:forEach>
@@ -80,7 +80,7 @@
 </body>
 <script>
 
-    $(document).ready(function () {
+
         let dataTable = $('#dataTable').DataTable({
             searching: false,
             ordering: false,
@@ -129,9 +129,12 @@
         });
 
         $('#searchButton').on('click', function () {
-            dataTable.draw(); // Trigger a new DataTables request
+            search(); // Trigger a new DataTables request
         });
-    });
+
+        function search() {
+            dataTable.draw();
+        }
 
     function openItemInfo(orderId) {
         $.ajax({
@@ -140,10 +143,11 @@
             contentType: "application/json; charset-utf-8",
             dataType:"json",
             success: function (data) {
-                alert("상품 준비 완료로 변경");
+                if(data != 0) {
+                    search();
+                }
             },
             error: function (){
-
             }
         })
 

@@ -89,11 +89,11 @@ public class OrderController {
 
     @PostMapping("/updateOrderStatusToCOMPITEM/{orderId}")
     @ResponseBody
-    public void updateOrderStatusToCOMPITEM(@PathVariable("orderId") Integer orderId) {
+    public int updateOrderStatusToCOMPITEM(@PathVariable("orderId") Integer orderId) {
         Orders orders = new Orders();
         orders.setOrderId(orderId);
         orders.setOrderStatus(OrderStatus.COMPITEM);
-        orderService.updateOrderStatus(orders);
+        return orderService.updateOrderStatus(orders);
     }
 
     @GetMapping("/orderdItemList")

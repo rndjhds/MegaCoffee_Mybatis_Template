@@ -12,7 +12,7 @@ public interface OrderService {
 
     public Integer createOrder(Orders orders);
 
-    void updateOrderStatus(Orders orders);
+    int updateOrderStatus(Orders orders);
 
     public List<Map<String, Object>> findOrderItemByStoreId(Orders orders);
 

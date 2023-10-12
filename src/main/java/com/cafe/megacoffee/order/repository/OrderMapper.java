@@ -14,7 +14,7 @@ public interface OrderMapper {
     public Integer createOrder(Orders orders);
     public int creatOrderItem(OrderItem orderItem);
 
-    void updateOrderStatus(Orders orders);
+    int updateOrderStatus(Orders orders);
 
     public List<Map<String, Object>> findOrderItemByStoreId(Orders orders);
 
