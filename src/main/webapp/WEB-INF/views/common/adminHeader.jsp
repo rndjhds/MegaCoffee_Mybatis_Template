@@ -21,7 +21,7 @@
         <ul class="main_nav">
             <li><a href="#">회원</a>
                 <ul class="sub_nav">
-                    <li><a href="/member/memberList">회원리스트</a></li>
+                        <li><a href="/member/memberList">회원리스트</a></li>
                     <li><a href="/member/accessManager">가맹점주 승인</a></li>
                 </ul>
             </li>
@@ -29,7 +29,7 @@
                 <ul class="sub_nav" id="menu">
                 </ul>
             </li>
-            <li><a href="./map.html">매장</a>
+            <li><a href="">매장</a>
                 <ul class="sub_nav">
                     <li><a href="/store/List">매장 관리</a></li>
                 </ul>

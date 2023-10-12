@@ -9,6 +9,7 @@ html {min-width: 390px;}
 }
 main {height: 3000px;}
 main .deta_top {
+    overflow-y: auto;
     text-align: center; background-size: cover;
     background: url(../img/farsai-chaikulngamdee-SMPe5xfbPT0-unsplash.jpg) center no-repeat;
     background-size: cover;

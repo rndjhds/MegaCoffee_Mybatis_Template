@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@include file="../common/adminHeader.jsp" %>
+<%@include file="../common/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>

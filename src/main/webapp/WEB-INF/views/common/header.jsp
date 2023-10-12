@@ -20,41 +20,80 @@
                                     alt=""></a></h1>
     <nav>
         <ul class="main_nav">
-            <li><a href="#">메가스토리</a>
-                <ul class="sub_nav">
-                    <li><a href="#">브랜드</a></li>
-                    <li><a href="#">BI</a></li>
-                    <li><a href="./map.html">오시는길</a></li>
-                </ul>
-            </li>
+            <c:if test="${sessionScope.member.memberType ne 'ADMIN'}">
+                <li><a href="#">메가스토리</a>
+                    <ul class="sub_nav">
+                        <li><a href="#">브랜드</a></li>
+                        <li><a href="#">BI</a></li>
+                    </ul>
+                </li>
+            </c:if>
+            <c:if test="${sessionScope.member.memberType eq 'ADMIN'}">
+                <li><a href="#">회원</a>
+                    <ul class="sub_nav">
+                        <li><a href="/member/memberList">회원리스트</a></li>
+                        <li><a href="/member/accessManager">가맹점주 승인</a></li>
+                    </ul>
+                </li>
+            </c:if>
             <li><a href="#">메뉴소개</a>
                 <ul class="sub_nav" id="menu">
                 </ul>
             </li>
             <li><a href="#">매장</a>
-                <ul class="sub_nav">
-                    <li><a href="/store/storeLocation">매장 찾기</a></li>
-                </ul>
+                <c:if test="${sessionScope.member.memberType ne 'ADMIN'}">
+                    <ul class="sub_nav">
+                        <li><a href="/store/storeLocation">매장 찾기</a></li>
+                    </ul>
+                </c:if>
+                <c:if test="${sessionScope.member.memberType eq 'ADMIN'}">
+                    <ul class="sub_nav">
+                        <li><a href="/store/List">매장 관리</a></li>
+                    </ul>
+                </c:if>
             </li>
-            <li><a href="#">판매</a>
-                <ul class="sub_nav">
-                    <li><a href="/order/orderManagement">결제 요청</a></li>
-                    <li><a href="/order/orderdItemList">판매 목록</a></li>
-                </ul>
-            </li>
+            <c:if test="${sessionScope.member.memberType eq 'BUYER'}">
+                <li><a href="#">판매</a>
+                    <ul class="sub_nav">
+                        <li><a href="#">장바구니</a></li>
+                        <li><a href="#">결제 목록</a></li>
+                    </ul>
+                </li>
+            </c:if>
+            <c:if test="${sessionScope.member.memberType ne 'BUYER'}">
+                <li><a href="#">판매 현환</a>
+                    <ul class="sub_nav">
+                        <c:if test="${sessionScope.member.memberType eq 'MANAGER'}">
+                            <li><a href="/order/orderManagement">결제 요청</a></li>
+                        </c:if>
+                        <li><a href="/order/orderdItemList">판매 목록</a></li>
+                    </ul>
+                </li>
+            </c:if>
+
             <li><a href="#">메가소식</a>
                 <ul class="sub_nav">
                     <li><a href="#">공지사항</a></li>
                     <li><a href="#">이벤트</a></li>
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="./review.html">고객의 소리</a></li>
+                    <li><a href="#">고객의 소리</a></li>
                 </ul>
             </li>
-            <li><a href="#">채용</a>
-                <ul class="sub_nav">
-                    <li><a href="#">채용안내</a></li>
-                </ul>
-            </li>
+            <c:if test="${sessionScope.member.memberType ne 'ADMIN'}">
+                <li><a href="#">채용</a>
+                    <ul class="sub_nav">
+                        <li><a href="#">채용안내</a></li>
+                    </ul>
+                </li>
+            </c:if>
+            <c:if test="${sessionScope.member.memberType eq 'ADMIN'}">
+                <li><a href="#">카테고리</a>
+                    <ul class="sub_nav">
+                        <li><a href="/category/parentCategory">상위 카테고리</a></li>
+                        <li><a href="/category/childCategory">하위 카테고리</a></li>
+                    </ul>
+                </li>
+            </c:if>
         </ul>
     </nav>
     <div id="login">
@@ -101,7 +140,7 @@
             return false;
             // 추후 관리자 페이지 작성 후 관리자 페이지로 이동할 예정
         }
-        location.href="/member/manager";
+        location.href = "/member/manager";
     })
 
 </script>
