@@ -79,14 +79,14 @@
                         <li><p>SIZE</p>
                             <ul class="sub">
                                 <li><label for="sz">S
-                                    <input type="radio" name="orderSize" id="sz" value="small" checked>
+                                    <input type="radio" name="orderSize" id="sz" value="SMALL" checked>
                                 </label></li>
                                 <li><label for="sz2">M
-                                    <input type="radio" name="orderSize" id="sz2" value="medium">
+                                    <input type="radio" name="orderSize" id="sz2" value="MEDIUM">
                                 </label></li>
                                 <li>
                                     <label for="sz3">L
-                                        <input type="radio" name="orderSize" id="sz3" value="large">
+                                        <input type="radio" name="orderSize" id="sz3" value="LARGE">
                                     </label>
                                 </li>
                             </ul>
