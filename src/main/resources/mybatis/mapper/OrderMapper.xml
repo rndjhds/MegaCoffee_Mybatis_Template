@@ -53,7 +53,7 @@
                                 when oi.order_cup = 'shopCup' then '매장컵'
                                                         else oi.order_cup end,',') within group(order by oi.order_item_id desc) orderCup,
                     listagg(oi.order_size,',') within group(order by oi.order_item_id desc) orderSize,
-                    listagg(oi.order_count,',') within group (order by oi.order_item_id desc),
+                    listagg(oi.order_count,',') within group (order by oi.order_item_id desc) orderCount,
                     o.member_id buyer,
                     o.amount
                 from
