@@ -6,6 +6,7 @@ import com.cafe.megacoffee.member.type.MemberType;
 import com.cafe.megacoffee.member.type.PermitStatus;
 import com.cafe.megacoffee.util.page.Pagination;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,30 +23,11 @@ import java.util.Map;
 public class MemberController {
 
     private final MemberService memberService;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @GetMapping("/login")
+    @GetMapping("/loginForm")
     public String buyerLoginView() {
         return "member/login";
-    }
-
-    @PostMapping("/login")
-    @ResponseBody
-    public boolean login(@RequestBody MemberDTO memberDTO, HttpSession session) {
-
-        try {
-            MemberDTO findMember = memberService.findMemberByIdWithPassword(memberDTO);
-            if (findMember != null) {
-                session.setAttribute("member", findMember);
-                return true;
-            } else {
-                return false;
-            }
-        } catch (NullPointerException e) {
-            return false;
-        }catch (Exception e) {
-            return false;
-        }
-
     }
 
     @GetMapping("/save")
@@ -56,6 +38,10 @@ public class MemberController {
     @PostMapping("/save")
     @ResponseBody
     public int save(@RequestBody MemberDTO memberDTO) {
+        String password = memberDTO.getPassword();
+        String encodePassword = bCryptPasswordEncoder.encode(password);
+        memberDTO.setPassword(encodePassword);
+        memberDTO.setProvider(null);
         return memberService.createMember(memberDTO);
     }
 
@@ -68,7 +54,7 @@ public class MemberController {
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/index";
+        return "redirect:/";
     }
 
     @GetMapping("/manager")
@@ -209,10 +195,14 @@ public class MemberController {
 
     @PostMapping("/requestAccessManager")
     @ResponseBody
-    public int requestAccessManager(@RequestParam("memberId") String memberId) {
+    public int requestAccessManager(@RequestParam("memberId") String memberId, HttpSession session) {
         MemberDTO memberDTO = new MemberDTO();
         memberDTO.changeMemberStatus(MemberType.BUYER,PermitStatus.WAIT);
         memberDTO.setMemberId(memberId);
+
+        MemberDTO member = (MemberDTO) session.getAttribute("member");
+        member.setPermitStatus(memberDTO.getPermitStatus());
+        session.setAttribute("member", member);
 
         return memberService.updatePermitStatus(memberDTO);
     }

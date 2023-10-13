@@ -9,7 +9,6 @@
         <result column="email" property="email"></result>
         <result column="member_type" property="memberType"></result>
         <result column="permit_status" property="permitStatus"></result>
-        <result column="member_point" property="memberPoint"></result>
         <result column="delete_yn" property="deleteYN"></result>
     </resultMap>
 
@@ -23,8 +22,8 @@
                     #{email},
                     #{memberType},
                     #{permitStatus},
-                    0,
-                    'N'
+                    'N',
+                    #{provider, jdbcType=VARCHAR}
                 )
     </insert>
 
@@ -46,6 +45,17 @@
             member_id = #{memberId}
         and
             password = #{password}
+        and
+            delete_yn = 'N'
+    </select>
+
+    <select id="findRegistraionMemberById" parameterType="String" resultMap="member">
+        select
+            *
+        from
+            Member
+        where
+            member_id = #{memberId}
         and
             delete_yn = 'N'
     </select>

@@ -71,7 +71,7 @@ function deleteMember() {
         success: function (data) {
             if(data == true) {
                 alert("È¸¿ø Å»Åð°¡ µÇ¾ú½À´Ï´Ù.");
-                location.href = "/index";
+                location.href = "/";
             }
         }
     });

@@ -10,11 +10,13 @@ import java.util.List;
 
 @Mapper
 public interface MemberMapper {
-    public int createMember(MemberDTO memberDTO) throws SQLIntegrityConstraintViolationException;
+    public int  createMember(MemberDTO memberDTO) throws SQLIntegrityConstraintViolationException;
 
     public int hasMemberById(String memberId);
 
     public MemberDTO findMemberByIdWithPassword(MemberDTO memberDTO) throws IllegalArgumentException;
+
+    public MemberDTO findRegistraionMemberById(String username);
 
     public List<MemberDTO> findAllMember(MemberDTO memberDTO);
 

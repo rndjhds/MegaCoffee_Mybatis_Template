@@ -27,7 +27,7 @@
             <a href="#">회원가입</a>
         </div>
         <div class="info">
-            <form class="info_1 info_tab">
+            <form class="info_1 info_tab" method="post" action="/member/login">
                 <fieldset>
                     <legend class="skip">로그인양식</legend>
                     <label for="id">아이디
@@ -42,9 +42,10 @@
                             <a href="#">비밀번호 찾기</a>
                         </div>
                     </div>
-                    <button type="submit" class="login_nomal">로그인</button>
-                    <button type="button" class="login_cacao">카카오 로그인</button>
-                    <button type="button" class="login_apple">Apple 로그인</button>
+                    <button id="login_button" class="login_nomal">로그인</button>
+                    <a href="/oauth2/authorization/google">구글 로그인</a>
+                    <a href="/oauth2/authorization/facebook">페이스북 로그인</a>
+                    <a href="/oauth2/authorization/naver">네이버 로그인</a>
                 </fieldset>
             </form>
             <div class="info_2 info_tab">
@@ -81,27 +82,7 @@
                 }
             },
             submitHandler: function () {
-                $.ajax({
-                    url: "${pageContext.request.contextPath}/member/login",
-                    contentType: "application/json; charset-utf-8",
-                    type: "POST",
-                    dataType: "json",
-                    data: JSON.stringify({
-                        memberId: $("#id").val(),
-                        password: $("#pw").val()
-                    }),
-                    success: function (data) {
-                        if (data == true) {
-                            alert("성공적으로 로그인이 되었습니다.");
-                            location.href="/index";
-                        } else {
-                            alert("아이디 또는 비밀번호를 확인해주세요");
-                        }
-                    },
-                    error: function () {
-                        alert("로그인 도중 문제가 발생하였습니다.");
-                    }
-                })
+                $("#login_button").onclick();
             }
         })
     });

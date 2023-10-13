@@ -24,7 +24,6 @@
     <div class="rap">
         <div class="title">
             <a href="#" class="active">로그인</a>
-            <a href="#">회원가입</a>
         </div>
         <div class="info">
             <form class="info_1 info_tab">

@@ -53,44 +53,44 @@
                     </div>
                     <ul>
                         <c:if test="${findItem.optionYN == 'Y'}">
-                        <li><p>컵 선택</p>
-                            <ul class="sub">
-                                <li><label for="cup">일회용컵 사용
-                                    <input type="radio" name="orderCup" id="cup" value="일회용 컵" checked>
-                                </label></li>
-                                <li><label for="cup2">텀블러 사용
-                                    <input type="radio" name="orderCup" id="cup2" value="텀블러">
-                                </label></li>
-                                <li><label for="cup3">매장컵(먹고 갈게요)
-                                    <input type="radio" name="orderCup" id="cup3" value="매장컵">
-                                </label></li>
-                            </ul>
-                        </li>
-                        <li><p>OPTION</p>
-                            <ul class="sub">
-                                <li><label for="op1">ICE
-                                    <input type="radio" name="orderOption" id="op1" value="ice" checked>
-                                </label></li>
-                                <li><label for="op2">HOT
-                                    <input type="radio" name="orderOption" id="op2" value="hot">
-                                </label></li>
-                            </ul>
-                        </li>
-                        <li><p>SIZE</p>
-                            <ul class="sub">
-                                <li><label for="sz">S
-                                    <input type="radio" name="orderSize" id="sz" value="SMALL" checked>
-                                </label></li>
-                                <li><label for="sz2">M
-                                    <input type="radio" name="orderSize" id="sz2" value="MEDIUM">
-                                </label></li>
-                                <li>
-                                    <label for="sz3">L
-                                        <input type="radio" name="orderSize" id="sz3" value="LARGE">
-                                    </label>
-                                </li>
-                            </ul>
-                        </li>
+                            <li><p>컵 선택</p>
+                                <ul class="sub">
+                                    <li><label for="cup">일회용컵 사용
+                                        <input type="radio" name="orderCup" id="cup" value="일회용 컵" checked>
+                                    </label></li>
+                                    <li><label for="cup2">텀블러 사용
+                                        <input type="radio" name="orderCup" id="cup2" value="텀블러">
+                                    </label></li>
+                                    <li><label for="cup3">매장컵(먹고 갈게요)
+                                        <input type="radio" name="orderCup" id="cup3" value="매장컵">
+                                    </label></li>
+                                </ul>
+                            </li>
+                            <li><p>OPTION</p>
+                                <ul class="sub">
+                                    <li><label for="op1">ICE
+                                        <input type="radio" name="orderOption" id="op1" value="ice" checked>
+                                    </label></li>
+                                    <li><label for="op2">HOT
+                                        <input type="radio" name="orderOption" id="op2" value="hot">
+                                    </label></li>
+                                </ul>
+                            </li>
+                            <li><p>SIZE</p>
+                                <ul class="sub">
+                                    <li><label for="sz">S
+                                        <input type="radio" name="orderSize" id="sz" value="SMALL" checked>
+                                    </label></li>
+                                    <li><label for="sz2">M
+                                        <input type="radio" name="orderSize" id="sz2" value="MEDIUM">
+                                    </label></li>
+                                    <li>
+                                        <label for="sz3">L
+                                            <input type="radio" name="orderSize" id="sz3" value="LARGE">
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
                         </c:if>
                     </ul>
                     <div class="sum">
@@ -112,6 +112,13 @@
     </section>
 </main>
 <script>
+    if (${empty sessionScope}) {
+        $("#orders").attr("disabled", true);
+        $("#basket").attr("disabled", true);
+    } else if (${!empty sessionScope}) {
+        $("#orders").attr("disabled", false);
+        $("#basket").attr("disabled", false);
+    }
 
     $('fieldset > ul > li:nth-child(1) .sub li label').on('click', function () {
         $('.contents1 .op fieldset > ul > li:nth-child(1) .sub li label').removeClass()
@@ -137,7 +144,7 @@
     $("#minus").click(function () {
         let count = $("#count").text();
         count--;
-        if(count < 1) {
+        if (count < 1) {
             count = 1;
         }
         $("#count").text(count);
@@ -146,7 +153,7 @@
     });
 
     function createBasket() {
-        if($("select[name='storeId']").val() == 0) {
+        if ($("select[name='storeId']").val() == 0) {
             alert("상품을 구매할 가맹점을 골라주세요");
             return false;
         }
@@ -163,12 +170,12 @@
                 orderOption: $("input[name='orderOption']:checked").val(),
                 orderSize: $("input[name='orderSize']:checked").val(),
                 basketDTO: {
-                    storeId : $("select[name='storeId']").val()
+                    storeId: $("select[name='storeId']").val()
                 }
             }),
             success: function (data) {
-                if(data == true) {
-                    location.href="/basket/myBasketList"
+                if (data == true) {
+                    location.href = "/basket/myBasketList"
                 } else {
 
                 }
@@ -201,13 +208,13 @@
                 "memberId": "${sessionScope.member.memberId}",
                 "storeId": $("select[name='storeId']").val(),
                 "amount": amount,
-                "merchantUid" : merchant_uid,
-                "orderProductName" : name
+                "merchantUid": merchant_uid,
+                "orderProductName": name
             }),
             success: function (data) {
-                if(data.resultType == true) {
+                if (data.resultType == true) {
                     alert("결제 성공");
-                    location.href="/order/orderDetail/"+data.orderId;
+                    location.href = "/order/orderDetail/" + data.orderId;
                 } else {
                     alert("주문 도중 결제가 되지 않은 상품이 존재 합니다.");
                 }
@@ -219,7 +226,7 @@
     }
 
     function sendRequestToImPort() {
-        if($("select[name='storeId']").val() == 0) {
+        if ($("select[name='storeId']").val() == 0) {
             alert("상품을 구매할 가맹점을 골라주세요");
             return false;
         }
@@ -230,22 +237,23 @@
         const IMP = window.IMP;
         IMP.init('imp52714112');
         IMP.request_pay({
-            pg : 'kakaopay',
-            pay_method : 'card',
-            merchant_uid: "${sessionScope.member.memberId}"+new Date().getMilliseconds(), // 상점에서 관리하는 주문 번호
-            name : buyName,
-            amount : amount,
-            buyer_email : "${sessionScope.member.email}",
-            buyer_name : '${sessionScope.member.username}'
-        }, function(rsp) {
-            if ( !rsp.success ) {
+            pg: 'kakaopay',
+            pay_method: 'card',
+            merchant_uid: "${sessionScope.member.memberId}" + new Date().getMilliseconds(), // 상점에서 관리하는 주문 번호
+            name: buyName,
+            amount: amount,
+            buyer_email: "${sessionScope.member.email}",
+            buyer_name: '${sessionScope.member.username}'
+        }, function (rsp) {
+            if (!rsp.success) {
                 //결제 시작 페이지로 리디렉션되기 전에 오류가 난 경우
                 var msg = '오류로 인하여 결제가 시작되지 못하였습니다.';
                 msg += '에러내용 : ' + rsp.error_msg;
 
                 alert(msg);
-            } if(rsp.success) {
-                createItemOrder(amount, "${sessionScope.member.memberId}"+new Date().getMilliseconds(), buyName);
+            }
+            if (rsp.success) {
+                createItemOrder(amount, "${sessionScope.member.memberId}" + new Date().getMilliseconds(), buyName);
             }
 
         });

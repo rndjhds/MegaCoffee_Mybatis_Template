@@ -3,12 +3,10 @@ package com.cafe.megacoffee.member.dto;
 import com.cafe.megacoffee.member.type.MemberType;
 import com.cafe.megacoffee.member.type.PermitStatus;
 import com.cafe.megacoffee.util.page.Pagination;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
-
+@Data
+@NoArgsConstructor
 public class MemberDTO {
 
     private int rnum;
@@ -24,11 +22,22 @@ public class MemberDTO {
 
     private PermitStatus permitStatus; // 가맹점주 승인 상태(DENIED, WAIT, ACCESS)
 
-    private int memberPoint; //  회원 포인트
+    private String provider;
 
     private String deleteYN; // 삭제 여부
 
     private Pagination pagination;
+
+    @Builder
+    public MemberDTO(String memberId, String password, String username, String email, MemberType memberType, PermitStatus permitStatus, String provider) {
+        this.memberId = memberId;
+        this.password = password;
+        this.username = username;
+        this.email = email;
+        this.memberType = memberType;
+        this.permitStatus = permitStatus;
+        this.provider = provider;
+    }
 
     public void changeMemberStatus(MemberType memberType, PermitStatus permitStatus) {
         this.memberType = memberType;
@@ -39,9 +48,5 @@ public class MemberDTO {
         this.password = password;
         this.username = username;
         this.email = email;
-    }
-
-    public void chargePoint(int totalPrice) {
-        this.memberPoint = totalPrice / 100 * 3;
     }
 }

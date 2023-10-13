@@ -52,16 +52,16 @@
                     </ul>
                 </c:if>
             </li>
-            <c:if test="${sessionScope.member.memberType eq 'BUYER'}">
+            <c:if test="${sessionScope.member.memberType ne 'ADMIN'}">
                 <li><a href="#">판매</a>
                     <ul class="sub_nav">
-                        <li><a href="#">장바구니</a></li>
+                        <li><a href="/basket/myBasketList">장바구니</a></li>
                         <li><a href="#">결제 목록</a></li>
                     </ul>
                 </li>
             </c:if>
-            <c:if test="${sessionScope.member.memberType ne 'BUYER'}">
-                <li><a href="#">판매 현환</a>
+            <c:if test="${sessionScope.member.memberType eq 'ADMIN' or 'MANAGER'}">
+                <li><a href="#">판매 현황</a>
                     <ul class="sub_nav">
                         <c:if test="${sessionScope.member.memberType eq 'MANAGER'}">
                             <li><a href="/order/orderManagement">결제 요청</a></li>
@@ -99,10 +99,10 @@
     <div id="login">
         <c:choose>
             <c:when test="${empty sessionScope}">
-                <a href="/member/login">로그인</a>
+                <a href="/member/loginForm">로그인</a>
             </c:when>
             <c:otherwise>
-                <a href="/member/info">${sessionScope.member.memberId}</a>
+                <a href="/member/info">${sessionScope.member.username}</a>
             </c:otherwise>
         </c:choose>
         <a href="#" id="managerLogin">가맹점 로그인</a>
@@ -116,11 +116,17 @@
     $(document).ready(function () {
         $.ajax({
             url: "/category/getHeaderCategory",
-            type: "POST",
+            type: "GET",
             dataType: "json",
             success: function (data) {
-                for (let i = 0; i < data.length; i++) {
-                    $("#menu").append('<li><a href="/item/ItemList/' + data[i].categoryId + '">' + data[i].categoryName + '</a></li>');
+                if (data.length != 0) {
+                    for (let i = 0; i < data.length; i++) {
+                        if(${sessionScope.member.memberType ne 'ADMIN'}) {
+                            $("#menu").append('<li><a href="/item/ItemList/' + data[i].categoryId + '">' + data[i].categoryName + '</a></li>');
+                        } else {
+                            $("#menu").append('<li><a href="/item/manageItemList/' + data[i].categoryId + '">' + data[i].categoryName + '</a></li>');
+                        }
+                    }
                 }
             },
             error: function () {
@@ -129,11 +135,12 @@
         })
     });
 
+
     $("#managerLogin").click(function () {
         const memberType = $("#memberType").val();
         const permitStatus = $("#permitStatus").val();
 
-        if (memberType === "BUYER" && permitStatus === "WAIT") {
+        if (memberType == "BUYER" && permitStatus == "WAIT") {
             alert("본사에서 확인중입니다.");
         } else if (memberType === "MANAGER") {
             alert("환영합니다. 관리자님");
