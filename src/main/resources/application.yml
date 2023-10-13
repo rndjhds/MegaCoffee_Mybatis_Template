@@ -3,7 +3,11 @@ server:
 
 logging:
   level:
-    org.slf4j.Logger: debug
+    org:
+      slf4j.Logger: debug
+      springframework:
+        security: debug
+
 
 mybatis:
   config: classpath:mybatis/config.xml
