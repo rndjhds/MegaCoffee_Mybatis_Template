@@ -67,6 +67,16 @@
 </body>
 
 <script>
+    window.onload = function() {
+        // 자식 창이 로드된 후에 부모 메서드 호출
+        console.log(window.opener)
+        console.log(typeof window.opener.search);
+        if (window.opener && typeof window.opener.search == "function") {
+            window.opener.search();
+        } else {
+            console.error("부모 메서드를 호출할 수 없음");
+        }
+    }
 
     $(document).ready(function () {
         let deleteChk = $("#deleteChk").val();
@@ -105,6 +115,7 @@
                     }),
                     success: function (data) {
                         alert("정상적으로 완료되었습니다");
+                        window.opener.search();
                         window.close();
                     },
                     error: function () {
