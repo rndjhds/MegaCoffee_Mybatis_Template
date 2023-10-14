@@ -60,7 +60,7 @@
                     </ul>
                 </li>
             </c:if>
-            <c:if test="${sessionScope.member.memberType eq 'ADMIN' or 'MANAGER'}">
+            <c:if test="${sessionScope.member.memberType eq 'ADMIN' or sessionScope.member.memberType eq 'MANAGER'}">
                 <li><a href="#">판매 현황</a>
                     <ul class="sub_nav">
                         <c:if test="${sessionScope.member.memberType eq 'MANAGER'}">
