@@ -148,7 +148,7 @@
                 {targets: 1, width: 120},
                 {targets: 2, width: 100},
                 {targets: 3, width: 100},
-                {targets: 4, width: 80},
+                {targets: 4, width: 120},
                 {targets: 5, width: 120},
                 {targets: 6, width: 120},
                 {targets: 7, width: 120},
