@@ -123,6 +123,7 @@
                     success: function (data) {
                         if (data > 0) {
                             alert("회원정보 수정완료");
+                            window.opener.search();
                             window.close();
                         } else {
                             alert("회원정보 수정을 실패하였습니다.");

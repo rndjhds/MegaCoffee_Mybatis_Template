@@ -74,6 +74,7 @@
                     email,
                     member_type memberType,
                     permit_status permitStatus,
+                    provider,
                     delete_yn deleteYN
                 from
                     member

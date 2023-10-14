@@ -130,6 +130,7 @@
                     success: function (data) {
                         if (data != 0) {
                             alert("정상적으로 완료되었습니다");
+                            window.opener.search();
                             window.close();
                         } else {
                             alert("정상적으로 완료되지 못했습니다.")

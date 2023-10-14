@@ -67,6 +67,7 @@
             <th>이메일</th>
             <th>회원 타입</th>
             <th>승인 여부</th>
+            <th>가입 유형</th>
             <th>삭제 여부</th>
             <th>회원정보 수정</th>
         </tr>
@@ -82,6 +83,7 @@
             <th>이메일</th>
             <th>회원 타입</th>
             <th>승인 여부</th>
+            <th>가입 유형</th>
             <th>삭제 여부</th>
             <th>회원정보 수정</th>
         </tr>
@@ -92,7 +94,6 @@
 </body>
 <script>
 
-    $(document).ready(function () {
         let dataTable = $('#dataTable').DataTable({
             searching : false,
             ordering: false,
@@ -115,6 +116,7 @@
                 {data: "email"},
                 {data: "memberType"},
                 {data: "permitStatus"},
+                {data: "provider"},
                 {data: "deleteYN"},
                 {data: "",
                     render: function(data,type,row){
@@ -131,8 +133,9 @@
                 { targets: 3, width: 100 },
                 { targets: 4, width: 100 },
                 { targets: 5, width: 100 },
-                { targets: 6, width: 80 },
-                { targets: 7, width: 100 }
+                { targets: 6, width: 100 },
+                { targets: 7, width: 80 },
+                { targets: 8, width: 100 }
             ]
             /*dom: 'Bfrtip', // Add buttons for copy, csv, excel, pdf, and print
             buttons: [
@@ -140,10 +143,13 @@
             ]*/
         });
 
+        function search() {
+            dataTable.draw();
+        }
+
         $('#searchButton').on('click', function () {
-            dataTable.draw(); // Trigger a new DataTables request
+            search(); // Trigger a new DataTables request
         });
-    });
 
     function openInfo(memberId) {
         window.open("/member/updateMember?member_id="+memberId, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=300,left=500,width=600,height=600");

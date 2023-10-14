@@ -74,7 +74,6 @@
 </body>
 <script>
 
-    $(document).ready(function () {
         let dataTable = $('#dataTable').DataTable({
             searching: false,
             ordering: false,
@@ -115,10 +114,13 @@
             ]*/
         });
 
+        function search() {
+            dataTable.draw();
+        }
+
         $('#searchButton').on('click', function () {
-            dataTable.draw(); // Trigger a new DataTables request
+            search(); // Trigger a new DataTables request
         });
-    });
 
     function openInfo(memberId) {
         $.ajax({
@@ -131,7 +133,7 @@
             success: function (data) {
                 if (data > 0) {
                     alert("가맹점주 승인 완료");
-                    window.close();
+                    search();
                 } else {
                     alert("가맹점주 승인 실패하였습니다.");
                 }

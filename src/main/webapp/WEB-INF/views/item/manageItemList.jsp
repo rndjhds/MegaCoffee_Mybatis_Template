@@ -109,7 +109,6 @@
 </body>
 <script>
 
-    $(document).ready(function () {
         let maxDate = Date.now();
         let timeOff = new Date().getTimezoneOffset() * 60000;
         let today = new Date(maxDate - timeOff).toISOString().split("T")[0];
@@ -187,9 +186,12 @@
         });
 
         $('#searchButton').on('click', function () {
-            dataTable.draw(); // Trigger a new DataTables request
+            search(); // Trigger a new DataTables request
         });
-    });
+
+        function search() {
+            dataTable.draw();
+        }
 
     function openInfo() {
         window.open("/item/createItemForm/" + $("#parentCategoryId").val(), "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=300,left=250,width=1200,height=600");
