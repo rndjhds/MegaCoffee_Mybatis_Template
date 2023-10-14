@@ -109,20 +109,16 @@
             si.order_count orderCount,
             si.order_price orderPrice,
             case
-                when si.order_cup = 'disposable' then '일회용 컵'
-                when si.order_cup = 'tumbler' then '텀블러'
-                when si.order_cup = 'shopCup' then '매장컵'
+                when si.order_cup is null then '컵이 필요없는 제품입니다'
                 else si.order_cup
             end orderCup,
             case
-                when si.order_option = 'ice' then 'ICE'
-                when si.order_option = 'hot' then 'HOT'
+                when si.order_option is null then '옵션이 필요없는 제품입니다.'
                 else si.order_option
             end orderOption,
             case
-                when si.order_size = 'small' then 'SMALL'
-                when si.order_size = 'medium' then 'MEDIUM'
-                when si.order_size = 'large' then 'LARGE'
+                when si.order_size is null then '사이즈가 필요없는 제품입니다.'
+                else si.order_size
             end orderSize,
             si.shopping_item_id shoppingItemId,
             item.img,
