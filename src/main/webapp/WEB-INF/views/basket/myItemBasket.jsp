@@ -228,6 +228,10 @@
             alert("상품을 구매할 가맹점을 골라주세요");
             return false;
         }
+        if(orderList.length == 0) {
+            alert("주문 가능한 상품이 없습니다.");
+            return false;
+        }
 
         let amount = $("#amount").text();
         let buyName ="";
