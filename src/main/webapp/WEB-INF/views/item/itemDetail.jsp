@@ -175,9 +175,12 @@
             }),
             success: function (data) {
                 if (data == true) {
-                    location.href = "/basket/myBasketList"
-                } else {
-
+                    if(confirm("장바구니로 이동하시겠습니까?")) {
+                        location.href = "/basket/myBasketList"
+                    }
+                    else {
+                        return false;
+                    }
                 }
             },
             error: function () {
