@@ -163,6 +163,7 @@
                     }),
                     success: function (data) {
                         alert("정상적으로 완료되었습니다");
+                        window.opener.search();
                         window.close();
                     },
                     error: function () {

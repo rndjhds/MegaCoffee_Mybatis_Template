@@ -96,8 +96,6 @@
 </body>
 <script>
 
-    $(document).ready(function () {
-
         let maxDate = Date.now();
         let timeOff = new Date().getTimezoneOffset() * 60000;
         let today = new Date(maxDate-timeOff).toISOString().split("T")[0];
@@ -151,10 +149,13 @@
     */
         });
 
+        function search() {
+            dataTable.draw();
+        }
+
         $('#searchButton').on('click', function () {
-            dataTable.draw(); // Trigger a new DataTables request
+            search(); // Trigger a new DataTables request
         });
-    });
 
     function openInfo(storeId) {
         window.open("/store/saveStore?storeId="+storeId, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=300,left=500,width=600,height=600");
