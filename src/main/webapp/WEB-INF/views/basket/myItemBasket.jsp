@@ -108,11 +108,11 @@
                             '<div class="sum"> ' +
                             '<p id="' + data[i].SHOPPINGITEMID + '_sum">' + (data[i].ORDERPRICE * data[i].ORDERCOUNT) + '</p> ' +
                             '<div class="pm"> ' +
-                            '<a onclick="minus(' + data[i].SHOPPINGITEMID + ', ' + data[i].ORDERPRICE + ')">' +
+                            '<a onclick="minus(' + data[i].SHOPPINGITEMID + ', ' + data[i].ORDERPRICE + ','+i+')">' +
                             '<img src="${pageContext.request.contextPath}/resources/statics/img/icon1.png">' +
                             '</a> ' +
                             '<p id="' + data[i].SHOPPINGITEMID + '_count">' + data[i].ORDERCOUNT + '</p> ' +
-                            '<a onclick="add(' + data[i].SHOPPINGITEMID + ',' + data[i].ORDERPRICE + ')">' +
+                            '<a onclick="add(' + data[i].SHOPPINGITEMID + ',' + data[i].ORDERPRICE + ','+i+')">' +
                             '<img src="${pageContext.request.contextPath}/resources/statics/img/icon2.png">' +
                             '</a> ' +
                             '</div> ' +
@@ -162,8 +162,8 @@
     }
 
 
-    function add(shoppingItemId, orderPrice) {
-
+    function add(shoppingItemId, orderPrice, index) {
+        console.log()
         amount = parseInt($("#amount").text());
         amount += parseInt(orderPrice);
         $("#amount").text(amount);
@@ -174,10 +174,10 @@
 
         let sum = orderPrice * count;
         $("#" + shoppingItemId + "_sum").text(sum);
-
+        orderList[index].orderCount = count;
     }
 
-    function minus(shoppingItemId, orderPrice) {
+    function minus(shoppingItemId, orderPrice, index) {
         let count = $("#" + shoppingItemId + "_count").text();
         count--;
         if (count < 1) {
@@ -192,6 +192,7 @@
 
         let sum = orderPrice * count;
         $("#" + shoppingItemId + "_sum").text(sum);
+        orderList[index].orderCount = count;
     }
 
     function createItemOrder(amount, merchant_uid, name) {
