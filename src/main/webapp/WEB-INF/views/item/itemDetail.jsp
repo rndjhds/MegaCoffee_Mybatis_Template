@@ -242,7 +242,7 @@
         IMP.request_pay({
             pg: 'kakaopay',
             pay_method: 'card',
-            merchant_uid: "${sessionScope.member.memberId}" + new Date().getMilliseconds(), // 상점에서 관리하는 주문 번호
+            merchant_uid: "mega" + new Date().getMilliseconds(), // 상점에서 관리하는 주문 번호
             name: buyName,
             amount: amount,
             buyer_email: "${sessionScope.member.email}",
@@ -254,6 +254,7 @@
                 msg += '에러내용 : ' + rsp.error_msg;
 
                 alert(msg);
+                alert(rsp);
             }
             if (rsp.success) {
                 createItemOrder(amount, "${sessionScope.member.memberId}" + new Date().getMilliseconds(), buyName);
