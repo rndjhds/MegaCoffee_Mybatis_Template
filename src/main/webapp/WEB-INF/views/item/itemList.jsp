@@ -28,11 +28,7 @@
                 <em>깊고 부드러운 커피 맛의 비밀</em><br>
                 행복을 선사하는 다양한 음료
             </p>
-            <div class="listbtn">
-                <a href="/menu/drinkView">음료</a>
-                <a href="/menu/foodView">푸드</a>
-                <a href="/menu/productView">상품</a>
-            </div>
+            <div class="listbtn"></div>
         </div>
     </section>
     <section class="drink_title">
@@ -85,7 +81,30 @@
     $(document).ready(function () {
         searchItem(1);
         createPageCountNum();
+        createItemCategory();
     })
+
+    function createItemCategory() {
+        $.ajax({
+            url: "/category/getHeaderCategory",
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                if (data.length != 0) {
+                    for (let i = 0; i < data.length; i++) {
+                        if (${sessionScope.member.memberType ne 'ADMIN'}) {
+                            $(".listbtn").append('<a href="/item/ItemList/' + data[i].categoryId + '">' + data[i].categoryName + '</a>');
+                        } else {
+                            $(".listbtn").append('<a href="/item/manageItemList/' + data[i].categoryId + '">' + data[i].categoryName + '</a>');
+                        }
+                    }
+                }
+            },
+            error: function () {
+                alert("에러");
+            }
+        })
+    }
 
     function searchItem(ths) {
         $.ajax({
