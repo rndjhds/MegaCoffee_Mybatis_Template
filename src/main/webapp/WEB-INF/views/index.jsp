@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="common/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../resources/statics/style/reset.css">
     <link rel="stylesheet" href="../resources/statics/style/index.css">
     <link rel="stylesheet" href="../resources/statics/style/index_uiux.css">
-    <title>¸ÞÀÎ | ¸Þ°¡Ä¿ÇÇ</title>
+    <title>ë©”ì¸ | ë©”ê°€ì»¤í”¼</title>
 </head>
 <body>
 <aside>
@@ -27,7 +27,7 @@
 </aside>
 <main>
     <section class="top" id="top">
-        <div class="swiper"> <!-- css¿¡¼­ ³ÐÀÌ ³ôÀÌ°ªÀ» Áà¾ßÇÑ´Ù -->
+        <div class="swiper"> <!-- cssì—ì„œ ë„“ì´ ë†’ì´ê°’ì„ ì¤˜ì•¼í•œë‹¤ -->
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
@@ -50,22 +50,22 @@
                 <h1>MEGA <em>MEC</em> STICK</h1>
                 <div class="sub_title">
                     <span></span>
-                    <p>¸Þ°¡·Î¿î ÀÏ»óÀÇ Ä¿ÇÇ</p>
+                    <p>ë©”ê°€ë¡œìš´ ì¼ìƒì˜ ì»¤í”¼</p>
                     <span></span>
                 </div>
                 <div class="name">
                     <div class="leftname">
                         <p class="h2">MEGA SIZE</p>
                         <p class="info">
-                            ÇÏ·ç¿¡ ÇÏ³ª·Î ÃæºÐ!<br>
-                            ¸Þ°¡·Î¿î ´ë¿ë·® ¾Æ¸Þ¸®Ä«³ë
+                            í•˜ë£¨ì— í•˜ë‚˜ë¡œ ì¶©ë¶„!<br>
+                            ë©”ê°€ë¡œìš´ ëŒ€ìš©ëŸ‰ ì•„ë©”ë¦¬ì¹´ë…¸
                         </p>
                     </div>
                     <div class="rigtname">
                         <p class="h2">MEGA SWEET</p>
                         <p class="info">
-                            ´ç °ÆÁ¤¾ø´Â ´ç ÃæÀü!<br>
-                            °Ç°­ÇÑ ´Ü¸À, ½ºÅ×ºñ¾Æ ¹Í½º Ä¿ÇÇ
+                            ë‹¹ ê±±ì •ì—†ëŠ” ë‹¹ ì¶©ì „!<br>
+                            ê±´ê°•í•œ ë‹¨ë§›, ìŠ¤í…Œë¹„ì•„ ë¯¹ìŠ¤ ì»¤í”¼
                         </p>
                     </div>
                 </div>
@@ -73,19 +73,19 @@
             <div class="shaptitle">
                 <a href="#">
                     <span>ORIGINAL AMERICANO</span>
-                    <span>¿À¸®Áö³¯ ¾Æ¸Þ¸®Ä«³ë</span>
+                    <span>ì˜¤ë¦¬ì§€ë‚  ì•„ë©”ë¦¬ì¹´ë…¸</span>
                 </a>
                 <a href="#">
                     <span>DECAF AMERICANO</span>
-                    <span>µðÄ«ÆäÀÎ ¾Æ¸Þ¸®Ä«³ë</span>
+                    <span>ë””ì¹´íŽ˜ì¸ ì•„ë©”ë¦¬ì¹´ë…¸</span>
                 </a>
                 <a href="#">
                     <span>STEVIA MIX COFFEE</span>
-                    <span>½ºÅ×ºñ¾Æ ¹Í½º Ä¿ÇÇ</span>
+                    <span>ìŠ¤í…Œë¹„ì•„ ë¯¹ìŠ¤ ì»¤í”¼</span>
                 </a>
                 <a href="#">
                     <span>STEVIA DECAF MIX COFFEE</span>
-                    <span>½ºÅ×ºñ¾Æ µðÄ«ÆäÀÎ ¹Í½º Ä¿ÇÇ</span>
+                    <span>ìŠ¤í…Œë¹„ì•„ ë””ì¹´íŽ˜ì¸ ë¯¹ìŠ¤ ì»¤í”¼</span>
                 </a>
             </div>
         </div>
@@ -98,13 +98,13 @@
                     & 2 SHOT
                 </h1>
                 <p>
-                    100% ÇÁ¸®¹Ì¾ö ¾Æ¶óºñÄ« ¿øµÎ¸¦ ·Î½ºÆÃÇÏ¿©,<br>
-                    ±í°í ºÎµå·¯¿î Ä¿ÇÇ¿Í ºò »çÀÌÁî·Î ±¸¼ºµÈ<br>
-                    ´Ù¾çÇÑ À½·á¸¦ ÇÕ¸®ÀûÀÎ °¡°ÝÀ¸·Î Á¦°øÇÕ´Ï´Ù.
+                    100% í”„ë¦¬ë¯¸ì—„ ì•„ë¼ë¹„ì¹´ ì›ë‘ë¥¼ ë¡œìŠ¤íŒ…í•˜ì—¬,<br>
+                    ê¹Šê³  ë¶€ë“œëŸ¬ìš´ ì»¤í”¼ì™€ ë¹… ì‚¬ì´ì¦ˆë¡œ êµ¬ì„±ëœ<br>
+                    ë‹¤ì–‘í•œ ìŒë£Œë¥¼ í•©ë¦¬ì ì¸ ê°€ê²©ìœ¼ë¡œ ì œê³µí•©ë‹ˆë‹¤.
                 </p>
                 <div class="btn">
-                    <a href="#">ºê·£µå ¼Ò°³</a>
-                    <a href="#">Ã¢¾÷¹®ÀÇ</a>
+                    <a href="#">ë¸Œëžœë“œ ì†Œê°œ</a>
+                    <a href="#">ì°½ì—…ë¬¸ì˜</a>
                 </div>
             </div>
         </div>
@@ -112,37 +112,37 @@
     <section class="content3" id="content3">
         <div class="bg bg3">
             <div class="txt3">
-                <h1>¿Ã ¿©¸§, ¹ÝÇÒ ³²µµ</h1>
-                <h2>³²µµÀÇ ¿©¸§À» ´ã´Ù</h2>
+                <h1>ì˜¬ ì—¬ë¦„, ë°˜í•  ë‚¨ë„</h1>
+                <h2>ë‚¨ë„ì˜ ì—¬ë¦„ì„ ë‹´ë‹¤</h2>
                 <p>
-                    ³²µµÀÇ ÇÞ»ì, Ã»·®ÇÑ ¹Ù´Ù, ¾Æ¸§´Ù¿î Ç³°æÀÌ ±×·ÁÁö´Â ¸À !<br>
-                    ¿©¸§À» ¸Ó±Ý¾î ½Ì±×·´°Ô ºû³ª´Â ¿©¸§ Á¦Ã¶ °úÀÏ À½·á¸¦<br>
-                    Áö±Ý ¹Ù·Î °¡±î¿î ¸Þ°¡MGCÄ¿ÇÇ¿¡¼­ ¸¸³ªº¸¼¼¿ä!
+                    ë‚¨ë„ì˜ í–‡ì‚´, ì²­ëŸ‰í•œ ë°”ë‹¤, ì•„ë¦„ë‹¤ìš´ í’ê²½ì´ ê·¸ë ¤ì§€ëŠ” ë§› !<br>
+                    ì—¬ë¦„ì„ ë¨¸ê¸ˆì–´ ì‹±ê·¸ëŸ½ê²Œ ë¹›ë‚˜ëŠ” ì—¬ë¦„ ì œì²  ê³¼ì¼ ìŒë£Œë¥¼<br>
+                    ì§€ê¸ˆ ë°”ë¡œ ê°€ê¹Œìš´ ë©”ê°€MGCì»¤í”¼ì—ì„œ ë§Œë‚˜ë³´ì„¸ìš”!
                 </p>
-                <a href="./menu.html">¸Þ´º ´õ º¸±â</a>
+                <a href="./menu.html">ë©”ë‰´ ë” ë³´ê¸°</a>
             </div>
         </div>
     </section>
     <section class="content4" id="content4">
         <div class="bg bg4">
-            <iframe src="https://www.youtube.com/embed/Ppe5NIRco8A" title="¸Þ°¡MGCÄ¿ÇÇ Ã¢¾÷ Á¤º¸ ¾È³»" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/Ppe5NIRco8A" title="ë©”ê°€MGCì»¤í”¼ ì°½ì—… ì •ë³´ ì•ˆë‚´" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <div class="txt4">
                 <h1>
                     FRANCHISE<br>
                     MEGA MGC<br>
                     COFFEE<br>
-                    5,817<em>¸¸¿ø</em>
+                    5,817<em>ë§Œì›</em>
                 </h1>
                 <h2>
-                    Áö±Ý, ¸Þ°¡MGCÄ¿ÇÇ¿¡¼­<br>
-                    Ã¢¾÷¼º°ø ½ºÅä¸®¸¦ °æÇèÇØº¸¼¼¿ä.<br>
+                    ì§€ê¸ˆ, ë©”ê°€MGCì»¤í”¼ì—ì„œ<br>
+                    ì°½ì—…ì„±ê³µ ìŠ¤í† ë¦¬ë¥¼ ê²½í—˜í•´ë³´ì„¸ìš”.<br>
                 </h2>
                 <p>
-                    ÇÕ¸®ÀûÀÎ Ã¢¾÷ºñ¿ë°ú ´Ù¾çÇÑ °æÇèÀ» ¹ÙÅÁÀ¸·Î,<br>
-                    ´Ù¾çÇÑ ³ëÇÏ¿ì¸¦ Àü¼öÇÏ¿© Ã¢¾÷ ¼º°øÀ» ¾à¼Óµå¸³´Ï´Ù.
+                    í•©ë¦¬ì ì¸ ì°½ì—…ë¹„ìš©ê³¼ ë‹¤ì–‘í•œ ê²½í—˜ì„ ë°”íƒ•ìœ¼ë¡œ,<br>
+                    ë‹¤ì–‘í•œ ë…¸í•˜ìš°ë¥¼ ì „ìˆ˜í•˜ì—¬ ì°½ì—… ì„±ê³µì„ ì•½ì†ë“œë¦½ë‹ˆë‹¤.
                 </p>
                 <a href="#">
-                    Ã¢¾÷ ¹®ÀÇ ¹Ù·Î°¡±â
+                    ì°½ì—… ë¬¸ì˜ ë°”ë¡œê°€ê¸°
                 </a>
             </div>
         </div>
@@ -151,10 +151,10 @@
         <div class="onepay">
             <a href="#"><img src="../resources/statics/test_img/content5_onepay.jpg" alt=""></a>
             <div class="info1">
-                <p>8¿ù ¸Þ°¡ MGCÄ¿ÇÇX ÇÏ³ª ¿øÅ¥</p>
+                <p>8ì›” ë©”ê°€ MGCì»¤í”¼X í•˜ë‚˜ ì›í</p>
                 <p>
-                    [À¯ÀÇ»çÇ×] - º» ÀÌº¥Æ®¿¡ Âü¿©ÇÏ½Ã¸é<br>
-                    ÃÖ´ë 2,000ÇÏ³ª¸Ó´Ï¸¦ Àû¸³ ¹ÞÀ¸½Ç ¼ö ÀÖ½À´Ï´Ù.<br>
+                    [ìœ ì˜ì‚¬í•­] - ë³¸ ì´ë²¤íŠ¸ì— ì°¸ì—¬í•˜ì‹œë©´<br>
+                    ìµœëŒ€ 2,000í•˜ë‚˜ë¨¸ë‹ˆë¥¼ ì ë¦½ ë°›ìœ¼ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.<br>
                     2023-08-16
                 </p>
             </div>
@@ -162,14 +162,14 @@
         <div class="kakaopay">
             <a href="#"><img src="../resources/statics/test_img/content5_kakaopay.jpg" alt=""></a>
             <div class="info2">
-                <p>Ä«Ä«¿ÀÆäÀÌ,  5,000 ÀÌ»ó °áÁ¦</p>
+                <p>ì¹´ì¹´ì˜¤íŽ˜ì´,  5,000 ì´ìƒ ê²°ì œ</p>
                 <p>2023-08-14</p>
             </div>
         </div>
         <div class="event">
             <a href="#"><img src="../resources/statics/test_img/content5_event.png" alt=""></a>
             <div class="info3">
-                <p>¿©¸§½ÃÁð2 ¿ÀÇÂ ±â³ä ÀÌº¥Æ®</p>
+                <p>ì—¬ë¦„ì‹œì¦Œ2 ì˜¤í”ˆ ê¸°ë… ì´ë²¤íŠ¸</p>
                 <p>2023-07-03</p>
             </div>
         </div>
@@ -177,7 +177,7 @@
 </main>
 <%@include file="common/footer.jsp"%>
 <script> /* swiper-js */
-window.alert("ÇöÀç ÀÌ »çÀÌÆ®´Â ¸Þ´º, À½·á, Çªµå, »óÇ°, ¸ÅÀåÃ£±â, °í°´ÀÇ ¼Ò¸®±îÁö ±¸¼ºµÇ¾î ÀÖ½À´Ï´Ù. °¨»çÇÕ´Ï´Ù.")
+window.alert("í˜„ìž¬ ì´ ì‚¬ì´íŠ¸ëŠ” ë©”ë‰´, ìŒë£Œ, í‘¸ë“œ, ìƒí’ˆ, ë§¤ìž¥ì°¾ê¸°, ê³ ê°ì˜ ì†Œë¦¬ê¹Œì§€ êµ¬ì„±ë˜ì–´ ìžˆìŠµë‹ˆë‹¤. ê°ì‚¬í•©ë‹ˆë‹¤.")
 const swiper = new Swiper('.swiper', {
     // Optional parameters
     autoplay:{delay:2000},

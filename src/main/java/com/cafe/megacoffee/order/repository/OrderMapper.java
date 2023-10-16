@@ -25,4 +25,6 @@ public interface OrderMapper {
     public int getOrderedItemCount(Map<String, Object> map);
 
     public List<Map<String, Object>> findOrderDetailByOrderId(String orderId);
+
+    Integer findRecentPaymentHistory(String memberId);
 }

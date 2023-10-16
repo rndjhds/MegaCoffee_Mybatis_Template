@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="../common/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../resources/statics/style/reset.css">
     <link rel="stylesheet" href="../../resources/statics/style/index.css">
     <link rel="stylesheet" href="../../resources/statics/style/index_uiux.css">
-    <title>Çªµå | ¸Þ°¡Ä¿ÇÇ</title>
+    <title>í‘¸ë“œ | ë©”ê°€ì»¤í”¼</title>
 </head>
 <body>
 <main>
@@ -26,44 +26,44 @@
             <p>FOOD MENU</p>
             <a href="#"><img src="../../resources/statics/test_img/yellow_logo.png" alt=""></a>
             <p class="food_page_info">
-                <em>À½·á¿Í Àß ¾î¿ï¸®´Â</em><br>
-                ´Ù¾çÇÑ µðÀúÆ®
+                <em>ìŒë£Œì™€ ìž˜ ì–´ìš¸ë¦¬ëŠ”</em><br>
+                ë‹¤ì–‘í•œ ë””ì €íŠ¸
             </p>
             <div class="listbtn">
-                <a href="/menu/drinkView">À½·á</a>
-                <a href="/menu/foodView">Çªµå</a>
-                <a href="/menu/productView">»óÇ°</a>
+                <a href="/menu/drinkView">ìŒë£Œ</a>
+                <a href="/menu/foodView">í‘¸ë“œ</a>
+                <a href="/menu/productView">ìƒí’ˆ</a>
             </div>
         </div>
     </section>
     <section class="food_title">
-        <p>¸Þ°¡ MGC Ä¿ÇÇÀÇ ¾ö¼±µÈ ¸Þ´º</p>
+        <p>ë©”ê°€ MGC ì»¤í”¼ì˜ ì—„ì„ ëœ ë©”ë‰´</p>
         <div class="food_title_center">
             <span></span>
             <p>MEGA MENU</p>
             <span></span>
         </div>
-        <p>*¸Þ´º ÀÌ¹ÌÁö´Â ¿¬ÃâÄÆÀÌ¶ó ½Ç¹°°ú ´Ù¸¦¼ö ÀÖ½À´Ï´Ù.</p>
+        <p>*ë©”ë‰´ ì´ë¯¸ì§€ëŠ” ì—°ì¶œì»·ì´ë¼ ì‹¤ë¬¼ê³¼ ë‹¤ë¥¼ìˆ˜ ìžˆìŠµë‹ˆë‹¤.</p>
     </section>
     <section class="food_search">
         <form action="#" method="get">
             <fieldset>
-                <legend>¸Þ´ºÃ£±â¾ç½Ä</legend>
+                <legend>ë©”ë‰´ì°¾ê¸°ì–‘ì‹</legend>
                 <div class="search">
-                    <p>¸Þ´º°Ë»ö</p>
+                    <p>ë©”ë‰´ê²€ìƒ‰</p>
                     <div class="search_bar">
-                        <input type="search" placeholder="°Ë»öÇÏ¿© ¼Õ ½±°Ô Ã£¾Æº¸¼¼¿ä.">
+                        <input type="search" placeholder="ê²€ìƒ‰í•˜ì—¬ ì† ì‰½ê²Œ ì°¾ì•„ë³´ì„¸ìš”.">
                         <button type="submit"><img src="../../resources/statics/drink_img/icon_search.gif" alt=""></button>
                     </div>
                 </div>
                 <div class="cheack">
-                    <label for="a">ÀüÃ¼»óÇ°º¸±â
+                    <label for="a">ì „ì²´ìƒí’ˆë³´ê¸°
                         <input id="a" type="checkbox">
                     </label>
-                    <label for="b">µðÀúÆ®
+                    <label for="b">ë””ì €íŠ¸
                         <input id="b" type="checkbox">
                     </label>
-                    <label for="h">½Å»óÇ°
+                    <label for="h">ì‹ ìƒí’ˆ
                         <input id="h" type="checkbox">
                     </label>
                 </div>
@@ -75,35 +75,35 @@
             <div class="food_poji">
                 <a><img src="../../resources/statics/food_img/food_1.jpg" alt=""></a>
                 <div class="poji_title">
-                    <p>¾ÆÀÌ½º¿Í¾Ó¸ðÂî-°íÈïÀ¯ÀÚ</p>
-                    <a>Á¤º¸ ´õ º¸±â</a>
+                    <p>ì•„ì´ìŠ¤ì™€ì•™ëª¨ì°Œ-ê³ í¥ìœ ìž</p>
+                    <a>ì •ë³´ ë” ë³´ê¸°</a>
                 </div>
             </div>
             <div class="food_txt">
                 <div class="txt_title">
-                    <p>¾ÆÀÌ½º¿Í¾Ó¸ðÂî-°íÈïÀ¯ÀÚ</p>
+                    <p>ì•„ì´ìŠ¤ì™€ì•™ëª¨ì°Œ-ê³ í¥ìœ ìž</p>
                     <a href="#"><img src="../../resources/statics/drink_img/icon_x.png" alt=""></a>
                 </div>
                 <div class="food_info">
                     <p>
                         60g<br>
-                        1È¸ Á¦°ø·® 165.0kcal
+                        1íšŒ ì œê³µëŸ‰ 165.0kcal
                     </p>
                     <p>
-                        »óÅ­ÇÑ °íÈïÀ¯ÀÚ ÇÊ¸µ¿¡ ÂËµæÇÑ ¶±À»
-                        °¨½Î ¸¸µç ½Ã¿øÇÑ ¿©¸§ ÇÑÁ¤
-                        ¾ÆÀÌ½º¿Í¾Ó¸ðÂî
+                        ìƒí¼í•œ ê³ í¥ìœ ìž í•„ë§ì— ì«€ë“í•œ ë–¡ì„
+                        ê°ì‹¸ ë§Œë“  ì‹œì›í•œ ì—¬ë¦„ í•œì •
+                        ì•„ì´ìŠ¤ì™€ì•™ëª¨ì°Œ
                     </p>
                     <p>
-                        ¾Ë·¹¸£±â ¼ººÐ : ¿ìÀ¯, ´ëµÎ, ¹Ð, ¾ÆÈ²»ê·ù, µÅÁö°í±â
+                        ì•Œë ˆë¥´ê¸° ì„±ë¶„ : ìš°ìœ , ëŒ€ë‘, ë°€, ì•„í™©ì‚°ë¥˜, ë¼ì§€ê³ ê¸°
                     </p>
                 </div>
                 <ul>
-                    <li>Æ÷È­Áö¹æ 3.1g</li>
-                    <li>³ªÆ®·ý 168.0mg</li>
-                    <li>Ä«ÆäÀÎ 0mm</li>
-                    <li>´ç·ù 13.0g</li>
-                    <li>´Ü¹éÁú 2.0g</li>
+                    <li>í¬í™”ì§€ë°© 3.1g</li>
+                    <li>ë‚˜íŠ¸ë¥¨ 168.0mg</li>
+                    <li>ì¹´íŽ˜ì¸ 0mm</li>
+                    <li>ë‹¹ë¥˜ 13.0g</li>
+                    <li>ë‹¨ë°±ì§ˆ 2.0g</li>
                 </ul>
             </div>
         </div>
@@ -111,35 +111,35 @@
             <div class="food_poji">
                 <a><img src="../../resources/statics/food_img/food_2.jpg" alt=""></a>
                 <div class="poji_title">
-                    <p>¾ÆÀÌ½º¿Í¾Ó¸ðÂî-ÆÏºù¼ö</p>
-                    <a>Á¤º¸ ´õ º¸±â</a>
+                    <p>ì•„ì´ìŠ¤ì™€ì•™ëª¨ì°Œ-íŒ¥ë¹™ìˆ˜</p>
+                    <a>ì •ë³´ ë” ë³´ê¸°</a>
                 </div>
             </div>
             <div class="food_txt">
                 <div class="txt_title">
-                    <p>¾ÆÀÌ½º¿Í¾Ó¸ðÂî-ÆÏºù¼ö</p>
+                    <p>ì•„ì´ìŠ¤ì™€ì•™ëª¨ì°Œ-íŒ¥ë¹™ìˆ˜</p>
                     <a href="#"><img src="../../resources/statics/drink_img/icon_x.png" alt=""></a>
                 </div>
                 <div class="food_info">
                     <p>
                         60g<br>
-                        1È¸ Á¦°ø·® 160.0kcal
+                        1íšŒ ì œê³µëŸ‰ 160.0kcal
                     </p>
                     <p>
-                        ´Þ´ÞÇÑ ¿¬À¯¿Í ºù¼öÅ©¸²À» ÂËµæÇÑ
-                        ¶±À¸·Î °¨½Î ¸¸µç ½Ã¿øÇÑ ¿©¸§ ÇÑÁ¤
-                        ¾ÆÀÌ½º¿Í¾Ó¸ðÂî
+                        ë‹¬ë‹¬í•œ ì—°ìœ ì™€ ë¹™ìˆ˜í¬ë¦¼ì„ ì«€ë“í•œ
+                        ë–¡ìœ¼ë¡œ ê°ì‹¸ ë§Œë“  ì‹œì›í•œ ì—¬ë¦„ í•œì •
+                        ì•„ì´ìŠ¤ì™€ì•™ëª¨ì°Œ
                     </p>
                     <p>
-                        ¾Ë·¹¸£±â ¼ººÐ : ¿ìÀ¯, ´ëµÎ, ¹Ð, µÅÁö°í±â
+                        ì•Œë ˆë¥´ê¸° ì„±ë¶„ : ìš°ìœ , ëŒ€ë‘, ë°€, ë¼ì§€ê³ ê¸°
                     </p>
                 </div>
                 <ul>
-                    <li>Æ÷È­Áö¹æ 2.5g</li>
-                    <li>³ªÆ®·ý 76mg</li>
-                    <li>Ä«ÆäÀÎ 0mm</li>
-                    <li>´ç·ù 12.0g</li>
-                    <li>´Ü¹éÁú 20.g</li>
+                    <li>í¬í™”ì§€ë°© 2.5g</li>
+                    <li>ë‚˜íŠ¸ë¥¨ 76mg</li>
+                    <li>ì¹´íŽ˜ì¸ 0mm</li>
+                    <li>ë‹¹ë¥˜ 12.0g</li>
+                    <li>ë‹¨ë°±ì§ˆ 20.g</li>
                 </ul>
             </div>
         </div>
@@ -147,35 +147,35 @@
             <div class="food_poji">
                 <a><img src="../../resources/statics/food_img/food_3.jpg" alt=""></a>
                 <div class="poji_title">
-                    <p>¿ÀÆ®¹Ð ÆÒÄÉÀÌÅ©</p>
-                    <a>Á¤º¸ ´õ º¸±â</a>
+                    <p>ì˜¤íŠ¸ë°€ íŒ¬ì¼€ì´í¬</p>
+                    <a>ì •ë³´ ë” ë³´ê¸°</a>
                 </div>
             </div>
             <div class="food_txt">
                 <div class="txt_title">
-                    <p>¿ÀÆ®¹Ð ÆÒÄÉÀÌÅ©</p>
+                    <p>ì˜¤íŠ¸ë°€ íŒ¬ì¼€ì´í¬</p>
                     <a href="#"><img src="../../resources/statics/drink_img/icon_x.png" alt=""></a>
                 </div>
                 <div class="food_info">
                     <p>
                         60g<br>
-                        1È¸ Á¦°ø·® 160.0kcal
+                        1íšŒ ì œê³µëŸ‰ 160.0kcal
                     </p>
                     <p>
-                        ´Þ´ÞÇÑ ¿¬À¯¿Í ºù¼öÅ©¸²À» ÂËµæÇÑ
-                        ¶±À¸·Î °¨½Î ¸¸µç ½Ã¿øÇÑ ¿©¸§ ÇÑÁ¤
-                        ¾ÆÀÌ½º¿Í¾Ó¸ðÂî
+                        ë‹¬ë‹¬í•œ ì—°ìœ ì™€ ë¹™ìˆ˜í¬ë¦¼ì„ ì«€ë“í•œ
+                        ë–¡ìœ¼ë¡œ ê°ì‹¸ ë§Œë“  ì‹œì›í•œ ì—¬ë¦„ í•œì •
+                        ì•„ì´ìŠ¤ì™€ì•™ëª¨ì°Œ
                     </p>
                     <p>
-                        ¾Ë·¹¸£±â ¼ººÐ : ¿ìÀ¯, ´ëµÎ, ¹Ð, µÅÁö°í±â
+                        ì•Œë ˆë¥´ê¸° ì„±ë¶„ : ìš°ìœ , ëŒ€ë‘, ë°€, ë¼ì§€ê³ ê¸°
                     </p>
                 </div>
                 <ul>
-                    <li>Æ÷È­Áö¹æ 2.5g</li>
-                    <li>³ªÆ®·ý 76mg</li>
-                    <li>Ä«ÆäÀÎ 0mm</li>
-                    <li>´ç·ù 12.0g</li>
-                    <li>´Ü¹éÁú 20.g</li>
+                    <li>í¬í™”ì§€ë°© 2.5g</li>
+                    <li>ë‚˜íŠ¸ë¥¨ 76mg</li>
+                    <li>ì¹´íŽ˜ì¸ 0mm</li>
+                    <li>ë‹¹ë¥˜ 12.0g</li>
+                    <li>ë‹¨ë°±ì§ˆ 20.g</li>
                 </ul>
             </div>
         </div>
@@ -183,35 +183,35 @@
             <div class="food_poji">
                 <a><img src="../../resources/statics/food_img/food_4.jpg" alt=""></a>
                 <div class="poji_title">
-                    <p>Æ¼¶ó¹Ì¼ö ÆÒÄÉÀÌÅ©</p>
-                    <a>Á¤º¸ ´õ º¸±â</a>
+                    <p>í‹°ë¼ë¯¸ìˆ˜ íŒ¬ì¼€ì´í¬</p>
+                    <a>ì •ë³´ ë” ë³´ê¸°</a>
                 </div>
             </div>
             <div class="food_txt">
                 <div class="txt_title">
-                    <p>Æ¼¶ó¹Ì¼ö ÆÒÄÉÀÌÅ©</p>
+                    <p>í‹°ë¼ë¯¸ìˆ˜ íŒ¬ì¼€ì´í¬</p>
                     <a href="#"><img src="../../resources/statics/drink_img/icon_x.png" alt=""></a>
                 </div>
                 <div class="food_info">
                     <p>
                         60g<br>
-                        1È¸ Á¦°ø·® 160.0kcal
+                        1íšŒ ì œê³µëŸ‰ 160.0kcal
                     </p>
                     <p>
-                        ´Þ´ÞÇÑ ¿¬À¯¿Í ºù¼öÅ©¸²À» ÂËµæÇÑ
-                        ¶±À¸·Î °¨½Î ¸¸µç ½Ã¿øÇÑ ¿©¸§ ÇÑÁ¤
-                        ¾ÆÀÌ½º¿Í¾Ó¸ðÂî
+                        ë‹¬ë‹¬í•œ ì—°ìœ ì™€ ë¹™ìˆ˜í¬ë¦¼ì„ ì«€ë“í•œ
+                        ë–¡ìœ¼ë¡œ ê°ì‹¸ ë§Œë“  ì‹œì›í•œ ì—¬ë¦„ í•œì •
+                        ì•„ì´ìŠ¤ì™€ì•™ëª¨ì°Œ
                     </p>
                     <p>
-                        ¾Ë·¹¸£±â ¼ººÐ : ¿ìÀ¯, ´ëµÎ, ¹Ð, µÅÁö°í±â
+                        ì•Œë ˆë¥´ê¸° ì„±ë¶„ : ìš°ìœ , ëŒ€ë‘, ë°€, ë¼ì§€ê³ ê¸°
                     </p>
                 </div>
                 <ul>
-                    <li>Æ÷È­Áö¹æ 2.5g</li>
-                    <li>³ªÆ®·ý 76mg</li>
-                    <li>Ä«ÆäÀÎ 0mm</li>
-                    <li>´ç·ù 12.0g</li>
-                    <li>´Ü¹éÁú 20.g</li>
+                    <li>í¬í™”ì§€ë°© 2.5g</li>
+                    <li>ë‚˜íŠ¸ë¥¨ 76mg</li>
+                    <li>ì¹´íŽ˜ì¸ 0mm</li>
+                    <li>ë‹¹ë¥˜ 12.0g</li>
+                    <li>ë‹¨ë°±ì§ˆ 20.g</li>
                 </ul>
             </div>
         </div>
@@ -219,35 +219,35 @@
             <div class="food_poji">
                 <a><img src="../../resources/statics/food_img/food_5.png" alt=""></a>
                 <div class="poji_title">
-                    <p>¹öÅÍ¹öÅÍ¼Ò±Ý»§</p>
-                    <a>Á¤º¸ ´õ º¸±â</a>
+                    <p>ë²„í„°ë²„í„°ì†Œê¸ˆë¹µ</p>
+                    <a>ì •ë³´ ë” ë³´ê¸°</a>
                 </div>
             </div>
             <div class="food_txt">
                 <div class="txt_title">
-                    <p>¹öÅÍ¹öÅÍ¼Ò±Ý»§</p>
+                    <p>ë²„í„°ë²„í„°ì†Œê¸ˆë¹µ</p>
                     <a href="#"><img src="../../resources/statics/drink_img/icon_x.png" alt=""></a>
                 </div>
                 <div class="food_info">
                     <p>
                         60g<br>
-                        1È¸ Á¦°ø·® 160.0kcal
+                        1íšŒ ì œê³µëŸ‰ 160.0kcal
                     </p>
                     <p>
-                        ´Þ´ÞÇÑ ¿¬À¯¿Í ºù¼öÅ©¸²À» ÂËµæÇÑ
-                        ¶±À¸·Î °¨½Î ¸¸µç ½Ã¿øÇÑ ¿©¸§ ÇÑÁ¤
-                        ¾ÆÀÌ½º¿Í¾Ó¸ðÂî
+                        ë‹¬ë‹¬í•œ ì—°ìœ ì™€ ë¹™ìˆ˜í¬ë¦¼ì„ ì«€ë“í•œ
+                        ë–¡ìœ¼ë¡œ ê°ì‹¸ ë§Œë“  ì‹œì›í•œ ì—¬ë¦„ í•œì •
+                        ì•„ì´ìŠ¤ì™€ì•™ëª¨ì°Œ
                     </p>
                     <p>
-                        ¾Ë·¹¸£±â ¼ººÐ : ¿ìÀ¯, ´ëµÎ, ¹Ð, µÅÁö°í±â
+                        ì•Œë ˆë¥´ê¸° ì„±ë¶„ : ìš°ìœ , ëŒ€ë‘, ë°€, ë¼ì§€ê³ ê¸°
                     </p>
                 </div>
                 <ul>
-                    <li>Æ÷È­Áö¹æ 2.5g</li>
-                    <li>³ªÆ®·ý 76mg</li>
-                    <li>Ä«ÆäÀÎ 0mm</li>
-                    <li>´ç·ù 12.0g</li>
-                    <li>´Ü¹éÁú 20.g</li>
+                    <li>í¬í™”ì§€ë°© 2.5g</li>
+                    <li>ë‚˜íŠ¸ë¥¨ 76mg</li>
+                    <li>ì¹´íŽ˜ì¸ 0mm</li>
+                    <li>ë‹¹ë¥˜ 12.0g</li>
+                    <li>ë‹¨ë°±ì§ˆ 20.g</li>
                 </ul>
             </div>
         </div>
@@ -255,35 +255,35 @@
             <div class="food_poji">
                 <a><img src="../../resources/statics/food_img/food_6.jpg" alt=""></a>
                 <div class="poji_title">
-                    <p>Å©·ç¾Æ»ó</p>
-                    <a>Á¤º¸ ´õ º¸±â</a>
+                    <p>í¬ë£¨ì•„ìƒ</p>
+                    <a>ì •ë³´ ë” ë³´ê¸°</a>
                 </div>
             </div>
             <div class="food_txt">
                 <div class="txt_title">
-                    <p>Å©·ç¾Æ»ó</p>
+                    <p>í¬ë£¨ì•„ìƒ</p>
                     <a href="#"><img src="../../resources/statics/drink_img/icon_x.png" alt=""></a>
                 </div>
                 <div class="food_info">
                     <p>
                         60g<br>
-                        1È¸ Á¦°ø·® 160.0kcal
+                        1íšŒ ì œê³µëŸ‰ 160.0kcal
                     </p>
                     <p>
-                        ´Þ´ÞÇÑ ¿¬À¯¿Í ºù¼öÅ©¸²À» ÂËµæÇÑ
-                        ¶±À¸·Î °¨½Î ¸¸µç ½Ã¿øÇÑ ¿©¸§ ÇÑÁ¤
-                        ¾ÆÀÌ½º¿Í¾Ó¸ðÂî
+                        ë‹¬ë‹¬í•œ ì—°ìœ ì™€ ë¹™ìˆ˜í¬ë¦¼ì„ ì«€ë“í•œ
+                        ë–¡ìœ¼ë¡œ ê°ì‹¸ ë§Œë“  ì‹œì›í•œ ì—¬ë¦„ í•œì •
+                        ì•„ì´ìŠ¤ì™€ì•™ëª¨ì°Œ
                     </p>
                     <p>
-                        ¾Ë·¹¸£±â ¼ººÐ : ¿ìÀ¯, ´ëµÎ, ¹Ð, µÅÁö°í±â
+                        ì•Œë ˆë¥´ê¸° ì„±ë¶„ : ìš°ìœ , ëŒ€ë‘, ë°€, ë¼ì§€ê³ ê¸°
                     </p>
                 </div>
                 <ul>
-                    <li>Æ÷È­Áö¹æ 2.5g</li>
-                    <li>³ªÆ®·ý 76mg</li>
-                    <li>Ä«ÆäÀÎ 0mm</li>
-                    <li>´ç·ù 12.0g</li>
-                    <li>´Ü¹éÁú 20.g</li>
+                    <li>í¬í™”ì§€ë°© 2.5g</li>
+                    <li>ë‚˜íŠ¸ë¥¨ 76mg</li>
+                    <li>ì¹´íŽ˜ì¸ 0mm</li>
+                    <li>ë‹¹ë¥˜ 12.0g</li>
+                    <li>ë‹¨ë°±ì§ˆ 20.g</li>
                 </ul>
             </div>
         </div>
@@ -291,35 +291,35 @@
             <div class="food_poji">
                 <a><img src="../../resources/statics/food_img/food_7.jpg" alt=""></a>
                 <div class="poji_title">
-                    <p>¸»Â÷½º¸ð¾îÄíÅ°</p>
-                    <a>Á¤º¸ ´õ º¸±â</a>
+                    <p>ë§ì°¨ìŠ¤ëª¨ì–´ì¿ í‚¤</p>
+                    <a>ì •ë³´ ë” ë³´ê¸°</a>
                 </div>
             </div>
             <div class="food_txt">
                 <div class="txt_title">
-                    <p>¸»Â÷½º¸ð¾îÄíÅ°</p>
+                    <p>ë§ì°¨ìŠ¤ëª¨ì–´ì¿ í‚¤</p>
                     <a href="#"><img src="../../resources/statics/drink_img/icon_x.png" alt=""></a>
                 </div>
                 <div class="food_info">
                     <p>
                         60g<br>
-                        1È¸ Á¦°ø·® 160.0kcal
+                        1íšŒ ì œê³µëŸ‰ 160.0kcal
                     </p>
                     <p>
-                        ´Þ´ÞÇÑ ¿¬À¯¿Í ºù¼öÅ©¸²À» ÂËµæÇÑ
-                        ¶±À¸·Î °¨½Î ¸¸µç ½Ã¿øÇÑ ¿©¸§ ÇÑÁ¤
-                        ¾ÆÀÌ½º¿Í¾Ó¸ðÂî
+                        ë‹¬ë‹¬í•œ ì—°ìœ ì™€ ë¹™ìˆ˜í¬ë¦¼ì„ ì«€ë“í•œ
+                        ë–¡ìœ¼ë¡œ ê°ì‹¸ ë§Œë“  ì‹œì›í•œ ì—¬ë¦„ í•œì •
+                        ì•„ì´ìŠ¤ì™€ì•™ëª¨ì°Œ
                     </p>
                     <p>
-                        ¾Ë·¹¸£±â ¼ººÐ : ¿ìÀ¯, ´ëµÎ, ¹Ð, µÅÁö°í±â
+                        ì•Œë ˆë¥´ê¸° ì„±ë¶„ : ìš°ìœ , ëŒ€ë‘, ë°€, ë¼ì§€ê³ ê¸°
                     </p>
                 </div>
                 <ul>
-                    <li>Æ÷È­Áö¹æ 2.5g</li>
-                    <li>³ªÆ®·ý 76mg</li>
-                    <li>Ä«ÆäÀÎ 0mm</li>
-                    <li>´ç·ù 12.0g</li>
-                    <li>´Ü¹éÁú 20.g</li>
+                    <li>í¬í™”ì§€ë°© 2.5g</li>
+                    <li>ë‚˜íŠ¸ë¥¨ 76mg</li>
+                    <li>ì¹´íŽ˜ì¸ 0mm</li>
+                    <li>ë‹¹ë¥˜ 12.0g</li>
+                    <li>ë‹¨ë°±ì§ˆ 20.g</li>
                 </ul>
             </div>
         </div>
@@ -327,44 +327,44 @@
             <div class="food_poji">
                 <a><img src="../../resources/statics/food_img/food_8.jpg" alt=""></a>
                 <div class="poji_title">
-                    <p>ÃÊÄÚ½º¸ð¾îÄíÅ°</p>
-                    <a>Á¤º¸ ´õ º¸±â</a>
+                    <p>ì´ˆì½”ìŠ¤ëª¨ì–´ì¿ í‚¤</p>
+                    <a>ì •ë³´ ë” ë³´ê¸°</a>
                 </div>
             </div>
             <div class="food_txt">
                 <div class="txt_title">
-                    <p>ÃÊÄÚ½º¸ð¾îÄíÅ°</p>
+                    <p>ì´ˆì½”ìŠ¤ëª¨ì–´ì¿ í‚¤</p>
                     <a href="#"><img src="../../resources/statics/drink_img/icon_x.png" alt=""></a>
                 </div>
                 <div class="food_info">
                     <p>
                         60g<br>
-                        1È¸ Á¦°ø·® 160.0kcal
+                        1íšŒ ì œê³µëŸ‰ 160.0kcal
                     </p>
                     <p>
-                        ´Þ´ÞÇÑ ¿¬À¯¿Í ºù¼öÅ©¸²À» ÂËµæÇÑ
-                        ¶±À¸·Î °¨½Î ¸¸µç ½Ã¿øÇÑ ¿©¸§ ÇÑÁ¤
-                        ¾ÆÀÌ½º¿Í¾Ó¸ðÂî
+                        ë‹¬ë‹¬í•œ ì—°ìœ ì™€ ë¹™ìˆ˜í¬ë¦¼ì„ ì«€ë“í•œ
+                        ë–¡ìœ¼ë¡œ ê°ì‹¸ ë§Œë“  ì‹œì›í•œ ì—¬ë¦„ í•œì •
+                        ì•„ì´ìŠ¤ì™€ì•™ëª¨ì°Œ
                     </p>
                     <p>
-                        ¾Ë·¹¸£±â ¼ººÐ : ¿ìÀ¯, ´ëµÎ, ¹Ð, µÅÁö°í±â
+                        ì•Œë ˆë¥´ê¸° ì„±ë¶„ : ìš°ìœ , ëŒ€ë‘, ë°€, ë¼ì§€ê³ ê¸°
                     </p>
                 </div>
                 <ul>
-                    <li>Æ÷È­Áö¹æ 2.5g</li>
-                    <li>³ªÆ®·ý 76mg</li>
-                    <li>Ä«ÆäÀÎ 0mm</li>
-                    <li>´ç·ù 12.0g</li>
-                    <li>´Ü¹éÁú 20.g</li>
+                    <li>í¬í™”ì§€ë°© 2.5g</li>
+                    <li>ë‚˜íŠ¸ë¥¨ 76mg</li>
+                    <li>ì¹´íŽ˜ì¸ 0mm</li>
+                    <li>ë‹¹ë¥˜ 12.0g</li>
+                    <li>ë‹¨ë°±ì§ˆ 20.g</li>
                 </ul>
             </div>
         </div>
     </section>
     <section class="pagenume">
-        <a href="#">Ã³À½</a>
+        <a href="#">ì²˜ìŒ</a>
         <a href="#">1</a>
         <a href="#">2</a>
-        <a href="#">´ÙÀ½</a>
+        <a href="#">ë‹¤ìŒ</a>
     </section>
 </main>
 

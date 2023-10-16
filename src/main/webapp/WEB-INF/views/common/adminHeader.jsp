@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/reset.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/index.css">
     <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
-    <title>Çªµå | ¸Þ°¡Ä¿ÇÇ</title>
+    <title>í‘¸ë“œ | ë©”ê°€ì»¤í”¼</title>
 </head>
 <body>
 <header>
@@ -19,39 +19,39 @@
     <h1><a href="indexte.html"><img src="${pageContext.request.contextPath}/resources/statics/test_img/header_logo.png" alt=""></a></h1>
     <nav>
         <ul class="main_nav">
-            <li><a href="#">È¸¿ø</a>
+            <li><a href="#">íšŒì›</a>
                 <ul class="sub_nav">
-                        <li><a href="/member/memberList">È¸¿ø¸®½ºÆ®</a></li>
-                    <li><a href="/member/accessManager">°¡¸ÍÁ¡ÁÖ ½ÂÀÎ</a></li>
+                        <li><a href="/member/memberList">íšŒì›ë¦¬ìŠ¤íŠ¸</a></li>
+                    <li><a href="/member/accessManager">ê°€ë§¹ì ì£¼ ìŠ¹ì¸</a></li>
                 </ul>
             </li>
-            <li><a href="/menu/menuView">¸Þ´º</a>
+            <li><a href="/menu/menuView">ë©”ë‰´</a>
                 <ul class="sub_nav" id="menu">
                 </ul>
             </li>
-            <li><a href="">¸ÅÀå</a>
+            <li><a href="">ë§¤ìž¥</a>
                 <ul class="sub_nav">
-                    <li><a href="/store/List">¸ÅÀå °ü¸®</a></li>
+                    <li><a href="/store/List">ë§¤ìž¥ ê´€ë¦¬</a></li>
                 </ul>
             </li>
-            <li><a href="#">ÆÇ¸Å ÇöÈ¯</a>
+            <li><a href="#">íŒë§¤ í˜„í™˜</a>
                 <ul class="sub_nav">
-                    <li><a href="/order/orderManagement">°áÁ¦ ¿äÃ»</a></li>
-                    <li><a href="/order/orderdItemList">ÆÇ¸Å ¸ñ·Ï</a></li>
+                    <li><a href="/order/orderManagement">ê²°ì œ ìš”ì²­</a></li>
+                    <li><a href="/order/orderdItemList">íŒë§¤ ëª©ë¡</a></li>
                 </ul>
             </li>
-            <li><a href="#">¸Þ°¡¼Ò½Ä</a>
+            <li><a href="#">ë©”ê°€ì†Œì‹</a>
                 <ul class="sub_nav">
-                    <li><a href="#">°øÁö»çÇ×</a></li>
-                    <li><a href="#">ÀÌº¥Æ®</a></li>
+                    <li><a href="#">ê³µì§€ì‚¬í•­</a></li>
+                    <li><a href="#">ì´ë²¤íŠ¸</a></li>
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="./review.html">°í°´ÀÇ ¼Ò¸®</a></li>
+                    <li><a href="./review.html">ê³ ê°ì˜ ì†Œë¦¬</a></li>
                 </ul>
             </li>
-            <li><a href="#">Ä«Å×°í¸®</a>
+            <li><a href="#">ì¹´í…Œê³ ë¦¬</a>
                 <ul class="sub_nav">
-                    <li><a href="/category/parentCategory">»óÀ§ Ä«Å×°í¸®</a></li>
-                    <li><a href="/category/childCategory">ÇÏÀ§ Ä«Å×°í¸®</a></li>
+                    <li><a href="/category/parentCategory">ìƒìœ„ ì¹´í…Œê³ ë¦¬</a></li>
+                    <li><a href="/category/childCategory">í•˜ìœ„ ì¹´í…Œê³ ë¦¬</a></li>
                 </ul>
             </li>
         </ul>
@@ -75,7 +75,7 @@
             }
         },
         error: function () {
-            alert("¿¡·¯");
+            alert("ì—ëŸ¬");
         }
     });
 

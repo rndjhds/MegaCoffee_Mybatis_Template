@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="../common/header.jsp" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/itemBasket.css">
     <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
-    <title>¸Ş´º Àå¹Ù±¸´Ï</title>
+    <title>ë©”ë‰´ ì¥ë°”êµ¬ë‹ˆ</title>
 </head>
 <body>
 <main>
@@ -19,24 +19,24 @@
         <div class="deta_page">
             <p>Basket</p>
             <p class="deta_page_info">
-                ¼±ÅÃÇÏ½Å »óÇ°À»
-                ÇÑ´«¿¡ È®ÀÎÇÏ¼¼¿ä.
+                ì„ íƒí•˜ì‹  ìƒí’ˆì„
+                í•œëˆˆì— í™•ì¸í•˜ì„¸ìš”.
             </p>
         </div>
     </section>
     <section class="deta_title">
-        <p>¸Ş°¡ MGCÀÇ ¼±ÅÃ ¸Ş´º</p>
+        <p>ë©”ê°€ MGCì˜ ì„ íƒ ë©”ë‰´</p>
         <div class="deta_title_center">
             <span></span>
             <p>MEGA MENU</p>
             <span></span>
         </div>
-        <p>*¸Ş´º ÀÌ¹ÌÁö´Â ¿¬ÃâÄÆÀÌ¶ó ½Ç¹°°ú ´Ù¸¦¼ö ÀÖ½À´Ï´Ù.</p>
+        <p>*ë©”ë‰´ ì´ë¯¸ì§€ëŠ” ì—°ì¶œì»·ì´ë¼ ì‹¤ë¬¼ê³¼ ë‹¤ë¥¼ìˆ˜ ìˆìŠµë‹ˆë‹¤.</p>
     </section>
     <section class="contentstop">
-        <p>°¡¸ÍÁ¡</p>
+        <p>ê°€ë§¹ì </p>
         <select name="storeId" id="storeId">
-            <option value=0>ÀüÃ¼</option>
+            <option value=0>ì „ì²´</option>
             <c:forEach items="${stores}" var="stores">
                 <option value=${stores.storeId}>${stores.storeName}</option>
             </c:forEach>
@@ -48,11 +48,11 @@
     <section class="contents2">
         <p><img src="./img/header_logo.png" alt=""></p>
         <div class="txt">
-            <p>»óÇ°±İ¾×</p>
+            <p>ìƒí’ˆê¸ˆì•¡</p>
             <p id="amount"></p>
         </div>
         <button type="button" onclick="sendRequestToImPort()">
-            ÁÖ¹®ÇÏ±â
+            ì£¼ë¬¸í•˜ê¸°
         </button>
     </section>
 
@@ -97,7 +97,7 @@
                             '<div class="infowrap">' +
                             '<div class="info_title">' +
                             '<h1>' + data[i].TITLE + '</h1> ' +
-                            '<a onclick="deleteShoppingItem(' + data[i].SHOPPINGITEMID + ')">»èÁ¦</a>' +
+                            '<a onclick="deleteShoppingItem(' + data[i].SHOPPINGITEMID + ')">ì‚­ì œ</a>' +
                             '</div>' +
                             '<div class="info"> ' +
                             '<p>' + data[i].ORDERCUP + '</p> ' +
@@ -155,7 +155,7 @@
                 if (data == true) {
                     createBasketForm();
                 } else {
-                    alert("»èÁ¦ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+                    alert("ì‚­ì œ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
                 }
             }
         });
@@ -212,25 +212,25 @@
             }),
             success: function (data) {
                 if(data.resultType == true) {
-                    alert("ÁÖ¹®ÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù");
+                    alert("ì£¼ë¬¸ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤");
                     location.href="/order/orderDetail/"+data.orderId;
                 } else {
-                    alert("ÁÖ¹® µµÁß °áÁ¦°¡ µÇÁö ¾ÊÀº »óÇ°ÀÌ Á¸Àç ÇÕ´Ï´Ù.");
+                    alert("ì£¼ë¬¸ ë„ì¤‘ ê²°ì œê°€ ë˜ì§€ ì•Šì€ ìƒí’ˆì´ ì¡´ì¬ í•©ë‹ˆë‹¤.");
                 }
             },
             error: function () {
-                alert("ÁÖ¹®ÀÌ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+                alert("ì£¼ë¬¸ì´ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
             }
         });
     }
 
     function sendRequestToImPort() {
         if($("select[name='storeId']").val() == 0) {
-            alert("»óÇ°À» ±¸¸ÅÇÒ °¡¸ÍÁ¡À» °ñ¶óÁÖ¼¼¿ä");
+            alert("ìƒí’ˆì„ êµ¬ë§¤í•  ê°€ë§¹ì ì„ ê³¨ë¼ì£¼ì„¸ìš”");
             return false;
         }
         if(orderList.length == 0) {
-            alert("ÁÖ¹® °¡´ÉÇÑ »óÇ°ÀÌ ¾ø½À´Ï´Ù.");
+            alert("ì£¼ë¬¸ ê°€ëŠ¥í•œ ìƒí’ˆì´ ì—†ìŠµë‹ˆë‹¤.");
             return false;
         }
 
@@ -245,16 +245,16 @@
         IMP.request_pay({
             pg : 'kakaopay',
             pay_method : 'card',
-            merchant_uid: "mega"+new Date().getMilliseconds(), // »óÁ¡¿¡¼­ °ü¸®ÇÏ´Â ÁÖ¹® ¹øÈ£
+            merchant_uid: "mega"+new Date().getMilliseconds(), // ìƒì ì—ì„œ ê´€ë¦¬í•˜ëŠ” ì£¼ë¬¸ ë²ˆí˜¸
             name : buyName,
             amount : amount,
             buyer_email : "${sessionScope.member.email}",
             buyer_name : '${sessionScope.member.username}'
         }, function(rsp) {
             if ( !rsp.success ) {
-                //°áÁ¦ ½ÃÀÛ ÆäÀÌÁö·Î ¸®µğ·º¼ÇµÇ±â Àü¿¡ ¿À·ù°¡ ³­ °æ¿ì
-                var msg = '¿À·ù·Î ÀÎÇÏ¿© °áÁ¦°¡ ½ÃÀÛµÇÁö ¸øÇÏ¿´½À´Ï´Ù.';
-                msg += '¿¡·¯³»¿ë : ' + rsp.error_msg;
+                //ê²°ì œ ì‹œì‘ í˜ì´ì§€ë¡œ ë¦¬ë””ë ‰ì…˜ë˜ê¸° ì „ì— ì˜¤ë¥˜ê°€ ë‚œ ê²½ìš°
+                var msg = 'ì˜¤ë¥˜ë¡œ ì¸í•˜ì—¬ ê²°ì œê°€ ì‹œì‘ë˜ì§€ ëª»í•˜ì˜€ìŠµë‹ˆë‹¤.';
+                msg += 'ì—ëŸ¬ë‚´ìš© : ' + rsp.error_msg;
 
                 alert(msg);
             } if(rsp.success) {

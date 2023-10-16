@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@include file="../common/header.jsp" %>
 
@@ -20,42 +20,42 @@
 <body>
 <!-- header -->
 <main>
-    <h1>�α���</h1>
+    <h1>로그인</h1>
     <div class="rap">
         <div class="title">
-            <a href="#" class="active">�α���</a>
-            <a href="#">ȸ������</a>
+            <a href="#" class="active">로그인</a>
+            <a href="#">회원가입</a>
         </div>
         <div class="info">
             <form class="info_1 info_tab" method="post" action="/member/login">
                 <fieldset>
-                    <legend class="skip">�α��ξ��</legend>
-                    <label for="id">���̵�
-                        <input type="text" id="id" name="memberId" placeholder="���̵� �Է����ּ���" autofocus>
+                    <legend class="skip">로그인양식</legend>
+                    <label for="id">아이디
+                        <input type="text" id="id" name="memberId" placeholder="아이디를 입력해주세요" autofocus>
                     </label>
-                    <label for="pw">��й�ȣ
-                        <input type="password" id="pw" name="password" placeholder="��й�ȣ�� �����ּ���.">
+                    <label for="pw">비밀번호
+                        <input type="password" id="pw" name="password" placeholder="비밀번호를 적어주세요.">
                     </label>
                     <div class="look">
                         <div class="look_a">
-                            <a href="#">���̵� ã��</a>
-                            <a href="#">��й�ȣ ã��</a>
+                            <a href="#">아이디 찾기</a>
+                            <a href="#">비밀번호 찾기</a>
                         </div>
                     </div>
-                    <button id="login_button" class="login_nomal">�α���</button>
-                    <a href="/oauth2/authorization/google">���� �α���</a>
-                    <a href="/oauth2/authorization/facebook">���̽��� �α���</a>
-                    <a href="/oauth2/authorization/naver">���̹� �α���</a>
+                    <button id="login_button" class="login_nomal">로그인</button>
+                    <a href="/oauth2/authorization/google">구글 로그인</a>
+                    <a href="/oauth2/authorization/facebook">페이스북 로그인</a>
+                    <a href="/oauth2/authorization/naver">네이버 로그인</a>
                 </fieldset>
             </form>
             <div class="info_2 info_tab">
                 <p>
-                    ȸ�������� �Ͻø�, �ֹ� ��ȸ�� �������� ���� �� ���ø���Ʈ Ȯ�� ��<br> �پ��� ������
-                    ������ �� �ֽ��ϴ�
+                    회원가입을 하시면, 주문 조회와 개인정보 관리 및 위시리스트 확인 등<br> 다양한 혜택을
+                    누리실 수 있습니다
                 </p>
-                <button type="button" class="new_nomal" onclick="register()">�ű԰���</button>
-                <button type="button" class="new_kakao">īī�� ���̵� ����</button>
-                <button type="button" class="new_apple">Apple ���̵� ����</button>
+                <button type="button" class="new_nomal" onclick="register()">신규가입</button>
+                <button type="button" class="new_kakao">카카오 아이디 가입</button>
+                <button type="button" class="new_apple">Apple 아이디 가입</button>
             </div>
         </div>
     </div>
@@ -75,10 +75,10 @@
             },
             messages: {
                 memberId: {
-                    required: "���̵� �Է��ؾ� �մϴ�."
+                    required: "아이디를 입력해야 합니다."
                 },
                 password: {
-                    required: "��й�ȣ�� �Է����ּ���."
+                    required: "비밀번호를 입력해주세요."
                 }
             },
             submitHandler: function () {

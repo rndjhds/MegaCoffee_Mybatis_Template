@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/memberInfo.css">
     <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
-    <title>°èÁ¤¼³Á¤</title>
+    <title>ê³„ì •ì„¤ì •</title>
 </head>
 <body>
 <main>
@@ -17,13 +17,13 @@
         <div class="user_page">
             <p>Account Settings</p>
             <p class="user_page_info">
-                °èÁ¤ ¼³Á¤À»
-                µµ¿Íµå¸³´Ï´Ù.
+                ê³„ì • ì„¤ì •ì„
+                ë„ì™€ë“œë¦½ë‹ˆë‹¤.
             </p>
         </div>
     </section>
     <section class="user_title">
-        <p>¸Þ°¡ MGCÀÇ °èÁ¤</p>
+        <p>ë©”ê°€ MGCì˜ ê³„ì •</p>
         <div class="user_title_center">
             <span></span>
             <p>MEGA</p>
@@ -32,26 +32,26 @@
     </section>
     <section class="user_wrap">
         <div class="user_info">
-            <h1>°èÁ¤¼³Á¤</h1>
+            <h1>ê³„ì •ì„¤ì •</h1>
             <div class="info">
-                <label for="btn1">Á¤º¸¼öÁ¤
+                <label for="btn1">ì •ë³´ìˆ˜ì •
                     <button id="btn1" type="button"><img
                             src="${pageContext.request.contextPath}/resources/statics/img/close.png">
                     </button>
                 </label>
                 <c:if test="${sessionScope.member.memberType == 'BUYER'}">
-                <label for="btn2">°¡¸ÍÁ¡ÁÖ ½ÂÀÎ¿äÃ»
+                <label for="btn2">ê°€ë§¹ì ì£¼ ìŠ¹ì¸ìš”ì²­
                     <button id="btn2" type="button"><img
                             src="${pageContext.request.contextPath}/resources/statics/img/close.png">
                     </button>
                 </label>
                 </c:if>
-                <label for="btn3">·Î±×¾Æ¿ô
+                <label for="btn3">ë¡œê·¸ì•„ì›ƒ
                     <button id="btn3" type="button"><img
                             src="${pageContext.request.contextPath}/resources/statics/img/close.png">
                     </button>
                 </label>
-                <label for="btn4">È¸¿øÅ»Åð
+                <label for="btn4">íšŒì›íƒˆí‡´
                     <button id="btn4" type="button"><img
                             src="${pageContext.request.contextPath}/resources/statics/img/close.png">
                     </button>
@@ -65,7 +65,7 @@
 <script>
 
     $("#btn2").click(function () {
-        if (confirm(("°¡¸ÍÁ¡ÁÖ ½ÂÀÎÀ» ¿äÃ»ÇÏ½Ã°Ú½À´Ï±î? ½ÂÀÎ ¿Ï·áÈÄ °¡¸ÍÁ¡ ·Î±×ÀÎÀÌ °¡´ÉÇÕ´Ï´Ù."))) {
+        if (confirm(("ê°€ë§¹ì ì£¼ ìŠ¹ì¸ì„ ìš”ì²­í•˜ì‹œê² ìŠµë‹ˆê¹Œ? ìŠ¹ì¸ ì™„ë£Œí›„ ê°€ë§¹ì  ë¡œê·¸ì¸ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤."))) {
             $.ajax({
                 url: "/member/requestAccessManager",
                 type:"post",
@@ -74,12 +74,12 @@
                     "memberId": "${sessionScope.member.memberId}"
                 }, success: function (data) {
                     if (data > 0) {
-                        alert("½ÂÀÎ¿äÃ»ÀÌ ¿Ï·á µÇ¾ú½À´Ï´Ù");
+                        alert("ìŠ¹ì¸ìš”ì²­ì´ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤");
                     } else {
-                        alert("½ÂÀÎ ¿äÃ»ÀÌ ½ÇÆÐÇÏ¿´½À´Ï´Ù.")
+                        alert("ìŠ¹ì¸ ìš”ì²­ì´ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.")
                     }
                 }, error: function () {
-                    alert("½ÂÀÎ ¿äÃ» µµÁß ¿¡·¯°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù.");
+                    alert("ìŠ¹ì¸ ìš”ì²­ ë„ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤.");
                 }
             });
         }

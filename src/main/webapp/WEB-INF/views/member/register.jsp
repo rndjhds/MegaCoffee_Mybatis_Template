@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -10,29 +10,29 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/register.css">
     <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
-    <title>ȸ������</title>
+    <title>회원가입</title>
 </head>
 <body>
 <main>
     <div>
         <form>
             <fieldset>
-                <label for="id">���̵�
-                    <input type="text" id="id" name="memberId" placeholder="���̵� �Է����ּ���.">
+                <label for="id">아이디
+                    <input type="text" id="id" name="memberId" placeholder="아이디를 입력해주세요.">
                 </label>
-                <label for="password">��й�ȣ
-                    <input type="password" id="password" name="password" placeholder="��й�ȣ�� �Է����ּ���.">
+                <label for="password">비밀번호
+                    <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요.">
                 </label>
-                <label for="passwordChk">��й�ȣ Ȯ��
-                    <input type="password" id="passwordChk" name="passwordChk" placeholder="��й�ȣ �ѹ� �� �Է����ּ���.">
+                <label for="passwordChk">비밀번호 확인
+                    <input type="password" id="passwordChk" name="passwordChk" placeholder="비밀번호 한번 더 입력해주세요.">
                 </label>
-                <label for="username">ȸ���̸�
-                    <input type="text" id="username" name="username" placeholder="�̸��� �Է����ּ���.">
+                <label for="username">회원이름
+                    <input type="text" id="username" name="username" placeholder="이름을 입력해주세요.">
                 </label>
-                <label for="email">�̸���
-                    <input type="email" id="email" name="email" placeholder="�̸����� �Է����ּ���.">
+                <label for="email">이메일
+                    <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요.">
                 </label>
-                <button type="submit">ȸ������</button>
+                <button type="submit">회원가입</button>
             </fieldset>
         </form>
     </div>
@@ -72,22 +72,22 @@
             },
             messages: {
                 memberId: {
-                    required: "���̵� �Է��ؾ� �մϴ�.",
-                    remote: "�̹� ȸ�����Ե� ���̵��Դϴ�"
+                    required: "아이디를 입력해야 합니다.",
+                    remote: "이미 회원가입된 아이디입니다"
                 },
                 password: {
-                    required: "��й�ȣ�� �Է����ּ���."
+                    required: "비밀번호를 입력해주세요."
                 },
                 passwordChk: {
-                    required: "Ȯ�� ��й�ȣ�� �Է����ּ���.",
-                    equalTo: "��й�ȣ�� ��ġ���� �ʽ��ϴ�."
+                    required: "확인 비밀번호를 입력해주세요.",
+                    equalTo: "비밀번호가 일치하지 않습니다."
                 },
                 username: {
-                    required: "�̸��� �Է����ּ���"
+                    required: "이름을 입력해주세요"
                 },
                 email: {
-                    required: "�̸����� �Է����ּ���",
-                    email: "�̸��� ��Ģ�� ��߳��ϴ�."
+                    required: "이메일을 입력해주세요",
+                    email: "이메일 규칙에 어긋납니다."
                 }
             },
             submitHandler: function () {
@@ -104,14 +104,14 @@
                     }),
                     success: function (data) {
                         if (data > 0) {
-                            alert("ȸ������ �Ϸ�");
+                            alert("회원가입 완료");
                             window.close();
                         } else {
-                            alert("ȸ�������� �����Ͽ����ϴ�.");
+                            alert("회원가입을 실패하였습니다.");
                         }
                     },
                     error: function () {
-                        alert("ȸ������ ���� ������ �߻��Ͽ����ϴ�.");
+                        alert("회원가입 도중 오류가 발생하였습니다.");
                     }
                 })
             }

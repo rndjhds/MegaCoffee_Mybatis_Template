@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../common/header.jsp" %>
 <!DOCTYPE html>
@@ -35,11 +35,11 @@
 <main style="padding-top: 150px">
     <form id="searchForm">
         <div class="left">
-            <label for="deleteYN">»èÁ¦ ¿©ºÎ</label>
+            <label for="deleteYN">ì‚­ì œ ì—¬ë¶€</label>
             <select name="deleteYN" id="deleteYN">
-                <option value=''>ÀüÃ¼</option>
-                <option value='Y'>»èÁ¦¿Ï·á</option>
-                <option value='N'>»èÁ¦¿Ï·áX</option>
+                <option value=''>ì „ì²´</option>
+                <option value='Y'>ì‚­ì œì™„ë£Œ</option>
+                <option value='N'>ì‚­ì œì™„ë£ŒX</option>
             </select>
             <label for="startDate">Start Date:</label>
             <input type="date" id="startDate" name="startDate" style="border: 1px solid black">
@@ -59,17 +59,17 @@
     <table id="dataTable" class="display">
         <thead>
         <tr>
-            <th>¼ø¼­</th>
-            <th>¸ÅÀå¸í</th>
-            <th>°¡¸ÍÁ¡ÁÖ ID</th>
-            <th>¸ÅÀå ¿ìÆí¹øÈ£</th>
-            <th>¸ÅÀå ÁÖ¼Ò</th>
-            <th>¸ÅÀå »ó¼¼ÁÖ¼Ò</th>
-            <th>»èÁ¦ ¿©ºÎ</th>
-            <th>µî·ÏÀÚ</th>
-            <th>µî·ÏÀÏ</th>
-            <th>¼öÁ¤ÀÚ</th>
-            <th>»ó¼¼ ¹öÆ°</th>
+            <th>ìˆœì„œ</th>
+            <th>ë§¤ìž¥ëª…</th>
+            <th>ê°€ë§¹ì ì£¼ ID</th>
+            <th>ë§¤ìž¥ ìš°íŽ¸ë²ˆí˜¸</th>
+            <th>ë§¤ìž¥ ì£¼ì†Œ</th>
+            <th>ë§¤ìž¥ ìƒì„¸ì£¼ì†Œ</th>
+            <th>ì‚­ì œ ì—¬ë¶€</th>
+            <th>ë“±ë¡ìž</th>
+            <th>ë“±ë¡ì¼</th>
+            <th>ìˆ˜ì •ìž</th>
+            <th>ìƒì„¸ ë²„íŠ¼</th>
         </tr>
         </thead>
         <tbody>
@@ -77,17 +77,17 @@
         </tbody>
         <tfoot>
         <tr>
-            <th>¼ø¼­</th>
-            <th>¸ÅÀå¸í</th>
-            <th>°¡¸ÍÁ¡ÁÖ ID</th>
-            <th>¸ÅÀå ¿ìÆí¹øÈ£</th>
-            <th>¸ÅÀå ÁÖ¼Ò</th>
-            <th>¸ÅÀå »ó¼¼ÁÖ¼Ò</th>
-            <th>»èÁ¦ ¿©ºÎ</th>
-            <th>µî·ÏÀÚ</th>
-            <th>µî·ÏÀÏ</th>
-            <th>¼öÁ¤ÀÚ</th>
-            <th>»ó¼¼ ¹öÆ°</th>
+            <th>ìˆœì„œ</th>
+            <th>ë§¤ìž¥ëª…</th>
+            <th>ê°€ë§¹ì ì£¼ ID</th>
+            <th>ë§¤ìž¥ ìš°íŽ¸ë²ˆí˜¸</th>
+            <th>ë§¤ìž¥ ì£¼ì†Œ</th>
+            <th>ë§¤ìž¥ ìƒì„¸ì£¼ì†Œ</th>
+            <th>ì‚­ì œ ì—¬ë¶€</th>
+            <th>ë“±ë¡ìž</th>
+            <th>ë“±ë¡ì¼</th>
+            <th>ìˆ˜ì •ìž</th>
+            <th>ìƒì„¸ ë²„íŠ¼</th>
         </tr>
         </tfoot>
     </table>
@@ -130,12 +130,12 @@
                 {data: "regDate"},
                 {data: "modifier"},
                 {data: "", render: function (data, type, row){
-                        return "<button id='btn_info' type='button' onClick='openInfo("+row.storeId+")'>»ó¼¼Á¤º¸</button>";
+                        return "<button id='btn_info' type='button' onClick='openInfo("+row.storeId+")'>ìƒì„¸ì •ë³´</button>";
                     }
                 }
             ]
 
-            // ÄÃ·³µéÀÇ ³ÐÀÌ Á¶Àý
+            // ì»¬ëŸ¼ë“¤ì˜ ë„“ì´ ì¡°ì ˆ
             /*columnDefs: [
                 { targets: 0, width: 100 },
                 { targets: 1, width: 150 },

@@ -270,4 +270,13 @@
         where
             orders.order_id = #{orderId}
     </select>
+
+    <select id="findRecentPaymentHistory" parameterType="String" resultType="Integer">
+        select
+            max(order_id) orderId
+        from
+            orders
+        where
+            member_id = #{memberId}
+    </select>
 </mapper>

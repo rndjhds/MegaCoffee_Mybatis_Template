@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../common/header.jsp" %>
 <!DOCTYPE html>
@@ -37,14 +37,14 @@
         <div class="left">
             <label for="storeId"></label>
             <select name="storeId" id="storeId" onchange="search()">
-                <option value="">ÀüÃ¼</option>
+                <option value="">ì „ì²´</option>
                 <c:forEach var="stores" items="${stores}">
                     <option value=${stores.storeId}>${stores.storeName}</option>
                 </c:forEach>
             </select>
             <label for="parentCategoryId"></label>
             <select name="parentCategoryId" id="parentCategoryId">
-                <option value="">ÀüÃ¼</option>
+                <option value="">ì „ì²´</option>
                 <c:forEach var="categories" items="${parentCategories}">
                     <option value=${categories.categoryId}>${categories.categoryName}</option>
                 </c:forEach>
@@ -64,18 +64,18 @@
     <table id="dataTable" class="display">
         <thead>
         <tr>
-            <th>¼ø¼­</th>
-            <th>»óÀ§ Ä«Å×°í¸®</th>
-            <th>ÇÏÀ§ Ä«Å×°í¸®</th>
-            <th>»óÇ°¸í</th>
+            <th>ìˆœì„œ</th>
+            <th>ìƒìœ„ ì¹´í…Œê³ ë¦¬</th>
+            <th>í•˜ìœ„ ì¹´í…Œê³ ë¦¬</th>
+            <th>ìƒí’ˆëª…</th>
             <th>ICE/HOT</th>
-            <th>ÄÅ</th>
-            <th>»óÇ° »çÀÌÁî</th>
-            <th>ÁÖ¹® ¼ö·®</th>
-            <th>ÁÖ¹®ÀÚ</th>
-            <th>ÁÖ¹®ÇÑ °¡¸ÍÁ¡</th>
-            <th>°¡¸ÍÁ¡ÁÖ</th>
-            <th>ÁÖ¹® ³¯Â¥</th>
+            <th>ì»µ</th>
+            <th>ìƒí’ˆ ì‚¬ì´ì¦ˆ</th>
+            <th>ì£¼ë¬¸ ìˆ˜ëŸ‰</th>
+            <th>ì£¼ë¬¸ì</th>
+            <th>ì£¼ë¬¸í•œ ê°€ë§¹ì </th>
+            <th>ê°€ë§¹ì ì£¼</th>
+            <th>ì£¼ë¬¸ ë‚ ì§œ</th>
         </tr>
         </thead>
         <tbody>
@@ -83,18 +83,18 @@
         </tbody>
         <tfoot>
         <tr>
-            <th>¼ø¼­</th>
-            <th>»óÀ§ Ä«Å×°í¸®</th>
-            <th>ÇÏÀ§ Ä«Å×°í¸®</th>
-            <th>»óÇ°¸í</th>
+            <th>ìˆœì„œ</th>
+            <th>ìƒìœ„ ì¹´í…Œê³ ë¦¬</th>
+            <th>í•˜ìœ„ ì¹´í…Œê³ ë¦¬</th>
+            <th>ìƒí’ˆëª…</th>
             <th>ICE/HOT</th>
-            <th>ÄÅ</th>
-            <th>»óÇ° »çÀÌÁî</th>
-            <th>ÁÖ¹® ¼ö·®</th>
-            <th>ÁÖ¹®ÀÚ</th>
-            <th>ÁÖ¹®ÇÑ °¡¸ÍÁ¡</th>
-            <th>°¡¸ÍÁ¡ÁÖ</th>
-            <th>ÁÖ¹® ³¯Â¥</th>
+            <th>ì»µ</th>
+            <th>ìƒí’ˆ ì‚¬ì´ì¦ˆ</th>
+            <th>ì£¼ë¬¸ ìˆ˜ëŸ‰</th>
+            <th>ì£¼ë¬¸ì</th>
+            <th>ì£¼ë¬¸í•œ ê°€ë§¹ì </th>
+            <th>ê°€ë§¹ì ì£¼</th>
+            <th>ì£¼ë¬¸ ë‚ ì§œ</th>
         </tr>
         </tfoot>
     </table>
@@ -108,7 +108,7 @@
         let today = new Date(maxDate - timeOff).toISOString().split("T")[0];
         document.getElementById("startDate").setAttribute("max", today);
         document.getElementById("endDate").setAttribute("max", today);
-        $("#childCategoryId").append("<option value=''>ÀüÃ¼</option>");
+        $("#childCategoryId").append("<option value=''>ì „ì²´</option>");
 
         let dataTable = $('#dataTable').DataTable({
             searching: false,
@@ -142,7 +142,7 @@
                 {data: "ORDERDATE"},
             ],
 
-            // ÄÃ·³µéÀÇ ³ĞÀÌ Á¶Àı
+            // ì»¬ëŸ¼ë“¤ì˜ ë„“ì´ ì¡°ì ˆ
             columnDefs: [
                 {targets: 0, width: 50},
                 {targets: 1, width: 120},
@@ -174,7 +174,7 @@
 
         $("#parentCategoryId").change(function (){
             $("#childCategoryId").empty();
-            $("#childCategoryId").append("<option value=''>ÀüÃ¼</option>");
+            $("#childCategoryId").append("<option value=''>ì „ì²´</option>");
             let parentCategoryId = $("select[name='parentCategoryId']").val()
             if(parentCategoryId != '') {
                 $.ajax({

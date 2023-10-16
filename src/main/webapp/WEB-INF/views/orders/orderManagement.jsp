@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../common/header.jsp" %>
 <!DOCTYPE html>
@@ -47,15 +47,15 @@
     <table id="dataTable" class="display">
         <thead>
         <tr>
-            <th>¼ø¼­</th>
-            <th>»óÇ°¸í</th>
+            <th>ìˆœì„œ</th>
+            <th>ìƒí’ˆëª…</th>
             <th>ICE/HOT</th>
-            <th>ÄÅ</th>
-            <th>»óÇ° »çÀÌÁî</th>
-            <th>ÁÖ¹® ¼ö</th>
-            <th>ÁÖ¹®ÀÚ</th>
-            <th>ÃÑ °áÁ¦ ±Ý¾×</th>
-            <th>ÁØºñ ¿Ï·á</th>
+            <th>ì»µ</th>
+            <th>ìƒí’ˆ ì‚¬ì´ì¦ˆ</th>
+            <th>ì£¼ë¬¸ ìˆ˜</th>
+            <th>ì£¼ë¬¸ìž</th>
+            <th>ì´ ê²°ì œ ê¸ˆì•¡</th>
+            <th>ì¤€ë¹„ ì™„ë£Œ</th>
         </tr>
         </thead>
         <tbody>
@@ -63,15 +63,15 @@
         </tbody>
         <tfoot>
         <tr>
-            <th>¼ø¼­</th>
-            <th>»óÇ°¸í</th>
+            <th>ìˆœì„œ</th>
+            <th>ìƒí’ˆëª…</th>
             <th>ICE/HOT</th>
-            <th>ÄÅ</th>
-            <th>»óÇ° »çÀÌÁî</th>
-            <th>ÁÖ¹® ¼ö</th>
-            <th>ÁÖ¹®ÀÚ</th>
-            <th>ÃÑ °áÁ¦ ±Ý¾×</th>
-            <th>ÁØºñ ¿Ï·á</th>
+            <th>ì»µ</th>
+            <th>ìƒí’ˆ ì‚¬ì´ì¦ˆ</th>
+            <th>ì£¼ë¬¸ ìˆ˜</th>
+            <th>ì£¼ë¬¸ìž</th>
+            <th>ì´ ê²°ì œ ê¸ˆì•¡</th>
+            <th>ì¤€ë¹„ ì™„ë£Œ</th>
         </tr>
         </tfoot>
     </table>
@@ -104,12 +104,12 @@
                 {data: "AMOUNT"},
                 {
                     data: "", render: function (data, type, row) {
-                        return "<button id='btn_info' type='button' onClick='openItemInfo(" + row.ORDERID + ")'>ÁØºñ ¿Ï·á</button>";
+                        return "<button id='btn_info' type='button' onClick='openItemInfo(" + row.ORDERID + ")'>ì¤€ë¹„ ì™„ë£Œ</button>";
                     }
                 }
             ],
 
-            // ÄÃ·³µéÀÇ ³ÐÀÌ Á¶Àý
+            // ì»¬ëŸ¼ë“¤ì˜ ë„“ì´ ì¡°ì ˆ
             columnDefs: [
                 {targets: 0, width: 50},
                 {targets: 1, width: 200},

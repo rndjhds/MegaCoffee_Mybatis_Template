@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/reset.css">
     <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
-    <title>»óÇ°µî·Ï</title>
+    <title>ìƒí’ˆë“±ë¡</title>
 </head>
 <body>
 <main>
@@ -29,7 +29,7 @@
         <div>
             <span></span>
             <p>
-                ¸Ş°¡ MGCÀÇ ½ÃÀÛ<br>
+                ë©”ê°€ MGCì˜ ì‹œì‘<br>
                 <em>PRODUCT</em>
             </p>
             <span></span>
@@ -40,9 +40,9 @@
             <fieldset>
                 <div class="left">
                     <input type="hidden" value="${sessionScope.member.memberId}" name="memberId" id="memberId"/>
-                    <label for="categoryId">»óÀ§ Ä«Å×°í¸®
+                    <label for="categoryId">ìƒìœ„ ì¹´í…Œê³ ë¦¬
                         <select style="margin-top: 10px" id="categoryId" name="categoryId">
-                            <option value="">ÀüÃ¼</option>
+                            <option value="">ì „ì²´</option>
                             <c:forEach var="parentCategory" items="${parentCategoryId}">
                                 <option value=${parentCategory.categoryId}>
                                         ${parentCategory.categoryName}
@@ -50,25 +50,25 @@
                             </c:forEach>
                         </select>
                     </label>
-                    <label for="optionYN">¿É¼Ç »ç¿ë¿©ºÎ
+                    <label for="optionYN">ì˜µì…˜ ì‚¬ìš©ì—¬ë¶€
                         <select style="margin-top: 10px" id="optionYN" name="optionYN">
-                            <option value="N">»ç¿ëX</option>
-                            <option value="Y">»ç¿ë</option>
+                            <option value="N">ì‚¬ìš©X</option>
+                            <option value="Y">ì‚¬ìš©</option>
                         </select>
                     </label>
-                    <label for="title">»óÇ°¸í
-                        <input type="text" id="title" name="title" placeholder="»óÇ°¸íÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.">
+                    <label for="title">ìƒí’ˆëª…
+                        <input type="text" id="title" name="title" placeholder="ìƒí’ˆëª…ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.">
                     </label>
-                    <label for="uploadImg">»óÇ°»çÁø
+                    <label for="uploadImg">ìƒí’ˆì‚¬ì§„
                         <input type="file" id="uploadImg" name="uploadImg">
                     </label>
-                    <label for="price">°¡°İ
-                        <input type="number" id="price" name="price" placeholder="°¡°İÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.">
+                    <label for="price">ê°€ê²©
+                        <input type="number" id="price" name="price" placeholder="ê°€ê²©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.">
                     </label>
-                    <button type="submit" class="btn">ÀúÀå</button>
+                    <button type="submit" class="btn">ì €ì¥</button>
                 </div>
                 <div class="right">
-                    <label for="content">ÀÚ¼¼ÇÑ ¼³¸í
+                    <label for="content">ìì„¸í•œ ì„¤ëª…
                         <textarea name="content" id="content" cols="30" rows="10"></textarea>
                     </label>
                 </div>
@@ -101,19 +101,19 @@
             },
             messages: {
                 categoryId: {
-                    required: "»óÇ° Ä«Å×°í¸®¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä."
+                    required: "ìƒí’ˆ ì¹´í…Œê³ ë¦¬ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”."
                 },
                 title: {
-                    required: "»óÇ°¸íÀ» ÀÔ·ÂÇØ¾ß ÇÕ´Ï´Ù."
+                    required: "ìƒí’ˆëª…ì„ ì…ë ¥í•´ì•¼ í•©ë‹ˆë‹¤."
                 },
                 uploadImg: {
-                    required: "»óÇ° ÀÌ¹ÌÁö¸¦ ÀÔ·ÂÇØ¾ß ÇÕ´Ï´Ù."
+                    required: "ìƒí’ˆ ì´ë¯¸ì§€ë¥¼ ì…ë ¥í•´ì•¼ í•©ë‹ˆë‹¤."
                 },
                 price: {
-                    required: "°¡°İÀ» ÀÔ·ÂÇØ¾ß ÇÕ´Ï´Ù."
+                    required: "ê°€ê²©ì„ ì…ë ¥í•´ì•¼ í•©ë‹ˆë‹¤."
                 },
                 content: {
-                    required: "»óÇ° ¼³¸íÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä."
+                    required: "ìƒí’ˆ ì„¤ëª…ì„ ì…ë ¥í•´ì£¼ì„¸ìš”."
                 }
             },
             submitHandler: function () {
@@ -129,16 +129,16 @@
                     data: formData,
                     success: function (data) {
                         if (data != 0) {
-                            alert("Á¤»óÀûÀ¸·Î ¿Ï·áµÇ¾ú½À´Ï´Ù");
+                            alert("ì •ìƒì ìœ¼ë¡œ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤");
                             window.opener.search();
                             window.close();
                         } else {
-                            alert("Á¤»óÀûÀ¸·Î ¿Ï·áµÇÁö ¸øÇß½À´Ï´Ù.")
+                            alert("ì •ìƒì ìœ¼ë¡œ ì™„ë£Œë˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.")
                             window.close();
                         }
                     },
                     error: function () {
-                        alert("Á¤»óÀûÀ¸·Î ¿Ï·áÇÏÁö ¸øÇÏ¿´½À´Ï´Ù.");
+                        alert("ì •ìƒì ìœ¼ë¡œ ì™„ë£Œí•˜ì§€ ëª»í•˜ì˜€ìŠµë‹ˆë‹¤.");
                     }
                 });
             }

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/reset.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/index.css">
     <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
-    <title>Çªµå | ¸Þ°¡Ä¿ÇÇ</title>
+    <title>í‘¸ë“œ | ë©”ê°€ì»¤í”¼</title>
 </head>
 <body>
 <header>
@@ -21,76 +21,76 @@
     <nav>
         <ul class="main_nav">
             <c:if test="${sessionScope.member.memberType ne 'ADMIN'}">
-                <li><a href="#">¸Þ°¡½ºÅä¸®</a>
+                <li><a href="#">ë©”ê°€ìŠ¤í† ë¦¬</a>
                     <ul class="sub_nav">
-                        <li><a href="#">ºê·£µå</a></li>
+                        <li><a href="#">ë¸Œëžœë“œ</a></li>
                         <li><a href="#">BI</a></li>
                     </ul>
                 </li>
             </c:if>
             <c:if test="${sessionScope.member.memberType eq 'ADMIN'}">
-                <li><a href="#">È¸¿ø</a>
+                <li><a href="#">íšŒì›</a>
                     <ul class="sub_nav">
-                        <li><a href="/member/memberList">È¸¿ø¸®½ºÆ®</a></li>
-                        <li><a href="/member/accessManager">°¡¸ÍÁ¡ÁÖ ½ÂÀÎ</a></li>
+                        <li><a href="/member/memberList">íšŒì›ë¦¬ìŠ¤íŠ¸</a></li>
+                        <li><a href="/member/accessManager">ê°€ë§¹ì ì£¼ ìŠ¹ì¸</a></li>
                     </ul>
                 </li>
             </c:if>
-            <li><a href="#">¸Þ´º¼Ò°³</a>
+            <li><a href="#">ë©”ë‰´ì†Œê°œ</a>
                 <ul class="sub_nav" id="menu">
                 </ul>
             </li>
-            <li><a href="#">¸ÅÀå</a>
+            <li><a href="#">ë§¤ìž¥</a>
                 <c:if test="${sessionScope.member.memberType ne 'ADMIN'}">
                     <ul class="sub_nav">
-                        <li><a href="/store/storeLocation">¸ÅÀå Ã£±â</a></li>
+                        <li><a href="/store/storeLocation">ë§¤ìž¥ ì°¾ê¸°</a></li>
                     </ul>
                 </c:if>
                 <c:if test="${sessionScope.member.memberType eq 'ADMIN'}">
                     <ul class="sub_nav">
-                        <li><a href="/store/List">¸ÅÀå °ü¸®</a></li>
+                        <li><a href="/store/List">ë§¤ìž¥ ê´€ë¦¬</a></li>
                     </ul>
                 </c:if>
             </li>
             <c:if test="${sessionScope.member.memberType ne 'ADMIN'}">
-                <li><a href="#">ÆÇ¸Å</a>
+                <li><a href="#">íŒë§¤</a>
                     <ul class="sub_nav">
-                        <li><a href="/basket/myBasketList">Àå¹Ù±¸´Ï</a></li>
-                        <li><a href="#">°áÁ¦ ¸ñ·Ï</a></li>
+                        <li><a href="/basket/myBasketList">ìž¥ë°”êµ¬ë‹ˆ</a></li>
+                        <li><a href="/order/recentPaymentHistory">ìµœê·¼ê²°ì œ ë‚´ì—­</a></li>
                     </ul>
                 </li>
             </c:if>
             <c:if test="${sessionScope.member.memberType eq 'ADMIN' or sessionScope.member.memberType eq 'MANAGER'}">
-                <li><a href="#">ÆÇ¸Å ÇöÈ²</a>
+                <li><a href="#">íŒë§¤ í˜„í™©</a>
                     <ul class="sub_nav">
                         <c:if test="${sessionScope.member.memberType eq 'MANAGER'}">
-                            <li><a href="/order/orderManagement">°áÁ¦ ¿äÃ»</a></li>
+                            <li><a href="/order/orderManagement">ê²°ì œ ìš”ì²­</a></li>
                         </c:if>
-                        <li><a href="/order/orderdItemList">ÆÇ¸Å ¸ñ·Ï</a></li>
+                        <li><a href="/order/orderdItemList">íŒë§¤ ëª©ë¡</a></li>
                     </ul>
                 </li>
             </c:if>
 
-            <li><a href="#">¸Þ°¡¼Ò½Ä</a>
+            <li><a href="#">ë©”ê°€ì†Œì‹</a>
                 <ul class="sub_nav">
-                    <li><a href="#">°øÁö»çÇ×</a></li>
-                    <li><a href="#">ÀÌº¥Æ®</a></li>
+                    <li><a href="#">ê³µì§€ì‚¬í•­</a></li>
+                    <li><a href="#">ì´ë²¤íŠ¸</a></li>
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="#">°í°´ÀÇ ¼Ò¸®</a></li>
+                    <li><a href="#">ê³ ê°ì˜ ì†Œë¦¬</a></li>
                 </ul>
             </li>
             <c:if test="${sessionScope.member.memberType ne 'ADMIN'}">
-                <li><a href="#">Ã¤¿ë</a>
+                <li><a href="#">ì±„ìš©</a>
                     <ul class="sub_nav">
-                        <li><a href="#">Ã¤¿ë¾È³»</a></li>
+                        <li><a href="#">ì±„ìš©ì•ˆë‚´</a></li>
                     </ul>
                 </li>
             </c:if>
             <c:if test="${sessionScope.member.memberType eq 'ADMIN'}">
-                <li><a href="#">Ä«Å×°í¸®</a>
+                <li><a href="#">ì¹´í…Œê³ ë¦¬</a>
                     <ul class="sub_nav">
-                        <li><a href="/category/parentCategory">»óÀ§ Ä«Å×°í¸®</a></li>
-                        <li><a href="/category/childCategory">ÇÏÀ§ Ä«Å×°í¸®</a></li>
+                        <li><a href="/category/parentCategory">ìƒìœ„ ì¹´í…Œê³ ë¦¬</a></li>
+                        <li><a href="/category/childCategory">í•˜ìœ„ ì¹´í…Œê³ ë¦¬</a></li>
                     </ul>
                 </li>
             </c:if>
@@ -99,13 +99,13 @@
     <div id="login">
         <c:choose>
             <c:when test="${empty sessionScope}">
-                <a href="/member/loginForm">·Î±×ÀÎ</a>
+                <a href="/member/loginForm">ë¡œê·¸ì¸</a>
             </c:when>
             <c:otherwise>
                 <a href="/member/info">${sessionScope.member.username}</a>
             </c:otherwise>
         </c:choose>
-        <a href="#" id="managerLogin">°¡¸ÍÁ¡ ·Î±×ÀÎ</a>
+        <a href="#" id="managerLogin">ê°€ë§¹ì  ë¡œê·¸ì¸</a>
     </div>
     <div class="bg0"></div>
 </header>
@@ -130,7 +130,7 @@
                 }
             },
             error: function () {
-                alert("¿¡·¯");
+                alert("ì—ëŸ¬");
             }
         })
     });
@@ -141,11 +141,11 @@
         const permitStatus = $("#permitStatus").val();
 
         if (memberType == "BUYER" && permitStatus == "WAIT") {
-            alert("º»»ç¿¡¼­ È®ÀÎÁßÀÔ´Ï´Ù.");
+            alert("ë³¸ì‚¬ì—ì„œ í™•ì¸ì¤‘ìž…ë‹ˆë‹¤.");
         } else if (memberType === "MANAGER") {
-            alert("È¯¿µÇÕ´Ï´Ù. °ü¸®ÀÚ´Ô");
+            alert("í™˜ì˜í•©ë‹ˆë‹¤. ê´€ë¦¬ìžë‹˜");
             return false;
-            // ÃßÈÄ °ü¸®ÀÚ ÆäÀÌÁö ÀÛ¼º ÈÄ °ü¸®ÀÚ ÆäÀÌÁö·Î ÀÌµ¿ÇÒ ¿¹Á¤
+            // ì¶”í›„ ê´€ë¦¬ìž íŽ˜ì´ì§€ ìž‘ì„± í›„ ê´€ë¦¬ìž íŽ˜ì´ì§€ë¡œ ì´ë™í•  ì˜ˆì •
         }
         location.href = "/member/manager";
     })

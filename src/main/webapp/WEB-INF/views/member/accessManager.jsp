@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../common/header.jsp" %>
 <!DOCTYPE html>
@@ -43,14 +43,14 @@
     <table id="dataTable" class="display">
         <thead>
         <tr>
-            <th>¼ø¼­</th>
-            <th>È¸¿ø ID</th>
-            <th>ÀÌ¸§</th>
-            <th>ÀÌ¸ÞÀÏ</th>
-            <th>È¸¿ø Å¸ÀÔ</th>
-            <th>½ÂÀÎ ¿©ºÎ</th>
-            <th>»èÁ¦ ¿©ºÎ</th>
-            <th>°¡¸ÍÁ¡ÁÖ ½ÂÀÎ</th>
+            <th>ìˆœì„œ</th>
+            <th>íšŒì› ID</th>
+            <th>ì´ë¦„</th>
+            <th>ì´ë©”ì¼</th>
+            <th>íšŒì› íƒ€ìž…</th>
+            <th>ìŠ¹ì¸ ì—¬ë¶€</th>
+            <th>ì‚­ì œ ì—¬ë¶€</th>
+            <th>ê°€ë§¹ì ì£¼ ìŠ¹ì¸</th>
         </tr>
         </thead>
         <tbody>
@@ -58,14 +58,14 @@
         </tbody>
         <tfoot>
         <tr>
-            <th>¼ø¼­</th>
-            <th>È¸¿ø ID</th>
-            <th>ÀÌ¸§</th>
-            <th>ÀÌ¸ÞÀÏ</th>
-            <th>È¸¿ø Å¸ÀÔ</th>
-            <th>½ÂÀÎ ¿©ºÎ</th>
-            <th>»èÁ¦ ¿©ºÎ</th>
-            <th>°¡¸ÍÁ¡ÁÖ ½ÂÀÎ</th>
+            <th>ìˆœì„œ</th>
+            <th>íšŒì› ID</th>
+            <th>ì´ë¦„</th>
+            <th>ì´ë©”ì¼</th>
+            <th>íšŒì› íƒ€ìž…</th>
+            <th>ìŠ¹ì¸ ì—¬ë¶€</th>
+            <th>ì‚­ì œ ì—¬ë¶€</th>
+            <th>ê°€ë§¹ì ì£¼ ìŠ¹ì¸</th>
         </tr>
         </tfoot>
     </table>
@@ -96,12 +96,12 @@
                 {data: "deleteYN"},
                 {data: "",
                     render: function(data,type,row){
-                        return "<button id='btn_info' type='button' class='btn' onClick='openInfo(\"" + row.memberId + "\")'>°¡¸ÍÁ¡ÁÖ ½ÂÀÎ</button>";
+                        return "<button id='btn_info' type='button' class='btn' onClick='openInfo(\"" + row.memberId + "\")'>ê°€ë§¹ì ì£¼ ìŠ¹ì¸</button>";
                     }
                 }
             ]
 
-            // ÄÃ·³µéÀÇ ³ÐÀÌ Á¶Àý
+            // ì»¬ëŸ¼ë“¤ì˜ ë„“ì´ ì¡°ì ˆ
             /*columnDefs: [
                 { targets: 0, width: 100 },
                 { targets: 1, width: 150 },
@@ -132,14 +132,14 @@
             },
             success: function (data) {
                 if (data > 0) {
-                    alert("°¡¸ÍÁ¡ÁÖ ½ÂÀÎ ¿Ï·á");
+                    alert("ê°€ë§¹ì ì£¼ ìŠ¹ì¸ ì™„ë£Œ");
                     search();
                 } else {
-                    alert("°¡¸ÍÁ¡ÁÖ ½ÂÀÎ ½ÇÆÐÇÏ¿´½À´Ï´Ù.");
+                    alert("ê°€ë§¹ì ì£¼ ìŠ¹ì¸ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
                 }
             },
             error: function () {
-                alert("°¡¸ÍÁ¡ÁÖ ½ÂÀÎ µµÁß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù.");
+                alert("ê°€ë§¹ì ì£¼ ìŠ¹ì¸ ë„ì¤‘ ì˜¤ë¥˜ê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤.");
             }
         });
     }

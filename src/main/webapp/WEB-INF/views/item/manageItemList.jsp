@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../common/header.jsp" %>
 <!DOCTYPE html>
@@ -38,16 +38,16 @@
         <div class="left">
             <label for="categoryId"></label>
             <select name="categoryId" id="categoryId">
-                <option value="">ÀüÃ¼</option>
+                <option value="">ì „ì²´</option>
                 <c:forEach var="category" items="${category}">
                     <option value=${category.categoryId}>${category.categoryName}</option>
                 </c:forEach>
             </select>
             <label for="deleteYN"></label>
             <select name="deleteYN" id="deleteYN">
-                <option value="">ÀüÃ¼</option>
-                <option value="Y">»èÁ¦</option>
-                <option value="N">»èÁ¦X</option>
+                <option value="">ì „ì²´</option>
+                <option value="Y">ì‚­ì œ</option>
+                <option value="N">ì‚­ì œX</option>
             </select>
             <label for="startDate">Start Date:</label>
             <input type="date" id="startDate" name="startDate" style="border: 1px solid black">
@@ -66,20 +66,20 @@
     <table id="dataTable" class="display">
         <thead>
         <tr>
-            <th>¼ø¼­</th>
-            <th>»óÇ°¸í</th>
-            <th>»óÇ°ÀÌ¹ÌÁö</th>
-            <th>»óÇ°³»¿ë</th>
-            <th>»óÇ°°¡°Ý</th>
-            <th>»óÇ° Ä«Å×°í¸®</th>
-            <th>¿É¼Ç »ç¿ë¿©ºÎ</th>
-            <th>µî·ÏÀÚ</th>
-            <th>µî·ÏÀÏ</th>
-            <th>¼öÁ¤ÀÚ</th>
-            <th>¼öÁ¤ÀÏ</th>
-            <th>»èÁ¦¿©ºÎ</th>
-            <th>¼öÁ¤ ¹öÆ°</th>
-            <th>ÀÌ¹ÌÁö ¼öÁ¤</th>
+            <th>ìˆœì„œ</th>
+            <th>ìƒí’ˆëª…</th>
+            <th>ìƒí’ˆì´ë¯¸ì§€</th>
+            <th>ìƒí’ˆë‚´ìš©</th>
+            <th>ìƒí’ˆê°€ê²©</th>
+            <th>ìƒí’ˆ ì¹´í…Œê³ ë¦¬</th>
+            <th>ì˜µì…˜ ì‚¬ìš©ì—¬ë¶€</th>
+            <th>ë“±ë¡ìž</th>
+            <th>ë“±ë¡ì¼</th>
+            <th>ìˆ˜ì •ìž</th>
+            <th>ìˆ˜ì •ì¼</th>
+            <th>ì‚­ì œì—¬ë¶€</th>
+            <th>ìˆ˜ì • ë²„íŠ¼</th>
+            <th>ì´ë¯¸ì§€ ìˆ˜ì •</th>
         </tr>
         </thead>
         <tbody>
@@ -87,20 +87,20 @@
         </tbody>
         <tfoot>
         <tr>
-            <th>¼ø¼­</th>
-            <th>»óÇ°¸í</th>
-            <th>»óÇ°ÀÌ¹ÌÁö</th>
-            <th>»óÇ°³»¿ë</th>
-            <th>»óÇ°°¡°Ý</th>
-            <th>»óÇ° Ä«Å×°í¸®</th>
-            <th>¿É¼Ç »ç¿ë¿©ºÎ</th>
-            <th>µî·ÏÀÚ</th>
-            <th>µî·ÏÀÏ</th>
-            <th>¼öÁ¤ÀÚ</th>
-            <th>¼öÁ¤ÀÏ</th>
-            <th>»èÁ¦¿©ºÎ</th>
-            <th>¼öÁ¤ ¹öÆ°</th>
-            <th>ÀÌ¹ÌÁö ¼öÁ¤</th>
+            <th>ìˆœì„œ</th>
+            <th>ìƒí’ˆëª…</th>
+            <th>ìƒí’ˆì´ë¯¸ì§€</th>
+            <th>ìƒí’ˆë‚´ìš©</th>
+            <th>ìƒí’ˆê°€ê²©</th>
+            <th>ìƒí’ˆ ì¹´í…Œê³ ë¦¬</th>
+            <th>ì˜µì…˜ ì‚¬ìš©ì—¬ë¶€</th>
+            <th>ë“±ë¡ìž</th>
+            <th>ë“±ë¡ì¼</th>
+            <th>ìˆ˜ì •ìž</th>
+            <th>ìˆ˜ì •ì¼</th>
+            <th>ì‚­ì œì—¬ë¶€</th>
+            <th>ìˆ˜ì • ë²„íŠ¼</th>
+            <th>ì´ë¯¸ì§€ ìˆ˜ì •</th>
         </tr>
         </tfoot>
     </table>
@@ -151,17 +151,17 @@
                 {data: "deleteYN"},
                 {
                     data: "", render: function (data, type, row) {
-                        return "<button id='btn_info' type='button' onClick='openItemInfo(" + row.itemId + ")'>³»¿ëº¯°æ</button>";
+                        return "<button id='btn_info' type='button' onClick='openItemInfo(" + row.itemId + ")'>ë‚´ìš©ë³€ê²½</button>";
                     }
                 },
                 {
                     data: "", render: function (data, type, row) {
-                        return "<button id='btn_info' type='button' onClick='openImgInfo(" + row.itemId + ")'>ÀÌ¹ÌÁöº¯°æ</button>";
+                        return "<button id='btn_info' type='button' onClick='openImgInfo(" + row.itemId + ")'>ì´ë¯¸ì§€ë³€ê²½</button>";
                     }
                 }
             ],
 
-            // ÄÃ·³µéÀÇ ³ÐÀÌ Á¶Àý
+            // ì»¬ëŸ¼ë“¤ì˜ ë„“ì´ ì¡°ì ˆ
             columnDefs: [
                 {targets: 0, width: 50},
                 {targets: 1, width: 120},

@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/register.css">
     <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
-    <title>È¸¿ø¼öÁ¤</title>
+    <title>íšŒì›ìˆ˜ì •</title>
 </head>
 <body>
 <main>
@@ -21,36 +21,36 @@
             <input type="hidden" name="permitStatusChk" id="permitStatusChk" value="${member.permitStatus}">
             <input type="hidden" name="deleteChk" id="deleteChk" value="${member.deleteYN}">
             <fieldset>
-                <label for="memberId">¾ÆÀÌµð
+                <label for="memberId">ì•„ì´ë””
                     <input type="text" id="memberId" name="memberId" readonly value="${member.memberId}">
                 </label>
-                <label for="username">È¸¿øÀÌ¸§
-                    <input type="text" id="username" name="username" value="${member.username}" placeholder="È¸¿ø°¡ÀÔ ¸íÀ» Àû¾îÁÖ¼¼¿ä">
+                <label for="username">íšŒì›ì´ë¦„
+                    <input type="text" id="username" name="username" value="${member.username}" placeholder="íšŒì›ê°€ìž… ëª…ì„ ì ì–´ì£¼ì„¸ìš”">
                 </label>
-                <label for="email">ÀÌ¸ÞÀÏ
+                <label for="email">ì´ë©”ì¼
                     <input type="email" id="email" name="email" value="${member.email}">
                 </label>
-                <label for="memberType">È¸¿ø Å¸ÀÔ
+                <label for="memberType">íšŒì› íƒ€ìž…
                     <select style="margin-top: 10px; "name="memberType" id="memberType">
                         <c:forEach var="memberType" items="${memberType}">
                             <option value="${memberType}">${memberType}</option>
                         </c:forEach>
                     </select>
                 </label>
-                <label for="permitStatus">½ÂÀÎ ¿©ºÎ
+                <label for="permitStatus">ìŠ¹ì¸ ì—¬ë¶€
                     <select style="margin-top: 10px;" name="permitStatus" id="permitStatus">
                         <c:forEach var="permitStatus" items="${permitStatus}">
                             <option value="${permitStatus}">${permitStatus}</option>
                         </c:forEach>
                     </select>
                 </label>
-                <label for="deleteYN">»èÁ¦ ¿©ºÎ
+                <label for="deleteYN">ì‚­ì œ ì—¬ë¶€
                     <select style="margin-top: 10px;" name="deleteYN" id="deleteYN">
-                        <option value="Y">»èÁ¦</option>
-                        <option value="N">»èÁ¦X</option>
+                        <option value="Y">ì‚­ì œ</option>
+                        <option value="N">ì‚­ì œX</option>
                     </select>
                 </label>
-                <button type="submit">È¸¿ø¼öÁ¤</button>
+                <button type="submit">íšŒì›ìˆ˜ì •</button>
             </fieldset>
         </form>
     </div>
@@ -90,20 +90,20 @@
             },
             messages: {
                 username: {
-                    required: "È¸¿ø¸íÀ» ÀÔ·ÂÇØ¾ß ÇÕ´Ï´Ù."
+                    required: "íšŒì›ëª…ì„ ìž…ë ¥í•´ì•¼ í•©ë‹ˆë‹¤."
                 },
                 email: {
-                    required: "ÀÌ¸ÞÀÏÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.",
-                    email: "ÀÌ¸ÞÀÏ ±ÔÄ¢¿¡ ¾î±ß³³´Ï´Ù."
+                    required: "ì´ë©”ì¼ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”.",
+                    email: "ì´ë©”ì¼ ê·œì¹™ì— ì–´ê¸‹ë‚©ë‹ˆë‹¤."
                 },
                 memberType: {
-                    required: "¸â¹öÀ¯ÇüÀ» Å¬¸¯ÇØÁÖ¼¼¿ä"
+                    required: "ë©¤ë²„ìœ í˜•ì„ í´ë¦­í•´ì£¼ì„¸ìš”"
                 },
                 permitStatus: {
-                    required: "½ÂÀÎÇüÅÂ¸¦ Å¬¸¯ÇØÁÖ¼¼¿ä"
+                    required: "ìŠ¹ì¸í˜•íƒœë¥¼ í´ë¦­í•´ì£¼ì„¸ìš”"
                 },
                 deleteYN: {
-                    required: "»èÁ¦¿©ºÎ¸¦ Å¬¸¯ÇØÁÖ¼¼¿ä"
+                    required: "ì‚­ì œì—¬ë¶€ë¥¼ í´ë¦­í•´ì£¼ì„¸ìš”"
                 }
             },
             submitHandler: function () {
@@ -122,15 +122,15 @@
                     }),
                     success: function (data) {
                         if (data > 0) {
-                            alert("È¸¿øÁ¤º¸ ¼öÁ¤¿Ï·á");
+                            alert("íšŒì›ì •ë³´ ìˆ˜ì •ì™„ë£Œ");
                             window.opener.search();
                             window.close();
                         } else {
-                            alert("È¸¿øÁ¤º¸ ¼öÁ¤À» ½ÇÆÐÇÏ¿´½À´Ï´Ù.");
+                            alert("íšŒì›ì •ë³´ ìˆ˜ì •ì„ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
                         }
                     },
                     error: function () {
-                        alert("È¸¿øÁ¤º¸ ¼öÁ¤ µµÁß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù.");
+                        alert("íšŒì›ì •ë³´ ìˆ˜ì • ë„ì¤‘ ì˜¤ë¥˜ê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤.");
                     }
                 })
             }

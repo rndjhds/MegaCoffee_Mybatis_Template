@@ -3,6 +3,7 @@ package com.cafe.megacoffee.order.controller;
 import com.cafe.megacoffee.basket.service.ShoppingBasketService;
 import com.cafe.megacoffee.category.dto.CategoryDTO;
 import com.cafe.megacoffee.category.service.CategoryService;
+import com.cafe.megacoffee.config.auth.PrincipalDetails;
 import com.cafe.megacoffee.member.dto.MemberDTO;
 import com.cafe.megacoffee.member.type.MemberType;
 import com.cafe.megacoffee.order.dto.OrderItem;
@@ -14,6 +15,7 @@ import com.cafe.megacoffee.store.dto.StoreDTO;
 import com.cafe.megacoffee.store.service.StoreService;
 import com.cafe.megacoffee.util.page.Pagination;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -140,5 +142,13 @@ public class OrderController {
         model.addAttribute("orderId", orders.get(0).get("ORDERID"));
         model.addAttribute("amount", orders.get(0).get("AMOUNT"));
         return "/orders/orderDetail";
+    }
+
+    @GetMapping("/recentPaymentHistory")
+    public String recentPaymentHistory(@AuthenticationPrincipal PrincipalDetails principalDetails) {
+        String memberId = principalDetails.getMemberDTO().getMemberId();
+        Integer orderId = orderService.findRecentPaymentHistory(memberId);
+
+        return "redirect:/order/orderDetail/"+orderId;
     }
 }

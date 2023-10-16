@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../common/header.jsp" %>
 <!DOCTYPE html>
@@ -33,24 +33,24 @@
 <main style="padding-top: 150px">
     <form id="searchForm">
         <div class="left">
-            <label for="memberType">È¸¿ø À¯Çü</label>
+            <label for="memberType">íšŒì› ìœ í˜•</label>
             <select name="memberType" id="memberType">
-                <option value='NONE'>ÀüÃ¼</option>
-                <option value="BUYER">±¸¸ÅÀÚ</option>
-                <option value="MANAGER">°¡¸ÍÁ¡ÁÖ</option>
+                <option value='NONE'>ì „ì²´</option>
+                <option value="BUYER">êµ¬ë§¤ìž</option>
+                <option value="MANAGER">ê°€ë§¹ì ì£¼</option>
             </select>
-            <label for="permitStatus">È¸¿ø ½ÂÀÎ¿©ºÎ</label>
+            <label for="permitStatus">íšŒì› ìŠ¹ì¸ì—¬ë¶€</label>
             <select name="permitStatus" id="permitStatus">
-                <option value='NONE'>ÀüÃ¼</option>
-                <option value="DENIED">½ÂÀÎ°ÅºÎ</option>
-                <option value="WAIT">½ÂÀÎ ´ë±â</option>
-                <option value="ACCESS">½ÂÀÎ ¿Ï·á</option>
+                <option value='NONE'>ì „ì²´</option>
+                <option value="DENIED">ìŠ¹ì¸ê±°ë¶€</option>
+                <option value="WAIT">ìŠ¹ì¸ ëŒ€ê¸°</option>
+                <option value="ACCESS">ìŠ¹ì¸ ì™„ë£Œ</option>
             </select>
-            <label for="deleteYN">»èÁ¦ ¿©ºÎ</label>
+            <label for="deleteYN">ì‚­ì œ ì—¬ë¶€</label>
             <select name="deleteYN" id="deleteYN">
-                <option value=''>ÀüÃ¼</option>
-                <option value='Y'>»èÁ¦</option>
-                <option value='N'>»èÁ¦X</option>
+                <option value=''>ì „ì²´</option>
+                <option value='Y'>ì‚­ì œ</option>
+                <option value='N'>ì‚­ì œX</option>
             </select>
             <label for="username">Name:</label>
             <input type="text" id="username" name="username" style="border: 1px solid black">
@@ -61,15 +61,15 @@
     <table id="dataTable" class="display">
         <thead>
         <tr>
-            <th>¼ø¼­</th>
-            <th>È¸¿ø ID</th>
-            <th>ÀÌ¸§</th>
-            <th>ÀÌ¸ÞÀÏ</th>
-            <th>È¸¿ø Å¸ÀÔ</th>
-            <th>½ÂÀÎ ¿©ºÎ</th>
-            <th>°¡ÀÔ À¯Çü</th>
-            <th>»èÁ¦ ¿©ºÎ</th>
-            <th>È¸¿øÁ¤º¸ ¼öÁ¤</th>
+            <th>ìˆœì„œ</th>
+            <th>íšŒì› ID</th>
+            <th>ì´ë¦„</th>
+            <th>ì´ë©”ì¼</th>
+            <th>íšŒì› íƒ€ìž…</th>
+            <th>ìŠ¹ì¸ ì—¬ë¶€</th>
+            <th>ê°€ìž… ìœ í˜•</th>
+            <th>ì‚­ì œ ì—¬ë¶€</th>
+            <th>íšŒì›ì •ë³´ ìˆ˜ì •</th>
         </tr>
         </thead>
         <tbody>
@@ -77,15 +77,15 @@
         </tbody>
         <tfoot>
         <tr>
-            <th>¼ø¼­</th>
-            <th>È¸¿ø ID</th>
-            <th>ÀÌ¸§</th>
-            <th>ÀÌ¸ÞÀÏ</th>
-            <th>È¸¿ø Å¸ÀÔ</th>
-            <th>½ÂÀÎ ¿©ºÎ</th>
-            <th>°¡ÀÔ À¯Çü</th>
-            <th>»èÁ¦ ¿©ºÎ</th>
-            <th>È¸¿øÁ¤º¸ ¼öÁ¤</th>
+            <th>ìˆœì„œ</th>
+            <th>íšŒì› ID</th>
+            <th>ì´ë¦„</th>
+            <th>ì´ë©”ì¼</th>
+            <th>íšŒì› íƒ€ìž…</th>
+            <th>ìŠ¹ì¸ ì—¬ë¶€</th>
+            <th>ê°€ìž… ìœ í˜•</th>
+            <th>ì‚­ì œ ì—¬ë¶€</th>
+            <th>íšŒì›ì •ë³´ ìˆ˜ì •</th>
         </tr>
         </tfoot>
     </table>
@@ -120,12 +120,12 @@
                 {data: "deleteYN"},
                 {data: "",
                     render: function(data,type,row){
-                        return "<button id='btn_info' type='button' class='btn' onClick='openInfo(\"" + row.memberId + "\")'>È¸¿øÁ¤º¸ ¼öÁ¤</button>";
+                        return "<button id='btn_info' type='button' class='btn' onClick='openInfo(\"" + row.memberId + "\")'>íšŒì›ì •ë³´ ìˆ˜ì •</button>";
                     }
                 }
             ],
 
-            // ÄÃ·³µéÀÇ ³ÐÀÌ Á¶Àý
+            // ì»¬ëŸ¼ë“¤ì˜ ë„“ì´ ì¡°ì ˆ
             columnDefs: [
                 { targets: 0, width: 50 },
                 { targets: 1, width: 80 },

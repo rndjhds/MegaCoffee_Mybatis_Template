@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/reset.css">
     <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
-    <title>»óÇ°µî·Ï</title>
+    <title>ìƒí’ˆë“±ë¡</title>
 </head>
 <body>
 <main>
@@ -29,7 +29,7 @@
         <div>
             <span></span>
             <p>
-                ¸Ş°¡ MGCÀÇ ½ÃÀÛ<br>
+                ë©”ê°€ MGCì˜ ì‹œì‘<br>
                 <em>PRODUCT</em>
             </p>
             <span></span>
@@ -42,13 +42,13 @@
                     <input type="hidden" value="${sessionScope.member.memberId}" name="memberId" id="memberId"/>
                     <input type="hidden" value="${item.itemId}" id="itemId" name="itemId">
 
-                    <label for="uploadImg">»õ·Î¿î ÀÌ¹ÌÁö
+                    <label for="uploadImg">ìƒˆë¡œìš´ ì´ë¯¸ì§€
                         <input type="file" id="uploadImg" name="uploadImg">
                     </label>
-                    <button type="submit" class="btn">ÀúÀå</button>
+                    <button type="submit" class="btn">ì €ì¥</button>
                 </div>
                 <div class="right">
-                    <label>±âÁ¸ ÀÌ¹ÌÁö</label>
+                    <label>ê¸°ì¡´ ì´ë¯¸ì§€</label>
                     <img src="${pageContext.request.contextPath}/resources/statics/img/${item.img}" style="width: 500px">
                 </div>
             </fieldset>
@@ -69,7 +69,7 @@
             },
             messages: {
                 uploadImg: {
-                    required: "»óÇ° ÀÌ¹ÌÁö¸¦ ÀÔ·ÂÇØ¾ß ÇÕ´Ï´Ù."
+                    required: "ìƒí’ˆ ì´ë¯¸ì§€ë¥¼ ì…ë ¥í•´ì•¼ í•©ë‹ˆë‹¤."
                 }
             },
             submitHandler: function () {
@@ -85,15 +85,15 @@
                     data: formData,
                     success: function (data) {
                         if(data != 0) {
-                            alert("Á¤»óÀûÀ¸·Î ¿Ï·áµÇ¾ú½À´Ï´Ù");
+                            alert("ì •ìƒì ìœ¼ë¡œ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤");
                             window.close();
                         } else {
-                            alert("Á¤»óÀûÀ¸·Î ¿Ï·áµÇÁö ¸øÇß½À´Ï´Ù.")
+                            alert("ì •ìƒì ìœ¼ë¡œ ì™„ë£Œë˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.")
                             window.close();
                         }
                     },
                     error: function () {
-                        alert("Á¤»óÀûÀ¸·Î ¿Ï·áÇÏÁö ¸øÇÏ¿´½À´Ï´Ù.");
+                        alert("ì •ìƒì ìœ¼ë¡œ ì™„ë£Œí•˜ì§€ ëª»í•˜ì˜€ìŠµë‹ˆë‹¤.");
                     }
                 });
             }

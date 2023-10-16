@@ -60,4 +60,9 @@ public class OrderServiceImpl implements OrderService{
     public List<Map<String, Object>> findOrderDetailByOrderId(String orderId) {
         return orderMapper.findOrderDetailByOrderId(orderId);
     }
+
+    @Override
+    public Integer findRecentPaymentHistory(String memberId) {
+        return orderMapper.findRecentPaymentHistory(memberId);
+    }
 }

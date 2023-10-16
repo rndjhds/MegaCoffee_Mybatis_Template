@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/reset.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/index.css">
-        <title>Çªµå | ¸Þ°¡Ä¿ÇÇ</title>
+        <title>í‘¸ë“œ | ë©”ê°€ì»¤í”¼</title>
 </head>
 <body>
 <footer>
@@ -22,51 +22,51 @@
             </div>
         </div>
         <p class="left_txt">
-            <em>ÁÖ»çÈ¸»ç ¾ØÈ¨</em>  ´ëÇ¥»ï°¢ÀÚ Á¤Âù¿ë  Ã¢¾÷»ó´ã 2023-0819  °í°´¼¾ÅÍ 2023-0819  FiX 26-170-2023<br>
-            »ç¿±Â÷µî·Ï¹øÈ£ 170-26-2023  ¼­¿ïÆ¯Ã¶½Ã °­³²ÆÈ °­³²ÅÂ·Î 123 00Ãþ, 00Ãþ (ÁÖ)¾ØÈ¨<br>
-            °³ÀÎÁ¤º¸º¸È£ °ü¸®Ã¥ÀÓÀÚ ¾øÀ½
+            <em>ì£¼ì‚¬íšŒì‚¬ ì•¤í™ˆ</em>  ëŒ€í‘œì‚¼ê°ìž ì •ì°¬ìš©  ì°½ì—…ìƒë‹´ 2023-0819  ê³ ê°ì„¼í„° 2023-0819  FiX 26-170-2023<br>
+            ì‚¬ì—½ì°¨ë“±ë¡ë²ˆí˜¸ 170-26-2023  ì„œìš¸íŠ¹ì² ì‹œ ê°•ë‚¨íŒ” ê°•ë‚¨íƒœë¡œ 123 00ì¸µ, 00ì¸µ (ì£¼)ì•¤í™ˆ<br>
+            ê°œì¸ì •ë³´ë³´í˜¸ ê´€ë¦¬ì±…ìž„ìž ì—†ìŒ
         </p>
     </div>
     <div class="rigt">
         <ul class="rigt_txt">
-            <li>¸Þ°¡ ½ºÅä¸®
+            <li>ë©”ê°€ ìŠ¤í† ë¦¬
                 <ul class="rigt_sub">
-                    <li><a href="#">ºê·£µå</a></li>
+                    <li><a href="#">ë¸Œëžœë“œ</a></li>
                     <li><a href="#">BI</a></li>
-                    <li><a href="#">¿À½Ã´Â ±æ</a></li>
+                    <li><a href="#">ì˜¤ì‹œëŠ” ê¸¸</a></li>
                 </ul>
             </li>
-            <li>¸Þ´º¼Ò°³
+            <li>ë©”ë‰´ì†Œê°œ
                 <ul class="rigt_sub">
-                    <li><a href="#">À½·á</a></li>
-                    <li><a href="#">Çªµå</a></li>
-                    <li><a href="#">»óÇ°</a></li>
+                    <li><a href="#">ìŒë£Œ</a></li>
+                    <li><a href="#">í‘¸ë“œ</a></li>
+                    <li><a href="#">ìƒí’ˆ</a></li>
                 </ul>
             </li>
-            <li>¸ÅÀå
+            <li>ë§¤ìž¥
                 <ul class="rigt_sub">
-                    <li><a href="#">¸ÅÀåÃ£±â</a></li>
+                    <li><a href="#">ë§¤ìž¥ì°¾ê¸°</a></li>
                 </ul>
             </li>
-            <li>Ã¢¾÷¾È³»
+            <li>ì°½ì—…ì•ˆë‚´
                 <ul class="rigt_sub">
-                    <li><a href="#">°³¼³ºñ¿ë</a></li>
-                    <li><a href="#">ÀÎÅ×¸®¾î</a></li>
-                    <li><a href="#">Ã¢¾÷¹®ÀÇ</a></li>
+                    <li><a href="#">ê°œì„¤ë¹„ìš©</a></li>
+                    <li><a href="#">ì¸í…Œë¦¬ì–´</a></li>
+                    <li><a href="#">ì°½ì—…ë¬¸ì˜</a></li>
                 </ul>
             </li>
-            <li>¸Þ°¡¼Ò½Ä
+            <li>ë©”ê°€ì†Œì‹
                 <ul class="rigt_sub">
-                    <li><a href="#">°øÁö»çÇ×</a></li>
-                    <li><a href="#">ÀÌº¥Æ®</a></li>
+                    <li><a href="#">ê³µì§€ì‚¬í•­</a></li>
+                    <li><a href="#">ì´ë²¤íŠ¸</a></li>
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="#">°í°´ÀÇ ¼Ò¸®</a></li>
+                    <li><a href="#">ê³ ê°ì˜ ì†Œë¦¬</a></li>
                 </ul>
             </li>
-            <li>Á¦ÈÞ¹®ÀÇ
+            <li>ì œíœ´ë¬¸ì˜
                 <ul class="rigt_sub">
-                    <li><a href="#">»óÇ°Á¦¾È</a></li>
-                    <li><a href="#">¸¶ÄÉÆÃ Á¦ÈÞ</a></li>
+                    <li><a href="#">ìƒí’ˆì œì•ˆ</a></li>
+                    <li><a href="#">ë§ˆì¼€íŒ… ì œíœ´</a></li>
                 </ul>
             </li>
         </ul>

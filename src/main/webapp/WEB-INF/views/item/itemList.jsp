@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../common/header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/drink.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/index.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/index_uiux.css">
-    <title>À½·á¸Þ´º | ¸Þ°¡Ä¿ÇÇ</title>
+    <title>ìŒë£Œë©”ë‰´ | ë©”ê°€ì»¤í”¼</title>
 </head>
 <body>
 <main>
@@ -25,24 +25,24 @@
             <p>DRINK MENU</p>
             <a href="#"><img src="${pageContext.request.contextPath}/resources/statics/test_img/yellow_logo.png" alt=""></a>
             <p class="drink_page_info">
-                <em>±í°í ºÎµå·¯¿î Ä¿ÇÇ ¸ÀÀÇ ºñ¹Ð</em><br>
-                Çàº¹À» ¼±»çÇÏ´Â ´Ù¾çÇÑ À½·á
+                <em>ê¹Šê³  ë¶€ë“œëŸ¬ìš´ ì»¤í”¼ ë§›ì˜ ë¹„ë°€</em><br>
+                í–‰ë³µì„ ì„ ì‚¬í•˜ëŠ” ë‹¤ì–‘í•œ ìŒë£Œ
             </p>
             <div class="listbtn">
-                <a href="/menu/drinkView">À½·á</a>
-                <a href="/menu/foodView">Çªµå</a>
-                <a href="/menu/productView">»óÇ°</a>
+                <a href="/menu/drinkView">ìŒë£Œ</a>
+                <a href="/menu/foodView">í‘¸ë“œ</a>
+                <a href="/menu/productView">ìƒí’ˆ</a>
             </div>
         </div>
     </section>
     <section class="drink_title">
-        <p>¸Þ°¡ MGC Ä¿ÇÇÀÇ ¾ö¼±µÈ ¸Þ´º</p>
+        <p>ë©”ê°€ MGC ì»¤í”¼ì˜ ì—„ì„ ëœ ë©”ë‰´</p>
         <div class="drink_title_center">
             <span></span>
             <p>MEGA MENU</p>
             <span></span>
         </div>
-        <p>*¸Þ´º ÀÌ¹ÌÁö´Â ¿¬ÃâÄÆÀÌ¶ó ½Ç¹°°ú ´Ù¸¦¼ö ÀÖ½À´Ï´Ù.</p>
+        <p>*ë©”ë‰´ ì´ë¯¸ì§€ëŠ” ì—°ì¶œì»·ì´ë¼ ì‹¤ë¬¼ê³¼ ë‹¤ë¥¼ìˆ˜ ìžˆìŠµë‹ˆë‹¤.</p>
     </section>
     <section class="drink_search">
         <form action="#" method="get">
@@ -50,18 +50,18 @@
             <input type="hidden" name="parentCategoryId" id="parentCategoryId" value="${parentCategoryId}">
             <input type="hidden" name="deleteYN" id="deleteYN" value="N">
             <fieldset>
-                <legend>¸Þ´ºÃ£±â¾ç½Ä</legend>
+                <legend>ë©”ë‰´ì°¾ê¸°ì–‘ì‹</legend>
                 <div class="search">
-                    <p>¸Þ´º°Ë»ö</p>
+                    <p>ë©”ë‰´ê²€ìƒ‰</p>
                     <div class="search_bar">
-                        <input type="text" name="title" id="title" placeholder="°Ë»öÇÏ¿© ¼Õ ½±°Ô Ã£¾Æº¸¼¼¿ä.">
+                        <input type="text" name="title" id="title" placeholder="ê²€ìƒ‰í•˜ì—¬ ì† ì‰½ê²Œ ì°¾ì•„ë³´ì„¸ìš”.">
                         <button type="button" onclick="reloadPage()"><img
                                 src="${pageContext.request.contextPath}/resources/statics/drink_img/icon_search.gif"
                                 alt=""></button>
                     </div>
                 </div>
                 <div class="cheack">
-                    <label>ÀüÃ¼»óÇ°º¸±â
+                    <label>ì „ì²´ìƒí’ˆë³´ê¸°
                         <input name="categoryId" type="radio" checked value="">
                     </label>
                     <c:forEach var="categoryList" items="${categoryList}">
@@ -113,14 +113,14 @@
                         "</a>" +
                         " <div class='poji_title'>" +
                         "<p>" + data[i].title + "</p>" +
-                        "<a>Á¤º¸ ´õ º¸±â</a>" +
+                        "<a>ì •ë³´ ë” ë³´ê¸°</a>" +
                         "</div>" +
                         "</div>" +
                         "</div>");
                 }
             },
             error: function () {
-                alert("Á¤»óÀûÀ¸·Î ¿Ï·áÇÏÁö ¸øÇÏ¿´½À´Ï´Ù.");
+                alert("ì •ìƒì ìœ¼ë¡œ ì™„ë£Œí•˜ì§€ ëª»í•˜ì˜€ìŠµë‹ˆë‹¤.");
             }
         });
     }
@@ -143,7 +143,7 @@
                 }
             },
             error: function () {
-                alert("Á¤»óÀûÀ¸·Î ¿Ï·áÇÏÁö ¸øÇÏ¿´½À´Ï´Ù.");
+                alert("ì •ìƒì ìœ¼ë¡œ ì™„ë£Œí•˜ì§€ ëª»í•˜ì˜€ìŠµë‹ˆë‹¤.");
             }
         });
     }

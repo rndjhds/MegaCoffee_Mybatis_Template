@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/deleteMember.css">
     <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
-    <title>Å»Åð</title>
+    <title>íƒˆí‡´</title>
 </head>
 <body>
 <main>
@@ -16,12 +16,12 @@
         <div class="deta_page">
             <p>Withdrawal</p>
             <p class="deta_page_info">
-                Å»Åð ¾ç½Ä
+                íƒˆí‡´ ì–‘ì‹
             </p>
         </div>
     </section>
     <section class="deta_title">
-        <p>¸Þ°¡ MGCÀÇ ¾È³»</p>
+        <p>ë©”ê°€ MGCì˜ ì•ˆë‚´</p>
         <div class="deta_title_center">
             <span></span>
             <p>MEGA</p>
@@ -30,24 +30,24 @@
     </section>
     <section class="info">
         <div class="info_top">
-            <h1>Á¤¸»·Î Å»ÅðÇÏ½Ã°Ú½À´Ï±î?</h1>
+            <h1>ì •ë§ë¡œ íƒˆí‡´í•˜ì‹œê² ìŠµë‹ˆê¹Œ?</h1>
             <p>
-                <span></span>ÇÑ ¹ø »èÁ¦µÈ Á¤º¸´Â º¹±¸°¡ ºÒ°¡´ÉÇÕ´Ï´Ù.<br>
-                <span></span>¼±ºÒÄ«µå ÀÜ¾×ÀÌ ³²¾ÆÀÖ´Â °æ¿ì Å»Åð°¡ ºÒ°¡´ÉÇÕ´Ï´Ù.<br>
-                ÀÜ¾× ¼ÒÁø ÈÄ Å»Åð¸¦ ÁøÇàÇØ ÁÖ¼¼¿ä.<br>
-                <span></span>±¸µ¶±Ç ÀÌ¿µ ÁßÀÏ °æ¿ì Å»Åð°¡ ºÒ°¡´ÉÇÕ´Ï´Ù.<br>
-                ±¸µ¶ ÇØÁö ÀÌÈÄ Å»Åð¸¦ ÁøÇàÇØ ÁÖ¼¼¿ä.<br>
-                <span></span>Ä«Ä«¿À °èÁ¤ ¿¬°á ÇØÁö¸¦ À§ÇØ Ä«Ä«¿ÀÅå ·Î±×ÀÎÀÌ ÇÊ¿äÇÒ ¼ö ÀÖ½À´Ï´Ù.<br>
-                <span></span>Àç°¡ÀÔÀº Å»ÅðÀÏ·ÎºÎÅÍ 30ÀÏ ÈÄ °¡´ÉÇÕ´Ï´Ù.<br>
+                <span></span>í•œ ë²ˆ ì‚­ì œëœ ì •ë³´ëŠ” ë³µêµ¬ê°€ ë¶ˆê°€ëŠ¥í•©ë‹ˆë‹¤.<br>
+                <span></span>ì„ ë¶ˆì¹´ë“œ ìž”ì•¡ì´ ë‚¨ì•„ìžˆëŠ” ê²½ìš° íƒˆí‡´ê°€ ë¶ˆê°€ëŠ¥í•©ë‹ˆë‹¤.<br>
+                ìž”ì•¡ ì†Œì§„ í›„ íƒˆí‡´ë¥¼ ì§„í–‰í•´ ì£¼ì„¸ìš”.<br>
+                <span></span>êµ¬ë…ê¶Œ ì´ì˜ ì¤‘ì¼ ê²½ìš° íƒˆí‡´ê°€ ë¶ˆê°€ëŠ¥í•©ë‹ˆë‹¤.<br>
+                êµ¬ë… í•´ì§€ ì´í›„ íƒˆí‡´ë¥¼ ì§„í–‰í•´ ì£¼ì„¸ìš”.<br>
+                <span></span>ì¹´ì¹´ì˜¤ ê³„ì • ì—°ê²° í•´ì§€ë¥¼ ìœ„í•´ ì¹´ì¹´ì˜¤í†¡ ë¡œê·¸ì¸ì´ í•„ìš”í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.<br>
+                <span></span>ìž¬ê°€ìž…ì€ íƒˆí‡´ì¼ë¡œë¶€í„° 30ì¼ í›„ ê°€ëŠ¥í•©ë‹ˆë‹¤.<br>
             </p>
         </div>
         <form action="#" method="get">
             <fieldset>
                 <label for="check">
-                    <input id="check" type="checkbox">ÁÖÀÇ»çÇ×À» ¼÷ÁöÇÏ¿´½À´Ï´Ù.
+                    <input id="check" type="checkbox">ì£¼ì˜ì‚¬í•­ì„ ìˆ™ì§€í•˜ì˜€ìŠµë‹ˆë‹¤.
                 </label>
-                <button class="btn1" type="button" onclick="deleteMember()">Å»ÅðÇÕ´Ï´Ù.</button>
-                <button class="btn2" type="button">³ªÁß¿¡ Å»ÅðÇÒ°Ô¿ä.</button>
+                <button class="btn1" type="button" onclick="deleteMember()">íƒˆí‡´í•©ë‹ˆë‹¤.</button>
+                <button class="btn2" type="button">ë‚˜ì¤‘ì— íƒˆí‡´í• ê²Œìš”.</button>
             </fieldset>
         </form>
     </section>
@@ -59,7 +59,7 @@ function deleteMember() {
     const checkbox = document.getElementById('check');
     const is_checked = checkbox.checked;
     if( is_checked == false) {
-        alert("ÁÖÀÇ»çÇ×À» ¼÷ÁöÇØÁÖ¼¼¿ä");
+        alert("ì£¼ì˜ì‚¬í•­ì„ ìˆ™ì§€í•´ì£¼ì„¸ìš”");
         return false;
     }
 
@@ -70,7 +70,7 @@ function deleteMember() {
         data: {"memberId": "${sessionScope.member.memberId}"},
         success: function (data) {
             if(data == true) {
-                alert("È¸¿ø Å»Åð°¡ µÇ¾ú½À´Ï´Ù.");
+                alert("íšŒì› íƒˆí‡´ê°€ ë˜ì—ˆìŠµë‹ˆë‹¤.");
                 location.href = "/";
             }
         }

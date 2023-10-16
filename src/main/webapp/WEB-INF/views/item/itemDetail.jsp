@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="../common/header.jsp" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/statics/style/itemDetail.css">
     <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
-    <title>¸Ş´º»ó¼¼ÆäÀÌÁö</title>
+    <title>ë©”ë‰´ìƒì„¸í˜ì´ì§€</title>
 </head>
 <body>
 <main>
@@ -18,18 +18,18 @@
         <div class="deta_page">
             <p>Menu Details</p>
             <p class="deta_page_info">
-                ¸Ş´ºÀÇ ÀÚ¼¼ÇÑ Á¤º¸¸¦ ¾Ë·Áµå¸³´Ï´Ù.
+                ë©”ë‰´ì˜ ìì„¸í•œ ì •ë³´ë¥¼ ì•Œë ¤ë“œë¦½ë‹ˆë‹¤.
             </p>
         </div>
     </section>
     <section class="deta_title">
-        <p>¸Ş°¡ MGC Åõ¸íÇÑ ¸Ş´º</p>
+        <p>ë©”ê°€ MGC íˆ¬ëª…í•œ ë©”ë‰´</p>
         <div class="deta_title_center">
             <span></span>
             <p>MEGA MENU</p>
             <span></span>
         </div>
-        <p>*¸Ş´º ÀÌ¹ÌÁö´Â ¿¬ÃâÄÆÀÌ¶ó ½Ç¹°°ú ´Ù¸¦¼ö ÀÖ½À´Ï´Ù.</p>
+        <p>*ë©”ë‰´ ì´ë¯¸ì§€ëŠ” ì—°ì¶œì»·ì´ë¼ ì‹¤ë¬¼ê³¼ ë‹¤ë¥¼ìˆ˜ ìˆìŠµë‹ˆë‹¤.</p>
     </section>
     <section class="contents1">
         <div class="top">
@@ -43,9 +43,9 @@
                 <input type="hidden" id="buyName" name="buyName" value="${findItem.title}">
                 <fieldset>
                     <div class="mainmenu">
-                        <p>°¡¸ÍÁ¡</p>
+                        <p>ê°€ë§¹ì </p>
                         <select name="storeId" id="storeId">
-                            <option value=0>ÀüÃ¼</option>
+                            <option value=0>ì „ì²´</option>
                             <c:forEach var="stores" items="${stores}">
                                 <option value=${stores.storeId}>${stores.storeName}</option>
                             </c:forEach>
@@ -53,16 +53,16 @@
                     </div>
                     <ul>
                         <c:if test="${findItem.optionYN == 'Y'}">
-                            <li><p>ÄÅ ¼±ÅÃ</p>
+                            <li><p>ì»µ ì„ íƒ</p>
                                 <ul class="sub">
-                                    <li><label for="cup">ÀÏÈ¸¿ëÄÅ »ç¿ë
-                                        <input type="radio" name="orderCup" id="cup" value="ÀÏÈ¸¿ë ÄÅ" checked>
+                                    <li><label for="cup">ì¼íšŒìš©ì»µ ì‚¬ìš©
+                                        <input type="radio" name="orderCup" id="cup" value="ì¼íšŒìš© ì»µ" checked>
                                     </label></li>
-                                    <li><label for="cup2">ÅÒºí·¯ »ç¿ë
-                                        <input type="radio" name="orderCup" id="cup2" value="ÅÒºí·¯">
+                                    <li><label for="cup2">í…€ë¸”ëŸ¬ ì‚¬ìš©
+                                        <input type="radio" name="orderCup" id="cup2" value="í…€ë¸”ëŸ¬">
                                     </label></li>
-                                    <li><label for="cup3">¸ÅÀåÄÅ(¸Ô°í °¥°Ô¿ä)
-                                        <input type="radio" name="orderCup" id="cup3" value="¸ÅÀåÄÅ">
+                                    <li><label for="cup3">ë§¤ì¥ì»µ(ë¨¹ê³  ê°ˆê²Œìš”)
+                                        <input type="radio" name="orderCup" id="cup3" value="ë§¤ì¥ì»µ">
                                     </label></li>
                                 </ul>
                             </li>
@@ -106,8 +106,8 @@
             </form>
         </div>
         <div class="btm">
-            <button type="button" id="basket" onclick="createBasket()">Àå¹Ù±¸´Ï ´ã±â</button>
-            <button type="button" id="orders" onclick="sendRequestToImPort()">¹Ù·Î ÁÖ¹®</button>
+            <button type="button" id="basket" onclick="createBasket()">ì¥ë°”êµ¬ë‹ˆ ë‹´ê¸°</button>
+            <button type="button" id="orders" onclick="sendRequestToImPort()">ë°”ë¡œ ì£¼ë¬¸</button>
         </div>
     </section>
 </main>
@@ -154,7 +154,7 @@
 
     function createBasket() {
         if ($("select[name='storeId']").val() == 0) {
-            alert("»óÇ°À» ±¸¸ÅÇÒ °¡¸ÍÁ¡À» °ñ¶óÁÖ¼¼¿ä");
+            alert("ìƒí’ˆì„ êµ¬ë§¤í•  ê°€ë§¹ì ì„ ê³¨ë¼ì£¼ì„¸ìš”");
             return false;
         }
         $.ajax({
@@ -175,7 +175,7 @@
             }),
             success: function (data) {
                 if (data == true) {
-                    if(confirm("Àå¹Ù±¸´Ï·Î ÀÌµ¿ÇÏ½Ã°Ú½À´Ï±î?")) {
+                    if(confirm("ì¥ë°”êµ¬ë‹ˆë¡œ ì´ë™í•˜ì‹œê² ìŠµë‹ˆê¹Œ?")) {
                         location.href = "/basket/myBasketList"
                     }
                     else {
@@ -216,21 +216,21 @@
             }),
             success: function (data) {
                 if (data.resultType == true) {
-                    alert("°áÁ¦ ¼º°ø");
+                    alert("ê²°ì œ ì„±ê³µ");
                     location.href = "/order/orderDetail/" + data.orderId;
                 } else {
-                    alert("ÁÖ¹® µµÁß °áÁ¦°¡ µÇÁö ¾ÊÀº »óÇ°ÀÌ Á¸Àç ÇÕ´Ï´Ù.");
+                    alert("ì£¼ë¬¸ ë„ì¤‘ ê²°ì œê°€ ë˜ì§€ ì•Šì€ ìƒí’ˆì´ ì¡´ì¬ í•©ë‹ˆë‹¤.");
                 }
             },
             error: function () {
-                alert("ÁÖ¹®ÀÌ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+                alert("ì£¼ë¬¸ì´ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
             }
         });
     }
 
     function sendRequestToImPort() {
         if ($("select[name='storeId']").val() == 0) {
-            alert("»óÇ°À» ±¸¸ÅÇÒ °¡¸ÍÁ¡À» °ñ¶óÁÖ¼¼¿ä");
+            alert("ìƒí’ˆì„ êµ¬ë§¤í•  ê°€ë§¹ì ì„ ê³¨ë¼ì£¼ì„¸ìš”");
             return false;
         }
 
@@ -242,16 +242,16 @@
         IMP.request_pay({
             pg: 'kakaopay',
             pay_method: 'card',
-            merchant_uid: "mega" + new Date().getMilliseconds(), // »óÁ¡¿¡¼­ °ü¸®ÇÏ´Â ÁÖ¹® ¹øÈ£
+            merchant_uid: "mega" + new Date().getMilliseconds(), // ìƒì ì—ì„œ ê´€ë¦¬í•˜ëŠ” ì£¼ë¬¸ ë²ˆí˜¸
             name: buyName,
             amount: amount,
             buyer_email: "${sessionScope.member.email}",
             buyer_name: '${sessionScope.member.username}'
         }, function (rsp) {
             if (!rsp.success) {
-                //°áÁ¦ ½ÃÀÛ ÆäÀÌÁö·Î ¸®µğ·º¼ÇµÇ±â Àü¿¡ ¿À·ù°¡ ³­ °æ¿ì
-                var msg = '¿À·ù·Î ÀÎÇÏ¿© °áÁ¦°¡ ½ÃÀÛµÇÁö ¸øÇÏ¿´½À´Ï´Ù.';
-                msg += '¿¡·¯³»¿ë : ' + rsp.error_msg;
+                //ê²°ì œ ì‹œì‘ í˜ì´ì§€ë¡œ ë¦¬ë””ë ‰ì…˜ë˜ê¸° ì „ì— ì˜¤ë¥˜ê°€ ë‚œ ê²½ìš°
+                var msg = 'ì˜¤ë¥˜ë¡œ ì¸í•˜ì—¬ ê²°ì œê°€ ì‹œì‘ë˜ì§€ ëª»í•˜ì˜€ìŠµë‹ˆë‹¤.';
+                msg += 'ì—ëŸ¬ë‚´ìš© : ' + rsp.error_msg;
 
                 alert(msg);
                 alert(rsp);

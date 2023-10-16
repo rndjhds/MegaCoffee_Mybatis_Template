@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="../common/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../resources/statics/style/reset.css">
     <link rel="stylesheet" href="../../resources/statics/style/index.css">
     <link rel="stylesheet" href="../../resources/statics/style/index_uiux.css">
-    <title>¸Þ´º | ¸Þ°¡Ä¿ÇÇ</title>
+    <title>ë©”ë‰´ | ë©”ê°€ì»¤í”¼</title>
 </head>
 <body>
 <!-- header -->
@@ -20,13 +20,13 @@
         <div class="mainpage">
             <p>MEGA MENU</p>
             <p class="mainpage_info">
-                Çàº¹À» ¼±»çÇÏ´Â <em>´Ù¾çÇÑ À½·á</em><br>
-                À½·á¿Í Àß ¾î¿ï¸®´Â <em>´Ù¾çÇÑ µðÀúÆ®</em>
+                í–‰ë³µì„ ì„ ì‚¬í•˜ëŠ” <em>ë‹¤ì–‘í•œ ìŒë£Œ</em><br>
+                ìŒë£Œì™€ ìž˜ ì–´ìš¸ë¦¬ëŠ” <em>ë‹¤ì–‘í•œ ë””ì €íŠ¸</em>
             </p>
             <div class="listbtn">
-                <a href="/item/drinkView">À½·á</a>
-                <a href="/item/foodView">Çªµå</a>
-                <a href="/item/productView">»óÇ°</a>
+                <a href="/item/drinkView">ìŒë£Œ</a>
+                <a href="/item/foodView">í‘¸ë“œ</a>
+                <a href="/item/productView">ìƒí’ˆ</a>
             </div>
         </div>
     </section>
@@ -35,10 +35,10 @@
             <p>DRINK MENU</p>
             <span></span>
             <p>
-                <em>±í°í ºÎµå·¯¿î Ä¿ÇÇ ¸ÀÀÇ ºñ¹Ð</em><br>
-                Çàº¹À» ¼±»çÇÏ´Â ´Ù¾çÇÑ À½·á
+                <em>ê¹Šê³  ë¶€ë“œëŸ¬ìš´ ì»¤í”¼ ë§›ì˜ ë¹„ë°€</em><br>
+                í–‰ë³µì„ ì„ ì‚¬í•˜ëŠ” ë‹¤ì–‘í•œ ìŒë£Œ
             </p>
-            <a href="/item/drinkView">À½·á º¸·¯°¡±â</a>
+            <a href="/item/drinkView">ìŒë£Œ ë³´ëŸ¬ê°€ê¸°</a>
         </div>
         <span class="bar"></span>
     </section>
@@ -47,10 +47,10 @@
             <p>FOOD MENU</p>
             <span></span>
             <p>
-                <em>À½·á¿Í Àß ¾î¿ï¸®´Â</em><br>
-                ´Ù¾çÇÑ µðÀúÆ®
+                <em>ìŒë£Œì™€ ìž˜ ì–´ìš¸ë¦¬ëŠ”</em><br>
+                ë‹¤ì–‘í•œ ë””ì €íŠ¸
             </p>
-            <a href="/item/foodView">Çªµå º¸·¯°¡±â</a>
+            <a href="/item/foodView">í‘¸ë“œ ë³´ëŸ¬ê°€ê¸°</a>
         </div>
         <span class="bar"></span>
     </section>
@@ -62,7 +62,7 @@
                 <em>MEGA</em><br>
                 DAILY GOODS
             </p>
-            <a href="/item/productView">»óÇ° º¸·¯°¡±â</a>
+            <a href="/item/productView">ìƒí’ˆ ë³´ëŸ¬ê°€ê¸°</a>
         </div>
         <span class="bar"></span>
     </section>

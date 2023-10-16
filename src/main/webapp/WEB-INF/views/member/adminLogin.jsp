@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@include file="../common/header.jsp" %>
 
@@ -20,28 +20,28 @@
 <body>
 <!-- header -->
 <main>
-    <h1>·Î±×ÀÎ</h1>
+    <h1>ë¡œê·¸ì¸</h1>
     <div class="rap">
         <div class="title">
-            <a href="#" class="active">·Î±×ÀÎ</a>
+            <a href="#" class="active">ë¡œê·¸ì¸</a>
         </div>
         <div class="info">
             <form class="info_1 info_tab">
                 <fieldset>
-                    <legend class="skip">·Î±×ÀÎ¾ç½Ä</legend>
-                    <label for="id">¾ÆÀÌµğ
-                        <input type="text" id="id" name="memberId" placeholder="¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä" autofocus>
+                    <legend class="skip">ë¡œê·¸ì¸ì–‘ì‹</legend>
+                    <label for="id">ì•„ì´ë””
+                        <input type="text" id="id" name="memberId" placeholder="ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”" autofocus>
                     </label>
-                    <label for="pw">ºñ¹Ğ¹øÈ£
-                        <input type="password" id="pw" name="password" placeholder="ºñ¹Ğ¹øÈ£¸¦ Àû¾îÁÖ¼¼¿ä.">
+                    <label for="pw">ë¹„ë°€ë²ˆí˜¸
+                        <input type="password" id="pw" name="password" placeholder="ë¹„ë°€ë²ˆí˜¸ë¥¼ ì ì–´ì£¼ì„¸ìš”.">
                     </label>
                     <div class="look">
                         <div class="look_a">
-                            <a href="#">¾ÆÀÌµğ Ã£±â</a>
-                            <a href="#">ºñ¹Ğ¹øÈ£ Ã£±â</a>
+                            <a href="#">ì•„ì´ë”” ì°¾ê¸°</a>
+                            <a href="#">ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°</a>
                         </div>
                     </div>
-                    <button type="submit" class="login_nomal">·Î±×ÀÎ</button>
+                    <button type="submit" class="login_nomal">ë¡œê·¸ì¸</button>
                 </fieldset>
             </form>
         </div>
@@ -62,10 +62,10 @@
             },
             messages: {
                 memberId: {
-                    required: "¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØ¾ß ÇÕ´Ï´Ù."
+                    required: "ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì•¼ í•©ë‹ˆë‹¤."
                 },
                 password: {
-                    required: "ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä."
+                    required: "ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”."
                 }
             },
             submitHandler: function () {
@@ -80,14 +80,14 @@
                     }),
                     success: function (data) {
                         if (data == true) {
-                            alert("¼º°øÀûÀ¸·Î ·Î±×ÀÎÀÌ µÇ¾ú½À´Ï´Ù.");
+                            alert("ì„±ê³µì ìœ¼ë¡œ ë¡œê·¸ì¸ì´ ë˜ì—ˆìŠµë‹ˆë‹¤.");
                             location.href="/category/childCategory"
                         } else {
-                            alert("¾ÆÀÌµğ ¶Ç´Â ºñ¹Ğ¹øÈ£¸¦ È®ÀÎÇØÁÖ¼¼¿ä");
+                            alert("ì•„ì´ë”” ë˜ëŠ” ë¹„ë°€ë²ˆí˜¸ë¥¼ í™•ì¸í•´ì£¼ì„¸ìš”");
                         }
                     },
                     error: function () {
-                        alert("·Î±×ÀÎ µµÁß ¹®Á¦°¡ ¹ß»ıÇÏ¿´½À´Ï´Ù.");
+                        alert("ë¡œê·¸ì¸ ë„ì¤‘ ë¬¸ì œê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤.");
                     }
                 })
             }
