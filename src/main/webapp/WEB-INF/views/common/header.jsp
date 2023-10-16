@@ -16,7 +16,7 @@
 <header>
     <input type="hidden" id="memberType" name="memberType" value="${sessionScope.member.memberType}">
     <input type="hidden" id="permitStatus" name="permitStatus" value="${sessionScope.member.permitStatus}">
-    <h1><a href="indexte.html"><img src="${pageContext.request.contextPath}/resources/statics/test_img/header_logo.png"
+    <h1><a href="/"><img src="${pageContext.request.contextPath}/resources/statics/test_img/header_logo.png"
                                     alt=""></a></h1>
     <nav>
         <ul class="main_nav">
