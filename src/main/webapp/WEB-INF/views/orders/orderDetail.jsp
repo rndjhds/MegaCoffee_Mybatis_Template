@@ -18,7 +18,7 @@
     </aside>
     <section class="deta_top">
         <div class="deta_page">
-            <p>FUCKING</p>
+            <p>최근 주문내역</p>
             <p class="deta_page_info">
                 상세 주문내역
             </p>
@@ -83,10 +83,13 @@
     on.addEventListener('click', function (e) {
         e.preventDefault()
         popup.style.display = 'block'
+        on.style.display = 'none'
     })
     btn.addEventListener('click', function (e) {
         e.preventDefault()
         popup.style.display = 'none'
+        on.style.display = 'block'
+
     })
 </script>
 </body>

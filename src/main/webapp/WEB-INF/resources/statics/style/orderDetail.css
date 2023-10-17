@@ -9,7 +9,6 @@ html {min-width: 390px;}
 }
 main {height: 3000px;}
 main .deta_top {
-    overflow-y: auto;
     text-align: center; background-size: cover;
     background: url(../img/farsai-chaikulngamdee-SMPe5xfbPT0-unsplash.jpg) center no-repeat;
     background-size: cover;
@@ -62,12 +61,16 @@ aside a {
     width: 60px; color: #FDD000;
 }
 .start {
-    width: 670px; margin:0 auto;
+    width: 670px;
+    height: 80vh;
+    margin: 0 auto;
     position: fixed;
-    top: 50%; left: 50%;
-    background: #e4e4e4; border: 3px solid #6B2E2F;
+    top: 55%;
+    left: 50%;
+    overflow-y: auto;
+    background: #e4e4e4;
+    border: 3px solid #6B2E2F;
     transform: translate(-50%, -50%);
-    display: none;
 }
 .start .title {
     width: 100%;
