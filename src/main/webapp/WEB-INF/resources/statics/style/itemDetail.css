@@ -140,3 +140,7 @@ main .deta_title >p:last-child {
     border-color: #fff;
 }
 .contents1 .btm button:last-child {margin-right: 0;}
+
+.btm label img {width: 40px; height: 40px;}
+.btm label img:nth-child(2) {display: none;}
+.btm label #heart {display: none;}

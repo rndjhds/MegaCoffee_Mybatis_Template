@@ -108,10 +108,29 @@
         <div class="btm">
             <button type="button" id="basket" onclick="createBasket()">장바구니 담기</button>
             <button type="button" id="orders" onclick="sendRequestToImPort()">바로 주문</button>
+            <label for="heart">
+                <img src="${pageContext.request.contextPath}/resources/statics/img/heart_1.png" alt="빈하트" id="empty_heart">
+                <img src="${pageContext.request.contextPath}/resources/statics/img/heart_2.png" alt="하트" id="full_heart">
+                <input id="heart" type="checkbox">
+            </label>
         </div>
     </section>
 </main>
 <script>
+
+    $("#empty_heart").click(function() {
+        console.log("클릭");
+        $("#heart").prop("checked", false);
+        $("#empty_heart").hide();
+        $("#full_heart").show();
+    })
+
+    $("#full_heart").click(function() {
+        console.log("클릭 취소");
+        $("#heart").prop("checked", true);
+        $("#empty_heart").show();
+        $("#full_heart").hide();
+    })
 
 
     $('fieldset > ul > li:nth-child(1) .sub li label').on('click', function () {
