@@ -27,7 +27,6 @@ public class ItemController {
     private final ItemService itemService;
     private final CategoryService categoryService;
     private final FileUpload fileUpload;
-
     private final StoreService storeService;
 
     @GetMapping("/manageItemList/{categoryId}")
@@ -147,7 +146,6 @@ public class ItemController {
         int pageCount = totalCount / 8;
         if(totalCount % 8 != 0) {
             pageCount = totalCount / 8 + 1;
-            System.out.println("if 카운트 수 : " + pageCount);
         }
 
         return pageCount;

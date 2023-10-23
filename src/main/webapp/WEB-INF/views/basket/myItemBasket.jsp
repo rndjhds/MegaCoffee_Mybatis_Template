@@ -71,6 +71,7 @@
     let orderList = "";
     let orderItemName = "";
     let shoppingBasketId;
+
     function createBasketForm() {
         orderList = new Array();
         orderItemName = new Array();
@@ -89,7 +90,7 @@
                     for (let i = 0; i < data.length; i++) {
                         $(".contents1").append(
                             '<div class="menu1">' +
-                            '<input type="hidden" name="shoppingBasketId" id="shoppingBasketId" value='+data[0].SHOPPINGBASKETID+'>' +
+                            '<input type="hidden" name="shoppingBasketId" id="shoppingBasketId" value=' + data[0].SHOPPINGBASKETID + '>' +
                             '<p>' +
                             '<img src="${pageContext.request.contextPath}/resources/statics/img/' + data[i].IMG + '" style="width:300px;">' +
                             '</p> ' +
@@ -108,11 +109,11 @@
                             '<div class="sum"> ' +
                             '<p id="' + data[i].SHOPPINGITEMID + '_sum">' + (data[i].ORDERPRICE * data[i].ORDERCOUNT) + '</p> ' +
                             '<div class="pm"> ' +
-                            '<a onclick="minus(' + data[i].SHOPPINGITEMID + ', ' + data[i].ORDERPRICE + ','+i+')">' +
+                            '<a onclick="minus(' + data[i].SHOPPINGITEMID + ', ' + data[i].ORDERPRICE + ',' + i + ')">' +
                             '<img src="${pageContext.request.contextPath}/resources/statics/img/icon1.png">' +
                             '</a> ' +
                             '<p id="' + data[i].SHOPPINGITEMID + '_count">' + data[i].ORDERCOUNT + '</p> ' +
-                            '<a onclick="add(' + data[i].SHOPPINGITEMID + ',' + data[i].ORDERPRICE + ','+i+')">' +
+                            '<a onclick="add(' + data[i].SHOPPINGITEMID + ',' + data[i].ORDERPRICE + ',' + i + ')">' +
                             '<img src="${pageContext.request.contextPath}/resources/statics/img/icon2.png">' +
                             '</a> ' +
                             '</div> ' +
@@ -206,14 +207,14 @@
                 "memberId": "${sessionScope.member.memberId}",
                 "storeId": $("select[name='storeId']").val(),
                 "amount": amount,
-                "merchantUid" : merchant_uid,
-                "orderProductName" : name,
+                "merchantUid": merchant_uid,
+                "orderProductName": name,
                 "shoppingBasketId": shoppingBasketId
             }),
             success: function (data) {
-                if(data.resultType == true) {
+                if (data.resultType == true) {
                     alert("주문이 완료되었습니다");
-                    location.href="/order/orderDetail/"+data.orderId;
+                    location.href = "/order/orderDetail/" + data.orderId;
                 } else {
                     alert("주문 도중 결제가 되지 않은 상품이 존재 합니다.");
                 }
@@ -225,40 +226,41 @@
     }
 
     function sendRequestToImPort() {
-        if($("select[name='storeId']").val() == 0) {
+        if ($("select[name='storeId']").val() == 0) {
             alert("상품을 구매할 가맹점을 골라주세요");
             return false;
         }
-        if(orderList.length == 0) {
+        if (orderList.length == 0) {
             alert("주문 가능한 상품이 없습니다.");
             return false;
         }
 
         let amount = $("#amount").text();
-        let buyName ="";
-        for (let i =0; i < orderItemName.length; i++) {
+        let buyName = "";
+        for (let i = 0; i < orderItemName.length; i++) {
             buyName += orderItemName.pop().title + " ";
         }
 
         const IMP = window.IMP;
         IMP.init('imp52714112');
         IMP.request_pay({
-            pg : 'kakaopay',
-            pay_method : 'card',
-            merchant_uid: "mega"+new Date().getMilliseconds(), // 상점에서 관리하는 주문 번호
-            name : buyName,
-            amount : amount,
-            buyer_email : "${sessionScope.member.email}",
-            buyer_name : '${sessionScope.member.username}'
-        }, function(rsp) {
-            if ( !rsp.success ) {
+            pg: 'kakaopay',
+            pay_method: 'card',
+            merchant_uid: "mega" + new Date().getMilliseconds(), // 상점에서 관리하는 주문 번호
+            name: buyName,
+            amount: amount,
+            buyer_email: "${sessionScope.member.email}",
+            buyer_name: '${sessionScope.member.username}'
+        }, function (rsp) {
+            if (!rsp.success) {
                 //결제 시작 페이지로 리디렉션되기 전에 오류가 난 경우
                 var msg = '오류로 인하여 결제가 시작되지 못하였습니다.';
                 msg += '에러내용 : ' + rsp.error_msg;
 
                 alert(msg);
-            } if(rsp.success) {
-                createItemOrder(amount, "${sessionScope.member.memberId}"+new Date().getMilliseconds(), buyName);
+            }
+            if (rsp.success) {
+                createItemOrder(amount, "mega" + new Date().getMilliseconds(), buyName);
             }
 
         });

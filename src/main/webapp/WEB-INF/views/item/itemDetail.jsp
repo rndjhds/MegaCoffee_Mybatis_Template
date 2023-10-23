@@ -112,13 +112,7 @@
     </section>
 </main>
 <script>
-    if (${empty sessionScope}) {
-        $("#orders").attr("disabled", true);
-        $("#basket").attr("disabled", true);
-    } else if (${!empty sessionScope}) {
-        $("#orders").attr("disabled", false);
-        $("#basket").attr("disabled", false);
-    }
+
 
     $('fieldset > ul > li:nth-child(1) .sub li label').on('click', function () {
         $('.contents1 .op fieldset > ul > li:nth-child(1) .sub li label').removeClass()
@@ -175,10 +169,9 @@
             }),
             success: function (data) {
                 if (data == true) {
-                    if(confirm("장바구니로 이동하시겠습니까?")) {
+                    if (confirm("장바구니로 이동하시겠습니까?")) {
                         location.href = "/basket/myBasketList"
-                    }
-                    else {
+                    } else {
                         return false;
                     }
                 }
@@ -229,6 +222,12 @@
     }
 
     function sendRequestToImPort() {
+        if (${empty sessionScope}) {
+            alert("로그인 후 이용 가능합니다.");
+            location.href = "/member/loginForm";
+            return false;
+        }
+
         if ($("select[name='storeId']").val() == 0) {
             alert("상품을 구매할 가맹점을 골라주세요");
             return false;
@@ -257,7 +256,7 @@
                 alert(rsp);
             }
             if (rsp.success) {
-                createItemOrder(amount, "${sessionScope.member.memberId}" + new Date().getMilliseconds(), buyName);
+                createItemOrder(amount, "mega" + new Date().getMilliseconds(), buyName);
             }
 
         });

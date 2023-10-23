@@ -58,7 +58,7 @@
             <button type="button" id="searchButton" style="border: 1px solid black">Search</button>
         </div>
         <div class="right">
-            <button type="button" id="addButton" style="border: 1px solid black" onclick="openInfo()">New Category
+            <button type="button" id="addButton" style="border: 1px solid black" onclick="openInfo()">New Item
             </button>
         </div>
 
