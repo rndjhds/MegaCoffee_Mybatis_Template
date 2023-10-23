@@ -105,7 +105,6 @@
                 <a href="/member/info">${sessionScope.member.username}</a>
             </c:otherwise>
         </c:choose>
-        <a href="#" id="managerLogin">가맹점 로그인</a>
     </div>
     <div class="bg0"></div>
 </header>
