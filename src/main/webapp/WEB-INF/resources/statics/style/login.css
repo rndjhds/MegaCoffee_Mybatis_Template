@@ -42,7 +42,7 @@ main .rap .info_1 fieldset .look a:first-child::after {
 }
 main .rap .info_1 fieldset button {
     font-size: 1.333rem;font-weight: 500; width: 800px; height: 50px;
-    text-align: center; margin-top: 40px; border-radius: 15px;
+    text-align: center; border-radius: 15px;
 }
 main .rap .info_1 fieldset > .login_nomal {background: black; color: white;}
 main .rap .info_1 fieldset > .login_cacao {background: #F7E600; border: 1px solid #3A1D1D; color: #3A1D1D;}
@@ -56,3 +56,18 @@ main .rap .info_2 button {
 main .rap .info_2 .new_nomal {background: black; color: white;}
 main .rap .info_2 .new_kakao {background: #F7E600; border: 1px solid #3A1D1D; color: #3A1D1D;}
 main .rap .info_2 .new_apple {background: white; border: 1px solid rgb(194, 194, 194); margin-bottom: 50px;}
+
+main .rap .info_1 fieldset .btn_rap {
+    display: flex; justify-content: center;
+    align-items: center;
+    padding: 80px 0;
+}
+main .rap .info_1 fieldset .btn_rap button {
+    width: 50px; height: 50px;
+    background-color: transparent;
+}
+main .rap .info_1 fieldset .btn_rap button:hover {}
+main .rap .info_1 fieldset .btn_rap button > img {width: 100%;}
+main .rap .info_1 fieldset .btn_rap > .login_naver {width: 65px; height: 65px;}
+main .rap .info_1 fieldset .btn_rap > .login_google {margin: 0 50px;}
+main .rap .info_1 fieldset .btn_rap > .login_naver img {}

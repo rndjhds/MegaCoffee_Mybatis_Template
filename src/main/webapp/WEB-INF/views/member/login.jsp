@@ -43,9 +43,17 @@
                         </div>
                     </div>
                     <button id="login_button" class="login_nomal">로그인</button>
-                    <a href="/oauth2/authorization/google">구글 로그인</a>
-                    <a href="/oauth2/authorization/facebook">페이스북 로그인</a>
-                    <a href="/oauth2/authorization/naver">네이버 로그인</a>
+                    <div class="btn_rap">
+                        <a href="/oauth2/authorization/naver" class="login_naver"><img
+                                src="${pageContext.request.contextPath}/resources/statics/img/naver.png" alt=""
+                                style="width: 100%"></a>
+                        <a href="/oauth2/authorization/google" class="login_google"><img
+                                src="${pageContext.request.contextPath}/resources/statics/img/Google.png" alt=""
+                                style="width: 100%"></a>
+                        <a href="/oauth2/authorization/facebook" class="login_facebook">
+                            <img src="${pageContext.request.contextPath}/resources/statics/img/Facebook.png" alt=""
+                                 style="width: 100%"></a>
+                    </div>
                 </fieldset>
             </form>
             <div class="info_2 info_tab">
@@ -54,8 +62,6 @@
                     누리실 수 있습니다
                 </p>
                 <button type="button" class="new_nomal" onclick="register()">신규가입</button>
-                <button type="button" class="new_kakao">카카오 아이디 가입</button>
-                <button type="button" class="new_apple">Apple 아이디 가입</button>
             </div>
         </div>
     </div>
@@ -90,20 +96,22 @@
 
     const title = document.querySelectorAll('.rap> .title > a')
     const info = document.querySelectorAll('.rap> .info > .info_tab')
-    for(i of info){i.style.display='none'}
-    info[0].style.display='block'
+    for (i of info) {
+        i.style.display = 'none'
+    }
+    info[0].style.display = 'block'
 
-    title.forEach(function(target,index,array){
-        target.addEventListener('click',function(e){
+    title.forEach(function (target, index, array) {
+        target.addEventListener('click', function (e) {
             e.preventDefault()
-            for(i of title){
+            for (i of title) {
                 i.classList.remove('active')
             }
             target.classList.add('active')
-            for(i of info){
-                i.style.display='none'
+            for (i of info) {
+                i.style.display = 'none'
             }
-            info[index].style.display='block'
+            info[index].style.display = 'block'
         })
     })
 
